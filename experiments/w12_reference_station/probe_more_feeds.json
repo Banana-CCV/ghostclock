@@ -1,0 +1,42 @@
+{
+  "netzfrequenz_15": {
+    "url": "https://www.netzfrequenz.info/json/15.json",
+    "error": "HTTPSConnectionPool(host='www.netzfrequenz.info', port=443): Max retries exceeded with url: /json/15.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.netzfrequenz.info', port=443) at 0x1c9f4558d40>, 'Connection to www.netzfrequenz.info timed out. (connect timeout=4.0)'))"
+  },
+  "netzfrequenz_act2": {
+    "url": "https://www.netzfrequenz.info/json/act2.json",
+    "error": "HTTPSConnectionPool(host='www.netzfrequenz.info', port=443): Max retries exceeded with url: /json/act2.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.netzfrequenz.info', port=443) at 0x1c9f455a000>, 'Connection to www.netzfrequenz.info timed out. (connect timeout=4.0)'))"
+  },
+  "energy_charts_v2_2024": {
+    "url": "https://api.energy-charts.info/v2/frequency?region=DE-Freiburg&start=2024-11-01T00:00Z&end=2024-11-01T00:10Z",
+    "error": "HTTPSConnectionPool(host='api.energy-charts.info', port=443): Max retries exceeded with url: /v2/frequency?region=DE-Freiburg&start=2024-11-01T00:00Z&end=2024-11-01T00:10Z (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.energy-charts.info', port=443) at 0x1c9f455a120>, 'Connection to api.energy-charts.info timed out. (connect timeout=4.0)'))"
+  },
+  "energy_charts_v1_2024": {
+    "url": "https://api.energy-charts.info/frequency?region=DE-Freiburg&start=2024-11-01T00:00Z&end=2024-11-01T00:10Z",
+    "error": "HTTPSConnectionPool(host='api.energy-charts.info', port=443): Max retries exceeded with url: /frequency?region=DE-Freiburg&start=2024-11-01T00:00Z&end=2024-11-01T00:10Z (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.energy-charts.info', port=443) at 0x1c9f4559910>, 'Connection to api.energy-charts.info timed out. (connect timeout=4.0)'))"
+  },
+  "energy_charts_v2_today": {
+    "url": "https://api.energy-charts.info/v2/frequency?region=DE-Freiburg",
+    "error": "HTTPSConnectionPool(host='api.energy-charts.info', port=443): Max retries exceeded with url: /v2/frequency?region=DE-Freiburg (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.energy-charts.info', port=443) at 0x1c9f455b200>, 'Connection to api.energy-charts.info timed out. (connect timeout=4.0)'))"
+  },
+  "iamkate_grid": {
+    "url": "https://grid.iamkate.com/",
+    "error": "HTTPSConnectionPool(host='grid.iamkate.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='grid.iamkate.com', port=443): Failed to resolve 'grid.iamkate.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  "gridwatch_co_uk": {
+    "url": "https://www.gridwatch.co.uk/",
+    "error": "HTTPSConnectionPool(host='www.gridwatch.co.uk', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.gridwatch.co.uk', port=443): Failed to resolve 'www.gridwatch.co.uk' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  "gridwatch_templar": {
+    "url": "https://www.gridwatch.templar.co.uk/",
+    "error": "HTTPSConnectionPool(host='www.gridwatch.templar.co.uk', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.gridwatch.templar.co.uk', port=443) at 0x1c9f455b5f0>, 'Connection to www.gridwatch.templar.co.uk timed out. (connect timeout=4.0)'))"
+  },
+  "mainsfrequency_com": {
+    "url": "https://www.mainsfrequency.com/",
+    "error": "HTTPSConnectionPool(host='www.mainsfrequency.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.mainsfrequency.com', port=443): Failed to resolve 'www.mainsfrequency.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  "fnet_utk": {
+    "url": "http://fnetpublic.utk.edu/",
+    "error": "HTTPConnectionPool(host='fnetpublic.utk.edu', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='fnetpublic.utk.edu', port=80): Failed to resolve 'fnetpublic.utk.edu' ([Errno 11001] getaddrinfo failed)\"))"
+  }
+}

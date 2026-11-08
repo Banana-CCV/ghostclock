@@ -1,0 +1,141 @@
+{
+ "best": {
+  "start_utc": 1780009000,
+  "score": 0.994473014205917,
+  "rmse_mhz": 1.9055261086453872,
+  "offset_hz": 0.0019368747515002838
+ },
+ "candidates": [
+  {
+   "start_utc": 1780009000,
+   "score": 0.994473014205917,
+   "rmse_mhz": 1.9055261086453872,
+   "offset_hz": 0.0019368747515002838,
+   "sub_sample_offset_s": 0.04608685460860821,
+   "refined_score": 0.9944800199339003,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780007693,
+   "score": 0.9332385276107819,
+   "rmse_mhz": 6.540934379276997,
+   "offset_hz": -0.01595610404287129,
+   "sub_sample_offset_s": -0.08485515752923717,
+   "refined_score": 0.9332425039886119,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780007263,
+   "score": 0.9113722590253249,
+   "rmse_mhz": 7.809173670794153,
+   "offset_hz": 0.019560690390378,
+   "sub_sample_offset_s": 0.33166149500612635,
+   "refined_score": 0.911402102994395,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780004600,
+   "score": 0.8786113567921645,
+   "rmse_mhz": 8.67033662093668,
+   "offset_hz": 0.005710103429379387,
+   "sub_sample_offset_s": -0.06300885795157443,
+   "refined_score": 0.8786133671661132,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780000468,
+   "score": 0.8371638463397157,
+   "rmse_mhz": 10.421597676855034,
+   "offset_hz": 0.02191784363129301,
+   "sub_sample_offset_s": -0.4739096701686626,
+   "refined_score": 0.837225606957141,
+   "clock_drift_ppm": 0.0
+  }
+ ],
+ "null": {
+  "method": "bartlett_student_t_plus_time_reversed_surrogate",
+  "n": 39601,
+  "p_empirical": 5.3069847765159725e-05,
+  "score_threshold": 0.9768739112023275
+ },
+ "uniqueness": {
+  "margin_vs_second": 0.061234486595135196,
+  "second_best_distance_s": 1307
+ },
+ "diagnostics": {
+  "cadence_s": 1.0,
+  "nominal_hz": 50.0,
+  "trace_duration_s": 599.0,
+  "valid_duration_s": 560.0,
+  "n_total_samples": 600,
+  "n_valid_samples": 560,
+  "valid_fraction": 0.9333333333333333,
+  "trace_mean_hz": 50.00059441805711,
+  "trace_std_mhz": 18.14491935344879,
+  "best_ref_std_mhz": 18.003418683075296,
+  "search_window_start_utc": 1780000000,
+  "search_window_end_utc": 1780021599,
+  "search_window_duration_s": 21599.0,
+  "n_candidate_lags": 21001,
+  "nms_radius_s": 149.75,
+  "sub_sample_offset_s": 0.04608685460860821,
+  "refined_start_utc": 1780009000.0460868,
+  "clock_drift_search_enabled": false,
+  "n_clock_drift_steps": 1,
+  "best_clock_drift_ppm": 0.0,
+  "n_eff": 5.680888320486227,
+  "n_eff_bartlett": 7.8658877251705785,
+  "n_eff_empirical": 5.680888320486227,
+  "m_eff": 74.21078110996746,
+  "p_local": 7.151418735772558e-07,
+  "max_time_reversed_null_score": 0.9201466611096779,
+  "enf_presence_score": null,
+  "extractor_snr_db": null,
+  "split_half_agreement_s": 0.0,
+  "split_half_consistent": true,
+  "split_half_r1_at_best": 0.9889880193389348,
+  "split_half_r2_at_best": 0.9636507121660205,
+  "split_half_t1_utc": 1780009000,
+  "split_half_t2_adjusted_utc": 1780009000,
+  "policy_audit": {
+   "thresholds": {
+    "min_valid_duration_s": 25.0,
+    "min_valid_samples": 20,
+    "min_valid_fraction": 0.5,
+    "min_trace_std_mhz": 0.8,
+    "max_trace_std_mhz": 200.0,
+    "max_p_empirical": 0.02,
+    "min_abs_score": 0.45,
+    "require_above_null_threshold": true,
+    "min_margin_vs_second": 0.04,
+    "min_ratio_vs_second": 1.06,
+    "max_rmse_mhz": 40.0,
+    "min_duration_for_strict_split_half_s": 90.0,
+    "max_split_half_lag_diff_s": 15.0,
+    "min_split_half_local_corr": 0.25,
+    "default_claim_tolerance_s": 60.0,
+    "min_enf_presence_score": 0.35
+   },
+   "claimed_start_utc": 1780009020,
+   "claim_tolerance_s": 60.0,
+   "claim_discrepancy_s": 20,
+   "n_gates_passed": 7,
+   "n_gates_failed": 0
+  }
+ },
+ "status": "MATCH_SUPPORTED",
+ "status_reasons": [
+  "GATE_DURATION_QUALITY_PASSED: 560.0s valid (93.3% coverage).",
+  "GATE_SIGNAL_VARIANCE_PASSED: Trace std = 18.14 mHz (ref std = 18.00 mHz).",
+  "GATE_NULL_SIGNIFICANCE_PASSED: Look-elsewhere p_empirical = 5.307e-05 <= 0.02.",
+  "GATE_MIN_SCORE_PASSED: Best score 0.9945 >= 0.9769.",
+  "GATE_UNIQUENESS_PASSED: Margin vs second-best peak = +0.0612 (1.07x).",
+  "GATE_RMSE_PASSED: Offset-adjusted RMSE = 1.91 mHz <= 40.0 mHz.",
+  "GATE_SPLIT_HALF_PASSED: Half correlations r1=0.989, r2=0.964 (independent lag diff = 0.0s).",
+  "CLAIM_CORROBORATED: Blind ENF match start_utc=1780009000 agrees with claimed_start_utc=1780009020 within 20s (<= tolerance 60s)."
+ ],
+ "what_would_change_this": [
+  "If claimed_start_utc differed from 1780009000 by more than 60s (currently 20s), status would change to MATERIAL_DISCREPANCY_REVIEW.",
+  "If look-elsewhere p_empirical exceeded 0.02 (currently 5.307e-05), status would change to INCONCLUSIVE."
+ ]
+}

@@ -1,0 +1,28 @@
+{
+  "source": "LOCAL_STATION",
+  "cadence_s": 1,
+  "grid": "GB",
+  "coverage": [
+    1762000004,
+    1762000478
+  ],
+  "coverage_iso": [
+    "2025-11-01T12:26:44+00:00",
+    "2025-11-01T12:34:38+00:00"
+  ],
+  "url": "local://work/W12/reference_station.py",
+  "sha256": "67bbac64f22281f5fcda25c5eb6676d7090f4b5ac9fdb748aa2ab4c6aee08383",
+  "row_count": 475,
+  "valid_count": 474,
+  "missing_count": 1,
+  "valid_fraction": 0.9979,
+  "ntp_offset_s": -0.010011,
+  "ntp_rtt_s": 0.023506,
+  "ntp_measurable": true,
+  "ntp_server": "pool.ntp.org",
+  "updated_at_utc": "2026-11-08T11:08:32.970107+00:00",
+  "replay_source_file": "<WORKSPACE>\\datasets\\raw\\enf-whu\\repo\\ENF-WHU-Dataset\\H1\\001.wav",
+  "estimator_mode": "v2_robust_center_aligned",
+  "health_status": "HEALTHY",
+  "median_snr_db": 16.91
+}

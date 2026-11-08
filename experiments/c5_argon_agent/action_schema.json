@@ -1,0 +1,68 @@
+{
+ "type": "object",
+ "properties": {
+  "action": {
+   "type": "string",
+   "enum": [
+    "extract_and_match",
+    "decide"
+   ]
+  },
+  "rationale": {
+   "type": "string"
+  },
+  "modality": {
+   "type": "string",
+   "enum": [
+    "audio",
+    "video",
+    "fused"
+   ]
+  },
+  "harmonics": {
+   "type": "array",
+   "items": {
+    "type": "integer"
+   }
+  },
+  "window_start_s": {
+   "type": "number"
+  },
+  "window_len_s": {
+   "type": "integer"
+  },
+  "basis_match_index": {
+   "type": "integer"
+  },
+  "proposed_status": {
+   "type": "string",
+   "enum": [
+    "MATCH_SUPPORTED",
+    "INCONCLUSIVE",
+    "MATERIAL_DISCREPANCY_REVIEW",
+    "NONE"
+   ]
+  },
+  "explanation": {
+   "type": "string"
+  },
+  "what_would_change": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  }
+ },
+ "required": [
+  "action",
+  "rationale",
+  "modality",
+  "harmonics",
+  "window_start_s",
+  "window_len_s",
+  "basis_match_index",
+  "proposed_status",
+  "explanation",
+  "what_would_change"
+ ]
+}

@@ -1,0 +1,5344 @@
+{
+  "worker_id": "W10",
+  "role": "Forensic Statistician, Matcher & Independent Critical Authority (Auditor)",
+  "seed": 42,
+  "split_seed": 20261108,
+  "total_runtime_s": 488.83,
+  "protocol_path": "eval/protocol.md",
+  "experiment_1_gb_neso_1s_benchmark": {
+    "elapsed_s": 227.12,
+    "duration_noise_grid_dev": [
+      {
+        "duration_s": 30,
+        "sigma_noise_mhz": 1.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 2,
+          "n": 10,
+          "rate": 0.2,
+          "ci95": [
+            0.0567,
+            0.5098
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 2,
+          "n": 2,
+          "rate": 1.0,
+          "ci95": [
+            0.3424,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 2,
+          "n": 10,
+          "rate": 0.2,
+          "ci95": [
+            0.0567,
+            0.5098
+          ]
+        },
+        "mean_score": 0.9703,
+        "median_p_emp": 0.027859
+      },
+      {
+        "duration_s": 30,
+        "sigma_noise_mhz": 5.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 2,
+          "n": 10,
+          "rate": 0.2,
+          "ci95": [
+            0.0567,
+            0.5098
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.8781,
+        "median_p_emp": 0.883143
+      },
+      {
+        "duration_s": 30,
+        "sigma_noise_mhz": 10.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.8069,
+        "median_p_emp": 0.957638
+      },
+      {
+        "duration_s": 30,
+        "sigma_noise_mhz": 20.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.7914,
+        "median_p_emp": 0.622874
+      },
+      {
+        "duration_s": 30,
+        "sigma_noise_mhz": 50.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.7505,
+        "median_p_emp": 0.763427
+      },
+      {
+        "duration_s": 60,
+        "sigma_noise_mhz": 1.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 3,
+          "n": 10,
+          "rate": 0.3,
+          "ci95": [
+            0.1078,
+            0.6032
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 3,
+          "n": 3,
+          "rate": 1.0,
+          "ci95": [
+            0.4385,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 3,
+          "n": 10,
+          "rate": 0.3,
+          "ci95": [
+            0.1078,
+            0.6032
+          ]
+        },
+        "mean_score": 0.9893,
+        "median_p_emp": 0.016759
+      },
+      {
+        "duration_s": 60,
+        "sigma_noise_mhz": 5.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "coverage": {
+          "k": 1,
+          "n": 10,
+          "rate": 0.1,
+          "ci95": [
+            0.0179,
+            0.4042
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 1,
+          "n": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.2065,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 1,
+          "n": 10,
+          "rate": 0.1,
+          "ci95": [
+            0.0179,
+            0.4042
+          ]
+        },
+        "mean_score": 0.8327,
+        "median_p_emp": 0.993565
+      },
+      {
+        "duration_s": 60,
+        "sigma_noise_mhz": 10.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.7161,
+        "median_p_emp": 0.985931
+      },
+      {
+        "duration_s": 60,
+        "sigma_noise_mhz": 20.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.6201,
+        "median_p_emp": 0.662811
+      },
+      {
+        "duration_s": 60,
+        "sigma_noise_mhz": 50.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.5551,
+        "median_p_emp": 0.946435
+      },
+      {
+        "duration_s": 120,
+        "sigma_noise_mhz": 1.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 7,
+          "n": 10,
+          "rate": 0.7,
+          "ci95": [
+            0.3968,
+            0.8922
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 7,
+          "n": 7,
+          "rate": 1.0,
+          "ci95": [
+            0.6457,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 7,
+          "n": 10,
+          "rate": 0.7,
+          "ci95": [
+            0.3968,
+            0.8922
+          ]
+        },
+        "mean_score": 0.969,
+        "median_p_emp": 0.0
+      },
+      {
+        "duration_s": 120,
+        "sigma_noise_mhz": 5.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 4,
+          "n": 10,
+          "rate": 0.4,
+          "ci95": [
+            0.1682,
+            0.6873
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 4,
+          "n": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.5101,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 4,
+          "n": 10,
+          "rate": 0.4,
+          "ci95": [
+            0.1682,
+            0.6873
+          ]
+        },
+        "mean_score": 0.8349,
+        "median_p_emp": 0.203177
+      },
+      {
+        "duration_s": 120,
+        "sigma_noise_mhz": 10.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.7324,
+        "median_p_emp": 0.727516
+      },
+      {
+        "duration_s": 120,
+        "sigma_noise_mhz": 20.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 2,
+          "n": 10,
+          "rate": 0.2,
+          "ci95": [
+            0.0567,
+            0.5098
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.6639,
+        "median_p_emp": 0.976805
+      },
+      {
+        "duration_s": 120,
+        "sigma_noise_mhz": 50.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.4514,
+        "median_p_emp": 0.877435
+      },
+      {
+        "duration_s": 300,
+        "sigma_noise_mhz": 1.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 8,
+          "n": 10,
+          "rate": 0.8,
+          "ci95": [
+            0.4902,
+            0.9433
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 8,
+          "n": 8,
+          "rate": 1.0,
+          "ci95": [
+            0.6756,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 8,
+          "n": 10,
+          "rate": 0.8,
+          "ci95": [
+            0.4902,
+            0.9433
+          ]
+        },
+        "mean_score": 0.9972,
+        "median_p_emp": 0.0
+      },
+      {
+        "duration_s": 300,
+        "sigma_noise_mhz": 5.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 7,
+          "n": 10,
+          "rate": 0.7,
+          "ci95": [
+            0.3968,
+            0.8922
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 7,
+          "n": 7,
+          "rate": 1.0,
+          "ci95": [
+            0.6457,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 7,
+          "n": 10,
+          "rate": 0.7,
+          "ci95": [
+            0.3968,
+            0.8922
+          ]
+        },
+        "mean_score": 0.9102,
+        "median_p_emp": 0.000427
+      },
+      {
+        "duration_s": 300,
+        "sigma_noise_mhz": 10.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "coverage": {
+          "k": 4,
+          "n": 10,
+          "rate": 0.4,
+          "ci95": [
+            0.1682,
+            0.6873
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 4,
+          "n": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.5101,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 4,
+          "n": 10,
+          "rate": 0.4,
+          "ci95": [
+            0.1682,
+            0.6873
+          ]
+        },
+        "mean_score": 0.8288,
+        "median_p_emp": 0.016048
+      },
+      {
+        "duration_s": 300,
+        "sigma_noise_mhz": 20.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.7443,
+        "median_p_emp": 0.741617
+      },
+      {
+        "duration_s": 300,
+        "sigma_noise_mhz": 50.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 1,
+          "n": 10,
+          "rate": 0.1,
+          "ci95": [
+            0.0179,
+            0.4042
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.4427,
+        "median_p_emp": 0.859964
+      },
+      {
+        "duration_s": 600,
+        "sigma_noise_mhz": 1.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 8,
+          "n": 10,
+          "rate": 0.8,
+          "ci95": [
+            0.4902,
+            0.9433
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 8,
+          "n": 8,
+          "rate": 1.0,
+          "ci95": [
+            0.6756,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 8,
+          "n": 10,
+          "rate": 0.8,
+          "ci95": [
+            0.4902,
+            0.9433
+          ]
+        },
+        "mean_score": 0.9988,
+        "median_p_emp": 0.0
+      },
+      {
+        "duration_s": 600,
+        "sigma_noise_mhz": 5.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 8,
+          "n": 10,
+          "rate": 0.8,
+          "ci95": [
+            0.4902,
+            0.9433
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 8,
+          "n": 8,
+          "rate": 1.0,
+          "ci95": [
+            0.6756,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 8,
+          "n": 10,
+          "rate": 0.8,
+          "ci95": [
+            0.4902,
+            0.9433
+          ]
+        },
+        "mean_score": 0.9762,
+        "median_p_emp": 3.7e-05
+      },
+      {
+        "duration_s": 600,
+        "sigma_noise_mhz": 10.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 4,
+          "n": 10,
+          "rate": 0.4,
+          "ci95": [
+            0.1682,
+            0.6873
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 4,
+          "n": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.5101,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 4,
+          "n": 10,
+          "rate": 0.4,
+          "ci95": [
+            0.1682,
+            0.6873
+          ]
+        },
+        "mean_score": 0.9019,
+        "median_p_emp": 0.068651
+      },
+      {
+        "duration_s": 600,
+        "sigma_noise_mhz": 20.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "coverage": {
+          "k": 1,
+          "n": 10,
+          "rate": 0.1,
+          "ci95": [
+            0.0179,
+            0.4042
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 1,
+          "n": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.2065,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 1,
+          "n": 10,
+          "rate": 0.1,
+          "ci95": [
+            0.0179,
+            0.4042
+          ]
+        },
+        "mean_score": 0.7136,
+        "median_p_emp": 0.45478
+      },
+      {
+        "duration_s": 600,
+        "sigma_noise_mhz": 50.0,
+        "n_trials": 10,
+        "raw_acc_5s": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 0,
+          "n": 10,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2775
+          ]
+        },
+        "mean_score": 0.5445,
+        "median_p_emp": 0.976733
+      }
+    ],
+    "cadence_1s_vs_15s_comparison": [
+      {
+        "cadence_s": 1.0,
+        "duration_s": 60,
+        "n_samples_in_clip": 60,
+        "raw_acc": {
+          "k": 11,
+          "n": 12,
+          "rate": 0.9167,
+          "ci95": [
+            0.6461,
+            0.9851
+          ]
+        },
+        "coverage": {
+          "k": 1,
+          "n": 12,
+          "rate": 0.0833,
+          "ci95": [
+            0.0149,
+            0.3539
+          ]
+        },
+        "selective_acc": {
+          "k": 1,
+          "n": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.2065,
+            1.0
+          ]
+        }
+      },
+      {
+        "cadence_s": 1.0,
+        "duration_s": 120,
+        "n_samples_in_clip": 120,
+        "raw_acc": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 3,
+          "n": 12,
+          "rate": 0.25,
+          "ci95": [
+            0.0889,
+            0.5323
+          ]
+        },
+        "selective_acc": {
+          "k": 3,
+          "n": 3,
+          "rate": 1.0,
+          "ci95": [
+            0.4385,
+            1.0
+          ]
+        }
+      },
+      {
+        "cadence_s": 1.0,
+        "duration_s": 300,
+        "n_samples_in_clip": 300,
+        "raw_acc": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 11,
+          "n": 12,
+          "rate": 0.9167,
+          "ci95": [
+            0.6461,
+            0.9851
+          ]
+        },
+        "selective_acc": {
+          "k": 11,
+          "n": 11,
+          "rate": 1.0,
+          "ci95": [
+            0.7412,
+            1.0
+          ]
+        }
+      },
+      {
+        "cadence_s": 1.0,
+        "duration_s": 600,
+        "n_samples_in_clip": 600,
+        "raw_acc": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 9,
+          "n": 12,
+          "rate": 0.75,
+          "ci95": [
+            0.4677,
+            0.9111
+          ]
+        },
+        "selective_acc": {
+          "k": 9,
+          "n": 9,
+          "rate": 1.0,
+          "ci95": [
+            0.7009,
+            1.0
+          ]
+        }
+      },
+      {
+        "cadence_s": 15.0,
+        "duration_s": 60,
+        "n_samples_in_clip": 4,
+        "raw_acc": {
+          "k": 0,
+          "n": 12,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2425
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 12,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2425
+          ]
+        },
+        "selective_acc": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        }
+      },
+      {
+        "cadence_s": 15.0,
+        "duration_s": 120,
+        "n_samples_in_clip": 8,
+        "raw_acc": {
+          "k": 3,
+          "n": 12,
+          "rate": 0.25,
+          "ci95": [
+            0.0889,
+            0.5323
+          ]
+        },
+        "coverage": {
+          "k": 0,
+          "n": 12,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2425
+          ]
+        },
+        "selective_acc": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "ci95": [
+            0.0,
+            1.0
+          ]
+        }
+      },
+      {
+        "cadence_s": 15.0,
+        "duration_s": 300,
+        "n_samples_in_clip": 20,
+        "raw_acc": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 4,
+          "n": 12,
+          "rate": 0.3333,
+          "ci95": [
+            0.1381,
+            0.6094
+          ]
+        },
+        "selective_acc": {
+          "k": 4,
+          "n": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.5101,
+            1.0
+          ]
+        }
+      },
+      {
+        "cadence_s": 15.0,
+        "duration_s": 600,
+        "n_samples_in_clip": 40,
+        "raw_acc": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 8,
+          "n": 12,
+          "rate": 0.6667,
+          "ci95": [
+            0.3906,
+            0.8619
+          ]
+        },
+        "selective_acc": {
+          "k": 8,
+          "n": 8,
+          "rate": 1.0,
+          "ci95": [
+            0.6756,
+            1.0
+          ]
+        }
+      }
+    ],
+    "seven_day_window_comparison": [
+      {
+        "window_s": 604800,
+        "duration_s": 120,
+        "raw_acc_5s": {
+          "k": 8,
+          "n": 8,
+          "rate": 1.0,
+          "ci95": [
+            0.6756,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 2,
+          "n": 8,
+          "rate": 0.25,
+          "ci95": [
+            0.0715,
+            0.5907
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 2,
+          "n": 2,
+          "rate": 1.0,
+          "ci95": [
+            0.3424,
+            1.0
+          ]
+        }
+      },
+      {
+        "window_s": 604800,
+        "duration_s": 300,
+        "raw_acc_5s": {
+          "k": 8,
+          "n": 8,
+          "rate": 1.0,
+          "ci95": [
+            0.6756,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 2,
+          "n": 8,
+          "rate": 0.25,
+          "ci95": [
+            0.0715,
+            0.5907
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 2,
+          "n": 2,
+          "rate": 1.0,
+          "ci95": [
+            0.3424,
+            1.0
+          ]
+        }
+      },
+      {
+        "window_s": 604800,
+        "duration_s": 600,
+        "raw_acc_5s": {
+          "k": 8,
+          "n": 8,
+          "rate": 1.0,
+          "ci95": [
+            0.6756,
+            1.0
+          ]
+        },
+        "coverage": {
+          "k": 3,
+          "n": 8,
+          "rate": 0.375,
+          "ci95": [
+            0.1368,
+            0.6943
+          ]
+        },
+        "selective_acc_5s": {
+          "k": 3,
+          "n": 3,
+          "rate": 1.0,
+          "ci95": [
+            0.4385,
+            1.0
+          ]
+        }
+      }
+    ],
+    "dropout_ablation_w10_vs_nate_griff": [
+      {
+        "dropout_fraction": 0.0,
+        "w10_acc_5s": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "nate_griff_acc_5s": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        }
+      },
+      {
+        "dropout_fraction": 0.2,
+        "w10_acc_5s": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "nate_griff_acc_5s": {
+          "k": 0,
+          "n": 12,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2425
+          ]
+        }
+      },
+      {
+        "dropout_fraction": 0.4,
+        "w10_acc_5s": {
+          "k": 12,
+          "n": 12,
+          "rate": 1.0,
+          "ci95": [
+            0.7575,
+            1.0
+          ]
+        },
+        "nate_griff_acc_5s": {
+          "k": 2,
+          "n": 12,
+          "rate": 0.1667,
+          "ci95": [
+            0.047,
+            0.448
+          ]
+        }
+      }
+    ],
+    "null_calibration_families": {
+      "family_a_h0_no_enf": {
+        "n_trials": 15,
+        "w10_fpr": {
+          "k": 0,
+          "n": 15,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2039
+          ]
+        },
+        "naive_iid_fpr": {
+          "k": 15,
+          "n": 15,
+          "rate": 1.0,
+          "ci95": [
+            0.7961,
+            1.0
+          ]
+        },
+        "nate_griff_top1_fpr": {
+          "k": 15,
+          "n": 15,
+          "rate": 1.0,
+          "ci95": [
+            0.7961,
+            1.0
+          ]
+        },
+        "max_null_score_mean": 0.6245,
+        "max_null_score_p95": 0.9743
+      },
+      "family_b_wrong_date": {
+        "n_trials": 15,
+        "w10_fpr": {
+          "k": 0,
+          "n": 15,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2039
+          ]
+        },
+        "naive_iid_fpr": {
+          "k": 15,
+          "n": 15,
+          "rate": 1.0,
+          "ci95": [
+            0.7961,
+            1.0
+          ]
+        },
+        "nate_griff_top1_fpr": {
+          "k": 15,
+          "n": 15,
+          "rate": 1.0,
+          "ci95": [
+            0.7961,
+            1.0
+          ]
+        },
+        "max_null_score_mean": 0.7248,
+        "max_null_score_p95": 0.9528
+      },
+      "family_c_surrogate_ref": {
+        "n_trials": 15,
+        "w10_fpr": {
+          "k": 0,
+          "n": 15,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.2039
+          ]
+        },
+        "naive_iid_fpr": {
+          "k": 15,
+          "n": 15,
+          "rate": 1.0,
+          "ci95": [
+            0.7961,
+            1.0
+          ]
+        },
+        "nate_griff_top1_fpr": {
+          "k": 15,
+          "n": 15,
+          "rate": 1.0,
+          "ci95": [
+            0.7961,
+            1.0
+          ]
+        },
+        "max_null_score_mean": 0.7259,
+        "max_null_score_p95": 0.9533
+      }
+    },
+    "holdout_sep_2026_verification": {
+      "split": "holdout_sep_2026",
+      "duration_s": 300,
+      "sigma_noise_mhz": 5.0,
+      "n_trials": 20,
+      "raw_acc_5s": {
+        "k": 20,
+        "n": 20,
+        "rate": 1.0,
+        "ci95": [
+          0.8389,
+          1.0
+        ]
+      },
+      "coverage": {
+        "k": 11,
+        "n": 20,
+        "rate": 0.55,
+        "ci95": [
+          0.3421,
+          0.7418
+        ]
+      },
+      "selective_acc_5s": {
+        "k": 11,
+        "n": 11,
+        "rate": 1.0,
+        "ci95": [
+          0.7412,
+          1.0
+        ]
+      },
+      "fcr_truthful_claim": {
+        "k": 0,
+        "n": 20,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.1611
+        ]
+      },
+      "tddr_shifted_claim": {
+        "k": 11,
+        "n": 20,
+        "rate": 0.55,
+        "ci95": [
+          0.3421,
+          0.7418
+        ]
+      }
+    },
+    "c2_flat_outage_masking_verification": {
+      "outage_date": "2026-09-15",
+      "outage_utc_range": [
+        1789457403,
+        1789468560
+      ],
+      "outage_duration_s": 11158,
+      "constant_f_hz": 49.895,
+      "valid_query_err_s": 0,
+      "valid_query_status": "MATCH_SUPPORTED",
+      "candidates_landing_in_outage": 0,
+      "flat_outage_query_status": "INCONCLUSIVE",
+      "flat_outage_query_reasons": [
+        "GATE_FLAT_SIGNAL_FAILED: Extracted trace standard deviation is 0.000 mHz (< 0.80 mHz floor); a flat nominal tone cannot date a recording.",
+        "GATE_NULL_SIGNIFICANCE_FAILED: Look-elsewhere corrected p_empirical = 1 exceeds threshold alpha = 0.02 across M_eff = 1.0 effective candidate shifts (N_eff = 300.0).",
+        "GATE_MIN_SCORE_FAILED: Best weighted NCC score nan is below required threshold 1.0000 (null threshold = 1.0000, abs floor = 0.4500).",
+        "GATE_UNIQUENESS_FAILED: Margin over second-best non-overlapping candidate is 0.0000 (ratio 0.000x, second-best score = 0.0000 at distance 0s), below required margin 0.040.",
+        "GATE_RMSE_FAILED: Offset-adjusted RMSE is inf mHz, exceeding maximum allowed 40.0 mHz.",
+        "GATE_SPLIT_HALF_FAILED: First-half and second-half consistency failed (independent half lag difference = infs vs 15.0s max; local half correlations at best lag: r1 = 0.000, r2 = 0.000)."
+      ]
+    }
+  },
+  "experiment_2_enf_whu_real_audio": {
+    "dev_v1_initial": {
+      "split": "dev",
+      "policy_label": "W10_v1_initial_matcher_only",
+      "thresholds": {
+        "min_valid_duration_s": 25.0,
+        "min_valid_samples": 20,
+        "min_valid_fraction": 0.5,
+        "min_trace_std_mhz": 0.8,
+        "max_trace_std_mhz": 200.0,
+        "max_p_empirical": 0.05,
+        "min_abs_score": 0.45,
+        "require_above_null_threshold": true,
+        "min_margin_vs_second": 0.03,
+        "min_ratio_vs_second": 1.04,
+        "max_rmse_mhz": 45.0,
+        "min_duration_for_strict_split_half_s": 120.0,
+        "max_split_half_lag_diff_s": 20.0,
+        "min_split_half_local_corr": 0.2,
+        "default_claim_tolerance_s": 60.0,
+        "min_enf_presence_score": 0.0
+      },
+      "denominators": {
+        "n_h1_positive": 85,
+        "n_h1_clean_extractor_subset": 56,
+        "n_h0_no_enf": 33,
+        "n_wrong_day_h1": 85,
+        "n_surrogate_ref_h1": 85,
+        "n_total_negative_trials": 203
+      },
+      "w10_matcher": {
+        "coverage_h1_all": {
+          "k": 42,
+          "n": 85,
+          "rate": 0.4941,
+          "ci95": [
+            0.3904,
+            0.5983
+          ]
+        },
+        "coverage_h1_clean_extractor_subset": {
+          "k": 42,
+          "n": 56,
+          "rate": 0.75,
+          "ci95": [
+            0.6231,
+            0.8448
+          ]
+        },
+        "abstention_rate_h1": {
+          "k": 43,
+          "n": 85,
+          "rate": 0.5059,
+          "ci95": [
+            0.4017,
+            0.6096
+          ]
+        },
+        "raw_top1_acc_5s_readme_gt": {
+          "k": 48,
+          "n": 85,
+          "rate": 0.5647,
+          "ci95": [
+            0.4588,
+            0.665
+          ]
+        },
+        "raw_top1_acc_1s_refined_gt": {
+          "k": 47,
+          "n": 85,
+          "rate": 0.5529,
+          "ci95": [
+            0.4472,
+            0.6541
+          ]
+        },
+        "selective_acc_5s_readme_gt": {
+          "k": 42,
+          "n": 42,
+          "rate": 1.0,
+          "ci95": [
+            0.9162,
+            1.0
+          ]
+        },
+        "selective_acc_10s_readme_gt": {
+          "k": 42,
+          "n": 42,
+          "rate": 1.0,
+          "ci95": [
+            0.9162,
+            1.0
+          ]
+        },
+        "selective_acc_1s_against_per_file_refined_gt": {
+          "k": 42,
+          "n": 42,
+          "rate": 1.0,
+          "ci95": [
+            0.9162,
+            1.0
+          ]
+        },
+        "selective_acc_2s_against_per_file_refined_gt": {
+          "k": 42,
+          "n": 42,
+          "rate": 1.0,
+          "ci95": [
+            0.9162,
+            1.0
+          ]
+        },
+        "fpr_h0_no_enf": {
+          "k": 0,
+          "n": 33,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.1043
+          ]
+        },
+        "fpr_wrong_day": {
+          "k": 3,
+          "n": 85,
+          "rate": 0.0353,
+          "ci95": [
+            0.0121,
+            0.0987
+          ]
+        },
+        "fpr_surrogate_ref": {
+          "k": 0,
+          "n": 85,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0432
+          ]
+        },
+        "fpr_combined_all_negatives": {
+          "k": 3,
+          "n": 203,
+          "rate": 0.0148,
+          "ci95": [
+            0.005,
+            0.0425
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 85,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0432
+          ]
+        },
+        "tcr_truthful_claim": {
+          "k": 42,
+          "n": 85,
+          "rate": 0.4941,
+          "ci95": [
+            0.3904,
+            0.5983
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 42,
+          "n": 85,
+          "rate": 0.4941,
+          "ci95": [
+            0.3904,
+            0.5983
+          ]
+        }
+      },
+      "baseline_m1_nate_griff": {
+        "raw_top1_acc_5s_readme_gt": {
+          "k": 49,
+          "n": 85,
+          "rate": 0.5765,
+          "ci95": [
+            0.4704,
+            0.676
+          ]
+        },
+        "always_top1_fpr_h0": {
+          "k": 33,
+          "n": 33,
+          "rate": 1.0,
+          "ci95": [
+            0.8957,
+            1.0
+          ]
+        },
+        "always_top1_fpr_wrong_day": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "gated_corr045_coverage_h1": {
+          "k": 59,
+          "n": 85,
+          "rate": 0.6941,
+          "ci95": [
+            0.5895,
+            0.7819
+          ]
+        },
+        "gated_corr045_selective_acc_5s_readme_gt": {
+          "k": 43,
+          "n": 59,
+          "rate": 0.7288,
+          "ci95": [
+            0.604,
+            0.8256
+          ]
+        },
+        "gated_corr045_fpr_h0": {
+          "k": 10,
+          "n": 33,
+          "rate": 0.303,
+          "ci95": [
+            0.1738,
+            0.4734
+          ]
+        },
+        "gated_corr045_fpr_wrong_day": {
+          "k": 59,
+          "n": 85,
+          "rate": 0.6941,
+          "ci95": [
+            0.5895,
+            0.7819
+          ]
+        }
+      },
+      "baseline_m2_naive_iid_fisher_z": {
+        "coverage_h1": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "selective_acc_5s_readme_gt": {
+          "k": 48,
+          "n": 85,
+          "rate": 0.5647,
+          "ci95": [
+            0.4588,
+            0.665
+          ]
+        },
+        "fpr_h0_no_enf": {
+          "k": 33,
+          "n": 33,
+          "rate": 1.0,
+          "ci95": [
+            0.8957,
+            1.0
+          ]
+        },
+        "fpr_wrong_day": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "fpr_surrogate_ref": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "fpr_combined_all_negatives": {
+          "k": 203,
+          "n": 203,
+          "rate": 1.0,
+          "ci95": [
+            0.9814,
+            1.0
+          ]
+        }
+      },
+      "baseline_m0_metadata_only": {
+        "coverage_h1": {
+          "k": 0,
+          "n": 85,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0432
+          ]
+        },
+        "spoofed_timestamp_false_accept_rate": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        }
+      }
+    },
+    "dev_v2_iterated": {
+      "split": "dev",
+      "policy_label": "W10_v2_calibrated_plus_presence_gate",
+      "thresholds": {
+        "min_valid_duration_s": 25.0,
+        "min_valid_samples": 20,
+        "min_valid_fraction": 0.5,
+        "min_trace_std_mhz": 0.8,
+        "max_trace_std_mhz": 200.0,
+        "max_p_empirical": 0.015,
+        "min_abs_score": 0.5,
+        "require_above_null_threshold": true,
+        "min_margin_vs_second": 0.05,
+        "min_ratio_vs_second": 1.07,
+        "max_rmse_mhz": 40.0,
+        "min_duration_for_strict_split_half_s": 90.0,
+        "max_split_half_lag_diff_s": 15.0,
+        "min_split_half_local_corr": 0.3,
+        "default_claim_tolerance_s": 60.0,
+        "min_enf_presence_score": 0.35
+      },
+      "denominators": {
+        "n_h1_positive": 85,
+        "n_h1_clean_extractor_subset": 56,
+        "n_h0_no_enf": 33,
+        "n_wrong_day_h1": 85,
+        "n_surrogate_ref_h1": 85,
+        "n_total_negative_trials": 203
+      },
+      "w10_matcher": {
+        "coverage_h1_all": {
+          "k": 41,
+          "n": 85,
+          "rate": 0.4824,
+          "ci95": [
+            0.3792,
+            0.587
+          ]
+        },
+        "coverage_h1_clean_extractor_subset": {
+          "k": 41,
+          "n": 56,
+          "rate": 0.7321,
+          "ci95": [
+            0.6041,
+            0.8304
+          ]
+        },
+        "abstention_rate_h1": {
+          "k": 44,
+          "n": 85,
+          "rate": 0.5176,
+          "ci95": [
+            0.413,
+            0.6208
+          ]
+        },
+        "raw_top1_acc_5s_readme_gt": {
+          "k": 48,
+          "n": 85,
+          "rate": 0.5647,
+          "ci95": [
+            0.4588,
+            0.665
+          ]
+        },
+        "raw_top1_acc_1s_refined_gt": {
+          "k": 47,
+          "n": 85,
+          "rate": 0.5529,
+          "ci95": [
+            0.4472,
+            0.6541
+          ]
+        },
+        "selective_acc_5s_readme_gt": {
+          "k": 41,
+          "n": 41,
+          "rate": 1.0,
+          "ci95": [
+            0.9143,
+            1.0
+          ]
+        },
+        "selective_acc_10s_readme_gt": {
+          "k": 41,
+          "n": 41,
+          "rate": 1.0,
+          "ci95": [
+            0.9143,
+            1.0
+          ]
+        },
+        "selective_acc_1s_against_per_file_refined_gt": {
+          "k": 41,
+          "n": 41,
+          "rate": 1.0,
+          "ci95": [
+            0.9143,
+            1.0
+          ]
+        },
+        "selective_acc_2s_against_per_file_refined_gt": {
+          "k": 41,
+          "n": 41,
+          "rate": 1.0,
+          "ci95": [
+            0.9143,
+            1.0
+          ]
+        },
+        "fpr_h0_no_enf": {
+          "k": 0,
+          "n": 33,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.1043
+          ]
+        },
+        "fpr_wrong_day": {
+          "k": 2,
+          "n": 85,
+          "rate": 0.0235,
+          "ci95": [
+            0.0065,
+            0.0818
+          ]
+        },
+        "fpr_surrogate_ref": {
+          "k": 0,
+          "n": 85,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0432
+          ]
+        },
+        "fpr_combined_all_negatives": {
+          "k": 2,
+          "n": 203,
+          "rate": 0.0099,
+          "ci95": [
+            0.0027,
+            0.0352
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 85,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0432
+          ]
+        },
+        "tcr_truthful_claim": {
+          "k": 41,
+          "n": 85,
+          "rate": 0.4824,
+          "ci95": [
+            0.3792,
+            0.587
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 41,
+          "n": 85,
+          "rate": 0.4824,
+          "ci95": [
+            0.3792,
+            0.587
+          ]
+        }
+      },
+      "baseline_m1_nate_griff": {
+        "raw_top1_acc_5s_readme_gt": {
+          "k": 49,
+          "n": 85,
+          "rate": 0.5765,
+          "ci95": [
+            0.4704,
+            0.676
+          ]
+        },
+        "always_top1_fpr_h0": {
+          "k": 33,
+          "n": 33,
+          "rate": 1.0,
+          "ci95": [
+            0.8957,
+            1.0
+          ]
+        },
+        "always_top1_fpr_wrong_day": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "gated_corr045_coverage_h1": {
+          "k": 59,
+          "n": 85,
+          "rate": 0.6941,
+          "ci95": [
+            0.5895,
+            0.7819
+          ]
+        },
+        "gated_corr045_selective_acc_5s_readme_gt": {
+          "k": 43,
+          "n": 59,
+          "rate": 0.7288,
+          "ci95": [
+            0.604,
+            0.8256
+          ]
+        },
+        "gated_corr045_fpr_h0": {
+          "k": 10,
+          "n": 33,
+          "rate": 0.303,
+          "ci95": [
+            0.1738,
+            0.4734
+          ]
+        },
+        "gated_corr045_fpr_wrong_day": {
+          "k": 59,
+          "n": 85,
+          "rate": 0.6941,
+          "ci95": [
+            0.5895,
+            0.7819
+          ]
+        }
+      },
+      "baseline_m2_naive_iid_fisher_z": {
+        "coverage_h1": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "selective_acc_5s_readme_gt": {
+          "k": 48,
+          "n": 85,
+          "rate": 0.5647,
+          "ci95": [
+            0.4588,
+            0.665
+          ]
+        },
+        "fpr_h0_no_enf": {
+          "k": 33,
+          "n": 33,
+          "rate": 1.0,
+          "ci95": [
+            0.8957,
+            1.0
+          ]
+        },
+        "fpr_wrong_day": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "fpr_surrogate_ref": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        },
+        "fpr_combined_all_negatives": {
+          "k": 203,
+          "n": 203,
+          "rate": 1.0,
+          "ci95": [
+            0.9814,
+            1.0
+          ]
+        }
+      },
+      "baseline_m0_metadata_only": {
+        "coverage_h1": {
+          "k": 0,
+          "n": 85,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0432
+          ]
+        },
+        "spoofed_timestamp_false_accept_rate": {
+          "k": 85,
+          "n": 85,
+          "rate": 1.0,
+          "ci95": [
+            0.9568,
+            1.0
+          ]
+        }
+      },
+      "per_case_h1": [
+        {
+          "id": "002",
+          "day_name": "002_ref.wav",
+          "duration_s": 522.0,
+          "gt_lag_readme_s": 36375,
+          "gt_lag_refined_s": 36376.24,
+          "rec_ref_d_s": -1.25,
+          "gt_ambiguous": false,
+          "est_lag_s": 13736,
+          "err_readme_s": 22639,
+          "err_refined_s": 22640.0,
+          "score": 0.5194,
+          "rmse_mhz": 59.676,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.011,
+          "enf_presence_score": 0.3432,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 38919
+        },
+        {
+          "id": "010",
+          "day_name": "010_ref.wav",
+          "duration_s": 715.0,
+          "gt_lag_readme_s": 41883,
+          "gt_lag_refined_s": 41875.12,
+          "rec_ref_d_s": 8.38,
+          "gt_ambiguous": false,
+          "est_lag_s": 42638,
+          "err_readme_s": 755,
+          "err_refined_s": 762.5,
+          "score": 0.4523,
+          "rmse_mhz": 83.026,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.01,
+          "enf_presence_score": 0.1741,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 22100
+        },
+        {
+          "id": "012",
+          "day_name": "012-013_ref.wav",
+          "duration_s": 632.0,
+          "gt_lag_readme_s": 60216,
+          "gt_lag_refined_s": 60186.06,
+          "rec_ref_d_s": 30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 77729,
+          "err_readme_s": 17513,
+          "err_refined_s": 17543.26,
+          "score": 0.4712,
+          "rmse_mhz": 141.12,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0071,
+          "enf_presence_score": 0.063,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 15772
+        },
+        {
+          "id": "013",
+          "day_name": "012-013_ref.wav",
+          "duration_s": 623.0,
+          "gt_lag_readme_s": 62170,
+          "gt_lag_refined_s": 62177.69,
+          "rec_ref_d_s": -8.13,
+          "gt_ambiguous": false,
+          "est_lag_s": 64497,
+          "err_readme_s": 2327,
+          "err_refined_s": 2319.66,
+          "score": 0.4387,
+          "rmse_mhz": 104.488,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0066,
+          "enf_presence_score": 0.0788,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 1811
+        },
+        {
+          "id": "016",
+          "day_name": "016-019_ref.wav",
+          "duration_s": 707.0,
+          "gt_lag_readme_s": 79527,
+          "gt_lag_refined_s": 79549.87,
+          "rec_ref_d_s": -22.87,
+          "gt_ambiguous": false,
+          "est_lag_s": 44915,
+          "err_readme_s": 34612,
+          "err_refined_s": 34634.96,
+          "score": 0.409,
+          "rmse_mhz": 38.401,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0058,
+          "enf_presence_score": 0.8941,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 34605
+        },
+        {
+          "id": "017",
+          "day_name": "016-019_ref.wav",
+          "duration_s": 634.0,
+          "gt_lag_readme_s": 80257,
+          "gt_lag_refined_s": 80281.56,
+          "rec_ref_d_s": -24.56,
+          "gt_ambiguous": false,
+          "est_lag_s": 29985,
+          "err_readme_s": 50272,
+          "err_refined_s": 50296.2,
+          "score": 0.3384,
+          "rmse_mhz": 21.783,
+          "p_empirical": 0.9846897364596093,
+          "margin_vs_second": 0.0033,
+          "enf_presence_score": 0.8904,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 50271
+        },
+        {
+          "id": "018",
+          "day_name": "016-019_ref.wav",
+          "duration_s": 691.0,
+          "gt_lag_readme_s": 80907,
+          "gt_lag_refined_s": 80889.3,
+          "rec_ref_d_s": 17.69,
+          "gt_ambiguous": false,
+          "est_lag_s": 54918,
+          "err_readme_s": 25989,
+          "err_refined_s": 25971.45,
+          "score": 0.4544,
+          "rmse_mhz": 17.093,
+          "p_empirical": 0.2861031572893444,
+          "margin_vs_second": 0.0244,
+          "enf_presence_score": 0.9053,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 25986
+        },
+        {
+          "id": "019",
+          "day_name": "016-019_ref.wav",
+          "duration_s": 728.0,
+          "gt_lag_readme_s": 81617,
+          "gt_lag_refined_s": 81616.23,
+          "rec_ref_d_s": 0.77,
+          "gt_ambiguous": false,
+          "est_lag_s": 12712,
+          "err_readme_s": 68905,
+          "err_refined_s": 68904.68,
+          "score": 0.2667,
+          "rmse_mhz": 36.794,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0072,
+          "enf_presence_score": 0.7921,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 68901
+        },
+        {
+          "id": "030",
+          "day_name": "030-033_ref.wav",
+          "duration_s": 617.0,
+          "gt_lag_readme_s": 63315,
+          "gt_lag_refined_s": 63316.13,
+          "rec_ref_d_s": -1.33,
+          "gt_ambiguous": false,
+          "est_lag_s": 44462,
+          "err_readme_s": 18853,
+          "err_refined_s": 18854.18,
+          "score": 0.7095,
+          "rmse_mhz": 149.924,
+          "p_empirical": 0.15966452523698066,
+          "margin_vs_second": 0.0137,
+          "enf_presence_score": 0.0603,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 32881
+        },
+        {
+          "id": "031",
+          "day_name": "030-033_ref.wav",
+          "duration_s": 634.0,
+          "gt_lag_readme_s": 65366,
+          "gt_lag_refined_s": 65354.23,
+          "rec_ref_d_s": 11.97,
+          "gt_ambiguous": false,
+          "est_lag_s": 47266,
+          "err_readme_s": 18100,
+          "err_refined_s": 18087.75,
+          "score": 0.5094,
+          "rmse_mhz": 104.99,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0524,
+          "enf_presence_score": 0.0866,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 18083
+        },
+        {
+          "id": "032",
+          "day_name": "030-033_ref.wav",
+          "duration_s": 635.0,
+          "gt_lag_readme_s": 77218,
+          "gt_lag_refined_s": 77248.02,
+          "rec_ref_d_s": -30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 63652,
+          "err_readme_s": 13566,
+          "err_refined_s": 13596.49,
+          "score": 0.4678,
+          "rmse_mhz": 236.296,
+          "p_empirical": 0.04301616213799961,
+          "margin_vs_second": 0.0664,
+          "enf_presence_score": 0.0045,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 24270
+        },
+        {
+          "id": "033",
+          "day_name": "030-033_ref.wav",
+          "duration_s": 814.0,
+          "gt_lag_readme_s": 77878,
+          "gt_lag_refined_s": 77847.96,
+          "rec_ref_d_s": 30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 66218,
+          "err_readme_s": 11660,
+          "err_refined_s": 11629.68,
+          "score": 0.4543,
+          "rmse_mhz": 185.105,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0015,
+          "enf_presence_score": 0.0133,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 29971
+        },
+        {
+          "id": "034",
+          "day_name": "034-037_ref.wav",
+          "duration_s": 643.0,
+          "gt_lag_readme_s": 38055,
+          "gt_lag_refined_s": 38057.72,
+          "rec_ref_d_s": -2.77,
+          "gt_ambiguous": false,
+          "est_lag_s": 38843,
+          "err_readme_s": 788,
+          "err_refined_s": 785.57,
+          "score": 0.4857,
+          "rmse_mhz": 124.915,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0103,
+          "enf_presence_score": 0.0713,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 30722
+        },
+        {
+          "id": "035",
+          "day_name": "034-037_ref.wav",
+          "duration_s": 650.0,
+          "gt_lag_readme_s": 61616,
+          "gt_lag_refined_s": 61616.35,
+          "rec_ref_d_s": -0.43,
+          "gt_ambiguous": false,
+          "est_lag_s": 25388,
+          "err_readme_s": 36228,
+          "err_refined_s": 36227.94,
+          "score": 0.7236,
+          "rmse_mhz": 114.031,
+          "p_empirical": 0.06979168107978533,
+          "margin_vs_second": 0.0423,
+          "enf_presence_score": 0.1628,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 11312
+        },
+        {
+          "id": "036",
+          "day_name": "034-037_ref.wav",
+          "duration_s": 588.0,
+          "gt_lag_readme_s": 62276,
+          "gt_lag_refined_s": 62250.42,
+          "rec_ref_d_s": 25.45,
+          "gt_ambiguous": false,
+          "est_lag_s": 24565,
+          "err_readme_s": 37711,
+          "err_refined_s": 37685.08,
+          "score": 0.65,
+          "rmse_mhz": 80.563,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0174,
+          "enf_presence_score": 0.3616,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 37704
+        },
+        {
+          "id": "037",
+          "day_name": "034-037_ref.wav",
+          "duration_s": 632.0,
+          "gt_lag_readme_s": 63246,
+          "gt_lag_refined_s": 63275.37,
+          "rec_ref_d_s": -29.49,
+          "gt_ambiguous": false,
+          "est_lag_s": 50756,
+          "err_readme_s": 12490,
+          "err_refined_s": 12519.3,
+          "score": 0.6955,
+          "rmse_mhz": 96.775,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0183,
+          "enf_presence_score": 0.2369,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 12491
+        },
+        {
+          "id": "039",
+          "day_name": "039-042_ref.wav",
+          "duration_s": 679.0,
+          "gt_lag_readme_s": 40469,
+          "gt_lag_refined_s": 40471.24,
+          "rec_ref_d_s": -2.73,
+          "gt_ambiguous": false,
+          "est_lag_s": 79817,
+          "err_readme_s": 39348,
+          "err_refined_s": 39346.26,
+          "score": 0.385,
+          "rmse_mhz": 32.428,
+          "p_empirical": 0.45387904349511393,
+          "margin_vs_second": 0.0059,
+          "enf_presence_score": 0.7616,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 0
+        },
+        {
+          "id": "040",
+          "day_name": "039-042_ref.wav",
+          "duration_s": 606.0,
+          "gt_lag_readme_s": 41184,
+          "gt_lag_refined_s": 41183.67,
+          "rec_ref_d_s": -0.16,
+          "gt_ambiguous": false,
+          "est_lag_s": 41184,
+          "err_readme_s": 0,
+          "err_refined_s": 0.01,
+          "score": 0.9937,
+          "rmse_mhz": 1.874,
+          "p_empirical": 1.1099573879837423e-20,
+          "margin_vs_second": 0.2107,
+          "enf_presence_score": 0.9878,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "041",
+          "day_name": "039-042_ref.wav",
+          "duration_s": 789.0,
+          "gt_lag_readme_s": 41644,
+          "gt_lag_refined_s": 41640.35,
+          "rec_ref_d_s": 3.16,
+          "gt_ambiguous": false,
+          "est_lag_s": 41640,
+          "err_readme_s": 4,
+          "err_refined_s": 0.06,
+          "score": 0.6051,
+          "rmse_mhz": 21.744,
+          "p_empirical": 0.006521553186817164,
+          "margin_vs_second": 0.146,
+          "enf_presence_score": 0.7585,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 1
+        },
+        {
+          "id": "042",
+          "day_name": "039-042_ref.wav",
+          "duration_s": 642.0,
+          "gt_lag_readme_s": 42334,
+          "gt_lag_refined_s": 42333.9,
+          "rec_ref_d_s": -0.39,
+          "gt_ambiguous": false,
+          "est_lag_s": 42334,
+          "err_readme_s": 0,
+          "err_refined_s": 0.17,
+          "score": 0.9903,
+          "rmse_mhz": 3.315,
+          "p_empirical": 7.40188197591166e-12,
+          "margin_vs_second": 0.0947,
+          "enf_presence_score": 0.9824,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "060",
+          "day_name": "060-064_ref.wav",
+          "duration_s": 612.0,
+          "gt_lag_readme_s": 41454,
+          "gt_lag_refined_s": 41450.38,
+          "rec_ref_d_s": 3.67,
+          "gt_ambiguous": false,
+          "est_lag_s": 41450,
+          "err_readme_s": 4,
+          "err_refined_s": 0.02,
+          "score": 0.9973,
+          "rmse_mhz": 1.237,
+          "p_empirical": 1.337396120677224e-21,
+          "margin_vs_second": 0.0932,
+          "enf_presence_score": 0.9944,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 4
+        },
+        {
+          "id": "061",
+          "day_name": "060-064_ref.wav",
+          "duration_s": 587.0,
+          "gt_lag_readme_s": 42069,
+          "gt_lag_refined_s": 42067.59,
+          "rec_ref_d_s": 1.45,
+          "gt_ambiguous": false,
+          "est_lag_s": 42068,
+          "err_readme_s": 1,
+          "err_refined_s": 0.07,
+          "score": 0.9978,
+          "rmse_mhz": 0.98,
+          "p_empirical": 1.5541141072045342e-25,
+          "margin_vs_second": 0.1743,
+          "enf_presence_score": 0.9953,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "062",
+          "day_name": "060-064_ref.wav",
+          "duration_s": 446.0,
+          "gt_lag_readme_s": 42704,
+          "gt_lag_refined_s": 42700.36,
+          "rec_ref_d_s": 3.69,
+          "gt_ambiguous": false,
+          "est_lag_s": 42700,
+          "err_readme_s": 4,
+          "err_refined_s": 0.06,
+          "score": 0.9984,
+          "rmse_mhz": 0.962,
+          "p_empirical": 3.8046867539741e-12,
+          "margin_vs_second": 0.079,
+          "enf_presence_score": 0.9951,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 4
+        },
+        {
+          "id": "063",
+          "day_name": "060-064_ref.wav",
+          "duration_s": 632.0,
+          "gt_lag_readme_s": 43195,
+          "gt_lag_refined_s": 43192.96,
+          "rec_ref_d_s": 1.71,
+          "gt_ambiguous": false,
+          "est_lag_s": 21263,
+          "err_readme_s": 21932,
+          "err_refined_s": 21929.48,
+          "score": 0.4631,
+          "rmse_mhz": 43.847,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0458,
+          "enf_presence_score": 0.9093,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 10353
+        },
+        {
+          "id": "064",
+          "day_name": "060-064_ref.wav",
+          "duration_s": 607.0,
+          "gt_lag_readme_s": 43845,
+          "gt_lag_refined_s": 43845.73,
+          "rec_ref_d_s": -1.14,
+          "gt_ambiguous": false,
+          "est_lag_s": 43846,
+          "err_readme_s": 1,
+          "err_refined_s": 0.02,
+          "score": 0.9945,
+          "rmse_mhz": 1.511,
+          "p_empirical": 1.1480893824288686e-19,
+          "margin_vs_second": 0.1692,
+          "enf_presence_score": 0.9933,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "071",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 586.0,
+          "gt_lag_readme_s": 41404,
+          "gt_lag_refined_s": 41402.26,
+          "rec_ref_d_s": 1.27,
+          "gt_ambiguous": false,
+          "est_lag_s": 84705,
+          "err_readme_s": 43301,
+          "err_refined_s": 43302.54,
+          "score": 0.3715,
+          "rmse_mhz": 55.936,
+          "p_empirical": 0.2835074063837724,
+          "margin_vs_second": 0.0191,
+          "enf_presence_score": 0.3314,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 42072
+        },
+        {
+          "id": "072",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 592.0,
+          "gt_lag_readme_s": 42003,
+          "gt_lag_refined_s": 41999.03,
+          "rec_ref_d_s": 4.47,
+          "gt_ambiguous": false,
+          "est_lag_s": 48369,
+          "err_readme_s": 6366,
+          "err_refined_s": 6369.91,
+          "score": 0.5418,
+          "rmse_mhz": 41.729,
+          "p_empirical": 0.02207820891735059,
+          "margin_vs_second": 0.0206,
+          "enf_presence_score": 0.8585,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 23777
+        },
+        {
+          "id": "073",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 568.0,
+          "gt_lag_readme_s": 42593,
+          "gt_lag_refined_s": 42594.35,
+          "rec_ref_d_s": -0.86,
+          "gt_ambiguous": false,
+          "est_lag_s": 42595,
+          "err_readme_s": 2,
+          "err_refined_s": 0.33,
+          "score": 0.8366,
+          "rmse_mhz": 11.627,
+          "p_empirical": 0.008881214704108775,
+          "margin_vs_second": 0.1212,
+          "enf_presence_score": 0.7732,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 5
+        },
+        {
+          "id": "074",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 63521,
+          "gt_lag_refined_s": 63520.43,
+          "rec_ref_d_s": 0.49,
+          "gt_ambiguous": false,
+          "est_lag_s": 79759,
+          "err_readme_s": 16238,
+          "err_refined_s": 16238.82,
+          "score": 0.3534,
+          "rmse_mhz": 39.789,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0046,
+          "enf_presence_score": 0.8398,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 11509
+        },
+        {
+          "id": "075",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 580.0,
+          "gt_lag_readme_s": 64126,
+          "gt_lag_refined_s": 64127.32,
+          "rec_ref_d_s": -1.46,
+          "gt_ambiguous": false,
+          "est_lag_s": 70095,
+          "err_readme_s": 5969,
+          "err_refined_s": 5967.8,
+          "score": 0.4792,
+          "rmse_mhz": 90.289,
+          "p_empirical": 0.06933172974018584,
+          "margin_vs_second": 0.0064,
+          "enf_presence_score": 0.2736,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 13867
+        },
+        {
+          "id": "076",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 526.0,
+          "gt_lag_readme_s": 64784,
+          "gt_lag_refined_s": 64782.35,
+          "rec_ref_d_s": 2.02,
+          "gt_ambiguous": false,
+          "est_lag_s": 64783,
+          "err_readme_s": 1,
+          "err_refined_s": 0.4,
+          "score": 0.8992,
+          "rmse_mhz": 7.968,
+          "p_empirical": 6.861009019289053e-06,
+          "margin_vs_second": 0.1714,
+          "enf_presence_score": 0.7585,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 6
+        },
+        {
+          "id": "077",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 582.0,
+          "gt_lag_readme_s": 65330,
+          "gt_lag_refined_s": 65330.01,
+          "rec_ref_d_s": -0.49,
+          "gt_ambiguous": false,
+          "est_lag_s": 23553,
+          "err_readme_s": 41777,
+          "err_refined_s": 41777.46,
+          "score": 0.3869,
+          "rmse_mhz": 63.965,
+          "p_empirical": 0.2024120761779592,
+          "margin_vs_second": 0.0351,
+          "enf_presence_score": 0.413,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 41769
+        },
+        {
+          "id": "078",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 585.0,
+          "gt_lag_readme_s": 65929,
+          "gt_lag_refined_s": 65924.14,
+          "rec_ref_d_s": 5.33,
+          "gt_ambiguous": false,
+          "est_lag_s": 69000,
+          "err_readme_s": 3071,
+          "err_refined_s": 3075.45,
+          "score": 0.5108,
+          "rmse_mhz": 43.184,
+          "p_empirical": 0.8447210855919661,
+          "margin_vs_second": 0.0104,
+          "enf_presence_score": 0.6108,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 18347
+        },
+        {
+          "id": "079",
+          "day_name": "071-079_ref.wav",
+          "duration_s": 582.0,
+          "gt_lag_readme_s": 66529,
+          "gt_lag_refined_s": 66528.8,
+          "rec_ref_d_s": 0.6,
+          "gt_ambiguous": false,
+          "est_lag_s": 66529,
+          "err_readme_s": 0,
+          "err_refined_s": 0.03,
+          "score": 0.9274,
+          "rmse_mhz": 5.085,
+          "p_empirical": 0.0005808964347400721,
+          "margin_vs_second": 0.0463,
+          "enf_presence_score": 0.8912,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 13
+        },
+        {
+          "id": "080",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 481.0,
+          "gt_lag_readme_s": 39684,
+          "gt_lag_refined_s": 39699.82,
+          "rec_ref_d_s": -16.31,
+          "gt_ambiguous": false,
+          "est_lag_s": 53343,
+          "err_readme_s": 13659,
+          "err_refined_s": 13643.26,
+          "score": 0.6145,
+          "rmse_mhz": 144.592,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0159,
+          "enf_presence_score": 0.085,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 44925
+        },
+        {
+          "id": "081",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 587.0,
+          "gt_lag_readme_s": 40289,
+          "gt_lag_refined_s": 40284.0,
+          "rec_ref_d_s": 4.5,
+          "gt_ambiguous": false,
+          "est_lag_s": 55753,
+          "err_readme_s": 15464,
+          "err_refined_s": 15468.89,
+          "score": 0.6832,
+          "rmse_mhz": 65.475,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0025,
+          "enf_presence_score": 0.4416,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 3799
+        },
+        {
+          "id": "082",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 40888,
+          "gt_lag_refined_s": 40918.5,
+          "rec_ref_d_s": -30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 16858,
+          "err_readme_s": 24030,
+          "err_refined_s": 24060.12,
+          "score": 0.7083,
+          "rmse_mhz": 66.018,
+          "p_empirical": 0.08875958099654449,
+          "margin_vs_second": 0.0137,
+          "enf_presence_score": 0.5225,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 39862
+        },
+        {
+          "id": "083",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 585.0,
+          "gt_lag_readme_s": 41488,
+          "gt_lag_refined_s": 41487.44,
+          "rec_ref_d_s": 1.06,
+          "gt_ambiguous": false,
+          "est_lag_s": 32596,
+          "err_readme_s": 8892,
+          "err_refined_s": 8891.65,
+          "score": 0.5567,
+          "rmse_mhz": 81.909,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0449,
+          "enf_presence_score": 0.2768,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 33610
+        },
+        {
+          "id": "084",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 585.0,
+          "gt_lag_readme_s": 42089,
+          "gt_lag_refined_s": 42077.81,
+          "rec_ref_d_s": 10.69,
+          "gt_ambiguous": false,
+          "est_lag_s": 44679,
+          "err_readme_s": 2590,
+          "err_refined_s": 2601.62,
+          "score": 0.4727,
+          "rmse_mhz": 77.412,
+          "p_empirical": 0.6140994620898177,
+          "margin_vs_second": 0.0311,
+          "enf_presence_score": 0.4101,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 10408
+        },
+        {
+          "id": "085",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 405.0,
+          "gt_lag_readme_s": 42688,
+          "gt_lag_refined_s": 42682.04,
+          "rec_ref_d_s": 6.46,
+          "gt_ambiguous": false,
+          "est_lag_s": 58920,
+          "err_readme_s": 16232,
+          "err_refined_s": 16237.74,
+          "score": 0.4098,
+          "rmse_mhz": 34.811,
+          "p_empirical": 0.219049058557161,
+          "margin_vs_second": 0.049,
+          "enf_presence_score": 0.8224,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 22368
+        },
+        {
+          "id": "086",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 64900,
+          "gt_lag_refined_s": 64923.79,
+          "rec_ref_d_s": -23.8,
+          "gt_ambiguous": false,
+          "est_lag_s": 21402,
+          "err_readme_s": 43498,
+          "err_refined_s": 43521.97,
+          "score": 0.2042,
+          "rmse_mhz": 15.416,
+          "p_empirical": 0.9999925495785505,
+          "margin_vs_second": 0.0022,
+          "enf_presence_score": 0.752,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 43498
+        },
+        {
+          "id": "087",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 583.0,
+          "gt_lag_readme_s": 65505,
+          "gt_lag_refined_s": 65475.01,
+          "rec_ref_d_s": 30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 46211,
+          "err_readme_s": 19294,
+          "err_refined_s": 19263.91,
+          "score": 0.2757,
+          "rmse_mhz": 21.119,
+          "p_empirical": 0.9999994999312763,
+          "margin_vs_second": 0.0239,
+          "enf_presence_score": 0.656,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 19308
+        },
+        {
+          "id": "088",
+          "day_name": "080-088_ref.wav",
+          "duration_s": 585.0,
+          "gt_lag_readme_s": 66105,
+          "gt_lag_refined_s": 66074.97,
+          "rec_ref_d_s": 30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 73660,
+          "err_readme_s": 7555,
+          "err_refined_s": 7584.66,
+          "score": 0.2906,
+          "rmse_mhz": 12.205,
+          "p_empirical": 0.8864121742077022,
+          "margin_vs_second": 0.0135,
+          "enf_presence_score": 0.8122,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 7556
+        },
+        {
+          "id": "089",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 403.0,
+          "gt_lag_readme_s": 3175,
+          "gt_lag_refined_s": 3172.22,
+          "rec_ref_d_s": 2.78,
+          "gt_ambiguous": false,
+          "est_lag_s": 3172,
+          "err_readme_s": 3,
+          "err_refined_s": 0.03,
+          "score": 0.9968,
+          "rmse_mhz": 1.511,
+          "p_empirical": 3.9279619729581635e-18,
+          "margin_vs_second": 0.1059,
+          "enf_presence_score": 0.989,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 5
+        },
+        {
+          "id": "090",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 3780,
+          "gt_lag_refined_s": 3776.14,
+          "rec_ref_d_s": 3.86,
+          "gt_ambiguous": true,
+          "est_lag_s": 3776,
+          "err_readme_s": 4,
+          "err_refined_s": 0.01,
+          "score": 0.9975,
+          "rmse_mhz": 1.396,
+          "p_empirical": 9.081796657386837e-35,
+          "margin_vs_second": 0.0,
+          "enf_presence_score": 0.9933,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 4
+        },
+        {
+          "id": "091",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 581.0,
+          "gt_lag_readme_s": 4380,
+          "gt_lag_refined_s": 4380.28,
+          "rec_ref_d_s": -0.28,
+          "gt_ambiguous": true,
+          "est_lag_s": 4380,
+          "err_readme_s": 0,
+          "err_refined_s": 0.01,
+          "score": 0.9911,
+          "rmse_mhz": 1.238,
+          "p_empirical": 1.788904476357552e-20,
+          "margin_vs_second": 0.0,
+          "enf_presence_score": 0.9915,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 0
+        },
+        {
+          "id": "092",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 253.0,
+          "gt_lag_readme_s": 28505,
+          "gt_lag_refined_s": 28503.81,
+          "rec_ref_d_s": 1.25,
+          "gt_ambiguous": false,
+          "est_lag_s": 41250,
+          "err_readme_s": 12745,
+          "err_refined_s": 12745.91,
+          "score": 0.568,
+          "rmse_mhz": 37.261,
+          "p_empirical": 0.4605328061537325,
+          "margin_vs_second": 0.027,
+          "enf_presence_score": 0.8456,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 6
+        },
+        {
+          "id": "093",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 584.0,
+          "gt_lag_readme_s": 28810,
+          "gt_lag_refined_s": 28811.46,
+          "rec_ref_d_s": -1.41,
+          "gt_ambiguous": false,
+          "est_lag_s": 54770,
+          "err_readme_s": 25960,
+          "err_refined_s": 25958.06,
+          "score": 0.3965,
+          "rmse_mhz": 59.589,
+          "p_empirical": 0.1748094596698464,
+          "margin_vs_second": 0.0243,
+          "enf_presence_score": 0.5583,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 5
+        },
+        {
+          "id": "094",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 594.0,
+          "gt_lag_readme_s": 29415,
+          "gt_lag_refined_s": 29416.0,
+          "rec_ref_d_s": -0.95,
+          "gt_ambiguous": false,
+          "est_lag_s": 29416,
+          "err_readme_s": 1,
+          "err_refined_s": 0.22,
+          "score": 0.6036,
+          "rmse_mhz": 24.735,
+          "p_empirical": 0.033254827473455865,
+          "margin_vs_second": 0.0973,
+          "enf_presence_score": 0.8688,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 1
+        },
+        {
+          "id": "095",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 584.0,
+          "gt_lag_readme_s": 30015,
+          "gt_lag_refined_s": 30015.86,
+          "rec_ref_d_s": -0.81,
+          "gt_ambiguous": false,
+          "est_lag_s": 1638,
+          "err_readme_s": 28377,
+          "err_refined_s": 28378.32,
+          "score": 0.4064,
+          "rmse_mhz": 120.604,
+          "p_empirical": 0.35004495038640704,
+          "margin_vs_second": 0.0146,
+          "enf_presence_score": 0.1277,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 38298
+        },
+        {
+          "id": "096",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 30615,
+          "gt_lag_refined_s": 30615.27,
+          "rec_ref_d_s": -0.21,
+          "gt_ambiguous": false,
+          "est_lag_s": 34315,
+          "err_readme_s": 3700,
+          "err_refined_s": 3699.76,
+          "score": 0.2954,
+          "rmse_mhz": 53.466,
+          "p_empirical": 0.7049435214050386,
+          "margin_vs_second": 0.0,
+          "enf_presence_score": 0.796,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 5
+        },
+        {
+          "id": "097",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 579.0,
+          "gt_lag_readme_s": 31215,
+          "gt_lag_refined_s": 31214.87,
+          "rec_ref_d_s": 0.19,
+          "gt_ambiguous": false,
+          "est_lag_s": 31215,
+          "err_readme_s": 0,
+          "err_refined_s": 0.08,
+          "score": 0.9977,
+          "rmse_mhz": 1.179,
+          "p_empirical": 5.519580269387879e-34,
+          "margin_vs_second": 0.3125,
+          "enf_presence_score": 0.9956,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "098",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 644.0,
+          "gt_lag_readme_s": 71161,
+          "gt_lag_refined_s": 71160.63,
+          "rec_ref_d_s": 0.11,
+          "gt_ambiguous": false,
+          "est_lag_s": 71161,
+          "err_readme_s": 0,
+          "err_refined_s": 0.04,
+          "score": 0.9989,
+          "rmse_mhz": 0.782,
+          "p_empirical": 3.898001019306472e-51,
+          "margin_vs_second": 0.3462,
+          "enf_presence_score": 0.9908,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "099",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 578.0,
+          "gt_lag_readme_s": 72101,
+          "gt_lag_refined_s": 72099.5,
+          "rec_ref_d_s": 1.21,
+          "gt_ambiguous": false,
+          "est_lag_s": 72100,
+          "err_readme_s": 1,
+          "err_refined_s": 0.01,
+          "score": 0.9989,
+          "rmse_mhz": 0.972,
+          "p_empirical": 4.1177644330242326e-30,
+          "margin_vs_second": 0.1891,
+          "enf_presence_score": 0.996,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "100",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 586.0,
+          "gt_lag_readme_s": 72684,
+          "gt_lag_refined_s": 72684.64,
+          "rec_ref_d_s": -0.2,
+          "gt_ambiguous": false,
+          "est_lag_s": 72685,
+          "err_readme_s": 1,
+          "err_refined_s": 0.02,
+          "score": 0.9998,
+          "rmse_mhz": 0.435,
+          "p_empirical": 4.2062114700829344e-35,
+          "margin_vs_second": 0.1533,
+          "enf_presence_score": 0.9967,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "101",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 586.0,
+          "gt_lag_readme_s": 73289,
+          "gt_lag_refined_s": 73286.5,
+          "rec_ref_d_s": 2.89,
+          "gt_ambiguous": false,
+          "est_lag_s": 73287,
+          "err_readme_s": 2,
+          "err_refined_s": 0.03,
+          "score": 0.9995,
+          "rmse_mhz": 0.556,
+          "p_empirical": 2.039200610672665e-26,
+          "margin_vs_second": 0.0917,
+          "enf_presence_score": 0.9969,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 2
+        },
+        {
+          "id": "102",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 586.0,
+          "gt_lag_readme_s": 73879,
+          "gt_lag_refined_s": 73879.99,
+          "rec_ref_d_s": -0.66,
+          "gt_ambiguous": false,
+          "est_lag_s": 73880,
+          "err_readme_s": 1,
+          "err_refined_s": 0.01,
+          "score": 0.9998,
+          "rmse_mhz": 0.32,
+          "p_empirical": 3.2981953580432225e-84,
+          "margin_vs_second": 0.2697,
+          "enf_presence_score": 0.9946,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "103",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 595.0,
+          "gt_lag_readme_s": 74484,
+          "gt_lag_refined_s": 74481.79,
+          "rec_ref_d_s": 2.53,
+          "gt_ambiguous": false,
+          "est_lag_s": 74482,
+          "err_readme_s": 2,
+          "err_refined_s": 0.01,
+          "score": 0.9998,
+          "rmse_mhz": 0.443,
+          "p_empirical": 1.1910300412672803e-74,
+          "margin_vs_second": 0.3322,
+          "enf_presence_score": 0.9953,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 2
+        },
+        {
+          "id": "104",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 562.0,
+          "gt_lag_readme_s": 75094,
+          "gt_lag_refined_s": 75091.9,
+          "rec_ref_d_s": 2.38,
+          "gt_ambiguous": false,
+          "est_lag_s": 75092,
+          "err_readme_s": 2,
+          "err_refined_s": 0.0,
+          "score": 0.9998,
+          "rmse_mhz": 0.343,
+          "p_empirical": 5.261156960243326e-70,
+          "margin_vs_second": 0.1424,
+          "enf_presence_score": 0.9915,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 2
+        },
+        {
+          "id": "105",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 537.0,
+          "gt_lag_readme_s": 75733,
+          "gt_lag_refined_s": 75733.76,
+          "rec_ref_d_s": -0.81,
+          "gt_ambiguous": false,
+          "est_lag_s": 75734,
+          "err_readme_s": 1,
+          "err_refined_s": 0.0,
+          "score": 0.9996,
+          "rmse_mhz": 0.413,
+          "p_empirical": 3.7126888629864326e-47,
+          "margin_vs_second": 0.2281,
+          "enf_presence_score": 0.9937,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "106",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 578.0,
+          "gt_lag_readme_s": 76298,
+          "gt_lag_refined_s": 76294.35,
+          "rec_ref_d_s": 3.55,
+          "gt_ambiguous": false,
+          "est_lag_s": 76294,
+          "err_readme_s": 4,
+          "err_refined_s": 0.0,
+          "score": 0.9993,
+          "rmse_mhz": 0.466,
+          "p_empirical": 5.450179172277696e-44,
+          "margin_vs_second": 0.2013,
+          "enf_presence_score": 0.9957,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 4
+        },
+        {
+          "id": "107",
+          "day_name": "089-107_ref.wav",
+          "duration_s": 446.0,
+          "gt_lag_readme_s": 76883,
+          "gt_lag_refined_s": 76879.67,
+          "rec_ref_d_s": 3.16,
+          "gt_ambiguous": false,
+          "est_lag_s": 76880,
+          "err_readme_s": 3,
+          "err_refined_s": 0.0,
+          "score": 0.9993,
+          "rmse_mhz": 0.336,
+          "p_empirical": 1.3927056131544825e-23,
+          "margin_vs_second": 0.1458,
+          "enf_presence_score": 0.9908,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "108",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 597.0,
+          "gt_lag_readme_s": 54872,
+          "gt_lag_refined_s": 54869.3,
+          "rec_ref_d_s": 3.2,
+          "gt_ambiguous": false,
+          "est_lag_s": 54869,
+          "err_readme_s": 3,
+          "err_refined_s": 0.01,
+          "score": 0.9998,
+          "rmse_mhz": 0.427,
+          "p_empirical": 4.524204080743495e-57,
+          "margin_vs_second": 0.1533,
+          "enf_presence_score": 0.9954,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "109",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 590.0,
+          "gt_lag_readme_s": 55487,
+          "gt_lag_refined_s": 55488.07,
+          "rec_ref_d_s": -0.58,
+          "gt_ambiguous": false,
+          "est_lag_s": 55488,
+          "err_readme_s": 1,
+          "err_refined_s": 0.0,
+          "score": 1.0,
+          "rmse_mhz": 0.162,
+          "p_empirical": 3.333290836669509e-82,
+          "margin_vs_second": 0.1888,
+          "enf_presence_score": 0.997,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "110",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 571.0,
+          "gt_lag_readme_s": 56097,
+          "gt_lag_refined_s": 56093.98,
+          "rec_ref_d_s": 3.52,
+          "gt_ambiguous": false,
+          "est_lag_s": 56094,
+          "err_readme_s": 3,
+          "err_refined_s": 0.01,
+          "score": 1.0,
+          "rmse_mhz": 0.172,
+          "p_empirical": 6.660332017733207e-82,
+          "margin_vs_second": 0.2624,
+          "enf_presence_score": 0.9972,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "111",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 584.0,
+          "gt_lag_readme_s": 56687,
+          "gt_lag_refined_s": 56686.94,
+          "rec_ref_d_s": 0.56,
+          "gt_ambiguous": false,
+          "est_lag_s": 56687,
+          "err_readme_s": 0,
+          "err_refined_s": 0.01,
+          "score": 1.0,
+          "rmse_mhz": 0.161,
+          "p_empirical": 2.6998584369633025e-84,
+          "margin_vs_second": 0.2577,
+          "enf_presence_score": 0.9958,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "112",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 565.0,
+          "gt_lag_readme_s": 57606,
+          "gt_lag_refined_s": 57607.41,
+          "rec_ref_d_s": -1.16,
+          "gt_ambiguous": false,
+          "est_lag_s": 57607,
+          "err_readme_s": 1,
+          "err_refined_s": 0.0,
+          "score": 0.9998,
+          "rmse_mhz": 0.432,
+          "p_empirical": 6.971386623201059e-56,
+          "margin_vs_second": 0.1407,
+          "enf_presence_score": 0.9964,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "113",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 584.0,
+          "gt_lag_readme_s": 58186,
+          "gt_lag_refined_s": 58187.43,
+          "rec_ref_d_s": -1.25,
+          "gt_ambiguous": false,
+          "est_lag_s": 58187,
+          "err_readme_s": 1,
+          "err_refined_s": 0.0,
+          "score": 0.9995,
+          "rmse_mhz": 0.541,
+          "p_empirical": 5.989528812402482e-61,
+          "margin_vs_second": 0.2884,
+          "enf_presence_score": 0.9931,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "114",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 558.0,
+          "gt_lag_readme_s": 58786,
+          "gt_lag_refined_s": 58786.76,
+          "rec_ref_d_s": -0.56,
+          "gt_ambiguous": false,
+          "est_lag_s": 58787,
+          "err_readme_s": 1,
+          "err_refined_s": 0.06,
+          "score": 0.9999,
+          "rmse_mhz": 0.261,
+          "p_empirical": 3.1024388954456418e-58,
+          "margin_vs_second": 0.1569,
+          "enf_presence_score": 0.9956,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "115",
+          "day_name": "108-115_ref.wav",
+          "duration_s": 320.0,
+          "gt_lag_readme_s": 59366,
+          "gt_lag_refined_s": 59366.86,
+          "rec_ref_d_s": -0.57,
+          "gt_ambiguous": false,
+          "est_lag_s": 59367,
+          "err_readme_s": 1,
+          "err_refined_s": 0.0,
+          "score": 1.0,
+          "rmse_mhz": 0.179,
+          "p_empirical": 2.7464172985797614e-38,
+          "margin_vs_second": 0.1091,
+          "enf_presence_score": 0.9913,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "116",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 564.0,
+          "gt_lag_readme_s": 38585,
+          "gt_lag_refined_s": 38581.61,
+          "rec_ref_d_s": 3.39,
+          "gt_ambiguous": false,
+          "est_lag_s": 38582,
+          "err_readme_s": 3,
+          "err_refined_s": 0.01,
+          "score": 0.9946,
+          "rmse_mhz": 1.376,
+          "p_empirical": 1.6729449628519346e-27,
+          "margin_vs_second": 0.2406,
+          "enf_presence_score": 0.9847,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "117",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 336.0,
+          "gt_lag_readme_s": 39125,
+          "gt_lag_refined_s": 39124.64,
+          "rec_ref_d_s": 0.36,
+          "gt_ambiguous": false,
+          "est_lag_s": 39125,
+          "err_readme_s": 0,
+          "err_refined_s": 0.01,
+          "score": 0.9996,
+          "rmse_mhz": 0.513,
+          "p_empirical": 2.5238289768075578e-29,
+          "margin_vs_second": 0.1262,
+          "enf_presence_score": 0.9937,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "118",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 602.0,
+          "gt_lag_readme_s": 40135,
+          "gt_lag_refined_s": 40131.82,
+          "rec_ref_d_s": 2.81,
+          "gt_ambiguous": false,
+          "est_lag_s": 40132,
+          "err_readme_s": 3,
+          "err_refined_s": 0.0,
+          "score": 0.9999,
+          "rmse_mhz": 0.232,
+          "p_empirical": 1.6915439173384437e-73,
+          "margin_vs_second": 0.2537,
+          "enf_presence_score": 0.9949,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "119",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 602.0,
+          "gt_lag_readme_s": 40710,
+          "gt_lag_refined_s": 40711.7,
+          "rec_ref_d_s": -2.11,
+          "gt_ambiguous": false,
+          "est_lag_s": 40712,
+          "err_readme_s": 2,
+          "err_refined_s": 0.03,
+          "score": 0.9998,
+          "rmse_mhz": 0.463,
+          "p_empirical": 7.632853474756586e-41,
+          "margin_vs_second": 0.1854,
+          "enf_presence_score": 0.9947,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 2
+        },
+        {
+          "id": "120",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 577.0,
+          "gt_lag_readme_s": 41320,
+          "gt_lag_refined_s": 41316.78,
+          "rec_ref_d_s": 2.74,
+          "gt_ambiguous": false,
+          "est_lag_s": 41317,
+          "err_readme_s": 3,
+          "err_refined_s": 0.01,
+          "score": 0.9998,
+          "rmse_mhz": 0.492,
+          "p_empirical": 6.2912274005987025e-55,
+          "margin_vs_second": 0.1827,
+          "enf_presence_score": 0.996,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "121",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 564.0,
+          "gt_lag_readme_s": 41924,
+          "gt_lag_refined_s": 41921.87,
+          "rec_ref_d_s": 2.59,
+          "gt_ambiguous": false,
+          "est_lag_s": 41922,
+          "err_readme_s": 2,
+          "err_refined_s": 0.02,
+          "score": 0.9999,
+          "rmse_mhz": 0.291,
+          "p_empirical": 1.532987153848768e-79,
+          "margin_vs_second": 0.2553,
+          "enf_presence_score": 0.9942,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 2
+        },
+        {
+          "id": "122",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 577.0,
+          "gt_lag_readme_s": 42514,
+          "gt_lag_refined_s": 42514.36,
+          "rec_ref_d_s": 0.05,
+          "gt_ambiguous": false,
+          "est_lag_s": 42514,
+          "err_readme_s": 0,
+          "err_refined_s": 0.02,
+          "score": 0.9996,
+          "rmse_mhz": 0.469,
+          "p_empirical": 2.4219291999797134e-68,
+          "margin_vs_second": 0.2735,
+          "enf_presence_score": 0.9901,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "123",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 501.0,
+          "gt_lag_readme_s": 43184,
+          "gt_lag_refined_s": 43181.34,
+          "rec_ref_d_s": 2.84,
+          "gt_ambiguous": false,
+          "est_lag_s": 43181,
+          "err_readme_s": 3,
+          "err_refined_s": 0.02,
+          "score": 0.9992,
+          "rmse_mhz": 0.816,
+          "p_empirical": 3.6150785156598557e-28,
+          "margin_vs_second": 0.1516,
+          "enf_presence_score": 0.9956,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "124",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 577.0,
+          "gt_lag_readme_s": 43723,
+          "gt_lag_refined_s": 43723.24,
+          "rec_ref_d_s": -0.12,
+          "gt_ambiguous": false,
+          "est_lag_s": 43723,
+          "err_readme_s": 0,
+          "err_refined_s": 0.01,
+          "score": 0.9988,
+          "rmse_mhz": 0.822,
+          "p_empirical": 2.482811553320033e-47,
+          "margin_vs_second": 0.1934,
+          "enf_presence_score": 0.9947,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "125",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 577.0,
+          "gt_lag_readme_s": 44318,
+          "gt_lag_refined_s": 44315.73,
+          "rec_ref_d_s": 2.34,
+          "gt_ambiguous": false,
+          "est_lag_s": 44316,
+          "err_readme_s": 2,
+          "err_refined_s": 0.02,
+          "score": 0.9964,
+          "rmse_mhz": 1.213,
+          "p_empirical": 5.020799528182098e-19,
+          "margin_vs_second": 0.0297,
+          "enf_presence_score": 0.9959,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 2
+        },
+        {
+          "id": "126",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 552.0,
+          "gt_lag_readme_s": 44923,
+          "gt_lag_refined_s": 44921.58,
+          "rec_ref_d_s": 1.4,
+          "gt_ambiguous": false,
+          "est_lag_s": 44922,
+          "err_readme_s": 1,
+          "err_refined_s": 0.19,
+          "score": 0.9721,
+          "rmse_mhz": 4.086,
+          "p_empirical": 1.9377828754688212e-08,
+          "margin_vs_second": 0.0812,
+          "enf_presence_score": 0.9932,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "127",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 552.0,
+          "gt_lag_readme_s": 45523,
+          "gt_lag_refined_s": 45526.33,
+          "rec_ref_d_s": -3.39,
+          "gt_ambiguous": false,
+          "est_lag_s": 45526,
+          "err_readme_s": 3,
+          "err_refined_s": 0.0,
+          "score": 0.9958,
+          "rmse_mhz": 1.549,
+          "p_empirical": 7.974840050187431e-22,
+          "margin_vs_second": 0.2246,
+          "enf_presence_score": 0.9868,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        },
+        {
+          "id": "128",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 564.0,
+          "gt_lag_readme_s": 46123,
+          "gt_lag_refined_s": 46116.63,
+          "rec_ref_d_s": 6.09,
+          "gt_ambiguous": false,
+          "est_lag_s": 46119,
+          "err_readme_s": 4,
+          "err_refined_s": 2.09,
+          "score": 0.7102,
+          "rmse_mhz": 9.308,
+          "p_empirical": 0.03661961740711839,
+          "margin_vs_second": 0.0897,
+          "enf_presence_score": 0.6544,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 5
+        },
+        {
+          "id": "129",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 602.0,
+          "gt_lag_readme_s": 46787,
+          "gt_lag_refined_s": 46785.3,
+          "rec_ref_d_s": 1.32,
+          "gt_ambiguous": false,
+          "est_lag_s": 46785,
+          "err_readme_s": 2,
+          "err_refined_s": 0.07,
+          "score": 0.999,
+          "rmse_mhz": 1.134,
+          "p_empirical": 9.92257926096967e-25,
+          "margin_vs_second": 0.085,
+          "enf_presence_score": 0.9927,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 4
+        },
+        {
+          "id": "130",
+          "day_name": "116-130_ref.wav",
+          "duration_s": 640.0,
+          "gt_lag_readme_s": 47432,
+          "gt_lag_refined_s": 47428.35,
+          "rec_ref_d_s": 3.22,
+          "gt_ambiguous": false,
+          "est_lag_s": 47428,
+          "err_readme_s": 4,
+          "err_refined_s": 0.02,
+          "score": 0.9989,
+          "rmse_mhz": 0.787,
+          "p_empirical": 9.409728761148704e-51,
+          "margin_vs_second": 0.3084,
+          "enf_presence_score": 0.9947,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 4
+        }
+      ]
+    },
+    "holdout_v2_frozen": {
+      "split": "holdout",
+      "policy_label": "W10_v2_frozen_on_dev",
+      "thresholds": {
+        "min_valid_duration_s": 25.0,
+        "min_valid_samples": 20,
+        "min_valid_fraction": 0.5,
+        "min_trace_std_mhz": 0.8,
+        "max_trace_std_mhz": 200.0,
+        "max_p_empirical": 0.015,
+        "min_abs_score": 0.5,
+        "require_above_null_threshold": true,
+        "min_margin_vs_second": 0.05,
+        "min_ratio_vs_second": 1.07,
+        "max_rmse_mhz": 40.0,
+        "min_duration_for_strict_split_half_s": 90.0,
+        "max_split_half_lag_diff_s": 15.0,
+        "min_split_half_local_corr": 0.3,
+        "default_claim_tolerance_s": 60.0,
+        "min_enf_presence_score": 0.35
+      },
+      "denominators": {
+        "n_h1_positive": 45,
+        "n_h1_clean_extractor_subset": 14,
+        "n_h0_no_enf": 17,
+        "n_wrong_day_h1": 45,
+        "n_surrogate_ref_h1": 45,
+        "n_total_negative_trials": 107
+      },
+      "w10_matcher": {
+        "coverage_h1_all": {
+          "k": 10,
+          "n": 45,
+          "rate": 0.2222,
+          "ci95": [
+            0.1254,
+            0.3627
+          ]
+        },
+        "coverage_h1_clean_extractor_subset": {
+          "k": 9,
+          "n": 14,
+          "rate": 0.6429,
+          "ci95": [
+            0.3876,
+            0.8366
+          ]
+        },
+        "abstention_rate_h1": {
+          "k": 35,
+          "n": 45,
+          "rate": 0.7778,
+          "ci95": [
+            0.6373,
+            0.8746
+          ]
+        },
+        "raw_top1_acc_5s_readme_gt": {
+          "k": 13,
+          "n": 45,
+          "rate": 0.2889,
+          "ci95": [
+            0.1773,
+            0.4337
+          ]
+        },
+        "raw_top1_acc_1s_refined_gt": {
+          "k": 15,
+          "n": 45,
+          "rate": 0.3333,
+          "ci95": [
+            0.2136,
+            0.4793
+          ]
+        },
+        "selective_acc_5s_readme_gt": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "selective_acc_10s_readme_gt": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "selective_acc_1s_against_per_file_refined_gt": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "selective_acc_2s_against_per_file_refined_gt": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95": [
+            0.7225,
+            1.0
+          ]
+        },
+        "fpr_h0_no_enf": {
+          "k": 0,
+          "n": 17,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.1843
+          ]
+        },
+        "fpr_wrong_day": {
+          "k": 2,
+          "n": 45,
+          "rate": 0.0444,
+          "ci95": [
+            0.0123,
+            0.1483
+          ]
+        },
+        "fpr_surrogate_ref": {
+          "k": 0,
+          "n": 45,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0787
+          ]
+        },
+        "fpr_combined_all_negatives": {
+          "k": 2,
+          "n": 107,
+          "rate": 0.0187,
+          "ci95": [
+            0.0051,
+            0.0656
+          ]
+        },
+        "fcr_truthful_claim": {
+          "k": 0,
+          "n": 45,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0787
+          ]
+        },
+        "tcr_truthful_claim": {
+          "k": 10,
+          "n": 45,
+          "rate": 0.2222,
+          "ci95": [
+            0.1254,
+            0.3627
+          ]
+        },
+        "tddr_shifted_claim": {
+          "k": 10,
+          "n": 45,
+          "rate": 0.2222,
+          "ci95": [
+            0.1254,
+            0.3627
+          ]
+        }
+      },
+      "baseline_m1_nate_griff": {
+        "raw_top1_acc_5s_readme_gt": {
+          "k": 13,
+          "n": 45,
+          "rate": 0.2889,
+          "ci95": [
+            0.1773,
+            0.4337
+          ]
+        },
+        "always_top1_fpr_h0": {
+          "k": 17,
+          "n": 17,
+          "rate": 1.0,
+          "ci95": [
+            0.8157,
+            1.0
+          ]
+        },
+        "always_top1_fpr_wrong_day": {
+          "k": 45,
+          "n": 45,
+          "rate": 1.0,
+          "ci95": [
+            0.9213,
+            1.0
+          ]
+        },
+        "gated_corr045_coverage_h1": {
+          "k": 26,
+          "n": 45,
+          "rate": 0.5778,
+          "ci95": [
+            0.433,
+            0.7103
+          ]
+        },
+        "gated_corr045_selective_acc_5s_readme_gt": {
+          "k": 10,
+          "n": 26,
+          "rate": 0.3846,
+          "ci95": [
+            0.2243,
+            0.5747
+          ]
+        },
+        "gated_corr045_fpr_h0": {
+          "k": 4,
+          "n": 17,
+          "rate": 0.2353,
+          "ci95": [
+            0.0956,
+            0.4726
+          ]
+        },
+        "gated_corr045_fpr_wrong_day": {
+          "k": 21,
+          "n": 45,
+          "rate": 0.4667,
+          "ci95": [
+            0.3294,
+            0.6092
+          ]
+        }
+      },
+      "baseline_m2_naive_iid_fisher_z": {
+        "coverage_h1": {
+          "k": 45,
+          "n": 45,
+          "rate": 1.0,
+          "ci95": [
+            0.9213,
+            1.0
+          ]
+        },
+        "selective_acc_5s_readme_gt": {
+          "k": 13,
+          "n": 45,
+          "rate": 0.2889,
+          "ci95": [
+            0.1773,
+            0.4337
+          ]
+        },
+        "fpr_h0_no_enf": {
+          "k": 17,
+          "n": 17,
+          "rate": 1.0,
+          "ci95": [
+            0.8157,
+            1.0
+          ]
+        },
+        "fpr_wrong_day": {
+          "k": 45,
+          "n": 45,
+          "rate": 1.0,
+          "ci95": [
+            0.9213,
+            1.0
+          ]
+        },
+        "fpr_surrogate_ref": {
+          "k": 45,
+          "n": 45,
+          "rate": 1.0,
+          "ci95": [
+            0.9213,
+            1.0
+          ]
+        },
+        "fpr_combined_all_negatives": {
+          "k": 107,
+          "n": 107,
+          "rate": 1.0,
+          "ci95": [
+            0.9653,
+            1.0
+          ]
+        }
+      },
+      "baseline_m0_metadata_only": {
+        "coverage_h1": {
+          "k": 0,
+          "n": 45,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.0787
+          ]
+        },
+        "spoofed_timestamp_false_accept_rate": {
+          "k": 45,
+          "n": 45,
+          "rate": 1.0,
+          "ci95": [
+            0.9213,
+            1.0
+          ]
+        }
+      },
+      "per_case_h1": [
+        {
+          "id": "001",
+          "day_name": "001_ref.wav",
+          "duration_s": 467.0,
+          "gt_lag_readme_s": 71457,
+          "gt_lag_refined_s": 71457.74,
+          "rec_ref_d_s": -1.18,
+          "gt_ambiguous": false,
+          "est_lag_s": 12860,
+          "err_readme_s": 58597,
+          "err_refined_s": 58597.51,
+          "score": 0.4629,
+          "rmse_mhz": 32.149,
+          "p_empirical": 0.9204520326886556,
+          "margin_vs_second": 0.0136,
+          "enf_presence_score": 0.4938,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 6945
+        },
+        {
+          "id": "003",
+          "day_name": "003-004_ref.wav",
+          "duration_s": 637.0,
+          "gt_lag_readme_s": 75603,
+          "gt_lag_refined_s": 75625.78,
+          "rec_ref_d_s": -22.28,
+          "gt_ambiguous": false,
+          "est_lag_s": 46694,
+          "err_readme_s": 28909,
+          "err_refined_s": 28931.4,
+          "score": 0.6245,
+          "rmse_mhz": 66.249,
+          "p_empirical": 0.11535559367712075,
+          "margin_vs_second": 0.034,
+          "enf_presence_score": 0.5037,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 9156
+        },
+        {
+          "id": "004",
+          "day_name": "003-004_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 77013,
+          "gt_lag_refined_s": 77015.71,
+          "rec_ref_d_s": -2.21,
+          "gt_ambiguous": false,
+          "est_lag_s": 83342,
+          "err_readme_s": 6329,
+          "err_refined_s": 6326.48,
+          "score": 0.6039,
+          "rmse_mhz": 67.888,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0187,
+          "enf_presence_score": 0.3467,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 6344
+        },
+        {
+          "id": "005",
+          "day_name": "005_ref.wav",
+          "duration_s": 658.0,
+          "gt_lag_readme_s": 75649,
+          "gt_lag_refined_s": 75653.18,
+          "rec_ref_d_s": -4.63,
+          "gt_ambiguous": false,
+          "est_lag_s": 46336,
+          "err_readme_s": 29313,
+          "err_refined_s": 29317.13,
+          "score": 0.3575,
+          "rmse_mhz": 12.62,
+          "p_empirical": 0.3459495926286874,
+          "margin_vs_second": 0.0312,
+          "enf_presence_score": 0.5345,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 29313
+        },
+        {
+          "id": "006",
+          "day_name": "006-007_ref.wav",
+          "duration_s": 550.0,
+          "gt_lag_readme_s": 61295,
+          "gt_lag_refined_s": 61292.1,
+          "rec_ref_d_s": 2.55,
+          "gt_ambiguous": false,
+          "est_lag_s": 61292,
+          "err_readme_s": 3,
+          "err_refined_s": 0.53,
+          "score": 0.6581,
+          "rmse_mhz": 22.08,
+          "p_empirical": 0.0018402221304502076,
+          "margin_vs_second": 0.1367,
+          "enf_presence_score": 0.7884,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "007",
+          "day_name": "006-007_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 61865,
+          "gt_lag_refined_s": 61862.86,
+          "rec_ref_d_s": 1.79,
+          "gt_ambiguous": false,
+          "est_lag_s": 61863,
+          "err_readme_s": 2,
+          "err_refined_s": 0.07,
+          "score": 0.9532,
+          "rmse_mhz": 6.134,
+          "p_empirical": 2.162062881301794e-10,
+          "margin_vs_second": 0.1874,
+          "enf_presence_score": 0.9037,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "008",
+          "day_name": "008-009_ref.wav",
+          "duration_s": 746.0,
+          "gt_lag_readme_s": 80537,
+          "gt_lag_refined_s": 80533.72,
+          "rec_ref_d_s": 3.28,
+          "gt_ambiguous": false,
+          "est_lag_s": 80534,
+          "err_readme_s": 3,
+          "err_refined_s": 0.66,
+          "score": 0.9505,
+          "rmse_mhz": 6.851,
+          "p_empirical": 2.0879244139702944e-11,
+          "margin_vs_second": 0.1928,
+          "enf_presence_score": 0.9243,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 2
+        },
+        {
+          "id": "009",
+          "day_name": "008-009_ref.wav",
+          "duration_s": 747.0,
+          "gt_lag_readme_s": 81302,
+          "gt_lag_refined_s": 81303.4,
+          "rec_ref_d_s": -1.4,
+          "gt_ambiguous": false,
+          "est_lag_s": 50364,
+          "err_readme_s": 30938,
+          "err_refined_s": 30939.52,
+          "score": 0.434,
+          "rmse_mhz": 60.077,
+          "p_empirical": 0.4257086392176124,
+          "margin_vs_second": 0.0475,
+          "enf_presence_score": 0.7196,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 10
+        },
+        {
+          "id": "011",
+          "day_name": "011_ref.wav",
+          "duration_s": 734.0,
+          "gt_lag_readme_s": 50769,
+          "gt_lag_refined_s": 50769.21,
+          "rec_ref_d_s": -0.17,
+          "gt_ambiguous": false,
+          "est_lag_s": 50769,
+          "err_readme_s": 0,
+          "err_refined_s": 0.0,
+          "score": 0.9996,
+          "rmse_mhz": 0.562,
+          "p_empirical": 8.996451168508967e-51,
+          "margin_vs_second": 0.2557,
+          "enf_presence_score": 0.9949,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "014",
+          "day_name": "014_ref.wav",
+          "duration_s": 697.0,
+          "gt_lag_readme_s": 79747,
+          "gt_lag_refined_s": 79744.74,
+          "rec_ref_d_s": 2.3,
+          "gt_ambiguous": false,
+          "est_lag_s": 30861,
+          "err_readme_s": 48886,
+          "err_refined_s": 48883.83,
+          "score": 0.5576,
+          "rmse_mhz": 203.93,
+          "p_empirical": 0.08811415270628914,
+          "margin_vs_second": 0.0772,
+          "enf_presence_score": 0.0102,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 48870
+        },
+        {
+          "id": "015",
+          "day_name": "015_ref.wav",
+          "duration_s": 613.0,
+          "gt_lag_readme_s": 79812,
+          "gt_lag_refined_s": 79813.19,
+          "rec_ref_d_s": -1.14,
+          "gt_ambiguous": false,
+          "est_lag_s": 270,
+          "err_readme_s": 79542,
+          "err_refined_s": 79543.05,
+          "score": 0.626,
+          "rmse_mhz": 146.336,
+          "p_empirical": 0.07495221935123413,
+          "margin_vs_second": 0.0052,
+          "enf_presence_score": 0.0473,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 40435
+        },
+        {
+          "id": "020",
+          "day_name": "020-025_ref.wav",
+          "duration_s": 690.0,
+          "gt_lag_readme_s": 4578,
+          "gt_lag_refined_s": 4579.29,
+          "rec_ref_d_s": -0.8,
+          "gt_ambiguous": false,
+          "est_lag_s": 4580,
+          "err_readme_s": 2,
+          "err_refined_s": 0.39,
+          "score": 0.6991,
+          "rmse_mhz": 22.956,
+          "p_empirical": 0.003366984416969416,
+          "margin_vs_second": 0.1248,
+          "enf_presence_score": 0.4799,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 7
+        },
+        {
+          "id": "021",
+          "day_name": "020-025_ref.wav",
+          "duration_s": 613.0,
+          "gt_lag_readme_s": 41448,
+          "gt_lag_refined_s": 41444.92,
+          "rec_ref_d_s": 3.29,
+          "gt_ambiguous": false,
+          "est_lag_s": 67079,
+          "err_readme_s": 25631,
+          "err_refined_s": 25633.79,
+          "score": 0.4768,
+          "rmse_mhz": 107.029,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0361,
+          "enf_presence_score": 0.1938,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 25649
+        },
+        {
+          "id": "022",
+          "day_name": "020-025_ref.wav",
+          "duration_s": 685.0,
+          "gt_lag_readme_s": 42078,
+          "gt_lag_refined_s": 42100.89,
+          "rec_ref_d_s": -22.74,
+          "gt_ambiguous": false,
+          "est_lag_s": 31944,
+          "err_readme_s": 10134,
+          "err_refined_s": 10156.45,
+          "score": 0.3965,
+          "rmse_mhz": 108.012,
+          "p_empirical": 0.22880259342904022,
+          "margin_vs_second": 0.0346,
+          "enf_presence_score": 0.1872,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 4526
+        },
+        {
+          "id": "023",
+          "day_name": "020-025_ref.wav",
+          "duration_s": 734.0,
+          "gt_lag_readme_s": 44622,
+          "gt_lag_refined_s": 44651.7,
+          "rec_ref_d_s": -30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 84468,
+          "err_readme_s": 39846,
+          "err_refined_s": 39816.32,
+          "score": 0.4333,
+          "rmse_mhz": 109.034,
+          "p_empirical": 0.1260421581454164,
+          "margin_vs_second": 0.0318,
+          "enf_presence_score": 0.1753,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 181
+        },
+        {
+          "id": "024",
+          "day_name": "020-025_ref.wav",
+          "duration_s": 484.0,
+          "gt_lag_readme_s": 49885,
+          "gt_lag_refined_s": 49885.14,
+          "rec_ref_d_s": 0.09,
+          "gt_ambiguous": false,
+          "est_lag_s": 500,
+          "err_readme_s": 49385,
+          "err_refined_s": 49384.83,
+          "score": 0.4093,
+          "rmse_mhz": 71.491,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0041,
+          "enf_presence_score": 0.4825,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 7862
+        },
+        {
+          "id": "025",
+          "day_name": "020-025_ref.wav",
+          "duration_s": 846.0,
+          "gt_lag_readme_s": 50574,
+          "gt_lag_refined_s": 50555.62,
+          "rec_ref_d_s": 18.12,
+          "gt_ambiguous": false,
+          "est_lag_s": 18097,
+          "err_readme_s": 32477,
+          "err_refined_s": 32458.86,
+          "score": 0.2555,
+          "rmse_mhz": 93.707,
+          "p_empirical": 0.8683956074432474,
+          "margin_vs_second": 0.0014,
+          "enf_presence_score": 0.2868,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 36076
+        },
+        {
+          "id": "026",
+          "day_name": "026-028_ref.wav",
+          "duration_s": 704.0,
+          "gt_lag_readme_s": 37805,
+          "gt_lag_refined_s": 37805.65,
+          "rec_ref_d_s": -0.63,
+          "gt_ambiguous": false,
+          "est_lag_s": 37806,
+          "err_readme_s": 1,
+          "err_refined_s": 0.47,
+          "score": 0.3912,
+          "rmse_mhz": 48.439,
+          "p_empirical": 0.05148767764389362,
+          "margin_vs_second": 0.0808,
+          "enf_presence_score": 0.2516,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 25
+        },
+        {
+          "id": "027",
+          "day_name": "026-028_ref.wav",
+          "duration_s": 694.0,
+          "gt_lag_readme_s": 38535,
+          "gt_lag_refined_s": 38531.91,
+          "rec_ref_d_s": 3.1,
+          "gt_ambiguous": false,
+          "est_lag_s": 38532,
+          "err_readme_s": 3,
+          "err_refined_s": 0.05,
+          "score": 0.9774,
+          "rmse_mhz": 3.166,
+          "p_empirical": 5.214420620053632e-19,
+          "margin_vs_second": 0.2225,
+          "enf_presence_score": 0.9791,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 2
+        },
+        {
+          "id": "028",
+          "day_name": "026-028_ref.wav",
+          "duration_s": 554.0,
+          "gt_lag_readme_s": 40065,
+          "gt_lag_refined_s": 40062.89,
+          "rec_ref_d_s": 1.9,
+          "gt_ambiguous": false,
+          "est_lag_s": 40044,
+          "err_readme_s": 21,
+          "err_refined_s": 19.29,
+          "score": 0.2368,
+          "rmse_mhz": 70.144,
+          "p_empirical": 0.9983882025350164,
+          "margin_vs_second": 0.0105,
+          "enf_presence_score": 0.2081,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 32947
+        },
+        {
+          "id": "029",
+          "day_name": "029_ref.wav",
+          "duration_s": 669.0,
+          "gt_lag_readme_s": 80967,
+          "gt_lag_refined_s": 80968.02,
+          "rec_ref_d_s": -1.12,
+          "gt_ambiguous": false,
+          "est_lag_s": 24287,
+          "err_readme_s": 56680,
+          "err_refined_s": 56681.11,
+          "score": 0.6476,
+          "rmse_mhz": 152.9,
+          "p_empirical": 0.17544335308695946,
+          "margin_vs_second": 0.0556,
+          "enf_presence_score": 0.0422,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 33773
+        },
+        {
+          "id": "038",
+          "day_name": "038_ref.wav",
+          "duration_s": 938.0,
+          "gt_lag_readme_s": 64888,
+          "gt_lag_refined_s": 64888.98,
+          "rec_ref_d_s": -0.98,
+          "gt_ambiguous": false,
+          "est_lag_s": 64889,
+          "err_readme_s": 1,
+          "err_refined_s": 0.41,
+          "score": 0.7085,
+          "rmse_mhz": 18.626,
+          "p_empirical": 1.5161095525108713e-07,
+          "margin_vs_second": 0.254,
+          "enf_presence_score": 0.8775,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 9
+        },
+        {
+          "id": "043",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 592.0,
+          "gt_lag_readme_s": 36870,
+          "gt_lag_refined_s": 36873.32,
+          "rec_ref_d_s": -2.88,
+          "gt_ambiguous": false,
+          "est_lag_s": 47906,
+          "err_readme_s": 11036,
+          "err_refined_s": 11032.6,
+          "score": 0.3699,
+          "rmse_mhz": 63.895,
+          "p_empirical": 0.3621327751153785,
+          "margin_vs_second": 0.0247,
+          "enf_presence_score": 0.5986,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 27659
+        },
+        {
+          "id": "044",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 592.0,
+          "gt_lag_readme_s": 37481,
+          "gt_lag_refined_s": 37482.64,
+          "rec_ref_d_s": -2.09,
+          "gt_ambiguous": false,
+          "est_lag_s": 29437,
+          "err_readme_s": 8044,
+          "err_refined_s": 8045.2,
+          "score": 0.5328,
+          "rmse_mhz": 100.589,
+          "p_empirical": 0.22506428416850652,
+          "margin_vs_second": 0.0696,
+          "enf_presence_score": 0.2181,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 1
+        },
+        {
+          "id": "045",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 592.0,
+          "gt_lag_readme_s": 38080,
+          "gt_lag_refined_s": 38079.28,
+          "rec_ref_d_s": 1.17,
+          "gt_ambiguous": false,
+          "est_lag_s": 4888,
+          "err_readme_s": 33192,
+          "err_refined_s": 33191.5,
+          "score": 0.3712,
+          "rmse_mhz": 89.975,
+          "p_empirical": 0.4069384004786648,
+          "margin_vs_second": 0.0281,
+          "enf_presence_score": 0.1877,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 27231
+        },
+        {
+          "id": "046",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 587.0,
+          "gt_lag_readme_s": 38680,
+          "gt_lag_refined_s": 38678.66,
+          "rec_ref_d_s": 1.79,
+          "gt_ambiguous": false,
+          "est_lag_s": 44195,
+          "err_readme_s": 5515,
+          "err_refined_s": 5516.29,
+          "score": 0.4046,
+          "rmse_mhz": 57.612,
+          "p_empirical": 0.5956227488258199,
+          "margin_vs_second": 0.0064,
+          "enf_presence_score": 0.4864,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 3
+        },
+        {
+          "id": "047",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 440.0,
+          "gt_lag_readme_s": 39886,
+          "gt_lag_refined_s": 39886.71,
+          "rec_ref_d_s": -0.49,
+          "gt_ambiguous": false,
+          "est_lag_s": 60935,
+          "err_readme_s": 21049,
+          "err_refined_s": 21048.25,
+          "score": 0.5823,
+          "rmse_mhz": 28.028,
+          "p_empirical": 0.03302611356929438,
+          "margin_vs_second": 0.0619,
+          "enf_presence_score": 0.8402,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 9778
+        },
+        {
+          "id": "048",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 681.0,
+          "gt_lag_readme_s": 49642,
+          "gt_lag_refined_s": 49638.2,
+          "rec_ref_d_s": 3.77,
+          "gt_ambiguous": false,
+          "est_lag_s": 8236,
+          "err_readme_s": 41406,
+          "err_refined_s": 41402.03,
+          "score": 0.3176,
+          "rmse_mhz": 54.58,
+          "p_empirical": 0.49378145278669916,
+          "margin_vs_second": 0.0339,
+          "enf_presence_score": 0.5544,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 41400
+        },
+        {
+          "id": "049",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 608.0,
+          "gt_lag_readme_s": 50401,
+          "gt_lag_refined_s": 50397.25,
+          "rec_ref_d_s": 3.52,
+          "gt_ambiguous": false,
+          "est_lag_s": 23609,
+          "err_readme_s": 26792,
+          "err_refined_s": 26788.51,
+          "score": 0.3783,
+          "rmse_mhz": 129.838,
+          "p_empirical": 0.6294644976422319,
+          "margin_vs_second": 0.0042,
+          "enf_presence_score": 0.1083,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 28716
+        },
+        {
+          "id": "050",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 51021,
+          "gt_lag_refined_s": 51026.28,
+          "rec_ref_d_s": -5.58,
+          "gt_ambiguous": false,
+          "est_lag_s": 36733,
+          "err_readme_s": 14288,
+          "err_refined_s": 14293.33,
+          "score": 0.6566,
+          "rmse_mhz": 44.986,
+          "p_empirical": 0.29075580031242,
+          "margin_vs_second": 0.0302,
+          "enf_presence_score": 0.8331,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 40562
+        },
+        {
+          "id": "051",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 613.0,
+          "gt_lag_readme_s": 51631,
+          "gt_lag_refined_s": 51601.62,
+          "rec_ref_d_s": 29.02,
+          "gt_ambiguous": false,
+          "est_lag_s": 42280,
+          "err_readme_s": 9351,
+          "err_refined_s": 9321.52,
+          "score": 0.7329,
+          "rmse_mhz": 69.939,
+          "p_empirical": 0.6166784839005863,
+          "margin_vs_second": 0.0114,
+          "enf_presence_score": 0.4809,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 30531
+        },
+        {
+          "id": "052",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 574.0,
+          "gt_lag_readme_s": 52246,
+          "gt_lag_refined_s": 52225.92,
+          "rec_ref_d_s": 19.65,
+          "gt_ambiguous": false,
+          "est_lag_s": 51274,
+          "err_readme_s": 972,
+          "err_refined_s": 951.83,
+          "score": 0.338,
+          "rmse_mhz": 51.623,
+          "p_empirical": 0.4575593042894696,
+          "margin_vs_second": 0.024,
+          "enf_presence_score": 0.7207,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 152
+        },
+        {
+          "id": "053",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 424.0,
+          "gt_lag_readme_s": 52846,
+          "gt_lag_refined_s": 52839.96,
+          "rec_ref_d_s": 5.56,
+          "gt_ambiguous": false,
+          "est_lag_s": 52840,
+          "err_readme_s": 6,
+          "err_refined_s": 0.06,
+          "score": 0.6845,
+          "rmse_mhz": 27.199,
+          "p_empirical": 0.48573080293298615,
+          "margin_vs_second": 0.0059,
+          "enf_presence_score": 0.7362,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 1
+        },
+        {
+          "id": "054",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 660.0,
+          "gt_lag_readme_s": 56819,
+          "gt_lag_refined_s": 56818.89,
+          "rec_ref_d_s": 0.15,
+          "gt_ambiguous": false,
+          "est_lag_s": 52321,
+          "err_readme_s": 4498,
+          "err_refined_s": 4497.51,
+          "score": 0.6137,
+          "rmse_mhz": 48.258,
+          "p_empirical": 0.4274712543437284,
+          "margin_vs_second": 0.018,
+          "enf_presence_score": 0.8237,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 11497
+        },
+        {
+          "id": "055",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 609.0,
+          "gt_lag_readme_s": 57718,
+          "gt_lag_refined_s": 57747.78,
+          "rec_ref_d_s": -30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 75386,
+          "err_readme_s": 17668,
+          "err_refined_s": 17638.71,
+          "score": 0.5262,
+          "rmse_mhz": 53.886,
+          "p_empirical": 0.5176385565177255,
+          "margin_vs_second": 0.0042,
+          "enf_presence_score": 0.6679,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 30028
+        },
+        {
+          "id": "056",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 593.0,
+          "gt_lag_readme_s": 58338,
+          "gt_lag_refined_s": 58367.71,
+          "rec_ref_d_s": -30.0,
+          "gt_ambiguous": false,
+          "est_lag_s": 558,
+          "err_readme_s": 57780,
+          "err_refined_s": 57809.24,
+          "score": 0.7593,
+          "rmse_mhz": 67.861,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.0057,
+          "enf_presence_score": 0.4573,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 7927
+        },
+        {
+          "id": "057",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 583.0,
+          "gt_lag_readme_s": 58938,
+          "gt_lag_refined_s": 58940.31,
+          "rec_ref_d_s": -2.66,
+          "gt_ambiguous": false,
+          "est_lag_s": 17528,
+          "err_readme_s": 41410,
+          "err_refined_s": 41412.04,
+          "score": 0.8012,
+          "rmse_mhz": 66.382,
+          "p_empirical": 0.16785740031491558,
+          "margin_vs_second": 0.0455,
+          "enf_presence_score": 0.5139,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 24910
+        },
+        {
+          "id": "058",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 588.0,
+          "gt_lag_readme_s": 59543,
+          "gt_lag_refined_s": 59549.56,
+          "rec_ref_d_s": -6.97,
+          "gt_ambiguous": false,
+          "est_lag_s": 17751,
+          "err_readme_s": 41792,
+          "err_refined_s": 41798.94,
+          "score": 0.8076,
+          "rmse_mhz": 69.829,
+          "p_empirical": 0.15707907715854613,
+          "margin_vs_second": 0.0538,
+          "enf_presence_score": 0.4932,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 41801
+        },
+        {
+          "id": "059",
+          "day_name": "043-059_ref.wav",
+          "duration_s": 552.0,
+          "gt_lag_readme_s": 60143,
+          "gt_lag_refined_s": 60142.64,
+          "rec_ref_d_s": -0.1,
+          "gt_ambiguous": false,
+          "est_lag_s": 7806,
+          "err_readme_s": 52337,
+          "err_refined_s": 52337.09,
+          "score": 0.4759,
+          "rmse_mhz": 52.099,
+          "p_empirical": 0.5,
+          "margin_vs_second": 0.012,
+          "enf_presence_score": 0.7569,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 7769
+        },
+        {
+          "id": "065",
+          "day_name": "065-069_ref.wav",
+          "duration_s": 607.0,
+          "gt_lag_readme_s": 38150,
+          "gt_lag_refined_s": 38149.34,
+          "rec_ref_d_s": 0.66,
+          "gt_ambiguous": false,
+          "est_lag_s": 38149,
+          "err_readme_s": 1,
+          "err_refined_s": 0.79,
+          "score": 0.4782,
+          "rmse_mhz": 18.74,
+          "p_empirical": 0.6036293948792686,
+          "margin_vs_second": 0.0072,
+          "enf_presence_score": 0.8031,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 0
+        },
+        {
+          "id": "066",
+          "day_name": "065-069_ref.wav",
+          "duration_s": 601.0,
+          "gt_lag_readme_s": 38760,
+          "gt_lag_refined_s": 38759.96,
+          "rec_ref_d_s": 0.04,
+          "gt_ambiguous": false,
+          "est_lag_s": 38760,
+          "err_readme_s": 0,
+          "err_refined_s": 0.02,
+          "score": 0.9432,
+          "rmse_mhz": 7.097,
+          "p_empirical": 2.1131323535093378e-10,
+          "margin_vs_second": 0.2993,
+          "enf_presence_score": 0.9594,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 0
+        },
+        {
+          "id": "067",
+          "day_name": "065-069_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 40867,
+          "gt_lag_refined_s": 40872.45,
+          "rec_ref_d_s": -4.95,
+          "gt_ambiguous": false,
+          "est_lag_s": 40873,
+          "err_readme_s": 6,
+          "err_refined_s": 0.39,
+          "score": 0.8836,
+          "rmse_mhz": 11.716,
+          "p_empirical": 0.031057898053259255,
+          "margin_vs_second": 0.0513,
+          "enf_presence_score": 0.9029,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 8
+        },
+        {
+          "id": "068",
+          "day_name": "065-069_ref.wav",
+          "duration_s": 577.0,
+          "gt_lag_readme_s": 41482,
+          "gt_lag_refined_s": 41482.19,
+          "rec_ref_d_s": 0.24,
+          "gt_ambiguous": false,
+          "est_lag_s": 41482,
+          "err_readme_s": 0,
+          "err_refined_s": 0.02,
+          "score": 0.9094,
+          "rmse_mhz": 9.677,
+          "p_empirical": 0.001871167754920835,
+          "margin_vs_second": 0.1703,
+          "enf_presence_score": 0.8436,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 1
+        },
+        {
+          "id": "069",
+          "day_name": "065-069_ref.wav",
+          "duration_s": 589.0,
+          "gt_lag_readme_s": 42082,
+          "gt_lag_refined_s": 42079.2,
+          "rec_ref_d_s": 3.16,
+          "gt_ambiguous": false,
+          "est_lag_s": 42080,
+          "err_readme_s": 2,
+          "err_refined_s": 0.46,
+          "score": 0.66,
+          "rmse_mhz": 23.199,
+          "p_empirical": 0.025176042574693927,
+          "margin_vs_second": 0.0326,
+          "enf_presence_score": 0.6773,
+          "status": "INCONCLUSIVE",
+          "ng_err_s": 5
+        },
+        {
+          "id": "070",
+          "day_name": "070_ref.wav",
+          "duration_s": 585.0,
+          "gt_lag_readme_s": 61229,
+          "gt_lag_refined_s": 61227.66,
+          "rec_ref_d_s": 1.84,
+          "gt_ambiguous": false,
+          "est_lag_s": 61227,
+          "err_readme_s": 2,
+          "err_refined_s": 0.2,
+          "score": 0.8361,
+          "rmse_mhz": 13.343,
+          "p_empirical": 0.0026701027372348952,
+          "margin_vs_second": 0.1537,
+          "enf_presence_score": 0.7379,
+          "status": "MATCH_SUPPORTED",
+          "ng_err_s": 3
+        }
+      ]
+    },
+    "iteration_delta_dev_v1_to_v2": {
+      "selective_acc_5s_readme_gt_v1": 1.0,
+      "selective_acc_5s_readme_gt_v2": 1.0,
+      "selective_acc_1s_refined_gt_v1": 1.0,
+      "selective_acc_1s_refined_gt_v2": 1.0,
+      "fpr_combined_v1": 0.0148,
+      "fpr_combined_v2": 0.0099,
+      "fcr_truthful_v1": 0.0,
+      "fcr_truthful_v2": 0.0
+    }
+  },
+  "artifacts_generated": [
+    "work/W10/plots/fig1_null_calibration_and_look_elsewhere.png",
+    "work/W10/plots/fig2_neso_feasibility_and_cadence.png",
+    "work/W10/plots/fig3_enf_whu_dev_vs_holdout_comparison.png",
+    "work/W10/plots/fig4_forensic_case_traces_and_failure.png"
+  ]
+}

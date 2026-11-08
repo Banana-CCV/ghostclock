@@ -1,0 +1,61 @@
+{
+  "status": "DEGRADED_LOW_SNR",
+  "reasons": [
+    "Moderate SNR (10.1 dB, valid 66.7%); station usable but move closer to hum source for <2 mHz precision."
+  ],
+  "metrics": {
+    "total_seconds": 3,
+    "valid_seconds": 2,
+    "valid_fraction": 0.6667,
+    "median_harmonic_snr_db": 10.13,
+    "audio_rms": 0.061196,
+    "audio_peak": 0.527466,
+    "clipping_detected": false,
+    "f_mean_hz": 50.23306,
+    "f_std_mhz": 74.185
+  },
+  "harmonics": {
+    "50": {
+      "harmonic_index": 1,
+      "median_snr_db": 9.02,
+      "median_fund_equiv_hz": 49.5467
+    },
+    "100": {
+      "harmonic_index": 2,
+      "median_snr_db": 8.96,
+      "median_fund_equiv_hz": 49.6793
+    },
+    "150": {
+      "harmonic_index": 3,
+      "median_snr_db": 5.55,
+      "median_fund_equiv_hz": 50.2745
+    },
+    "200": {
+      "harmonic_index": 4,
+      "median_snr_db": 10.13,
+      "median_fund_equiv_hz": 50.315
+    },
+    "250": {
+      "harmonic_index": 5,
+      "median_snr_db": 7.53,
+      "median_fund_equiv_hz": 50.1285
+    },
+    "300": {
+      "harmonic_index": 6,
+      "median_snr_db": 4.77,
+      "median_fund_equiv_hz": 50.1983
+    }
+  },
+  "ntp": {
+    "measurable": true,
+    "offset_s": -0.027427,
+    "rtt_s": 0.025465,
+    "server": "time.cloudflare.com"
+  },
+  "elexon_crosscheck": {
+    "status": "INSUFFICIENT_OVERLAP",
+    "n_overlap": 0,
+    "elexon_rows_in_window": 36
+  },
+  "updated_at_utc": "2026-11-08T11:15:05.807499+00:00"
+}

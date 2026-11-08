@@ -1,0 +1,4 @@
+elexon_live rows=8744 first=2026-11-07 00:00:00 last=2026-11-08 12:25:45 lag_now_min=2.3 nan=0
+Nov 2025 (NESO vs Elexon RMSE mHz by NESO lag s): {-3600: 85.17, 0: 0.59, 3600: 85.16}
+Sep 2026 (NESO vs Elexon RMSE mHz by NESO lag s): {-3600: 88.21, 0: 7.45, 3600: 88.72}
+RESULTS.json keys: ['generated_utc', 'elexon', 'archiver', 'neso', 'crosscheck_elexon_vs_neso', 'feasibility']

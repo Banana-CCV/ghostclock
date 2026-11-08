@@ -1,0 +1,27 @@
+  decoded 0 frames (0s)
+  decoded 2000 frames (15s)
+  decoded 4000 frames (30s)
+  decoded 6000 frames (43s)
+  decoded 8000 frames (61s)
+  decoded 10000 frames (77s)
+  decoded 12000 frames (93s)
+  decoded 14000 frames (108s)
+Traceback (most recent call last):
+  File "<WORKSPACE>\work\C4\synth_eval.py", line 76, in <module>
+    
+  File "<WORKSPACE>\work\C4\synth_eval.py", line 70, in run_case
+    rows=r["rows"], win_s=win_s)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "%LOCALAPPDATA%\Programs\Python\Python312\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "%LOCALAPPDATA%\Programs\Python\Python312\Lib\json\encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "%LOCALAPPDATA%\Programs\Python\Python312\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "%LOCALAPPDATA%\Programs\Python\Python312\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "%LOCALAPPDATA%\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

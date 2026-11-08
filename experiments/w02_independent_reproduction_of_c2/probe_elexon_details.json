@@ -1,0 +1,218 @@
+{
+  "elexon": {
+    "https://data.elexon.co.uk/bmrs/api/v1/swagger/v1/swagger.json": {
+      "status": 404
+    },
+    "https://data.elexon.co.uk/bmrs/api/v1/openapi.json": {
+      "status": 404
+    },
+    "https://data.elexon.co.uk/bmrs/swagger/v1/swagger.json": {
+      "status": 404
+    },
+    "calls": {
+      "sys_freq_from_to_2h": {
+        "status": 200,
+        "server_date": "Sun, 08 Nov 2026 09:15:02 GMT",
+        "url": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency?from=2026-11-08T07%3A15%3A02Z&to=2026-11-08T09%3A20%3A02Z",
+        "row_count": 475,
+        "earliest": {
+          "measurementTime": "2026-11-08T07:15:15Z",
+          "frequency": 50.073
+        },
+        "latest": {
+          "measurementTime": "2026-11-08T09:13:45Z",
+          "frequency": 49.974
+        },
+        "latency_s": 77.0
+      },
+      "datasets_FREQ_meas_2h": {
+        "status": 200,
+        "server_date": "Sun, 08 Nov 2026 09:15:03 GMT",
+        "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FREQ?measurementDateTimeFrom=2026-11-08T07%3A15%3A02Z&measurementDateTimeTo=2026-11-08T09%3A20%3A02Z",
+        "row_count": 475,
+        "earliest": {
+          "dataset": "FREQ",
+          "measurementTime": "2026-11-08T07:15:15Z",
+          "frequency": 50.073
+        },
+        "latest": {
+          "dataset": "FREQ",
+          "measurementTime": "2026-11-08T09:13:45Z",
+          "frequency": 49.974
+        },
+        "latency_s": 78.0
+      },
+      "datasets_FREQ_stream_2h": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "sys_freq_stream_from_to_2h": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "sys_freq_1d": {
+        "status": 200,
+        "row_count": 5755,
+        "earliest": "2026-11-07T09:15:15Z",
+        "latest": "2026-11-08T09:13:45Z"
+      },
+      "sys_freq_stream_1d": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "sys_freq_2d": {
+        "status": 200,
+        "row_count": 11515,
+        "earliest": "2026-11-06T09:15:15Z",
+        "latest": "2026-11-08T09:13:45Z"
+      },
+      "sys_freq_stream_2d": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "sys_freq_7d": {
+        "status": 400,
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"The date range between From and To inclusive must not exceed 7 days\"]},\"traceId\":\"00-964431b7f9540739457f0d8407a344bf-064f7468c8d2a2f8-00\"}"
+      },
+      "sys_freq_stream_7d": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "sys_freq_8d": {
+        "status": 400,
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"The date range between From and To inclusive must not exceed 7 days\"]},\"traceId\":\"00-fd44b1d588fb21fbba139786811d58d6-0ebab9068b9aaab5-00\"}"
+      },
+      "sys_freq_stream_8d": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "sys_freq_14d": {
+        "status": 400,
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"The date range between From and To inclusive must not exceed 7 days\"]},\"traceId\":\"00-b0a0bb3f43a94d4b5af27d193a03a930-b67f59034ba78c65-00\"}"
+      },
+      "sys_freq_stream_14d": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "sys_freq_31d": {
+        "status": 400,
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"The date range between From and To inclusive must not exceed 7 days\"]},\"traceId\":\"00-f4d0d3d5f38d0c1b25243be96e4622df-3a7b33e4c7088e9f-00\"}"
+      },
+      "sys_freq_stream_31d": {
+        "error": "'list' object has no attribute 'get'"
+      },
+      "history_2015": {
+        "status": 200,
+        "row_count": 0
+      },
+      "history_2018": {
+        "status": 200,
+        "row_count": 0
+      },
+      "history_2020": {
+        "status": 200,
+        "row_count": 0
+      },
+      "history_2022": {
+        "status": 200,
+        "row_count": 241,
+        "earliest": "2022-06-01T00:00:00Z",
+        "latest": "2022-06-01T01:00:00Z"
+      },
+      "history_2023": {
+        "status": 200,
+        "row_count": 241,
+        "earliest": "2023-06-01T00:00:00Z",
+        "latest": "2023-06-01T01:00:00Z"
+      },
+      "history_2024": {
+        "status": 200,
+        "row_count": 241,
+        "earliest": "2024-06-01T00:00:00Z",
+        "latest": "2024-06-01T01:00:00Z"
+      },
+      "history_2025": {
+        "status": 200,
+        "row_count": 241,
+        "earliest": "2025-06-01T00:00:00Z",
+        "latest": "2025-06-01T01:00:00Z"
+      }
+    }
+  },
+  "dashboards": {
+    "ukgridwatch": {
+      "external_urls_sample": [
+        "https://ukgridwatch.co.uk/",
+        "https://ukgridwatch.co.uk/share-card.png?v=1794129303",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+        "https://schema.org",
+        "https://ukgridwatch.co.uk/#website",
+        "https://ukgridwatch.co.uk/#webpage",
+        "http://www.w3.org/2000/svg",
+        "https://www.neso.energy/energy-101/electricity-explained/how-do-we-balance-grid/what-frequency",
+        "https://www.elexon.co.uk/bsc/settlement/imbalance-pricing/elexon-insights-imbalance-prices-go-negative-24-march-2019/",
+        "https://www.nationalgas.com/",
+        "https://bmrs.elexon.co.uk/market-index-prices",
+        "https://www.buymeacoffee.com/ukgridwatch",
+        "https://x.com/ukgridwatch",
+        "https://bsky.app/profile/ukgridwatch.bsky.social",
+        "https://www.facebook.com/profile.php?id=61586384524347",
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8519112464715848",
+        "https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,",
+        "https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,",
+        "https://bsky.app/intent/compose?text=${encodeURIComponent(text",
+        "https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,",
+        "https://wa.me/?text=${encodeURIComponent(text"
+      ],
+      "relative_api_refs": [
+        "/>\r\n                \r\n                <!-- Frequency labels -->\r\n                \r\n                <!-- Needle shadow -->\r\n                <line x1=",
+        "/>\r\n                \r\n                <!-- Frequency labels -->\r\n                                    <text x=",
+        "/>\n    <g data-ukgw-dots>     <circle cx=",
+        "/>\n   <line data-frequency-target x1=",
+        "/ukgw-live.js?v=11e14a887605"
+      ]
+    },
+    "gridwatch_templar": {
+      "external_urls_sample": [
+        "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd",
+        "https://www.elexonportal.co.uk",
+        "https://www.solar.sheffield.ac.uk/pvlive/"
+      ],
+      "relative_api_refs": []
+    },
+    "dynamic_demand": {
+      "external_urls_sample": [
+        "http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0",
+        "http://www.macromedia.com/go/getflashplayer",
+        "http://www.dynamicdemand.co.uk",
+        "http://www.esmeefairbairn.org.uk/",
+        "http://www.google-analytics.com/urchin.js"
+      ],
+      "relative_api_refs": []
+    },
+    "iamkate": {
+      "external_urls_sample": [
+        "https://grid.iamkate.com/",
+        "https://grid.iamkate.com/banner.png",
+        "https://iamkate.com/",
+        "https://ko-fi.com/katemorley",
+        "https://interactive.carbonbrief.org/coal-phaseout-UK/",
+        "https://github.com/KateMorley/grid",
+        "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "https://bmrs.elexon.co.uk/",
+        "https://www.neso.energy/data-portal",
+        "https://carbonintensity.org.uk/",
+        "https://www.elexon.co.uk/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/"
+      ],
+      "relative_api_refs": [
+        "/></svg></td><td>Gas <span data-help=",
+        "/></svg></td><td>Solar <span data-help=",
+        "/></svg></td><td>Wind <span data-help=",
+        "/></svg></td><td>Hydro <span data-help=",
+        "/></svg></td><td>Nuclear <span data-help=",
+        "/></svg></td><td>Biomass <span data-help=",
+        "/></svg></td><td>Belgium <span data-help=",
+        "/></svg></td><td>Denmark <span data-help=",
+        "/></svg></td><td>France <span data-help=",
+        "/></svg></td><td>Ireland <span data-help=",
+        "/></svg></td><td>Netherlands <span data-help=",
+        "/></svg></td><td>Norway <span data-help=",
+        "/></svg></td><td>Pumped <span data-help=",
+        "/></svg></div></div>\n        <p>\r\n          The data comes from the <a href="
+      ]
+    }
+  }
+}

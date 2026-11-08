@@ -1,0 +1,11 @@
+# Minimal pinned runtime for the ghostclock core, tests and director tools (Python 3.12)
+numpy==2.5.4
+scipy==1.18.1
+pandas==3.1.1
+pyarrow==26.0.1
+soundfile==0.14.0
+matplotlib==3.11.2
+opencv-python-headless==5.0.0.93
+av==19.0.2
+requests==2.34.2
+# External tools (not pip): ffmpeg / ffprobe on PATH (or set GHOSTCLOCK_FFMPEG_DIR)

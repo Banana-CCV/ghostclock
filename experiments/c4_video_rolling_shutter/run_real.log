@@ -1,0 +1,94 @@
+{
+ "DATA": "REAL",
+ "video": "datasets\\raw\\video_c4\\MOV2_20190508_200450A.mp4",
+ "reference": "datasets\\raw\\video_c4\\b827ebd746d7_tensiunator2_20190508_200340.wav",
+ "cache": "<WORKSPACE>\\datasets\\raw\\video_c4\\cache\\MOV2_cells.npz",
+ "fps_fit": 30.026226706910425,
+ "timing": {
+  "fps_fit": 30.026226706910425,
+  "pts_resid_ms_rms": 0.2959665236868218,
+  "pts_resid_ms_maxabs": 2.1342025927992836,
+  "dt_ms_mean": 33.30416666666667,
+  "dt_ms_std": 0.4677051111412517,
+  "dt_ms_min": 30.99999999997749,
+  "dt_ms_max": 35.000000000081855
+ },
+ "frames": 19441,
+ "duration_s": 647.4339979430702,
+ "Tro_ms": 28.25,
+ "Tro_ms_bidirectional_search": 28.19578199881332,
+ "alias_hz": 9.921319879268722,
+ "naive_degenerate": false,
+ "static_cells": 2879,
+ "rows_used": 180,
+ "window_s": 16.0,
+ "hop_s": 1.0,
+ "nominal_lag_s": 70,
+ "reference_enf_range_hz": [
+  49.97250264648746,
+  50.01981596556874
+ ],
+ "reference_median_q_db": 78.74403091124425,
+ "rolling_shutter": {
+  "n": 633,
+  "corr": 0.6446991091822892,
+  "rmse_mHz": 10.39774246593549,
+  "bias_mHz": 4.649198264098623,
+  "rmse_debiased_mHz": 9.300430306658967,
+  "mae_mHz": 8.130614493576882,
+  "lag_s": 70,
+  "median_q_db": 45.06315139869034,
+  "best_lag_s": 81.5,
+  "at_best_lag": {
+   "n": 633,
+   "corr": 0.9953851078326964,
+   "rmse_mHz": 4.47599723664382,
+   "bias_mHz": 4.345732158764678,
+   "rmse_debiased_mHz": 1.0719903295839988,
+   "mae_mHz": 4.345732158764678
+  },
+  "corr_peak_minus_max_sidelobe_gt10s": 0.31015228012029517
+ },
+ "naive_frame_mean": {
+  "n": 633,
+  "corr": 0.32273102290769373,
+  "rmse_mHz": 36.59105885193878,
+  "bias_mHz": -1.512293779170817,
+  "rmse_debiased_mHz": 36.559794247664044,
+  "mae_mHz": 16.2734828864201,
+  "lag_s": 70,
+  "median_q_db": 13.990934887620925,
+  "best_lag_s": 79.0,
+  "at_best_lag": {
+   "n": 633,
+   "corr": 0.3808276438515911,
+   "rmse_mHz": 35.910878006033364,
+   "bias_mHz": -1.7587635959031944,
+   "rmse_debiased_mHz": 35.86778373105783,
+   "mae_mHz": 13.544428242806841
+  },
+  "corr_peak_minus_max_sidelobe_gt10s": 0.07152407064059896
+ },
+ "strip_alias_baseline": {
+  "n": 633,
+  "corr": 0.6457981229574766,
+  "rmse_mHz": 10.375852955709123,
+  "bias_mHz": 4.6466371851610315,
+  "rmse_debiased_mHz": 9.277234902058721,
+  "mae_mHz": 8.125349925237508,
+  "lag_s": 70,
+  "median_q_db": 30.521270441345813,
+  "best_lag_s": 81.5,
+  "at_best_lag": {
+   "n": 633,
+   "corr": 0.9966657776268585,
+   "rmse_mHz": 4.437447574907359,
+   "bias_mHz": 4.343171079827086,
+   "rmse_debiased_mHz": 0.9098384204927978,
+   "mae_mHz": 4.343171079827086
+  },
+  "corr_peak_minus_max_sidelobe_gt10s": 0.310063421991539
+ },
+ "lag_used_s": 70,
+ "motion_score_median": 0.010854542255401611
+}

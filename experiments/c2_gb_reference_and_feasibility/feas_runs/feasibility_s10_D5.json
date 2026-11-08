@@ -1,0 +1,24 @@
+{
+ "label": "SEMI-SYNTHETIC: real NESO 1 s GB frequency (Aug-Sep 2026) + white Gaussian noise",
+ "sigma_hz": 0.01,
+ "method_set": "neso_decimated",
+ "search_window_s": 86400,
+ "tolerance_s": 15,
+ "metric": "mean-removed NCC, top-1",
+ "seed": 205,
+ "reference_months": [
+  "2026_08",
+  "2026_09"
+ ],
+ "results": {
+  "D=5min": {
+   "n": 1000,
+   "P_top1_within_15s_ref_1s": 0.992,
+   "P_top1_within_15s_ref_15s_pt": 0.559,
+   "P_top1_within_15s_ref_15s_avg": 0.967,
+   "median_abs_err_s_ref_1s": 0.0,
+   "median_abs_err_s_ref_15s_pt": 4.0,
+   "median_abs_err_s_ref_15s_avg": 1.0
+  }
+ }
+}

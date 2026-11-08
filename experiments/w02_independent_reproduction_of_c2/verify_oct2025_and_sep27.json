@@ -1,0 +1,45 @@
+{
+  "oct1_2025_first_hour_as_bst_vs_elexon_sep30_23z": {
+    "n_matched_15s_points": 241,
+    "rmse_mhz": 0.8299,
+    "exact0_frac": 0.8755,
+    "pearson_r": 0.999893,
+    "first_5_pairs": [
+      {
+        "measurementTime": "2025-09-30T23:00:00Z",
+        "f_hz_elexon": 50.021,
+        "f_hz_neso": 50.021
+      },
+      {
+        "measurementTime": "2025-09-30T23:00:15Z",
+        "f_hz_elexon": 49.966,
+        "f_hz_neso": 49.966
+      },
+      {
+        "measurementTime": "2025-09-30T23:00:30Z",
+        "f_hz_elexon": 49.952,
+        "f_hz_neso": 49.952
+      },
+      {
+        "measurementTime": "2025-09-30T23:00:45Z",
+        "f_hz_elexon": 49.944,
+        "f_hz_neso": 49.944
+      },
+      {
+        "measurementTime": "2025-09-30T23:01:00Z",
+        "f_hz_elexon": 49.931,
+        "f_hz_neso": 49.931
+      }
+    ]
+  },
+  "sep27_2026_divergence_window": {
+    "n_points_gt_20mhz": 434,
+    "first_divergent_iso": "2026-09-27T09:00:30+00:00",
+    "last_divergent_iso": "2026-09-27T11:05:00+00:00"
+  },
+  "sep27_2026_best_lag_in_plusminus_12h": {
+    "best_tau_s": 5950,
+    "best_rmse_mhz": 109.329,
+    "best_pearson_r": 0.20401
+  }
+}

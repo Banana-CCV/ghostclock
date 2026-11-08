@@ -1,0 +1,103 @@
+{
+ "case": "case_b",
+ "case_id": "GC-C4376B82",
+ "mode": "fixed_long",
+ "model": null,
+ "note": "ENF-WHU holdout H0 negative 13 vs day 070",
+ "status": "INCONCLUSIVE",
+ "gate_reasons": [
+  "basis match peak NCC 0.64632 <= frozen threshold 0.95531 for 300 s"
+ ],
+ "basis_match": {
+  "modality": "audio",
+  "harmonics_used": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "window_start_s": 0,
+  "window_len_s": 300,
+  "valid_frame_fraction": 0.337,
+  "trace_std_mhz": 36.3,
+  "peak_ncc": 0.64632,
+  "second_peak_ncc": 0.64422,
+  "margin": 0.0021,
+  "z_score": 3.33,
+  "best_offset_in_reference_s": 14847.94,
+  "implied_media_start_in_reference_s": 14847.94,
+  "frozen_threshold_for_length": 0.95531,
+  "passes_frozen_threshold": false,
+  "notes": []
+ },
+ "n_tool_calls": 1,
+ "tool_results": [
+  {
+   "modality": "audio",
+   "harmonics_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "window_start_s": 0,
+   "window_len_s": 300,
+   "valid_frame_fraction": 0.337,
+   "trace_std_mhz": 36.3,
+   "peak_ncc": 0.64632,
+   "second_peak_ncc": 0.64422,
+   "margin": 0.0021,
+   "z_score": 3.33,
+   "best_offset_in_reference_s": 14847.94,
+   "implied_media_start_in_reference_s": 14847.94,
+   "frozen_threshold_for_length": 0.95531,
+   "passes_frozen_threshold": false,
+   "notes": []
+  }
+ ],
+ "argon_calls": [],
+ "tokens": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0,
+  "total": 0
+ },
+ "argon_latency_s": 0,
+ "argon_final": null,
+ "conflicts": [],
+ "unsupported_numbers_in_explanation": [],
+ "evaluation_hidden_from_agent": {
+  "expected": "INCONCLUSIVE",
+  "status_as_expected": true
+ },
+ "probe": {
+  "duration_s": 465.0,
+  "modalities_available": [
+   "audio"
+  ],
+  "has_video": false,
+  "per_harmonic_median_snr": {
+   "1": 4.58,
+   "2": 5.36,
+   "3": 6.66,
+   "4": 10.72,
+   "5": 7.07,
+   "6": 8.05,
+   "7": 8.56
+  },
+  "snr_note": "per-harmonic median peak/median power ratio in a +-0.5 Hz band (higher = cleaner hum)",
+  "median_frame_quality_db": 5.74,
+  "frac_frames_quality_ge_10db": 0.084,
+  "trace_std_mhz_all_harmonics": 45.65,
+  "reference_window": {
+   "type": "permitted 24 h grid-frequency reference trace (50 Hz grid)",
+   "length_s": 86350
+  }
+ }
+}

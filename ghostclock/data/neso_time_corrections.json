@@ -1,0 +1,1 @@
+{"shift_s": {"2025_10": -3600}, "convention": "true_utc = neso_csv_stamp + shift_s", "evidence": "work/C2/lagscan.json: Oct 2025 NESO matches Elexon (UTC Z) at +3600 s every day of the month incl. after the 26 Oct DST change (per-day RMSE 0.57-0.94 mHz); Nov 2025, Mar/Jun/Aug/Sep 2026 match at lag 0. Unverified months default to 0 - run lagscan.py before trusting a new month."}

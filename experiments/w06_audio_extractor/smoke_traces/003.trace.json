@@ -1,0 +1,74 @@
+{
+  "source": "audio",
+  "method": "w06_stft_multiharmonic_snr_weighted",
+  "nominal_hz": 50,
+  "harmonics_used": [
+    2,
+    4,
+    6
+  ],
+  "window_s": 16.0,
+  "hop_s": 1.0,
+  "fs_media": 8000.0,
+  "duration_s": 652.930625,
+  "media_sha256": "403b738aea9c185e39e4dc74601f02c4a2d2bb40fa98cd5ade431f945c4f22b2",
+  "params": {
+    "fs_proc": 1000.0,
+    "candidate_harmonics": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "window_type": "hann",
+    "zero_pad_factor": 4,
+    "nfft": 65536,
+    "bp_order": 4,
+    "bp_half_bw_hz": 0.3,
+    "search_half_bw_hz": 0.12,
+    "peak_interp": "gaussian_log",
+    "combination_mode": "snr_robust_hybrid",
+    "harmonic_mean_weights": {
+      "1": 0.0,
+      "2": 0.1606,
+      "3": 0.0,
+      "4": 0.3907,
+      "5": 0.0,
+      "6": 0.4487
+    }
+  },
+  "quality_summary": {
+    "median_q": 0.9953,
+    "frac_valid": 1.0,
+    "snr_db": 20.517,
+    "enf_present": true,
+    "enf_presence_score": 0.9225,
+    "enf_presence_details": {
+      "score": 0.9225,
+      "is_present": true,
+      "threshold": 0.48,
+      "snr_score": 1.0,
+      "stability_score": 0.91,
+      "coherence_score": 0.7395,
+      "best_harmonic": 6,
+      "best_harmonic_snr_db": 22.349,
+      "top2_harmonic_snr_db": 21.6,
+      "tf_variance_hz2": 0.000309,
+      "step_mad_hz_per_s": 0.00066,
+      "harmonic_median_snrs_db": {
+        "1": 0.97,
+        "2": 11.57,
+        "3": 0.45,
+        "4": 20.85,
+        "5": 0.75,
+        "6": 22.35
+      }
+    }
+  },
+  "provenance": {
+    "code": "work/W06/audio_enf.py",
+    "version": "1.0.0"
+  }
+}

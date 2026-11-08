@@ -1,0 +1,35 @@
+# Data and media (never commit raw datasets or recordings)
+/data/
+/datasets/
+/out/
+*.mp4
+*.mov
+*.wav
+*.m4a
+*.mp3
+*.avi
+*.mkv
+*.flac
+*.npz
+# raw reference data lives under data/ (ignored above); small result parquets in experiments/ are committed
+
+# Caches and environments
+__pycache__/
+*.pyc
+.pytest_cache/
+cache/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+credentials*.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

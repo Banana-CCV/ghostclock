@@ -1,0 +1,521 @@
+{
+ "agent": "C4",
+ "date": "2026-11-08",
+ "method": "rolling-shutter row-time heterodyne (rs_enf.py); baselines: naive whole-frame mean, strip-wise alias (per-row-band frame-rate sampling)",
+ "window_s": 16.0,
+ "hop_s": 1.0,
+ "real_MOV2": {
+  "DATA": "REAL",
+  "video": "datasets\\raw\\video_c4\\MOV2_20190508_200450A.mp4",
+  "reference": "datasets\\raw\\video_c4\\b827ebd746d7_tensiunator2_20190508_200340.wav",
+  "cache": "<WORKSPACE>\\datasets\\raw\\video_c4\\cache\\MOV2_cells.npz",
+  "fps_fit": 30.026226706910425,
+  "timing": {
+   "fps_fit": 30.026226706910425,
+   "pts_resid_ms_rms": 0.2959665236868218,
+   "pts_resid_ms_maxabs": 2.1342025927992836,
+   "dt_ms_mean": 33.30416666666667,
+   "dt_ms_std": 0.4677051111412517,
+   "dt_ms_min": 30.99999999997749,
+   "dt_ms_max": 35.000000000081855
+  },
+  "frames": 19441,
+  "duration_s": 647.4339979430702,
+  "Tro_ms": 28.25,
+  "Tro_ms_bidirectional_search": 28.19578199881332,
+  "alias_hz": 9.921319879268722,
+  "naive_degenerate": false,
+  "static_cells": 2879,
+  "rows_used": 180,
+  "window_s": 16.0,
+  "hop_s": 1.0,
+  "nominal_lag_s": 70,
+  "reference_enf_range_hz": [
+   49.97250264648746,
+   50.01981596556874
+  ],
+  "reference_median_q_db": 78.74403091124425,
+  "rolling_shutter": {
+   "n": 633,
+   "corr": 0.6446991091822892,
+   "rmse_mHz": 10.39774246593549,
+   "bias_mHz": 4.649198264098623,
+   "rmse_debiased_mHz": 9.300430306658967,
+   "mae_mHz": 8.130614493576882,
+   "lag_s": 70,
+   "median_q_db": 45.06315139869034,
+   "best_lag_s": 81.5,
+   "at_best_lag": {
+    "n": 633,
+    "corr": 0.9953851078326964,
+    "rmse_mHz": 4.47599723664382,
+    "bias_mHz": 4.345732158764678,
+    "rmse_debiased_mHz": 1.0719903295839988,
+    "mae_mHz": 4.345732158764678
+   },
+   "corr_peak_minus_max_sidelobe_gt10s": 0.31015228012029517
+  },
+  "naive_frame_mean": {
+   "n": 633,
+   "corr": 0.32273102290769373,
+   "rmse_mHz": 36.59105885193878,
+   "bias_mHz": -1.512293779170817,
+   "rmse_debiased_mHz": 36.559794247664044,
+   "mae_mHz": 16.2734828864201,
+   "lag_s": 70,
+   "median_q_db": 13.990934887620925,
+   "best_lag_s": 79.0,
+   "at_best_lag": {
+    "n": 633,
+    "corr": 0.3808276438515911,
+    "rmse_mHz": 35.910878006033364,
+    "bias_mHz": -1.7587635959031944,
+    "rmse_debiased_mHz": 35.86778373105783,
+    "mae_mHz": 13.544428242806841
+   },
+   "corr_peak_minus_max_sidelobe_gt10s": 0.07152407064059896
+  },
+  "strip_alias_baseline": {
+   "n": 633,
+   "corr": 0.6457981229574766,
+   "rmse_mHz": 10.375852955709123,
+   "bias_mHz": 4.6466371851610315,
+   "rmse_debiased_mHz": 9.277234902058721,
+   "mae_mHz": 8.125349925237508,
+   "lag_s": 70,
+   "median_q_db": 30.521270441345813,
+   "best_lag_s": 81.5,
+   "at_best_lag": {
+    "n": 633,
+    "corr": 0.9966657776268585,
+    "rmse_mHz": 4.437447574907359,
+    "bias_mHz": 4.343171079827086,
+    "rmse_debiased_mHz": 0.9098384204927978,
+    "mae_mHz": 4.343171079827086
+   },
+   "corr_peak_minus_max_sidelobe_gt10s": 0.310063421991539
+  },
+  "lag_used_s": 70,
+  "motion_score_median": 0.010854542255401611,
+  "readout_direction_mirror_score_ratio": 0.005441821483781084,
+  "note": "REAL data. Metrics at the filename-implied lag (70 s) and at the lag maximising correlation (searched over 10-130 s, 0.5 s steps; one free parameter). n = number of 16 s windows at 1 s hop (overlapping, so not independent samples)."
+ },
+ "SYNTHETIC_cases": {
+  "fps25_tro25_alias_degenerate+bidir": {
+   "SYNTHETIC": true,
+   "case": "fps25_tro25_alias_degenerate+bidir",
+   "Tro_search": "both directions",
+   "params": {
+    "SYNTHETIC": true,
+    "fps": 25,
+    "dur_s": 240.0,
+    "T_ro_ms": 25.0,
+    "T_exp_ms": 2.0,
+    "W": 640,
+    "H": 360,
+    "m1": 0.05,
+    "m2": 0.01,
+    "noise": 1.5,
+    "crf": 20,
+    "seed": 13,
+    "motion": true,
+    "ae_drift": 0.02,
+    "exposure_gain_100Hz": 0.935489283788639,
+    "frame_mean_gain_100Hz": 0.12732395447351627
+   },
+   "fps_fit": 25.000000000000014,
+   "Tro_est_ms": 25.250000000000078,
+   "Tro_true_ms": 25.0,
+   "alias_hz": -5.684341886080802e-14,
+   "naive_degenerate": true,
+   "rolling_shutter": {
+    "n": 225,
+    "corr": 0.9864354518520712,
+    "rmse_mHz": 0.9577922469982586,
+    "bias_mHz": -0.0030486812538141647,
+    "p95_abs_err_mHz": 1.8087101409648183,
+    "median_q_db": 55.99436988005991
+   },
+   "naive_frame_mean": {
+    "n": 225,
+    "corr": -0.2736700692115696,
+    "rmse_mHz": 86.0185623815772,
+    "bias_mHz": -84.83653359883967,
+    "p95_abs_err_mHz": 115.66579895463033,
+    "median_q_db": 51.15742584610012
+   },
+   "strip_alias_baseline": {
+    "n": 225,
+    "corr": -0.9939135078611047,
+    "rmse_mHz": 93.66501595922033,
+    "bias_mHz": -92.89070542816107,
+    "p95_abs_err_mHz": 117.46304188587258,
+    "median_q_db": 45.3785341690904
+   },
+   "rolling_shutter_oracle_Tro": {
+    "n": 225,
+    "corr": 0.9860527415135245,
+    "rmse_mHz": 0.9723169137700612,
+    "bias_mHz": -0.003870180511821925,
+    "p95_abs_err_mHz": 1.8400679870538263
+   },
+   "readout_direction_mirror_score_ratio": 0.9999999998986577,
+   "note": "+/-T_ro tie (ratio ~1): direction unidentifiable at 25 fps; this run happened to pick +T_ro. Archived run 1 (synth/old_pm_search_hp/) picked -25.25 ms and got r = -0.949."
+  },
+  "fps25_tro25_alias_degenerate": {
+   "SYNTHETIC": true,
+   "case": "fps25_tro25_alias_degenerate",
+   "Tro_search": "T_ro>0",
+   "params": {
+    "SYNTHETIC": true,
+    "fps": 25,
+    "dur_s": 240.0,
+    "T_ro_ms": 25.0,
+    "T_exp_ms": 2.0,
+    "W": 640,
+    "H": 360,
+    "m1": 0.05,
+    "m2": 0.01,
+    "noise": 1.5,
+    "crf": 20,
+    "seed": 13,
+    "motion": true,
+    "ae_drift": 0.02,
+    "exposure_gain_100Hz": 0.935489283788639,
+    "frame_mean_gain_100Hz": 0.12732395447351627
+   },
+   "fps_fit": 25.000000000000014,
+   "Tro_est_ms": 25.25,
+   "Tro_true_ms": 25.0,
+   "alias_hz": -5.684341886080802e-14,
+   "naive_degenerate": true,
+   "rolling_shutter": {
+    "n": 225,
+    "corr": 0.9864354518520725,
+    "rmse_mHz": 0.9577922469982119,
+    "bias_mHz": -0.0030486812538141647,
+    "p95_abs_err_mHz": 1.8087101409648183,
+    "median_q_db": 55.9943698800599
+   },
+   "naive_frame_mean": {
+    "n": 225,
+    "corr": -0.2736700692115696,
+    "rmse_mHz": 86.0185623815772,
+    "bias_mHz": -84.83653359883967,
+    "p95_abs_err_mHz": 115.66579895463033,
+    "median_q_db": 51.15742584610012
+   },
+   "strip_alias_baseline": {
+    "n": 225,
+    "corr": -0.9939135078611047,
+    "rmse_mHz": 93.66501595922033,
+    "bias_mHz": -92.89070542816107,
+    "p95_abs_err_mHz": 117.46304188587258,
+    "median_q_db": 45.3785341690904
+   },
+   "rolling_shutter_oracle_Tro": {
+    "n": 225,
+    "corr": 0.9860527415135245,
+    "rmse_mHz": 0.9723169137700612,
+    "bias_mHz": -0.003870180511821925,
+    "p95_abs_err_mHz": 1.8400679870538263
+   }
+  },
+  "fps30_antibanding_exp10ms": {
+   "SYNTHETIC": true,
+   "case": "fps30_antibanding_exp10ms",
+   "Tro_search": "T_ro>0",
+   "params": {
+    "SYNTHETIC": true,
+    "fps": 30,
+    "dur_s": 240.0,
+    "T_ro_ms": 25.0,
+    "T_exp_ms": 10.0,
+    "W": 640,
+    "H": 360,
+    "m1": 0.05,
+    "m2": 0.01,
+    "noise": 1.5,
+    "crf": 20,
+    "seed": 15,
+    "motion": true,
+    "ae_drift": 0.02,
+    "exposure_gain_100Hz": 3.8981718325193755e-17,
+    "frame_mean_gain_100Hz": 0.12732395447351627
+   },
+   "fps_fit": 29.99999999999999,
+   "Tro_est_ms": 6.25,
+   "Tro_true_ms": 25.0,
+   "alias_hz": 10.000000000000028,
+   "naive_degenerate": false,
+   "rolling_shutter": {
+    "n": 225,
+    "corr": -0.2181655977567667,
+    "rmse_mHz": 95.48553851128617,
+    "bias_mHz": -25.01626692762977,
+    "p95_abs_err_mHz": 192.38312594991666,
+    "median_q_db": 3.9090636009216344
+   },
+   "naive_frame_mean": {
+    "n": 225,
+    "corr": 0.03718621728277439,
+    "rmse_mHz": 134.6140246635439,
+    "bias_mHz": -6.742808519250585,
+    "p95_abs_err_mHz": 237.3275137983597,
+    "median_q_db": 0.9020960985843384
+   },
+   "strip_alias_baseline": {
+    "n": 225,
+    "corr": -0.11592518100618386,
+    "rmse_mHz": 96.59983140927707,
+    "bias_mHz": -38.42798615889655,
+    "p95_abs_err_mHz": 194.625829105712,
+    "median_q_db": 1.845234833132955
+   },
+   "rolling_shutter_oracle_Tro": {
+    "n": 225,
+    "corr": -0.15157945336626566,
+    "rmse_mHz": 116.14991208690216,
+    "bias_mHz": -20.523378690130173,
+    "p95_abs_err_mHz": 210.33068635898786
+   }
+  },
+  "fps30_tro25": {
+   "SYNTHETIC": true,
+   "case": "fps30_tro25",
+   "Tro_search": "T_ro>0",
+   "params": {
+    "SYNTHETIC": true,
+    "fps": 30,
+    "dur_s": 240.0,
+    "T_ro_ms": 25.0,
+    "T_exp_ms": 2.0,
+    "W": 640,
+    "H": 360,
+    "m1": 0.05,
+    "m2": 0.01,
+    "noise": 1.5,
+    "crf": 20,
+    "seed": 11,
+    "motion": true,
+    "ae_drift": 0.02,
+    "exposure_gain_100Hz": 0.935489283788639,
+    "frame_mean_gain_100Hz": 0.12732395447351627
+   },
+   "fps_fit": 29.99999999999999,
+   "Tro_est_ms": 25.0,
+   "Tro_true_ms": 25.0,
+   "alias_hz": 10.000000000000028,
+   "naive_degenerate": false,
+   "rolling_shutter": {
+    "n": 225,
+    "corr": 0.9987611424380398,
+    "rmse_mHz": 0.3393420712844939,
+    "bias_mHz": 0.008423075635669698,
+    "p95_abs_err_mHz": 0.6785239970696464,
+    "median_q_db": 45.504865701582005
+   },
+   "naive_frame_mean": {
+    "n": 225,
+    "corr": 0.9707079623972937,
+    "rmse_mHz": 1.6695488233266773,
+    "bias_mHz": 0.02174393741108184,
+    "p95_abs_err_mHz": 3.5684809388214935,
+    "median_q_db": 40.94432905571687
+   },
+   "strip_alias_baseline": {
+    "n": 225,
+    "corr": 0.9957483110313868,
+    "rmse_mHz": 0.8030885812692458,
+    "bias_mHz": -0.33531563918100143,
+    "p95_abs_err_mHz": 1.2907993093108414,
+    "median_q_db": 35.58953804395867
+   },
+   "rolling_shutter_oracle_Tro": {
+    "n": 225,
+    "corr": 0.9987611424380398,
+    "rmse_mHz": 0.3393420712844939,
+    "bias_mHz": 0.008423075635669698,
+    "p95_abs_err_mHz": 0.6785239970696464
+   }
+  },
+  "fps30_tro30_framemean_null": {
+   "SYNTHETIC": true,
+   "case": "fps30_tro30_framemean_null",
+   "Tro_search": "T_ro>0",
+   "params": {
+    "SYNTHETIC": true,
+    "fps": 30,
+    "dur_s": 240.0,
+    "T_ro_ms": 30.0,
+    "T_exp_ms": 2.0,
+    "W": 640,
+    "H": 360,
+    "m1": 0.05,
+    "m2": 0.01,
+    "noise": 1.5,
+    "crf": 20,
+    "seed": 12,
+    "motion": true,
+    "ae_drift": 0.02,
+    "exposure_gain_100Hz": 0.935489283788639,
+    "frame_mean_gain_100Hz": 3.8981718325193755e-17
+   },
+   "fps_fit": 29.99999999999999,
+   "Tro_est_ms": 30.250000000000004,
+   "Tro_true_ms": 30.0,
+   "alias_hz": 10.000000000000028,
+   "naive_degenerate": false,
+   "rolling_shutter": {
+    "n": 225,
+    "corr": 0.9985451472023642,
+    "rmse_mHz": 0.27051548495784494,
+    "bias_mHz": -0.008622804936698635,
+    "p95_abs_err_mHz": 0.516338481469347,
+    "median_q_db": 47.47597305781849
+   },
+   "naive_frame_mean": {
+    "n": 225,
+    "corr": 0.8296666284586428,
+    "rmse_mHz": 3.285369002196301,
+    "bias_mHz": -0.23498059591440146,
+    "p95_abs_err_mHz": 5.546218382589529,
+    "median_q_db": 36.93335587927984
+   },
+   "strip_alias_baseline": {
+    "n": 225,
+    "corr": 0.9951919108996139,
+    "rmse_mHz": 0.666500514350936,
+    "bias_mHz": -0.33796619377979037,
+    "p95_abs_err_mHz": 1.1299816552437392,
+    "median_q_db": 37.1630514914225
+   },
+   "rolling_shutter_oracle_Tro": {
+    "n": 225,
+    "corr": 0.9985922978892049,
+    "rmse_mHz": 0.26632209336312423,
+    "bias_mHz": -0.008892043591338784,
+    "p95_abs_err_mHz": 0.5192859783122115
+   }
+  },
+  "fps30_weak_m1pct_crf28": {
+   "SYNTHETIC": true,
+   "case": "fps30_weak_m1pct_crf28",
+   "Tro_search": "T_ro>0",
+   "params": {
+    "SYNTHETIC": true,
+    "fps": 30,
+    "dur_s": 240.0,
+    "T_ro_ms": 25.0,
+    "T_exp_ms": 2.0,
+    "W": 640,
+    "H": 360,
+    "m1": 0.01,
+    "m2": 0.01,
+    "noise": 1.5,
+    "crf": 28,
+    "seed": 16,
+    "motion": true,
+    "ae_drift": 0.02,
+    "exposure_gain_100Hz": 0.935489283788639,
+    "frame_mean_gain_100Hz": 0.12732395447351627
+   },
+   "fps_fit": 29.99999999999999,
+   "Tro_est_ms": 22.75,
+   "Tro_true_ms": 25.0,
+   "alias_hz": 10.000000000000028,
+   "naive_degenerate": false,
+   "rolling_shutter": {
+    "n": 225,
+    "corr": 0.10949261921564843,
+    "rmse_mHz": 110.38959073464322,
+    "bias_mHz": -5.365972381078135,
+    "p95_abs_err_mHz": 233.21278033897525,
+    "median_q_db": 3.643647664813805
+   },
+   "naive_frame_mean": {
+    "n": 225,
+    "corr": -0.2803605603975898,
+    "rmse_mHz": 157.42304482655075,
+    "bias_mHz": 8.999747599730735,
+    "p95_abs_err_mHz": 244.46077321995432,
+    "median_q_db": 0.7987833625926108
+   },
+   "strip_alias_baseline": {
+    "n": 225,
+    "corr": 0.036550387155018134,
+    "rmse_mHz": 138.44033252079188,
+    "bias_mHz": -26.311468421662912,
+    "p95_abs_err_mHz": 232.72371844796567,
+    "median_q_db": 0.690938436539429
+   },
+   "rolling_shutter_oracle_Tro": {
+    "n": 225,
+    "corr": 0.16505074091688796,
+    "rmse_mHz": 113.37825083430758,
+    "bias_mHz": -11.058247647900618,
+    "p95_abs_err_mHz": 223.61653647503476
+   }
+  },
+  "fps60_tro12": {
+   "SYNTHETIC": true,
+   "case": "fps60_tro12",
+   "Tro_search": "T_ro>0",
+   "params": {
+    "SYNTHETIC": true,
+    "fps": 60,
+    "dur_s": 240.0,
+    "T_ro_ms": 12.0,
+    "T_exp_ms": 2.0,
+    "W": 640,
+    "H": 360,
+    "m1": 0.05,
+    "m2": 0.01,
+    "noise": 1.5,
+    "crf": 20,
+    "seed": 14,
+    "motion": true,
+    "ae_drift": 0.02,
+    "exposure_gain_100Hz": 0.935489283788639,
+    "frame_mean_gain_100Hz": -0.15591488063143982
+   },
+   "fps_fit": 60.00000000000003,
+   "Tro_est_ms": 12.0,
+   "Tro_true_ms": 12.0,
+   "alias_hz": -20.000000000000057,
+   "naive_degenerate": false,
+   "rolling_shutter": {
+    "n": 225,
+    "corr": 0.9984447774975311,
+    "rmse_mHz": 0.3177379213380162,
+    "bias_mHz": -0.026759800994998136,
+    "p95_abs_err_mHz": 0.6421030805071833,
+    "median_q_db": 42.027818164790496
+   },
+   "naive_frame_mean": {
+    "n": 225,
+    "corr": 0.9618272527456446,
+    "rmse_mHz": 1.6165030946968637,
+    "bias_mHz": -0.19713001705690028,
+    "p95_abs_err_mHz": 3.0596381301279503,
+    "median_q_db": 38.97243375564838
+   },
+   "strip_alias_baseline": {
+    "n": 225,
+    "corr": 0.9959693211453369,
+    "rmse_mHz": 0.939970512532296,
+    "bias_mHz": -0.7501083035885219,
+    "p95_abs_err_mHz": 1.6764639380724582,
+    "median_q_db": 33.538272974237444
+   },
+   "rolling_shutter_oracle_Tro": {
+    "n": 225,
+    "corr": 0.9984447774975311,
+    "rmse_mHz": 0.3177379213380162,
+    "bias_mHz": -0.026759800994998136,
+    "p95_abs_err_mHz": 0.6421030805071833
+   }
+  }
+ },
+ "synthetic_note": "ALL entries under SYNTHETIC_cases are synthetic videos from synth_rs.py (OU random-walk ENF, 640x360, 240 s, libx264). Truth = Hann-window-averaged ENF."
+}

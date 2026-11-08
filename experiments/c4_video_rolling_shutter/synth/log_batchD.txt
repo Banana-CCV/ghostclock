@@ -1,0 +1,63 @@
+  decoded 0 frames (1s)
+  decoded 2000 frames (35s)
+  decoded 4000 frames (65s)
+  decoded 6000 frames (81s)
+{
+ "SYNTHETIC": true,
+ "case": "fps30_weak_m1pct_crf28",
+ "Tro_search": "T_ro>0",
+ "params": {
+  "SYNTHETIC": true,
+  "fps": 30,
+  "dur_s": 240.0,
+  "T_ro_ms": 25.0,
+  "T_exp_ms": 2.0,
+  "W": 640,
+  "H": 360,
+  "m1": 0.01,
+  "m2": 0.01,
+  "noise": 1.5,
+  "crf": 28,
+  "seed": 16,
+  "motion": true,
+  "ae_drift": 0.02,
+  "exposure_gain_100Hz": 0.935489283788639,
+  "frame_mean_gain_100Hz": 0.12732395447351627
+ },
+ "fps_fit": 29.99999999999999,
+ "Tro_est_ms": 22.75,
+ "Tro_true_ms": 25.0,
+ "alias_hz": 10.000000000000028,
+ "naive_degenerate": false,
+ "rolling_shutter": {
+  "n": 225,
+  "corr": 0.10949261921564843,
+  "rmse_mHz": 110.38959073464322,
+  "bias_mHz": -5.365972381078135,
+  "p95_abs_err_mHz": 233.21278033897525,
+  "median_q_db": 3.643647664813805
+ },
+ "naive_frame_mean": {
+  "n": 225,
+  "corr": -0.2803605603975898,
+  "rmse_mHz": 157.42304482655075,
+  "bias_mHz": 8.999747599730735,
+  "p95_abs_err_mHz": 244.46077321995432,
+  "median_q_db": 0.7987833625926108
+ },
+ "strip_alias_baseline": {
+  "n": 225,
+  "corr": 0.036550387155018134,
+  "rmse_mHz": 138.44033252079188,
+  "bias_mHz": -26.311468421662912,
+  "p95_abs_err_mHz": 232.72371844796567,
+  "median_q_db": 0.690938436539429
+ },
+ "rolling_shutter_oracle_Tro": {
+  "n": 225,
+  "corr": 0.16505074091688796,
+  "rmse_mHz": 113.37825083430758,
+  "bias_mHz": -11.058247647900618,
+  "p95_abs_err_mHz": 223.61653647503476
+ }
+}

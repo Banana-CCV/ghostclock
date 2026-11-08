@@ -1,0 +1,18 @@
+{
+ "SYNTHETIC": true,
+ "fps": 30,
+ "dur_s": 240.0,
+ "T_ro_ms": 25.0,
+ "T_exp_ms": 2.0,
+ "W": 640,
+ "H": 360,
+ "m1": 0.05,
+ "m2": 0.01,
+ "noise": 1.5,
+ "crf": 20,
+ "seed": 11,
+ "motion": true,
+ "ae_drift": 0.02,
+ "exposure_gain_100Hz": 0.935489283788639,
+ "frame_mean_gain_100Hz": 0.12732395447351627
+}

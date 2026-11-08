@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostClock — Prototype A: Case File & SIU Investigation Dossier</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --panel-alt: #162032;
+    --border: #334155;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --red: #f43f5e;
+    --purple: #a855f7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  code, pre, .mono { font-family: 'JetBrains Mono', 'Consolas', monospace; }
+  .top-banner {
+    background: #422006;
+    border-bottom: 1px solid #f59e0b;
+    color: #fde68a;
+    padding: 6px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .header {
+    background: #090d16;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-badge {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  .case-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .case-tab {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 6px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .case-tab.active {
+    background: rgba(56, 189, 248, 0.16);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 335px 1fr 375px;
+    gap: 10px;
+    padding: 9px 16px;
+    max-width: 1720px;
+    margin: 0 auto;
+  }
+  .col { display: flex; flex-direction: column; gap: 8px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 9px 11px;
+  }
+  .card-title {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .kv-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 11.5px;
+  }
+  .kv-label { color: var(--muted); }
+  .kv-val { font-weight: 600; text-align: right; }
+  .blinding-box {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-top: 5px;
+    color: #a7f3d0;
+    font-size: 11px;
+  }
+  .replay-step {
+    background: var(--panel-alt);
+    border-left: 3px solid var(--border);
+    border-radius: 5px;
+    padding: 7px 9px;
+    margin-bottom: 6px;
+  }
+  .replay-step.rejected { border-left-color: var(--red); }
+  .replay-step.accepted { border-left-color: var(--green); }
+  .replay-step.safeguard { border-left-color: var(--amber); }
+  .outcome-pill {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .pill-rejected { background: rgba(244,63,94,0.2); color: #fda4af; border: 1px solid var(--red); }
+  .pill-accepted { background: rgba(16,185,129,0.2); color: #6ee7b7; border: 1px solid var(--green); }
+  .pill-safeguard { background: rgba(245,158,11,0.2); color: #fde68a; border: 1px solid var(--amber); }
+  .chart-svg { width: 100%; height: auto; display: block; border: 1px solid #1e293b; border-radius: 6px; }
+  .status-banner {
+    padding: 12px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    border: 2px solid;
+  }
+  .status-discrepancy { background: rgba(244,63,94,0.12); border-color: var(--red); color: #fecdd3; }
+  .status-inconclusive { background: rgba(245,158,11,0.14); border-color: var(--amber); color: #fef3c7; }
+  .status-supported { background: rgba(16,185,129,0.12); border-color: var(--green); color: #d1fae5; }
+  .bullet-list { padding-left: 16px; font-size: 12px; }
+  .bullet-list li { margin-bottom: 5px; }
+  .gate-btn {
+    width: 100%;
+    text-align: left;
+    padding: 9px 11px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--panel-alt);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .gate-btn.selected { border-color: var(--accent); background: rgba(56,189,248,0.2); }
+  .gate-btn.disabled-denial {
+    opacity: 0.48;
+    cursor: not-allowed;
+    border-color: #7f1d1d;
+    background: rgba(127,29,29,0.2);
+    color: #fca5a5;
+  }
+  .btn-action {
+    background: var(--accent);
+    color: #0f172a;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 11px;
+  }
+  #export-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  .modal-box {
+    background: var(--panel);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    width: 760px;
+    max-height: 82vh;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="top-banner">
+  <span id="provenance-banner">DATA PROVENANCE: ILLUSTRATIVE — SYNTHETIC FIXTURE (NO LIVE MEASUREMENT CLAIMED)</span>
+  <span>INTERFACE CONTRACT: integration/interfaces.md v1 · SCIENTIFIC RULE #3 &amp; #8 ENFORCED IN CODE</span>
+</div>
+
+<div class="header">
+  <div class="brand">
+    <span class="brand-badge">PROTOTYPE A · CASE FILE DOSSIER</span>
+    <div>
+      <div style="font-size:16px;font-weight:800;">GhostClock Forensic Evidence Corroboration Console</div>
+      <div style="font-size:11.5px;color:var(--muted);">Gemini 4 Argon Investigative Planner · Deterministic Signal &amp; Null-Calibrated Verifier · UK Insurance SIU Triage</div>
+    </div>
+  </div>
+  <div class="case-tabs" id="case-tabs"></div>
+  <div>
+    <label class="btn-secondary" style="display:inline-block;">
+      Load interfaces.md JSON <input type="file" accept=".json" style="display:none;" onchange="handleFileUpload(event)">
+    </label>
+  </div>
+</div>
+
+<div class="layout-grid" id="app-root"></div>
+
+<div id="export-modal">
+  <div class="modal-box">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <strong style="color:var(--accent);">Immutable Forensic Evidence &amp; Chain-of-Custody Log (interfaces.md v1)</strong>
+      <button class="btn-secondary" onclick="document.getElementById('export-modal').style.display='none'">Close</button>
+    </div>
+    <pre id="export-json-preview" style="background:#090d16;padding:12px;border-radius:6px;overflow:auto;max-height:60vh;font-size:11px;color:#a7f3d0;"></pre>
+  </div>
+</div>
+
+<script>
+
+window.GHOSTCLOCK_BUNDLE = {"schema_version": "interfaces.md.v1", "generated_by": "work/W15/generate_fixtures.py", "default_data_provenance": "ILLUSTRATIVE \u2014 SYNTHETIC FIXTURE (NO LIVE MEASUREMENT CLAIMED)", "cases": [{"case_id": "GC-2026-8841", "title": "Case 1: Commercial Warehouse Escape-of-Water (Discrepancy + Argon Loop)", "scenario_type": "DISCREPANCY_LOOP", "data_provenance": "ILLUSTRATIVE \u2014 SYNTHETIC FIXTURE (NO LIVE MEASUREMENT CLAIMED)", "claim_context": {"claim_id": "CLM-UK-2026-8841 (Fictional Scenario)", "is_fictional_scenario": true, "named_user": "Senior SIU Investigator \u2014 Commercial Property Claims", "financial_decision": "Hold \u00a324,500 emergency settlement payout & request original camera card before authorising strip-out works.", "policy_type": "Commercial Property \u2014 Escape of Water", "reserve_gbp": 24500, "claimed_start_utc": 1791993300, "claimed_start_iso": "2026-10-14T21:15:00Z", "matched_start_iso": "2026-10-12T21:14:20Z", "search_window_utc": [1791763200, 1792022400], "search_window_label": "72-hour window (2026-10-12 00:00Z to 2026-10-15 00:00Z)", "discrepancy_hours": -48.01, "narrative_summary": "Claimant submitted smartphone video allegedly showing a burst pipe flooding stock on Wed 14 Oct (24h after policy inception). Blinded ENF sequence matches NESO GB grid 48 hours earlier (Mon 12 Oct, prior to coverage)."}, "intake": {"media_filename": "IMG_4912_warehouse_pipe.mp4", "media_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "probe": {"container": "MPEG-4 (ISO/IEC 14496-12)", "codec_video": "H.264 / AVC1 (High@L4.0)", "codec_audio": "AAC-LC (48,000 Hz, mono)", "duration_s": 60.0, "fps": 29.97, "is_vfr": false, "row_readout_us": 14.8, "audio_fs_hz": 48000, "resolution": "1920x1080"}, "blinding": {"metadata_withheld": true, "stripped_fields": ["QuickTime:CreateDate (2026-10-14T21:15:04Z)", "File:ModifyDate", "EXIF:GPSLatitude / GPSLongitude", "Filename date tokens", "Claimed loss timestamp (withheld until post-search gate)"], "notice": "BLINDED ANALYSIS ACTIVE: Metadata withheld from analysis. Claimed timestamp excluded from ENF extraction and candidate search."}}, "investigation_replay": [{"attempt_id": 1, "stage": "Proposal 1 (Visual ROI \u2014 Ceiling LED Strip)", "argon_hypothesis": "Argon inspects frame geometry and proposes rolling-shutter row-profile extraction on the bright overhead warehouse LED batten (ROI #1: rows 40\u2013260) expecting 100 Hz flicker.", "tool_call": "analyse_video(path='IMG_4912.mp4', roi=[120,40,1680,260], nominal_hz=50)", "verifier_outcome": "REJECTED", "verifier_rule_triggered": "GATE_MIN_VALID_FRACTION (frac_valid = 0.31 < 0.60) & GATE_SNR_FLOOR (snr_db = -2.4 dB < 3.0 dB)", "verifier_reason": "Deterministic Verifier rejected Attempt 1: Overhead luminaire uses a high-frequency switched-mode DC driver + pixel saturation clipping (L > 252), destroying 100 Hz mains modulation.", "metrics": {"median_q": 0.29, "frac_valid": 0.31, "snr_db": -2.4}, "failed_trace_f": [49.94206, 50.02628, 49.96178, 50.00053, 50.04995, 49.95962, 50.03858, 49.85817, 49.94977, 49.99694, 49.9765, 50.08172, 49.88324, 50.04337, 50.04361, 50.01653, 50.01271, 50.03513, 49.90698, 50.02398, 50.00115, 50.02738, 49.93572, 50.09702, 49.97087, 50.04017, 49.9929, 49.97389, 49.9121, 50.03659, 49.95315, 50.07107, 50.05191, 50.03091, 49.99663, 50.061, 50.04963, 49.96326, 50.03312, 50.00684, 50.03639, 49.97268, 49.95509, 50.078, 50.04541, 50.01376, 50.00677, 49.96688, 50.02521, 49.9854, 49.99176, 50.04662, 49.96298, 50.02818, 49.95474, 49.98062, 49.95374, 49.96572, 50.03476, 50.02474], "failed_trace_q": [0.39, 0.384, 0.138, 0.571, 0.29, 0.05, 0.484, 0.335, 0.422, 0.416, 0.28, 0.247, 0.432, 0.066, 0.231, 0.122, 0.522, 0.236, 0.107, 0.371, 0.241, 0.574, 0.15, 0.388, 0.486, 0.257, 0.391, 0.255, 0.25, 0.36, 0.462, 0.373, 0.432, 0.142, 0.289, 0.068, 0.196, 0.175, 0.274, 0.212, 0.344, 0.447, 0.359, 0.379, 0.136, 0.405, 0.64, 0.424, 0.461, 0.241, 0.389, 0.326, 0.347, 0.346, 0.382, 0.336, 0.248, 0.385, 0.05, 0.537]}, {"attempt_id": 2, "stage": "Revision 2 (Audio Multi-Harmonic 100/150/200 Hz + Wall Ballast ROI)", "argon_hypothesis": "Reacting to verifier rejection, Argon masks saturated ceiling rows and pivots to acoustic STFT multi-harmonic ridge tracking (100, 150, 200 Hz from circulation pump/transformer hum), cross-checked against unclipped matte wall illumination bounce (ROI #2: rows 420\u2013880).", "tool_call": "analyse_audio(path='IMG_4912.mp4', harmonics=[100,150,200], window_s=4.0, hop_s=1.0)", "verifier_outcome": "ACCEPTED", "verifier_rule_triggered": "ALL_QUALITY_GATES_PASSED (frac_valid = 0.95 >= 0.60, snr_db = 14.2 dB >= 3.0 dB)", "verifier_reason": "Deterministic Verifier accepted Attempt 2: Clean harmonic sequence recovered across 57/60 windows. Proceeding to blinded NESO 1s grid correlation across 259,200 candidate seconds.", "metrics": {"median_q": 0.88, "frac_valid": 0.95, "snr_db": 14.2}}], "trace": {"source": "audio", "method": "stft_multiharmonic_weighted_ridge_v1", "nominal_hz": 50, "harmonics_used": [100, 150, 200], "window_s": 4.0, "hop_s": 1.0, "fs_media": 48000.0, "duration_s": 60.0, "media_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "params": {"n_fft": 65536, "band_halfwidth_hz": 0.35, "harmonic_weights": [0.52, 0.31, 0.17]}, "quality_summary": {"median_q": 0.88, "frac_valid": 0.95, "snr_db": 14.2}, "provenance": {"code": "work/W06/extract.py", "version": "0.2.0-illustrative"}, "t": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0], "f": [50.00467, 50.01713, 50.03388, 50.04936, 50.05953, 50.06392, 50.0548, 50.03434, 50.01822, 50.00088, 49.98304, 49.97384, 49.99067, 50.00173, 50.01595, 50.03018, 50.0269, 50.01802, 50.00725, 49.99064, 49.98557, 49.97962, 49.97947, 49.97888, 49.97893, 49.956, 49.94866, 49.93016, 49.91951, 49.91955, 49.92706, 49.96913, 49.98449, 50.02114, 50.03692, 50.04167, 50.04349, 50.04149, 50.0307, 50.02819, 50.03323, 50.03761, 50.04083, 50.04341, 50.04375, 50.03658, 50.02108, 50.02316, 50.01978, 50.01761, 50.04038, 50.06225, 50.07374, 50.07193, 50.05309, 50.03814, 50.01142, 49.98621, 49.96696, 49.96124], "q": [0.832, 0.891, 0.87, 0.826, 0.889, 0.883, 0.866, 0.817, 0.817, 0.831, 0.859, 0.858, 0.881, 0.923, 0.853, 0.806, 0.86, 0.819, 0.907, 0.82, 0.758, 0.797, 0.878, 0.906, 0.776, 0.776, 0.852, 0.839, 0.822, 0.889, 0.866, 0.855, 0.924, 0.843, 0.855, 0.87, 0.846, 0.827, 0.89, 0.812, 0.842, 0.905, 0.832, 0.832, 0.831, 0.81, 0.927, 0.856, 0.9, 0.849, 0.918, 0.877, 0.819, 0.875, 0.858, 0.852, 0.817, 0.928, 0.903, 0.84], "visual_corroboration_note": "Visual ROI #2 (wall bounce) recovered r=0.81 agreement with audio ENF. Per Scientific Rule #3, audio & visual ENF sense the SAME electrical environment and are NOT multiplied as independent probabilities."}, "reference": {"source": "NESO", "cadence_s": 1, "grid": "GB", "coverage": [1791763200, 1792022400], "url": "https://api.neso.energy/dataset/system-frequency-data", "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "aligned_f": [50.00693, 50.01776, 50.0324, 50.04778, 50.05913, 50.06198, 50.05422, 50.03725, 50.01573, 49.99603, 49.98391, 49.98237, 49.99062, 50.00445, 50.01793, 50.02575, 50.02514, 50.01675, 50.00403, 49.99155, 49.98288, 49.97908, 49.97839, 49.97716, 49.9718, 49.96069, 49.94529, 49.92991, 49.92019, 49.92089, 49.93387, 49.95717, 49.98554, 50.01227, 50.03155, 50.04049, 50.0399, 50.03368, 50.027, 50.02407, 50.0265, 50.03287, 50.03962, 50.04291, 50.04056, 50.03325, 50.02433, 50.01847, 50.01956, 50.02882, 50.04399, 50.05993, 50.07044, 50.07059, 50.05866, 50.03682, 50.01034, 49.98565, 49.96796, 49.95957]}, "match": {"best": {"start_utc": 1791820460, "score": 0.914, "rmse_mhz": 4.3, "offset_hz": -0.0004}, "candidates": [{"rank": 1, "start_utc": 1791820460, "iso": "2026-10-12T21:14:20Z", "score": 0.914, "rmse_mhz": 4.3, "offset_hz": -0.0004}, {"rank": 2, "start_utc": 1791858860, "iso": "2026-10-13T07:54:20Z", "score": 0.412, "rmse_mhz": 24.8, "offset_hz": 0.0061}, {"rank": 3, "start_utc": 1791934660, "iso": "2026-10-14T04:57:40Z", "score": 0.379, "rmse_mhz": 27.1, "offset_hz": -0.0089}], "null": {"method": "block_permutation_ar1_calibrated", "n": 5000, "p_empirical": 0.0002, "score_threshold": 0.54}, "uniqueness": {"margin_vs_second": 0.502, "second_best_distance_s": 38400}, "diagnostics": {"effective_dof": 44.2, "claimed_time_score": 0.118, "claimed_time_rmse_mhz": 41.6, "sub_segment_consistency": "First half (0-30s) and second half (30-60s) independently peak within 1s of 2026-10-12T21:14:20Z."}, "status": "MATERIAL_DISCREPANCY_REVIEW", "status_reasons": ["Blinded ENF match peak (r = 0.914, RMSE = 4.3 mHz) exceeds null threshold (0.540, p_empirical = 0.0002).", "Peak is unique across 72h search space (margin_vs_second = +0.502 over rank-2 candidate).", "Matched grid timestamp (2026-10-12 21:14:20 UTC) disagrees with claimant-stated loss time (2026-10-14 21:15:00 UTC) by -48.01 hours (pre-inception)."], "what_would_change_this": ["Original unedited camera card / raw container showing continuous ENF alignment inside the claimed 2026-10-14 evening window (r >= 0.540).", "Verified documentation that the site was operating on an isolated islanded diesel generator or UPS inverter disconnected from the GB National Grid.", "Independent utility/smart-meter outage log or plumber attendance telemetry corroborating the 14 Oct timestamp."], "landscape": [{"ts_utc": 1791763200, "score": 0.1227, "label": "background"}, {"ts_utc": 1791766112, "score": 0.002, "label": "background"}, {"ts_utc": 1791769024, "score": 0.0802, "label": "background"}, {"ts_utc": 1791771937, "score": 0.1796, "label": "background"}, {"ts_utc": 1791774849, "score": 0.0597, "label": "background"}, {"ts_utc": 1791777761, "score": 0.0638, "label": "background"}, {"ts_utc": 1791780674, "score": 0.2653, "label": "background"}, {"ts_utc": 1791783586, "score": 0.1157, "label": "background"}, {"ts_utc": 1791786498, "score": 0.253, "label": "background"}, {"ts_utc": 1791789411, "score": 0.1304, "label": "background"}, {"ts_utc": 1791792323, "score": 0.1429, "label": "background"}, {"ts_utc": 1791795235, "score": 0.1143, "label": "background"}, {"ts_utc": 1791798148, "score": 0.1169, "label": "background"}, {"ts_utc": 1791801060, "score": 0.1885, "label": "background"}, {"ts_utc": 1791803973, "score": 0.11, "label": "background"}, {"ts_utc": 1791806885, "score": 0.1234, "label": "background"}, {"ts_utc": 1791809797, "score": 0.1806, "label": "background"}, {"ts_utc": 1791812710, "score": 0.1861, "label": "background"}, {"ts_utc": 1791815622, "score": 0.191, "label": "background"}, {"ts_utc": 1791818534, "score": 0.0827, "label": "background"}, {"ts_utc": 1791820460, "score": 0.914, "label": "best_peak"}, {"ts_utc": 1791821447, "score": 0.2704, "label": "background"}, {"ts_utc": 1791824359, "score": 0.1117, "label": "background"}, {"ts_utc": 1791827271, "score": 0.3236, "label": "background"}, {"ts_utc": 1791830184, "score": 0.0449, "label": "background"}, {"ts_utc": 1791833096, "score": 0.2071, "label": "background"}, {"ts_utc": 1791836008, "score": 0.1909, "label": "background"}, {"ts_utc": 1791838921, "score": 0.1964, "label": "background"}, {"ts_utc": 1791841833, "score": 0.1551, "label": "background"}, {"ts_utc": 1791844746, "score": 0.2056, "label": "background"}, {"ts_utc": 1791847658, "score": 0.3589, "label": "background"}, {"ts_utc": 1791850570, "score": 0.2608, "label": "background"}, {"ts_utc": 1791853483, "score": 0.3807, "label": "background"}, {"ts_utc": 1791856395, "score": 0.2401, "label": "background"}, {"ts_utc": 1791858860, "score": 0.412, "label": "second_best"}, {"ts_utc": 1791859307, "score": 0.0929, "label": "background"}, {"ts_utc": 1791862220, "score": 0.2374, "label": "background"}, {"ts_utc": 1791865132, "score": 0.2224, "label": "background"}, {"ts_utc": 1791868044, "score": 0.3337, "label": "background"}, {"ts_utc": 1791870957, "score": 0.1042, "label": "background"}, {"ts_utc": 1791873869, "score": 0.1244, "label": "background"}, {"ts_utc": 1791876782, "score": 0.2592, "label": "background"}, {"ts_utc": 1791879694, "score": 0.1397, "label": "background"}, {"ts_utc": 1791882606, "score": 0.0161, "label": "background"}, {"ts_utc": 1791885519, "score": 0.0966, "label": "background"}, {"ts_utc": 1791888431, "score": 0.1617, "label": "background"}, {"ts_utc": 1791891343, "score": 0.2047, "label": "background"}, {"ts_utc": 1791894256, "score": 0.109, "label": "background"}, {"ts_utc": 1791897168, "score": 0.2044, "label": "background"}, {"ts_utc": 1791900080, "score": 0.242, "label": "background"}, {"ts_utc": 1791902993, "score": 0.1197, "label": "background"}, {"ts_utc": 1791905905, "score": 0.2208, "label": "background"}, {"ts_utc": 1791908817, "score": -0.0162, "label": "background"}, {"ts_utc": 1791911730, "score": 0.1857, "label": "background"}, {"ts_utc": 1791914642, "score": 0.1365, "label": "background"}, {"ts_utc": 1791917555, "score": 0.2243, "label": "background"}, {"ts_utc": 1791920467, "score": 0.1167, "label": "background"}, {"ts_utc": 1791923379, "score": 0.1608, "label": "background"}, {"ts_utc": 1791926292, "score": -0.0023, "label": "background"}, {"ts_utc": 1791929204, "score": 0.0904, "label": "background"}, {"ts_utc": 1791932116, "score": 0.1728, "label": "background"}, {"ts_utc": 1791935029, "score": 0.2387, "label": "background"}, {"ts_utc": 1791937941, "score": 0.3603, "label": "background"}, {"ts_utc": 1791940853, "score": 0.2775, "label": "background"}, {"ts_utc": 1791943766, "score": 0.1336, "label": "background"}, {"ts_utc": 1791946678, "score": -0.0199, "label": "background"}, {"ts_utc": 1791949591, "score": 0.2103, "label": "background"}, {"ts_utc": 1791952503, "score": 0.1931, "label": "background"}, {"ts_utc": 1791955415, "score": 0.3299, "label": "background"}, {"ts_utc": 1791958328, "score": 0.0811, "label": "background"}, {"ts_utc": 1791961240, "score": 0.289, "label": "background"}, {"ts_utc": 1791964152, "score": 0.2824, "label": "background"}, {"ts_utc": 1791967065, "score": 0.1202, "label": "background"}, {"ts_utc": 1791969977, "score": 0.2551, "label": "background"}, {"ts_utc": 1791972889, "score": 0.1277, "label": "background"}, {"ts_utc": 1791975802, "score": 0.219, "label": "background"}, {"ts_utc": 1791978714, "score": 0.0991, "label": "background"}, {"ts_utc": 1791981626, "score": 0.0923, "label": "background"}, {"ts_utc": 1791984539, "score": 0.0478, "label": "background"}, {"ts_utc": 1791987451, "score": 0.2645, "label": "background"}, {"ts_utc": 1791990364, "score": 0.2242, "label": "background"}, {"ts_utc": 1791993276, "score": 0.1927, "label": "background"}, {"ts_utc": 1791993300, "score": 0.118, "label": "claimed_time"}, {"ts_utc": 1791996188, "score": 0.3804, "label": "background"}, {"ts_utc": 1791999101, "score": 0.1097, "label": "background"}, {"ts_utc": 1792002013, "score": 0.0578, "label": "background"}, {"ts_utc": 1792004925, "score": 0.1857, "label": "background"}, {"ts_utc": 1792007838, "score": 0.1296, "label": "background"}, {"ts_utc": 1792010750, "score": 0.167, "label": "background"}, {"ts_utc": 1792013662, "score": 0.1455, "label": "background"}, {"ts_utc": 1792016575, "score": 0.306, "label": "background"}, {"ts_utc": 1792019487, "score": 0.1477, "label": "background"}, {"ts_utc": 1792022400, "score": 0.1816, "label": "background"}]}, "speed_check": {"estimated_carrier_hz": 50.001, "nominal_hz": 50.0, "speed_ratio_alpha": 1.00002, "apparent_duration_s": 60.0, "true_duration_s": 60.0, "splice_detected": false, "splice_time_s": null, "phase_jump_deg": 4.2, "verdict": "NOMINAL_SPEED_CONSISTENT (No speed tampering or temporal splice detected)"}}, {"case_id": "GC-2026-9104", "title": "Case 2: Outdoor Dashcam Clip \u2014 Code Safeguard Blocks Escalation (INCONCLUSIVE)", "scenario_type": "SAFEGUARD_ABSTENTION", "data_provenance": "ILLUSTRATIVE \u2014 SYNTHETIC FIXTURE (NO LIVE MEASUREMENT CLAIMED)", "claim_context": {"claim_id": "CLM-UK-2026-9104 / Live Judge Upload Safeguard", "is_fictional_scenario": true, "named_user": "Motor Claims Handler / Live Judge Challenge", "financial_decision": "Do NOT flag claim for time discrepancy; route to standard non-ENF corroboration because signal falls below deterministic evidentiary threshold.", "policy_type": "Commercial Motor \u2014 Rear-End Collision", "reserve_gbp": 8200, "claimed_start_utc": 1791993300, "claimed_start_iso": "2026-10-14T21:15:00Z", "matched_start_iso": "ABSTAINED (Below Null Threshold)", "search_window_utc": [1791763200, 1792022400], "search_window_label": "72-hour window (2026-10-12 00:00Z to 2026-10-15 00:00Z)", "discrepancy_hours": null, "narrative_summary": "18-second outdoor battery-powered dashcam clip with DC automotive electronics and wind noise. Argon attempts both audio and streetlamp rolling-shutter extraction; code-enforced gate blocks any timestamp claim and issues a rigorous INCONCLUSIVE abstention."}, "intake": {"media_filename": "DASH_20261014_outdoor_clip.mp4", "media_sha256": "7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730", "probe": {"container": "MPEG-4", "codec_video": "H.264 (Variable Frame Rate detected: 24.1\u201330.2 fps)", "codec_audio": "AAC-LC (44,100 Hz, heavy AGC / noise suppression)", "duration_s": 18.0, "fps": 29.97, "is_vfr": true, "row_readout_us": 16.2, "audio_fs_hz": 44100, "resolution": "1280x720"}, "blinding": {"metadata_withheld": true, "stripped_fields": ["EXIF:CreateDate", "OSD Burnt-in Timestamp (masked from ROI)", "Filename tokens"], "notice": "BLINDED ANALYSIS ACTIVE: Metadata and burnt-in dashboard clock withheld from ENF extraction and search."}}, "investigation_replay": [{"attempt_id": 1, "stage": "Proposal 1 (Audio 50/100 Hz Extraction)", "argon_hypothesis": "Argon probes audio track for 50 Hz / 100 Hz mains hum inside vehicle cabin.", "tool_call": "analyse_audio(path='DASH_20261014.mp4', harmonics=[50,100], window_s=4.0, hop_s=1.0)", "verifier_outcome": "REJECTED", "verifier_rule_triggered": "GATE_NO_HARMONIC_CARRIER (snr_db = -6.8 dB < 3.0 dB)", "verifier_reason": "Vehicle cabin is DC battery/alternator powered; acoustic spectrum dominated by engine RPM harmonic and wind noise.", "metrics": {"median_q": 0.19, "frac_valid": 0.17, "snr_db": -6.8}, "failed_trace_f": [50.0156, 49.99547, 50.03038, 50.00486, 50.00254, 50.01957, 50.00338, 49.95113, 50.00015, 49.99402, 50.02406, 49.98579, 49.97529, 49.97273, 50.02531, 49.98302, 50.01713, 49.98985, 49.95905, 50.04013, 50.09699, 50.00336, 50.03545, 49.98772, 50.01509, 49.96887, 49.98413, 49.97667, 50.0387, 50.05203, 49.95005, 49.99536, 50.01174, 50.00948, 50.00063, 49.95538, 50.01883, 50.04573, 50.05333, 49.9479, 50.03216, 49.96, 49.96523, 49.98944, 50.03199, 50.02134, 50.01082, 49.97193, 50.09048, 50.02106, 50.01786, 49.99012, 50.02512, 49.89022, 50.04929, 49.99851, 49.9868, 49.97643, 50.03538, 50.00112], "failed_trace_q": [0.273, 0.309, 0.347, 0.345, 0.509, 0.568, 0.391, 0.438, 0.58, 0.485, 0.364, 0.579, 0.427, 0.444, 0.519, 0.351, 0.503, 0.324, 0.454, 0.58, 0.283, 0.469, 0.418, 0.427, 0.412, 0.145, 0.369, 0.379, 0.439, 0.216, 0.172, 0.439, 0.255, 0.558, 0.478, 0.28, 0.489, 0.12, 0.51, 0.58, 0.313, 0.366, 0.44, 0.58, 0.577, 0.526, 0.475, 0.385, 0.382, 0.232, 0.519, 0.252, 0.316, 0.372, 0.188, 0.399, 0.465, 0.382, 0.462, 0.293]}, {"attempt_id": 2, "stage": "Revision 2 (Visual ROI \u2014 Distant Roadside Streetlamp)", "argon_hypothesis": "Argon identifies a stationary roadside lamp in upper-right quadrant and attempts rolling-shutter row demodulation.", "tool_call": "analyse_video(path='DASH_20261014.mp4', roi=[940,80,1220,290], nominal_hz=50)", "verifier_outcome": "SAFEGUARD_TRIGGERED", "verifier_rule_triggered": "SAFEGUARD_NULL_CALIBRATION_GATE (score = 0.438 < threshold 0.540; p_empirical = 0.184 > 0.01; margin = 0.027 < 0.15)", "verifier_reason": "CODE SAFEGUARD FIRED: 18s VFR clip yields weak correlation (0.438) indistinguishable from chance across a 72h search window. Deterministic gate blocks timestamp output and forces INCONCLUSIVE.", "metrics": {"median_q": 0.41, "frac_valid": 0.52, "snr_db": 1.8}}], "trace": {"source": "video", "method": "rolling_shutter_row_demod_v1", "nominal_hz": 50, "harmonics_used": [100], "window_s": 4.0, "hop_s": 1.0, "fs_media": 29.97, "duration_s": 18.0, "media_sha256": "7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730", "params": {"roi": [940, 80, 1220, 290], "vfr_compensation": true}, "quality_summary": {"median_q": 0.41, "frac_valid": 0.52, "snr_db": 1.8}, "provenance": {"code": "work/W08/extract_video.py", "version": "0.2.0-illustrative"}, "t": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0], "f": [50.0156, 49.99547, 50.03038, 50.00486, 50.00254, 50.01957, 50.00338, 49.95113, 50.00015, 49.99402, 50.02406, 49.98579, 49.97529, 49.97273, 50.02531, 49.98302, 50.01713, 49.98985, 49.95905, 50.04013, 50.09699, 50.00336, 50.03545, 49.98772, 50.01509, 49.96887, 49.98413, 49.97667, 50.0387, 50.05203, 49.95005, 49.99536, 50.01174, 50.00948, 50.00063, 49.95538, 50.01883, 50.04573, 50.05333, 49.9479, 50.03216, 49.96, 49.96523, 49.98944, 50.03199, 50.02134, 50.01082, 49.97193, 50.09048, 50.02106, 50.01786, 49.99012, 50.02512, 49.89022, 50.04929, 49.99851, 49.9868, 49.97643, 50.03538, 50.00112], "q": [0.273, 0.309, 0.347, 0.345, 0.509, 0.568, 0.391, 0.438, 0.58, 0.485, 0.364, 0.579, 0.427, 0.444, 0.519, 0.351, 0.503, 0.324, 0.454, 0.58, 0.283, 0.469, 0.418, 0.427, 0.412, 0.145, 0.369, 0.379, 0.439, 0.216, 0.172, 0.439, 0.255, 0.558, 0.478, 0.28, 0.489, 0.12, 0.51, 0.58, 0.313, 0.366, 0.44, 0.58, 0.577, 0.526, 0.475, 0.385, 0.382, 0.232, 0.519, 0.252, 0.316, 0.372, 0.188, 0.399, 0.465, 0.382, 0.462, 0.293], "visual_corroboration_note": "Neither audio nor visual channel passes null calibration. Code-enforced policy prevents LLM speculation."}, "reference": {"source": "NESO", "cadence_s": 1, "grid": "GB", "coverage": [1791763200, 1792022400], "url": "https://api.neso.energy/dataset/system-frequency-data", "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "aligned_f": [50.0, 50.00537, 50.0105, 50.01513, 50.01905, 50.02209, 50.02409, 50.02496, 50.02467, 50.02322, 50.02069, 50.01719, 50.01289, 50.00798, 50.0027, 49.9973, 49.99202, 49.98711, 49.98281, 49.97931, 49.97678, 49.97533, 49.97504, 49.97591, 49.97791, 49.98095, 49.98487, 49.9895, 49.99463, 50.0, 50.00537, 50.0105, 50.01513, 50.01905, 50.02209, 50.02409, 50.02496, 50.02467, 50.02322, 50.02069, 50.01719, 50.01289, 50.00798, 50.0027, 49.9973, 49.99202, 49.98711, 49.98281, 49.97931, 49.97678, 49.97533, 49.97504, 49.97591, 49.97791, 49.98095, 49.98487, 49.9895, 49.99463, 50.0, 50.00537]}, "match": {"best": {"start_utc": 1791824400, "score": 0.438, "rmse_mhz": 33.4, "offset_hz": 0.0112}, "candidates": [{"rank": 1, "start_utc": 1791824400, "iso": "2026-10-12T17:00:00Z", "score": 0.438, "rmse_mhz": 33.4, "offset_hz": 0.0112}, {"rank": 2, "start_utc": 1791911200, "iso": "2026-10-13T17:06:40Z", "score": 0.411, "rmse_mhz": 34.1, "offset_hz": -0.0085}, {"rank": 3, "start_utc": 1791965100, "iso": "2026-10-14T08:05:00Z", "score": 0.399, "rmse_mhz": 35.0, "offset_hz": 0.0041}], "null": {"method": "block_permutation_ar1_calibrated", "n": 5000, "p_empirical": 0.184, "score_threshold": 0.54}, "uniqueness": {"margin_vs_second": 0.027, "second_best_distance_s": 86800}, "diagnostics": {"effective_dof": 11.4, "claimed_time_score": 0.294, "claimed_time_rmse_mhz": 38.9, "sub_segment_consistency": "FAILED: Split halves peak 61,400 seconds apart."}, "status": "INCONCLUSIVE", "status_reasons": ["SAFEGUARD TRIGGERED: Best candidate correlation (0.438) is BELOW the code-enforced null threshold (0.540; p_empirical = 0.184 > 0.01).", "Uniqueness margin fails threshold (margin_vs_second = 0.027 < 0.15 required); top 3 candidates are statistically indistinguishable.", "Short clip duration (18.0 s) + Variable Frame Rate (VFR) + outdoor DC environment provide insufficient ENF degrees of freedom."], "what_would_change_this": ["A stationary indoor recording of >= 120 seconds captured near mains-powered lighting (100 Hz optical flicker) or AC appliances.", "Narrowing the candidate search window via independent telematics / ANPR / cell-tower bounds before running null calibration.", "Original constant-frame-rate (CFR) uncompressed or lightly compressed source footage."], "landscape": [{"ts_utc": 1791763200, "score": 0.085, "label": "background"}, {"ts_utc": 1791766112, "score": 0.2002, "label": "background"}, {"ts_utc": 1791769024, "score": 0.1113, "label": "background"}, {"ts_utc": 1791771937, "score": 0.2891, "label": "background"}, {"ts_utc": 1791774849, "score": 0.2315, "label": "background"}, {"ts_utc": 1791777761, "score": 0.2518, "label": "background"}, {"ts_utc": 1791780674, "score": 0.1657, "label": "background"}, {"ts_utc": 1791783586, "score": 0.347, "label": "background"}, {"ts_utc": 1791786498, "score": 0.1757, "label": "background"}, {"ts_utc": 1791789411, "score": 0.2526, "label": "background"}, {"ts_utc": 1791792323, "score": 0.2551, "label": "background"}, {"ts_utc": 1791795235, "score": 0.3261, "label": "background"}, {"ts_utc": 1791798148, "score": 0.2448, "label": "background"}, {"ts_utc": 1791801060, "score": 0.2974, "label": "background"}, {"ts_utc": 1791803973, "score": 0.1903, "label": "background"}, {"ts_utc": 1791806885, "score": 0.2716, "label": "background"}, {"ts_utc": 1791809797, "score": 0.2373, "label": "background"}, {"ts_utc": 1791812710, "score": 0.2258, "label": "background"}, {"ts_utc": 1791815622, "score": 0.1753, "label": "background"}, {"ts_utc": 1791818534, "score": 0.2063, "label": "background"}, {"ts_utc": 1791821447, "score": 0.1435, "label": "background"}, {"ts_utc": 1791824359, "score": 0.2075, "label": "background"}, {"ts_utc": 1791824400, "score": 0.438, "label": "best_peak"}, {"ts_utc": 1791827271, "score": 0.29, "label": "background"}, {"ts_utc": 1791830184, "score": 0.1535, "label": "background"}, {"ts_utc": 1791833096, "score": 0.1739, "label": "background"}, {"ts_utc": 1791836008, "score": 0.3567, "label": "background"}, {"ts_utc": 1791838921, "score": 0.2144, "label": "background"}, {"ts_utc": 1791841833, "score": 0.3014, "label": "background"}, {"ts_utc": 1791844746, "score": 0.2306, "label": "background"}, {"ts_utc": 1791847658, "score": 0.2913, "label": "background"}, {"ts_utc": 1791850570, "score": 0.2368, "label": "background"}, {"ts_utc": 1791853483, "score": 0.2116, "label": "background"}, {"ts_utc": 1791856395, "score": 0.1796, "label": "background"}, {"ts_utc": 1791859307, "score": 0.238, "label": "background"}, {"ts_utc": 1791862220, "score": -0.0357, "label": "background"}, {"ts_utc": 1791865132, "score": 0.126, "label": "background"}, {"ts_utc": 1791868044, "score": 0.2175, "label": "background"}, {"ts_utc": 1791870957, "score": 0.2502, "label": "background"}, {"ts_utc": 1791873869, "score": 0.3107, "label": "background"}, {"ts_utc": 1791876782, "score": 0.3032, "label": "background"}, {"ts_utc": 1791879694, "score": 0.1411, "label": "background"}, {"ts_utc": 1791882606, "score": 0.0776, "label": "background"}, {"ts_utc": 1791885519, "score": 0.2683, "label": "background"}, {"ts_utc": 1791888431, "score": 0.1741, "label": "background"}, {"ts_utc": 1791891343, "score": 0.2857, "label": "background"}, {"ts_utc": 1791894256, "score": 0.1619, "label": "background"}, {"ts_utc": 1791897168, "score": 0.2223, "label": "background"}, {"ts_utc": 1791900080, "score": 0.3077, "label": "background"}, {"ts_utc": 1791902993, "score": 0.403, "label": "background"}, {"ts_utc": 1791905905, "score": 0.2786, "label": "background"}, {"ts_utc": 1791908817, "score": 0.166, "label": "background"}, {"ts_utc": 1791911200, "score": 0.411, "label": "second_best"}, {"ts_utc": 1791911730, "score": 0.29, "label": "background"}, {"ts_utc": 1791914642, "score": 0.2819, "label": "background"}, {"ts_utc": 1791917555, "score": 0.1817, "label": "background"}, {"ts_utc": 1791920467, "score": 0.1347, "label": "background"}, {"ts_utc": 1791923379, "score": 0.3087, "label": "background"}, {"ts_utc": 1791926292, "score": 0.1665, "label": "background"}, {"ts_utc": 1791929204, "score": -0.0091, "label": "background"}, {"ts_utc": 1791932116, "score": 0.2798, "label": "background"}, {"ts_utc": 1791935029, "score": 0.245, "label": "background"}, {"ts_utc": 1791937941, "score": 0.1435, "label": "background"}, {"ts_utc": 1791940853, "score": 0.2731, "label": "background"}, {"ts_utc": 1791943766, "score": 0.1644, "label": "background"}, {"ts_utc": 1791946678, "score": 0.2703, "label": "background"}, {"ts_utc": 1791949591, "score": 0.1836, "label": "background"}, {"ts_utc": 1791952503, "score": 0.1645, "label": "background"}, {"ts_utc": 1791955415, "score": 0.2764, "label": "background"}, {"ts_utc": 1791958328, "score": 0.3578, "label": "background"}, {"ts_utc": 1791961240, "score": 0.3659, "label": "background"}, {"ts_utc": 1791964152, "score": 0.3089, "label": "background"}, {"ts_utc": 1791967065, "score": 0.2148, "label": "background"}, {"ts_utc": 1791969977, "score": 0.2902, "label": "background"}, {"ts_utc": 1791972889, "score": 0.1975, "label": "background"}, {"ts_utc": 1791975802, "score": 0.1023, "label": "background"}, {"ts_utc": 1791978714, "score": 0.2414, "label": "background"}, {"ts_utc": 1791981626, "score": 0.2658, "label": "background"}, {"ts_utc": 1791984539, "score": 0.2241, "label": "background"}, {"ts_utc": 1791987451, "score": 0.0805, "label": "background"}, {"ts_utc": 1791990364, "score": 0.3229, "label": "background"}, {"ts_utc": 1791993276, "score": 0.2887, "label": "background"}, {"ts_utc": 1791993300, "score": 0.294, "label": "claimed_time"}, {"ts_utc": 1791996188, "score": 0.242, "label": "background"}, {"ts_utc": 1791999101, "score": 0.1741, "label": "background"}, {"ts_utc": 1792002013, "score": 0.2207, "label": "background"}, {"ts_utc": 1792004925, "score": 0.2156, "label": "background"}, {"ts_utc": 1792007838, "score": 0.1512, "label": "background"}, {"ts_utc": 1792010750, "score": 0.3017, "label": "background"}, {"ts_utc": 1792013662, "score": 0.1054, "label": "background"}, {"ts_utc": 1792016575, "score": 0.2722, "label": "background"}, {"ts_utc": 1792019487, "score": 0.2417, "label": "background"}, {"ts_utc": 1792022400, "score": 0.2652, "label": "background"}]}, "speed_check": {"estimated_carrier_hz": 50.012, "nominal_hz": 50.0, "speed_ratio_alpha": 1.00024, "apparent_duration_s": 18.0, "true_duration_s": 18.0, "splice_detected": false, "splice_time_s": null, "phase_jump_deg": 18.5, "verdict": "INCONCLUSIVE_CARRIER (SNR too low for high-confidence speed/splice audit)"}}, {"case_id": "GC-2026-9310", "title": "Case 3: Loading-Bay CCTV \u2014 W13 Speed-Alteration (1.0624x) & Splice Detected", "scenario_type": "SPEED_SPLICE_TAMPERING", "data_provenance": "ILLUSTRATIVE \u2014 SYNTHETIC FIXTURE (NO LIVE MEASUREMENT CLAIMED)", "claim_context": {"claim_id": "CLM-UK-2026-9310 (Fictional Scenario)", "is_fictional_scenario": true, "named_user": "SIU Forensic Analyst \u2014 Workplace Liability & Cargo Loss", "financial_decision": "Escalate to SIU human review & request native DVR export; do not rely on re-encoded clip for Forklift impact speed or timeline.", "policy_type": "Commercial Liability & Goods in Transit", "reserve_gbp": 41000, "claimed_start_utc": 1791993300, "claimed_start_iso": "2026-10-14T21:15:00Z", "matched_start_iso": "TAMPERED CARRIER (53.120 Hz / +6.24% Speed Shift)", "search_window_utc": [1791763200, 1792022400], "search_window_label": "72-hour window (2026-10-12 00:00Z to 2026-10-15 00:00Z)", "discrepancy_hours": 0.0, "narrative_summary": "Submitted CCTV clip appears to show a rapid safety-gate closure and missing 12-second inspection interval. W13 deterministic carrier tracker finds the nominal 50.000 Hz GB grid hum shifted uniformly to 53.120 Hz (alpha = 1.0624x playback speed-up) plus a 142 deg ENF phase discontinuity at t = 28.0 s."}, "intake": {"media_filename": "CCTV_Bay4_Export_Reencoded.mp4", "media_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a", "probe": {"container": "MPEG-4 (Lavf60.16.100 re-encode signature)", "codec_video": "H.264 (30.00 fps constant)", "codec_audio": "AAC-LC (48,000 Hz, unpitched resample artifact)", "duration_s": 56.5, "fps": 30.0, "is_vfr": false, "row_readout_us": 13.9, "audio_fs_hz": 48000, "resolution": "1920x1080"}, "blinding": {"metadata_withheld": true, "stripped_fields": ["Lavf encoder tags", "File timestamps", "Claimed incident time"], "notice": "BLINDED ANALYSIS ACTIVE: Metadata withheld from W13 carrier & phase-continuity analysis."}}, "investigation_replay": [{"attempt_id": 1, "stage": "Proposal 1 (Standard 50.000 Hz Narrowband Filter)", "argon_hypothesis": "Argon runs standard 50.0 \u00b1 0.25 Hz narrowband extraction on DVR audio track.", "tool_call": "analyse_audio(path='CCTV_Bay4.mp4', nominal_hz=50, band_halfwidth_hz=0.25)", "verifier_outcome": "REJECTED", "verifier_rule_triggered": "GATE_CARRIER_OFFSET_ANOMALY (in-band energy at 50.0 Hz < -8 dB; strong harmonic ridge detected at +6.24% offset)", "verifier_reason": "Standard 50.0 Hz band is empty, but wideband harmonic comb scanner detects coherent mains hum + 2nd/3rd harmonics shifted to 53.120 / 106.240 / 159.360 Hz.", "metrics": {"median_q": 0.14, "frac_valid": 0.12, "snr_db": -8.1}, "failed_trace_f": [49.94206, 50.02628, 49.96178, 50.00053, 50.04995, 49.95962, 50.03858, 49.85817, 49.94977, 49.99694, 49.9765, 50.08172, 49.88324, 50.04337, 50.04361, 50.01653, 50.01271, 50.03513, 49.90698, 50.02398, 50.00115, 50.02738, 49.93572, 50.09702, 49.97087, 50.04017, 49.9929, 49.97389, 49.9121, 50.03659, 49.95315, 50.07107, 50.05191, 50.03091, 49.99663, 50.061, 50.04963, 49.96326, 50.03312, 50.00684, 50.03639, 49.97268, 49.95509, 50.078, 50.04541, 50.01376, 50.00677, 49.96688, 50.02521, 49.9854, 49.99176, 50.04662, 49.96298, 50.02818, 49.95474, 49.98062, 49.95374, 49.96572, 50.03476, 50.02474], "failed_trace_q": [0.39, 0.384, 0.138, 0.571, 0.29, 0.05, 0.484, 0.335, 0.422, 0.416, 0.28, 0.247, 0.432, 0.066, 0.231, 0.122, 0.522, 0.236, 0.107, 0.371, 0.241, 0.574, 0.15, 0.388, 0.486, 0.257, 0.391, 0.255, 0.25, 0.36, 0.462, 0.373, 0.432, 0.142, 0.289, 0.068, 0.196, 0.175, 0.274, 0.212, 0.344, 0.447, 0.359, 0.379, 0.136, 0.405, 0.64, 0.424, 0.461, 0.241, 0.389, 0.326, 0.347, 0.346, 0.382, 0.336, 0.248, 0.385, 0.05, 0.537]}, {"attempt_id": 2, "stage": "Revision 2 (W13 Speed-Factor Estimation + Phase-Continuity Splice Audit)", "argon_hypothesis": "Argon invokes W13 speed & splice detector to estimate playback stretch ratio alpha = f_est / 50.0 and test phase continuity across the clip.", "tool_call": "detect_speed_and_splice(path='CCTV_Bay4.mp4', nominal_hz=50.0)", "verifier_outcome": "ACCEPTED", "verifier_rule_triggered": "W13_SPEED_ANOMALY_CONFIRMED (alpha = 1.0624 \u00b1 0.0003) & W13_SPLICE_PHASE_JUMP (\u0394\u03c6 = 142.4\u00b0 at t = 28.0 s)", "verifier_reason": "After de-warping by alpha = 1.0624x and splitting at t = 28.0 s, both sub-segments match NESO GB reference with a 12.0 s excised gap between t=28s and t=29s.", "metrics": {"median_q": 0.91, "frac_valid": 0.95, "snr_db": 16.4}}], "trace": {"source": "audio", "method": "w13_dewarped_harmonic_ridge_v1", "nominal_hz": 50, "harmonics_used": [50, 100, 150], "window_s": 4.0, "hop_s": 1.0, "fs_media": 48000.0, "duration_s": 56.5, "media_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a", "params": {"estimated_alpha": 1.0624, "raw_carrier_hz": 53.12, "splice_split_s": 28.0}, "quality_summary": {"median_q": 0.91, "frac_valid": 0.95, "snr_db": 16.4}, "provenance": {"code": "work/W13/speed_splice.py", "version": "0.2.0-illustrative"}, "t": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0], "f": [50.00467, 50.01713, 50.03388, 50.04936, 50.05953, 50.06392, 50.0548, 50.03434, 50.01822, 50.00088, 49.98304, 49.97384, 49.99067, 50.00173, 50.01595, 50.03018, 50.0269, 50.01802, 50.00725, 49.99064, 49.98557, 49.97962, 49.97947, 49.97888, 49.97893, 49.956, 49.94866, 49.93016, 49.91951, 49.91955, 49.92706, 49.96913, 49.98449, 50.02114, 50.03692, 50.04167, 50.04349, 50.04149, 50.0307, 50.02819, 50.03323, 50.03761, 50.04083, 50.04341, 50.04375, 50.03658, 50.02108, 50.02316, 50.01978, 50.01761, 50.04038, 50.06225, 50.07374, 50.07193, 50.05309, 50.03814, 50.01142, 49.98621, 49.96696, 49.96124], "raw_shifted_f": [53.12756, 53.13223, 53.1584, 53.17492, 53.17897, 53.19038, 53.17841, 53.15983, 53.14033, 53.11558, 53.09548, 53.10201, 53.11413, 53.11574, 53.13047, 53.14882, 53.1461, 53.14731, 53.11988, 53.10624, 53.0944, 53.09986, 53.09677, 53.09546, 53.0899, 53.0849, 53.06132, 53.04478, 53.03012, 53.03064, 53.05093, 53.07622, 53.10711, 53.12633, 53.16179, 53.1684, 53.15811, 53.15859, 53.14273, 53.14052, 53.14092, 53.15796, 53.15905, 53.17166, 53.16686, 53.15403, 53.15203, 53.14736, 53.13821, 53.15862, 53.17039, 53.19013, 53.19185, 53.19907, 53.18961, 53.17192, 53.12705, 53.10817, 53.08479, 53.07867], "q": [0.872, 0.911, 0.826, 0.886, 0.871, 0.898, 0.943, 0.902, 0.851, 0.933, 0.913, 0.908, 0.871, 0.904, 0.919, 0.953, 0.909, 0.901, 0.903, 0.903, 0.919, 0.943, 0.922, 0.896, 0.879, 0.854, 0.966, 0.31, 0.22, 0.35, 0.923, 0.94, 0.909, 0.937, 0.889, 0.869, 0.909, 0.887, 0.906, 0.871, 0.962, 0.914, 0.95, 0.931, 0.88, 0.897, 0.942, 0.938, 0.855, 0.835, 0.855, 0.935, 0.937, 0.942, 0.948, 0.927, 0.933, 0.865, 0.892, 0.86], "visual_corroboration_note": "Visual rolling-shutter flicker also appears at 106.24 Hz instead of 100.00 Hz, confirming media-wide playback speed alteration rather than audio pitch drift."}, "reference": {"source": "NESO", "cadence_s": 1, "grid": "GB", "coverage": [1791763200, 1792022400], "url": "https://api.neso.energy/dataset/system-frequency-data", "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "aligned_f": [50.00693, 50.01776, 50.0324, 50.04778, 50.05913, 50.06198, 50.05422, 50.03725, 50.01573, 49.99603, 49.98391, 49.98237, 49.99062, 50.00445, 50.01793, 50.02575, 50.02514, 50.01675, 50.00403, 49.99155, 49.98288, 49.97908, 49.97839, 49.97716, 49.9718, 49.96069, 49.94529, 49.92991, 49.92019, 49.92089, 49.93387, 49.95717, 49.98554, 50.01227, 50.03155, 50.04049, 50.0399, 50.03368, 50.027, 50.02407, 50.0265, 50.03287, 50.03962, 50.04291, 50.04056, 50.03325, 50.02433, 50.01847, 50.01956, 50.02882, 50.04399, 50.05993, 50.07044, 50.07059, 50.05866, 50.03682, 50.01034, 49.98565, 49.96796, 49.95957]}, "match": {"best": {"start_utc": 1791993300, "score": 0.889, "rmse_mhz": 5.1, "offset_hz": 3.12}, "candidates": [{"rank": 1, "start_utc": 1791993300, "iso": "2026-10-14T21:15:00Z (De-warped)", "score": 0.889, "rmse_mhz": 5.1, "offset_hz": 3.12}, {"rank": 2, "start_utc": 1791902100, "iso": "2026-10-13T19:55:00Z", "score": 0.388, "rmse_mhz": 26.4, "offset_hz": 3.118}], "null": {"method": "block_permutation_ar1_calibrated", "n": 5000, "p_empirical": 0.0006, "score_threshold": 0.54}, "uniqueness": {"margin_vs_second": 0.501, "second_best_distance_s": 91200}, "diagnostics": {"effective_dof": 41.0, "claimed_time_score": 0.889, "claimed_time_rmse_mhz": 5.1, "sub_segment_consistency": "DISCONTINUOUS: Segment A (0-28s) and Segment B (28-56.5s) exhibit a 12.0s missing grid interval and \u0394\u03c6 = 142.4\u00b0 phase jump."}, "status": "MATERIAL_DISCREPANCY_REVIEW", "status_reasons": ["W13 SPEED TAMPERING DETECTED: Nominal 50.000 Hz grid carrier shifted to 53.120 Hz (playback speed ratio alpha = 1.0624x, +6.24% faster than real time).", "W13 SPLICE DETECTED: Instantaneous phase discontinuity \u0394\u03c6 = 142.4\u00b0 at t = 28.0 s with a 12.0-second gap against the continuous NESO reference.", "Human SIU review required to inspect native DVR image before relying on clip timing."], "what_would_change_this": ["Native proprietary DVR export with verified crystal clock calibration showing unedited phase continuity across t = 28.0 s.", "Verified hardware sample-rate clock fault in the recording appliance (48.0 kHz -> 45.18 kHz ADC clock drift) without frame removal."], "landscape": [{"ts_utc": 1791763200, "score": 0.1227, "label": "background"}, {"ts_utc": 1791766112, "score": 0.002, "label": "background"}, {"ts_utc": 1791769024, "score": 0.0802, "label": "background"}, {"ts_utc": 1791771937, "score": 0.1796, "label": "background"}, {"ts_utc": 1791774849, "score": 0.0597, "label": "background"}, {"ts_utc": 1791777761, "score": 0.0638, "label": "background"}, {"ts_utc": 1791780674, "score": 0.2653, "label": "background"}, {"ts_utc": 1791783586, "score": 0.1157, "label": "background"}, {"ts_utc": 1791786498, "score": 0.253, "label": "background"}, {"ts_utc": 1791789411, "score": 0.1304, "label": "background"}, {"ts_utc": 1791792323, "score": 0.1429, "label": "background"}, {"ts_utc": 1791795235, "score": 0.1143, "label": "background"}, {"ts_utc": 1791798148, "score": 0.1169, "label": "background"}, {"ts_utc": 1791801060, "score": 0.1885, "label": "background"}, {"ts_utc": 1791803973, "score": 0.11, "label": "background"}, {"ts_utc": 1791806885, "score": 0.1234, "label": "background"}, {"ts_utc": 1791809797, "score": 0.1806, "label": "background"}, {"ts_utc": 1791812710, "score": 0.1861, "label": "background"}, {"ts_utc": 1791815622, "score": 0.191, "label": "background"}, {"ts_utc": 1791818534, "score": 0.0827, "label": "background"}, {"ts_utc": 1791820460, "score": 0.914, "label": "best_peak"}, {"ts_utc": 1791821447, "score": 0.2704, "label": "background"}, {"ts_utc": 1791824359, "score": 0.1117, "label": "background"}, {"ts_utc": 1791827271, "score": 0.3236, "label": "background"}, {"ts_utc": 1791830184, "score": 0.0449, "label": "background"}, {"ts_utc": 1791833096, "score": 0.2071, "label": "background"}, {"ts_utc": 1791836008, "score": 0.1909, "label": "background"}, {"ts_utc": 1791838921, "score": 0.1964, "label": "background"}, {"ts_utc": 1791841833, "score": 0.1551, "label": "background"}, {"ts_utc": 1791844746, "score": 0.2056, "label": "background"}, {"ts_utc": 1791847658, "score": 0.3589, "label": "background"}, {"ts_utc": 1791850570, "score": 0.2608, "label": "background"}, {"ts_utc": 1791853483, "score": 0.3807, "label": "background"}, {"ts_utc": 1791856395, "score": 0.2401, "label": "background"}, {"ts_utc": 1791858860, "score": 0.412, "label": "second_best"}, {"ts_utc": 1791859307, "score": 0.0929, "label": "background"}, {"ts_utc": 1791862220, "score": 0.2374, "label": "background"}, {"ts_utc": 1791865132, "score": 0.2224, "label": "background"}, {"ts_utc": 1791868044, "score": 0.3337, "label": "background"}, {"ts_utc": 1791870957, "score": 0.1042, "label": "background"}, {"ts_utc": 1791873869, "score": 0.1244, "label": "background"}, {"ts_utc": 1791876782, "score": 0.2592, "label": "background"}, {"ts_utc": 1791879694, "score": 0.1397, "label": "background"}, {"ts_utc": 1791882606, "score": 0.0161, "label": "background"}, {"ts_utc": 1791885519, "score": 0.0966, "label": "background"}, {"ts_utc": 1791888431, "score": 0.1617, "label": "background"}, {"ts_utc": 1791891343, "score": 0.2047, "label": "background"}, {"ts_utc": 1791894256, "score": 0.109, "label": "background"}, {"ts_utc": 1791897168, "score": 0.2044, "label": "background"}, {"ts_utc": 1791900080, "score": 0.242, "label": "background"}, {"ts_utc": 1791902993, "score": 0.1197, "label": "background"}, {"ts_utc": 1791905905, "score": 0.2208, "label": "background"}, {"ts_utc": 1791908817, "score": -0.0162, "label": "background"}, {"ts_utc": 1791911730, "score": 0.1857, "label": "background"}, {"ts_utc": 1791914642, "score": 0.1365, "label": "background"}, {"ts_utc": 1791917555, "score": 0.2243, "label": "background"}, {"ts_utc": 1791920467, "score": 0.1167, "label": "background"}, {"ts_utc": 1791923379, "score": 0.1608, "label": "background"}, {"ts_utc": 1791926292, "score": -0.0023, "label": "background"}, {"ts_utc": 1791929204, "score": 0.0904, "label": "background"}, {"ts_utc": 1791932116, "score": 0.1728, "label": "background"}, {"ts_utc": 1791935029, "score": 0.2387, "label": "background"}, {"ts_utc": 1791937941, "score": 0.3603, "label": "background"}, {"ts_utc": 1791940853, "score": 0.2775, "label": "background"}, {"ts_utc": 1791943766, "score": 0.1336, "label": "background"}, {"ts_utc": 1791946678, "score": -0.0199, "label": "background"}, {"ts_utc": 1791949591, "score": 0.2103, "label": "background"}, {"ts_utc": 1791952503, "score": 0.1931, "label": "background"}, {"ts_utc": 1791955415, "score": 0.3299, "label": "background"}, {"ts_utc": 1791958328, "score": 0.0811, "label": "background"}, {"ts_utc": 1791961240, "score": 0.289, "label": "background"}, {"ts_utc": 1791964152, "score": 0.2824, "label": "background"}, {"ts_utc": 1791967065, "score": 0.1202, "label": "background"}, {"ts_utc": 1791969977, "score": 0.2551, "label": "background"}, {"ts_utc": 1791972889, "score": 0.1277, "label": "background"}, {"ts_utc": 1791975802, "score": 0.219, "label": "background"}, {"ts_utc": 1791978714, "score": 0.0991, "label": "background"}, {"ts_utc": 1791981626, "score": 0.0923, "label": "background"}, {"ts_utc": 1791984539, "score": 0.0478, "label": "background"}, {"ts_utc": 1791987451, "score": 0.2645, "label": "background"}, {"ts_utc": 1791990364, "score": 0.2242, "label": "background"}, {"ts_utc": 1791993276, "score": 0.1927, "label": "background"}, {"ts_utc": 1791993300, "score": 0.118, "label": "claimed_time"}, {"ts_utc": 1791996188, "score": 0.3804, "label": "background"}, {"ts_utc": 1791999101, "score": 0.1097, "label": "background"}, {"ts_utc": 1792002013, "score": 0.0578, "label": "background"}, {"ts_utc": 1792004925, "score": 0.1857, "label": "background"}, {"ts_utc": 1792007838, "score": 0.1296, "label": "background"}, {"ts_utc": 1792010750, "score": 0.167, "label": "background"}, {"ts_utc": 1792013662, "score": 0.1455, "label": "background"}, {"ts_utc": 1792016575, "score": 0.306, "label": "background"}, {"ts_utc": 1792019487, "score": 0.1477, "label": "background"}, {"ts_utc": 1792022400, "score": 0.1816, "label": "background"}]}, "speed_check": {"estimated_carrier_hz": 53.12, "nominal_hz": 50.0, "speed_ratio_alpha": 1.0624, "apparent_duration_s": 56.5, "true_duration_s": 60.0, "splice_detected": true, "splice_time_s": 28.0, "phase_jump_deg": 142.4, "verdict": "MATERIAL_SPEED_AND_SPLICE_ANOMALY (+6.24% speed-up & 12.0s splice at t=28.0s)"}}, {"case_id": "GC-2026-8902", "title": "Case 4: Blinded Benchmark Verification \u2014 Claimed Window Corroborated (MATCH_SUPPORTED)", "scenario_type": "MATCH_SUPPORTED_BENCHMARK", "data_provenance": "ILLUSTRATIVE \u2014 SYNTHETIC FIXTURE (NO LIVE MEASUREMENT CLAIMED)", "claim_context": {"claim_id": "CLM-UK-2026-8902 / Held-Out Benchmark Positive", "is_fictional_scenario": true, "named_user": "Claims Investigator \u2014 Fast-Track Settlement Triage", "financial_decision": "Clear video timestamp evidence for standard claim settlement processing (no temporal anomaly detected).", "policy_type": "Commercial Property \u2014 Storm & Flood Ingress", "reserve_gbp": 14800, "claimed_start_utc": 1791993300, "claimed_start_iso": "2026-10-14T21:15:00Z", "matched_start_iso": "2026-10-14T21:15:02Z", "search_window_utc": [1791763200, 1792022400], "search_window_label": "72-hour window (2026-10-12 00:00Z to 2026-10-15 00:00Z)", "discrepancy_hours": 0.0005, "narrative_summary": "Blinded ENF extraction recovers a high-SNR 60-second trace that uniquely locks to the NESO GB 1-second reference at 2026-10-14 21:15:02 UTC\u2014within 2 seconds of the independently withheld ground-truth / stated claim time."}, "intake": {"media_filename": "BENCH_ENF_Indoor_mains_04.mp4", "media_sha256": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae", "probe": {"container": "MPEG-4 / WAV PCM companion", "codec_video": "H.264 (25.00 fps constant, UK PAL shutter)", "codec_audio": "PCM 16-bit (44,100 Hz)", "duration_s": 60.0, "fps": 25.0, "is_vfr": false, "row_readout_us": 18.5, "audio_fs_hz": 44100, "resolution": "1920x1080"}, "blinding": {"metadata_withheld": true, "stripped_fields": ["Ground-truth manifest timestamp", "Creation time", "Filename index"], "notice": "BLINDED ANALYSIS ACTIVE: Ground-truth timestamp withheld during extraction & 72h search; revealed only at post-search verification."}}, "investigation_replay": [{"attempt_id": 1, "stage": "Proposal 1 (Multi-Harmonic Audio + Rolling-Shutter Wall ROI)", "argon_hypothesis": "Argon detects strong 100 Hz and 200 Hz acoustic harmonics and stationary 25 fps indoor mains illumination.", "tool_call": "analyse_audio(path='BENCH_ENF_04.mp4', harmonics=[100,200], window_s=4.0, hop_s=1.0)", "verifier_outcome": "ACCEPTED", "verifier_rule_triggered": "ALL_QUALITY_GATES_PASSED (frac_valid = 0.98, snr_db = 17.5 dB)", "verifier_reason": "High-SNR sequence accepted on Attempt 1; unique correlation peak (r = 0.932) matches stated window within \u00b12s.", "metrics": {"median_q": 0.93, "frac_valid": 0.98, "snr_db": 17.5}}], "trace": {"source": "audio", "method": "stft_multiharmonic_weighted_ridge_v1", "nominal_hz": 50, "harmonics_used": [100, 200], "window_s": 4.0, "hop_s": 1.0, "fs_media": 44100.0, "duration_s": 60.0, "media_sha256": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae", "params": {"n_fft": 65536, "band_halfwidth_hz": 0.3}, "quality_summary": {"median_q": 0.93, "frac_valid": 0.98, "snr_db": 17.5}, "provenance": {"code": "work/W06/extract.py", "version": "0.2.0-illustrative"}, "t": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0], "f": [50.00467, 50.01713, 50.03388, 50.04936, 50.05953, 50.06392, 50.0548, 50.03434, 50.01822, 50.00088, 49.98304, 49.97384, 49.99067, 50.00173, 50.01595, 50.03018, 50.0269, 50.01802, 50.00725, 49.99064, 49.98557, 49.97962, 49.97947, 49.97888, 49.97893, 49.956, 49.94866, 49.93016, 49.91951, 49.91955, 49.92706, 49.96913, 49.98449, 50.02114, 50.03692, 50.04167, 50.04349, 50.04149, 50.0307, 50.02819, 50.03323, 50.03761, 50.04083, 50.04341, 50.04375, 50.03658, 50.02108, 50.02316, 50.01978, 50.01761, 50.04038, 50.06225, 50.07374, 50.07193, 50.05309, 50.03814, 50.01142, 49.98621, 49.96696, 49.96124], "q": [0.832, 0.891, 0.87, 0.826, 0.889, 0.883, 0.866, 0.817, 0.817, 0.831, 0.859, 0.858, 0.881, 0.923, 0.853, 0.806, 0.86, 0.819, 0.907, 0.82, 0.758, 0.797, 0.878, 0.906, 0.776, 0.776, 0.852, 0.839, 0.822, 0.889, 0.866, 0.855, 0.924, 0.843, 0.855, 0.87, 0.846, 0.827, 0.89, 0.812, 0.842, 0.905, 0.832, 0.832, 0.831, 0.81, 0.927, 0.856, 0.9, 0.849, 0.918, 0.877, 0.819, 0.875, 0.858, 0.852, 0.817, 0.928, 0.903, 0.84], "visual_corroboration_note": "Audio and visual ENF traces are mutually consistent (r = 0.86); reported as a single joint physical environment match."}, "reference": {"source": "NESO", "cadence_s": 1, "grid": "GB", "coverage": [1791763200, 1792022400], "url": "https://api.neso.energy/dataset/system-frequency-data", "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "aligned_f": [50.00693, 50.01776, 50.0324, 50.04778, 50.05913, 50.06198, 50.05422, 50.03725, 50.01573, 49.99603, 49.98391, 49.98237, 49.99062, 50.00445, 50.01793, 50.02575, 50.02514, 50.01675, 50.00403, 49.99155, 49.98288, 49.97908, 49.97839, 49.97716, 49.9718, 49.96069, 49.94529, 49.92991, 49.92019, 49.92089, 49.93387, 49.95717, 49.98554, 50.01227, 50.03155, 50.04049, 50.0399, 50.03368, 50.027, 50.02407, 50.0265, 50.03287, 50.03962, 50.04291, 50.04056, 50.03325, 50.02433, 50.01847, 50.01956, 50.02882, 50.04399, 50.05993, 50.07044, 50.07059, 50.05866, 50.03682, 50.01034, 49.98565, 49.96796, 49.95957]}, "match": {"best": {"start_utc": 1791993302, "score": 0.932, "rmse_mhz": 3.8, "offset_hz": 0.0002}, "candidates": [{"rank": 1, "start_utc": 1791993302, "iso": "2026-10-14T21:15:02Z", "score": 0.932, "rmse_mhz": 3.8, "offset_hz": 0.0002}, {"rank": 2, "start_utc": 1791919100, "iso": "2026-10-13T00:38:20Z", "score": 0.394, "rmse_mhz": 25.9, "offset_hz": -0.0044}], "null": {"method": "block_permutation_ar1_calibrated", "n": 5000, "p_empirical": 0.0001, "score_threshold": 0.54}, "uniqueness": {"margin_vs_second": 0.538, "second_best_distance_s": 74202}, "diagnostics": {"effective_dof": 46.8, "claimed_time_score": 0.932, "claimed_time_rmse_mhz": 3.8, "sub_segment_consistency": "PASSED: Split halves independently align within 1s."}, "status": "MATCH_SUPPORTED", "status_reasons": ["Blinded ENF match peak (r = 0.932, RMSE = 3.8 mHz) exceeds null threshold (0.540, p_empirical = 0.0001).", "Strong uniqueness margin (+0.538 above second-best candidate across 72h search space).", "Matched timestamp (2026-10-14 21:15:02 UTC) corroborates stated claim window within 2 seconds."], "what_would_change_this": ["Evidence of synthetic audio injection or re-recorded loudspeaker playback of a known historical grid trace.", "Discovery of a post-recording audio track replacement in container atom structure."], "landscape": [{"ts_utc": 1791763200, "score": 0.1229, "label": "background"}, {"ts_utc": 1791766112, "score": 0.2608, "label": "background"}, {"ts_utc": 1791769024, "score": 0.1065, "label": "background"}, {"ts_utc": 1791771937, "score": 0.305, "label": "background"}, {"ts_utc": 1791774849, "score": 0.1234, "label": "background"}, {"ts_utc": 1791777761, "score": 0.1168, "label": "background"}, {"ts_utc": 1791780674, "score": 0.0939, "label": "background"}, {"ts_utc": 1791783586, "score": 0.1511, "label": "background"}, {"ts_utc": 1791786498, "score": 0.1675, "label": "background"}, {"ts_utc": 1791789411, "score": 0.2269, "label": "background"}, {"ts_utc": 1791792323, "score": 0.1669, "label": "background"}, {"ts_utc": 1791795235, "score": 0.083, "label": "background"}, {"ts_utc": 1791798148, "score": 0.072, "label": "background"}, {"ts_utc": 1791801060, "score": 0.2151, "label": "background"}, {"ts_utc": 1791803973, "score": 0.141, "label": "background"}, {"ts_utc": 1791806885, "score": 0.1376, "label": "background"}, {"ts_utc": 1791809797, "score": 0.2146, "label": "background"}, {"ts_utc": 1791812710, "score": 0.1182, "label": "background"}, {"ts_utc": 1791815622, "score": 0.1312, "label": "background"}, {"ts_utc": 1791818534, "score": 0.2377, "label": "background"}, {"ts_utc": 1791821447, "score": 0.1124, "label": "background"}, {"ts_utc": 1791824359, "score": 0.2172, "label": "background"}, {"ts_utc": 1791827271, "score": 0.3626, "label": "background"}, {"ts_utc": 1791830184, "score": 0.1086, "label": "background"}, {"ts_utc": 1791833096, "score": 0.1924, "label": "background"}, {"ts_utc": 1791836008, "score": 0.1692, "label": "background"}, {"ts_utc": 1791838921, "score": 0.1397, "label": "background"}, {"ts_utc": 1791841833, "score": 0.2302, "label": "background"}, {"ts_utc": 1791844746, "score": 0.39, "label": "background"}, {"ts_utc": 1791847658, "score": 0.2703, "label": "background"}, {"ts_utc": 1791850570, "score": 0.332, "label": "background"}, {"ts_utc": 1791853483, "score": 0.1216, "label": "background"}, {"ts_utc": 1791856395, "score": 0.2334, "label": "background"}, {"ts_utc": 1791859307, "score": 0.1443, "label": "background"}, {"ts_utc": 1791862220, "score": 0.2873, "label": "background"}, {"ts_utc": 1791865132, "score": 0.0505, "label": "background"}, {"ts_utc": 1791868044, "score": 0.1714, "label": "background"}, {"ts_utc": 1791870957, "score": 0.1979, "label": "background"}, {"ts_utc": 1791873869, "score": 0.1139, "label": "background"}, {"ts_utc": 1791876782, "score": 0.1498, "label": "background"}, {"ts_utc": 1791879694, "score": 0.1464, "label": "background"}, {"ts_utc": 1791882606, "score": 0.2679, "label": "background"}, {"ts_utc": 1791885519, "score": 0.2573, "label": "background"}, {"ts_utc": 1791888431, "score": 0.2184, "label": "background"}, {"ts_utc": 1791891343, "score": 0.2397, "label": "background"}, {"ts_utc": 1791894256, "score": 0.1862, "label": "background"}, {"ts_utc": 1791897168, "score": 0.2527, "label": "background"}, {"ts_utc": 1791900080, "score": 0.1334, "label": "background"}, {"ts_utc": 1791902993, "score": 0.2059, "label": "background"}, {"ts_utc": 1791905905, "score": 0.2861, "label": "background"}, {"ts_utc": 1791908817, "score": 0.1266, "label": "background"}, {"ts_utc": 1791911730, "score": 0.3481, "label": "background"}, {"ts_utc": 1791914642, "score": 0.2715, "label": "background"}, {"ts_utc": 1791917555, "score": 0.1914, "label": "background"}, {"ts_utc": 1791919100, "score": 0.394, "label": "second_best"}, {"ts_utc": 1791920467, "score": 0.1481, "label": "background"}, {"ts_utc": 1791923379, "score": 0.1039, "label": "background"}, {"ts_utc": 1791926292, "score": 0.1828, "label": "background"}, {"ts_utc": 1791929204, "score": 0.2717, "label": "background"}, {"ts_utc": 1791932116, "score": 0.2022, "label": "background"}, {"ts_utc": 1791935029, "score": 0.1316, "label": "background"}, {"ts_utc": 1791937941, "score": 0.2544, "label": "background"}, {"ts_utc": 1791940853, "score": 0.0888, "label": "background"}, {"ts_utc": 1791943766, "score": 0.154, "label": "background"}, {"ts_utc": 1791946678, "score": 0.2783, "label": "background"}, {"ts_utc": 1791949591, "score": 0.137, "label": "background"}, {"ts_utc": 1791952503, "score": 0.37, "label": "background"}, {"ts_utc": 1791955415, "score": 0.1667, "label": "background"}, {"ts_utc": 1791958328, "score": 0.2792, "label": "background"}, {"ts_utc": 1791961240, "score": 0.195, "label": "background"}, {"ts_utc": 1791964152, "score": 0.2527, "label": "background"}, {"ts_utc": 1791967065, "score": 0.2094, "label": "background"}, {"ts_utc": 1791969977, "score": 0.1348, "label": "background"}, {"ts_utc": 1791972889, "score": 0.0186, "label": "background"}, {"ts_utc": 1791975802, "score": -0.0084, "label": "background"}, {"ts_utc": 1791978714, "score": 0.1989, "label": "background"}, {"ts_utc": 1791981626, "score": 0.2083, "label": "background"}, {"ts_utc": 1791984539, "score": 0.198, "label": "background"}, {"ts_utc": 1791987451, "score": 0.0609, "label": "background"}, {"ts_utc": 1791990364, "score": 0.2024, "label": "background"}, {"ts_utc": 1791993276, "score": 0.138, "label": "background"}, {"ts_utc": 1791993300, "score": 0.932, "label": "best_peak"}, {"ts_utc": 1791996188, "score": 0.1442, "label": "background"}, {"ts_utc": 1791999101, "score": 0.1432, "label": "background"}, {"ts_utc": 1792002013, "score": 0.2218, "label": "background"}, {"ts_utc": 1792004925, "score": 0.0851, "label": "background"}, {"ts_utc": 1792007838, "score": 0.1626, "label": "background"}, {"ts_utc": 1792010750, "score": 0.1053, "label": "background"}, {"ts_utc": 1792013662, "score": 0.0473, "label": "background"}, {"ts_utc": 1792016575, "score": 0.1171, "label": "background"}, {"ts_utc": 1792019487, "score": 0.1929, "label": "background"}, {"ts_utc": 1792022400, "score": 0.1385, "label": "background"}]}, "speed_check": {"estimated_carrier_hz": 50.0, "nominal_hz": 50.0, "speed_ratio_alpha": 1.0, "apparent_duration_s": 60.0, "true_duration_s": 60.0, "splice_detected": false, "splice_time_s": null, "phase_jump_deg": 3.1, "verdict": "NOMINAL_SPEED_CONSISTENT (No speed tampering or splice detected)"}}]};
+window.currentCaseIndex = 0;
+window.showFailedAttempt = false;
+window.humanGateSelection = null;
+
+function getInitialCaseIndex() {
+  const params = new URLSearchParams(window.location.search);
+  const c = parseInt(params.get('case') || '0', 10);
+  if (!isNaN(c) && c >= 0 && c < window.GHOSTCLOCK_BUNDLE.cases.length) return c;
+  return 0;
+}
+
+function formatUTC(ts) {
+  const d = new Date(ts * 1000);
+  return d.toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+}
+
+function statusClass(status) {
+  if (status === 'MATCH_SUPPORTED') return 'status-supported';
+  if (status === 'INCONCLUSIVE') return 'status-inconclusive';
+  return 'status-discrepancy';
+}
+
+function renderTraceOverlaySVG(c, height) {
+  const w = 780, h = height || 215;
+  const padL = 56, padR = 24, padT = 28, padB = 34;
+  const pw = w - padL - padR, ph = h - padT - padB;
+  const t = c.trace.t;
+  const refF = c.reference.aligned_f;
+  const att1 = c.investigation_replay[0];
+  const traceF = (window.showFailedAttempt && att1 && att1.failed_trace_f) ? att1.failed_trace_f : c.trace.f;
+  const traceQ = (window.showFailedAttempt && att1 && att1.failed_trace_q) ? att1.failed_trace_q : c.trace.q;
+
+  const allVals = refF.concat(traceF);
+  const minF = Math.min(...allVals, 49.91) - 0.008;
+  const maxF = Math.max(...allVals, 50.09) + 0.008;
+  const x = (i) => padL + (i / (t.length - 1)) * pw;
+  const y = (val) => padT + (1 - (val - minF) / (maxF - minF)) * ph;
+
+  let refPts = refF.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  let trPts = traceF.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+
+  let qRects = traceQ.map((q, i) => {
+    const col = q >= 0.75 ? '#10b981' : (q >= 0.5 ? '#f59e0b' : '#ef4444');
+    const bw = pw / t.length;
+    return `<rect x="${(padL + i * bw).toFixed(1)}" y="${h - 10}" width="${Math.max(1, bw - 1).toFixed(1)}" height="5" fill="${col}" opacity="0.85"/>`;
+  }).join('');
+
+  const spliceMarker = (c.speed_check && c.speed_check.splice_detected && c.speed_check.splice_time_s)
+    ? `<line x1="${x(c.speed_check.splice_time_s)}" y1="${padT}" x2="${x(c.speed_check.splice_time_s)}" y2="${padT+ph}" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,3"/>
+       <text x="${x(c.speed_check.splice_time_s)+5}" y="${padT+14}" fill="#ef4444" font-size="10" font-family="JetBrains Mono, monospace" font-weight="700">W13 SPLICE Δφ=142.4° (t=28s)</text>`
+    : '';
+
+  const yNom = y(50.0);
+  const traceColor = window.showFailedAttempt ? '#ef4444' : (c.match.status === 'INCONCLUSIVE' ? '#f59e0b' : '#38bdf8');
+  const modeLabel = window.showFailedAttempt
+    ? 'SHOWING REJECTED ATTEMPT 1 TRACE (Unusable Noise / Saturated ROI)'
+    : `EXTRACTED ENF TRACE (${c.trace.source.toUpperCase()} · ${c.trace.method}) vs NESO 1s GB REFERENCE`;
+
+  return `<svg viewBox="0 0 ${w} ${h}" class="chart-svg">
+    <rect x="0" y="0" width="${w}" height="${h}" fill="#0b101b" rx="6"/>
+    <line x1="${padL}" y1="${yNom}" x2="${w-padR}" y2="${yNom}" stroke="#334155" stroke-dasharray="3,3" stroke-width="1"/>
+    <text x="${padL-6}" y="${padT+8}" text-anchor="end" fill="#94a3b8" font-size="10" font-family="JetBrains Mono">${maxF.toFixed(3)}</text>
+    <text x="${padL-6}" y="${yNom+3}" text-anchor="end" fill="#94a3b8" font-size="10" font-family="JetBrains Mono">50.000</text>
+    <text x="${padL-6}" y="${padT+ph}" text-anchor="end" fill="#94a3b8" font-size="10" font-family="JetBrains Mono">${minF.toFixed(3)}</text>
+    <text x="${padL}" y="16" fill="#cbd5e1" font-size="10.5" font-weight="600" font-family="JetBrains Mono">${modeLabel}</text>
+    <text x="${w-padR}" y="16" text-anchor="end" fill="#fbbf24" font-size="9.5" font-weight="700" font-family="JetBrains Mono">[${c.data_provenance.split('(')[0].trim()}]</text>
+    <polyline fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,2" points="${refPts}"/>
+    <polyline fill="none" stroke="${traceColor}" stroke-width="2.2" points="${trPts}"/>
+    ${spliceMarker}
+    ${qRects}
+    <text x="${padL}" y="${h-14}" fill="#64748b" font-size="9.5" font-family="JetBrains Mono">0s (Window quality strip below: green q≥0.75, amber 0.50–0.74, red &lt;0.50)</text>
+    <text x="${w-padR}" y="${h-14}" text-anchor="end" fill="#64748b" font-size="9.5" font-family="JetBrains Mono">${c.trace.duration_s.toFixed(0)}s · RMSE=${c.match.best.rmse_mhz} mHz</text>
+  </svg>`;
+}
+
+function renderLandscapeSVG(c, height) {
+  const w = 780, h = height || 205;
+  const padL = 56, padR = 24, padT = 28, padB = 34;
+  const pw = w - padL - padR, ph = h - padT - padB;
+  const pts = c.match.landscape;
+  const minTs = c.claim_context.search_window_utc[0];
+  const maxTs = c.claim_context.search_window_utc[1];
+  const minS = -0.2, maxS = 1.05;
+
+  const x = (ts) => padL + ((ts - minTs) / (maxTs - minTs)) * pw;
+  const y = (s) => padT + (1 - (s - minS) / (maxS - minS)) * ph;
+
+  const poly = pts.map(p => `${x(p.ts_utc).toFixed(1)},${y(p.score).toFixed(1)}`).join(' ');
+  const yThresh = y(c.match.null.score_threshold);
+  const bestPt = pts.find(p => p.label === 'best_peak') || pts[0];
+  const secPt = pts.find(p => p.label === 'second_best') || pts[1];
+  const claimTs = c.claim_context.claimed_start_utc;
+  const xClaim = x(claimTs);
+  const xBest = x(bestPt.ts_utc);
+  const peakPass = bestPt.score >= c.match.null.score_threshold;
+  const peakColor = peakPass ? '#10b981' : '#f59e0b';
+
+  return `<svg viewBox="0 0 ${w} ${h}" class="chart-svg">
+    <rect x="0" y="0" width="${w}" height="${h}" fill="#0b101b" rx="6"/>
+    <rect x="${padL}" y="${yThresh}" width="${pw}" height="${padT+ph-yThresh}" fill="#ef4444" opacity="0.07"/>
+    <line x1="${padL}" y1="${yThresh}" x2="${w-padR}" y2="${yThresh}" stroke="#f43f5e" stroke-width="1.6" stroke-dasharray="5,4"/>
+    <text x="${w-padR-4}" y="${yThresh-5}" text-anchor="end" fill="#fda4af" font-size="10" font-weight="600" font-family="JetBrains Mono">NULL THRESHOLD = ${c.match.null.score_threshold.toFixed(3)} (H0 n=${c.match.null.n}, p=${c.match.null.p_empirical})</text>
+    <line x1="${xClaim}" y1="${padT}" x2="${xClaim}" y2="${padT+ph}" stroke="#a855f7" stroke-width="1.6" stroke-dasharray="3,3"/>
+    <text x="${Math.min(w-padR-95, Math.max(padL+4, xClaim-40))}" y="${padT+ph-6}" fill="#d8b4fe" font-size="9.5" font-weight="600" font-family="JetBrains Mono">CLAIMED TIME (r=${c.match.diagnostics.claimed_time_score})</text>
+    <polyline fill="none" stroke="#475569" stroke-width="1.4" points="${poly}"/>
+    <circle cx="${x(secPt.ts_utc)}" cy="${y(secPt.score)}" r="4" fill="#94a3b8"/>
+    <text x="${x(secPt.ts_utc)+6}" y="${y(secPt.score)+3}" fill="#94a3b8" font-size="9.5" font-family="JetBrains Mono">2nd Peak (${secPt.score.toFixed(3)})</text>
+    <circle cx="${xBest}" cy="${y(bestPt.score)}" r="6" fill="${peakColor}" stroke="#fff" stroke-width="1.5"/>
+    <text x="${Math.min(w-padR-150, Math.max(padL+6, xBest+8))}" y="${Math.max(padT+14, y(bestPt.score)-6)}" fill="${peakColor}" font-size="10.5" font-weight="700" font-family="JetBrains Mono">BEST PEAK r=${bestPt.score.toFixed(3)} (Δ=${c.match.uniqueness.margin_vs_second.toFixed(3)})</text>
+    <text x="${padL}" y="16" fill="#cbd5e1" font-size="10.5" font-weight="600" font-family="JetBrains Mono">MATCH LANDSCAPE — CORRELATION SCORE vs CANDIDATE START TIME (259,200 CANDIDATES)</text>
+    <text x="${padL-6}" y="${padT+8}" text-anchor="end" fill="#94a3b8" font-size="10" font-family="JetBrains Mono">1.00</text>
+    <text x="${padL-6}" y="${yThresh+3}" text-anchor="end" fill="#fda4af" font-size="10" font-family="JetBrains Mono">${c.match.null.score_threshold.toFixed(2)}</text>
+    <text x="${padL-6}" y="${padT+ph}" text-anchor="end" fill="#94a3b8" font-size="10" font-family="JetBrains Mono">0.00</text>
+    <text x="${padL}" y="${h-8}" fill="#64748b" font-size="9.5" font-family="JetBrains Mono">Search Start: ${formatUTC(minTs)}</text>
+    <text x="${w-padR}" y="${h-8}" text-anchor="end" fill="#64748b" font-size="9.5" font-family="JetBrains Mono">Search End: ${formatUTC(maxTs)}</text>
+  </svg>`;
+}
+
+function handleFileUpload(evt) {
+  const file = evt.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const obj = JSON.parse(e.target.result);
+      if (obj.cases && Array.isArray(obj.cases)) {
+        window.GHOSTCLOCK_BUNDLE = obj;
+        window.currentCaseIndex = 0;
+      } else if (obj.best && obj.status) {
+        // Standalone match.json dropped in -> patch current case match
+        window.GHOSTCLOCK_BUNDLE.cases[window.currentCaseIndex].match = Object.assign(
+          window.GHOSTCLOCK_BUNDLE.cases[window.currentCaseIndex].match, obj
+        );
+        window.GHOSTCLOCK_BUNDLE.cases[window.currentCaseIndex].data_provenance = "USER_LOADED_JSON (interfaces.md v1)";
+      } else if (obj.harmonics_used && obj.quality_summary) {
+        // Standalone trace.json dropped in -> patch current case trace
+        window.GHOSTCLOCK_BUNDLE.cases[window.currentCaseIndex].trace = Object.assign(
+          window.GHOSTCLOCK_BUNDLE.cases[window.currentCaseIndex].trace, obj
+        );
+        window.GHOSTCLOCK_BUNDLE.cases[window.currentCaseIndex].data_provenance = "USER_LOADED_JSON (interfaces.md v1)";
+      }
+      renderApp();
+    } catch (err) {
+      alert("Invalid JSON file: " + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function exportAuditLog() {
+  const c = window.GHOSTCLOCK_BUNDLE.cases[window.currentCaseIndex];
+  const noteEl = document.getElementById('investigator-note');
+  const exportPayload = {
+    export_timestamp_utc: new Date().toISOString(),
+    schema_version: "interfaces.md.v1",
+    data_provenance: c.data_provenance,
+    regulatory_compliance: "FCA ICOBS 8.1.1R & UK GDPR Chain-of-Custody — GhostClock cannot deny a claim or allege fraud.",
+    case_id: c.case_id,
+    intake: c.intake,
+    investigation_replay: c.investigation_replay,
+    trace_summary: {
+      source: c.trace.source,
+      method: c.trace.method,
+      nominal_hz: c.trace.nominal_hz,
+      harmonics_used: c.trace.harmonics_used,
+      quality_summary: c.trace.quality_summary,
+      provenance: c.trace.provenance
+    },
+    reference: {
+      source: c.reference.source,
+      cadence_s: c.reference.cadence_s,
+      grid: c.reference.grid,
+      coverage: c.reference.coverage,
+      sha256: c.reference.sha256
+    },
+    match: {
+      best: c.match.best,
+      null: c.match.null,
+      uniqueness: c.match.uniqueness,
+      status: c.match.status,
+      status_reasons: c.match.status_reasons,
+      what_would_change_this: c.match.what_would_change_this
+    },
+    speed_check_w13: c.speed_check,
+    human_review_gate: {
+      selected_action: window.humanGateSelection || "PENDING_HUMAN_SIGN_OFF",
+      investigator_rationale: noteEl ? noteEl.value : "",
+      automated_claim_denial_blocked: true
+    }
+  };
+  const modal = document.getElementById('export-modal');
+  const pre = document.getElementById('export-json-preview');
+  if (modal && pre) {
+    pre.textContent = JSON.stringify(exportPayload, null, 2);
+    modal.style.display = 'flex';
+  }
+}
+
+
+function selectCase(idx) {
+  window.currentCaseIndex = idx;
+  window.showFailedAttempt = false;
+  renderApp();
+}
+
+function toggleAttemptOverlay() {
+  window.showFailedAttempt = !window.showFailedAttempt;
+  renderApp();
+}
+
+function selectGate(act) {
+  window.humanGateSelection = act;
+  renderApp();
+}
+
+function renderApp() {
+  const cases = window.GHOSTCLOCK_BUNDLE.cases;
+  const c = cases[window.currentCaseIndex];
+  document.getElementById('provenance-banner').textContent = 'DATA PROVENANCE: ' + c.data_provenance + ' · FICTIONAL CLAIM SCENARIO';
+
+  const tabsEl = document.getElementById('case-tabs');
+  tabsEl.innerHTML = cases.map((item, idx) =>
+    `<button class="case-tab ${idx === window.currentCaseIndex ? 'active' : ''}" onclick="selectCase(${idx})">${item.case_id}: ${item.scenario_type}</button>`
+  ).join('');
+
+  const replayHtml = c.investigation_replay.map(step => {
+    const cls = step.verifier_outcome === 'REJECTED' ? 'rejected' : (step.verifier_outcome === 'ACCEPTED' ? 'accepted' : 'safeguard');
+    const pillCls = step.verifier_outcome === 'REJECTED' ? 'pill-rejected' : (step.verifier_outcome === 'ACCEPTED' ? 'pill-accepted' : 'pill-safeguard');
+    return `<div class="replay-step ${cls}">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <strong>Attempt #${step.attempt_id} — ${step.stage}</strong>
+        <span class="outcome-pill ${pillCls}">VERIFIER: ${step.verifier_outcome}</span>
+      </div>
+      <div style="font-size:11.5px;color:#cbd5e1;margin-bottom:4px;"><b>Argon Hypothesis:</b> ${step.argon_hypothesis}</div>
+      <div class="mono" style="font-size:11px;background:#090d16;padding:4px 7px;border-radius:4px;color:#38bdf8;margin-bottom:5px;">Tool Call: ${step.tool_call}</div>
+      <div style="font-size:11.5px;color:#fde68a;"><b>Deterministic Gate (${step.verifier_rule_triggered}):</b> ${step.verifier_reason}</div>
+      <div class="mono" style="font-size:10.5px;color:var(--muted);margin-top:4px;">Measured Diagnostics: median_q=${step.metrics.median_q} · frac_valid=${step.metrics.frac_valid} · snr_db=${step.metrics.snr_db} dB</div>
+    </div>`;
+  }).join('');
+
+  const hasFailedTrace = c.investigation_replay[0] && c.investigation_replay[0].failed_trace_f;
+
+  document.getElementById('app-root').innerHTML = `
+    <!-- LEFT COLUMN: Claim Context & Blinded Evidence Intake -->
+    <div class="col">
+      <div class="card">
+        <div class="card-title"><span>1. Claim Dossier (Fictional)</span><span class="mono">${c.claim_context.claim_id.split(' ')[0]}</span></div>
+        <div class="kv-row"><span class="kv-label">Named User Role</span><span class="kv-val">${c.claim_context.named_user}</span></div>
+        <div class="kv-row"><span class="kv-label">Policy Type</span><span class="kv-val">${c.claim_context.policy_type}</span></div>
+        <div class="kv-row"><span class="kv-label">Claim Reserve</span><span class="kv-val" style="color:#fbbf24;">£${c.claim_context.reserve_gbp.toLocaleString()} (Illustrative)</span></div>
+        <div class="kv-row"><span class="kv-label">Claimant Stated Time</span><span class="kv-val mono">${c.claim_context.claimed_start_iso}</span></div>
+        <div class="kv-row"><span class="kv-label">ENF Corroborated Time</span><span class="kv-val mono" style="color:var(--accent);">${c.claim_context.matched_start_iso}</span></div>
+        <div style="margin-top:8px;font-size:11.5px;color:#cbd5e1;background:var(--panel-alt);padding:8px;border-radius:5px;">
+          <b>Financial Decision at Stake:</b> ${c.claim_context.financial_decision}
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>2. Evidence Intake &amp; Blinding Lock</span><span>FFprobe</span></div>
+        <div class="kv-row"><span class="kv-label">Media File</span><span class="kv-val mono">${c.intake.media_filename}</span></div>
+        <div class="kv-row"><span class="kv-label">SHA-256 Digest</span><span class="kv-val mono" style="font-size:10.5px;">${c.intake.media_sha256.substring(0,24)}…</span></div>
+        <div class="kv-row"><span class="kv-label">Container / Video</span><span class="kv-val">${c.intake.probe.codec_video}</span></div>
+        <div class="kv-row"><span class="kv-label">Audio Track</span><span class="kv-val">${c.intake.probe.codec_audio}</span></div>
+        <div class="kv-row"><span class="kv-label">Duration / Frame Rate</span><span class="kv-val mono">${c.intake.probe.duration_s}s @ ${c.intake.probe.fps} fps (VFR=${c.intake.probe.is_vfr})</span></div>
+        <div class="kv-row"><span class="kv-label">CMOS Row Readout</span><span class="kv-val mono">${c.intake.probe.row_readout_us} µs/row (${c.intake.probe.resolution})</span></div>
+        <div class="blinding-box">
+          <strong>🔒 ${c.intake.blinding.notice}</strong>
+          <div style="margin-top:4px;font-size:10.5px;color:#d1fae5;">Withheld tags: ${c.intake.blinding.stripped_fields.join(' · ')}</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>3. W13 Speed &amp; Splice Audit</span><span class="mono">Nominal 50.000 Hz</span></div>
+        <div class="kv-row"><span class="kv-label">Estimated ENF Carrier</span><span class="kv-val mono">${c.speed_check.estimated_carrier_hz.toFixed(3)} Hz</span></div>
+        <div class="kv-row"><span class="kv-label">Playback Speed Ratio (α)</span><span class="kv-val mono">${c.speed_check.speed_ratio_alpha.toFixed(5)}x</span></div>
+        <div class="kv-row"><span class="kv-label">Apparent vs True Duration</span><span class="kv-val mono">${c.speed_check.apparent_duration_s}s / ${c.speed_check.true_duration_s}s</span></div>
+        <div class="kv-row"><span class="kv-label">Phase Jump / Splice</span><span class="kv-val mono" style="color:${c.speed_check.splice_detected ? '#f43f5e' : '#10b981'};">${c.speed_check.splice_detected ? 'YES (t=' + c.speed_check.splice_time_s + 's, Δφ=' + c.speed_check.phase_jump_deg + '°)' : 'NONE (' + c.speed_check.phase_jump_deg + '° max)'}</span></div>
+        <div style="margin-top:6px;font-size:11px;font-weight:700;color:${c.speed_check.splice_detected ? '#fda4af' : '#6ee7b7'};">${c.speed_check.verdict}</div>
+      </div>
+    </div>
+
+    <!-- CENTER COLUMN: Argon Investigation Replay & Physical Signal Match -->
+    <div class="col">
+      <div class="card">
+        <div class="card-title">
+          <span>4. Argon Investigation Replay (Propose → Verifier Reject → Revise)</span>
+          ${hasFailedTrace ? `<button class="btn-secondary" onclick="toggleAttemptOverlay()">${window.showFailedAttempt ? 'Show Accepted Attempt 2 Trace' : 'Inspect Rejected Attempt 1 Trace'}</button>` : ''}
+        </div>
+        ${replayHtml}
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>5. Extracted ENF Sequence vs. Independent Grid Reference (${c.reference.source} ${c.reference.grid} ${c.reference.cadence_s}s)</span>
+          <span class="mono">Harmonics: [${c.trace.harmonics_used.join(', ')} Hz]</span>
+        </div>
+        ${renderTraceOverlaySVG(c, 165)}
+        <div style="margin-top:4px;font-size:10.5px;color:#94a3b8;display:flex;justify-content:space-between;">
+          <span>⚠️ <b>Non-Independence Rule:</b> ${c.trace.visual_corroboration_note}</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>6. Blinded Search-Space Match Landscape &amp; Null Calibration</span>
+          <span class="mono">Window: ${c.claim_context.search_window_label}</span>
+        </div>
+        ${renderLandscapeSVG(c, 165)}
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Code-Enforced Decision Badge, Counterfactuals & Human Gate -->
+    <div class="col">
+      <div class="card">
+        <div class="card-title"><span>7. Code-Enforced Decision Gate</span><span class="mono">LLM Cannot Override</span></div>
+        <div class="status-banner ${statusClass(c.match.status)}">
+          <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">DETERMINISTIC VERIFIER STATUS</div>
+          <div class="mono" style="font-size:16px;font-weight:800;margin:3px 0;">${c.match.status}</div>
+          <div style="font-size:11px;">Best r = ${c.match.best.score.toFixed(3)} (Null gate = ${c.match.null.score_threshold.toFixed(3)}, p = ${c.match.null.p_empirical}) · Margin Δ = ${c.match.uniqueness.margin_vs_second.toFixed(3)}</div>
+        </div>
+        <div style="font-weight:700;font-size:11.5px;margin-bottom:5px;color:#e2e8f0;">Auditable Decision Reasons:</div>
+        <ul class="bullet-list">
+          ${c.match.status_reasons.map(r => `<li>${r}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>8. Counterfactuals: What Would Change This?</span><span>Traceability</span></div>
+        <ul class="bullet-list" style="color:#bae6fd;">
+          ${c.match.what_would_change_this.map(w => `<li>${w}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>9. Human-in-the-Loop Decision Gate</span><span>FCA ICOBS 8.1.1R</span></div>
+        <button class="gate-btn ${window.humanGateSelection === 'APPROVE_STANDARD' ? 'selected' : ''}" onclick="selectGate('APPROVE_STANDARD')">
+          ✅ Clear Evidence for Standard Claim Settlement
+        </button>
+        <button class="gate-btn ${window.humanGateSelection === 'HOLD_AND_REQUEST_RAW' ? 'selected' : ''}" onclick="selectGate('HOLD_AND_REQUEST_RAW')">
+          ⏸️ Hold Payout &amp; Request Original Camera Card / Utility Logs
+        </button>
+        <button class="gate-btn ${window.humanGateSelection === 'ESCALATE_SIU' ? 'selected' : ''}" onclick="selectGate('ESCALATE_SIU')">
+          🔍 Escalate to Special Investigations Unit (SIU) Forensic Review
+        </button>
+        <button class="gate-btn disabled-denial" disabled title="Hardcoded Regulatory Guardrail: GhostClock cannot deny a claim">
+          🚫 Auto-Deny Claim / Allege Fraud (BLOCKED IN CODE — FCA ICOBS 8)
+        </button>
+        <textarea id="investigator-note" rows="2" placeholder="Enter mandatory human investigator rationale before exporting audit log..." style="width:100%;margin-top:6px;background:#090d16;border:1px solid var(--border);color:#fff;padding:7px;border-radius:5px;font-size:11.5px;">Reviewer verified ENF match landscape and null threshold calibration.</textarea>
+        <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center;">
+          <button class="btn-action" style="width:100%;" onclick="exportAuditLog()">Export Signed Evidence Log (.JSON)</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+window.currentCaseIndex = getInitialCaseIndex();
+renderApp();
+</script>
+</body>
+</html>

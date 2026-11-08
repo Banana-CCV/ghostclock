@@ -1,0 +1,13 @@
+{
+  "source": "ELEXON",
+  "cadence_s": 15,
+  "grid": "GB",
+  "coverage": [
+    1772323200,
+    1775001585
+  ],
+  "url": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency",
+  "sha256": "8b4f4197712103a664906da0dec9ce86554a7c72d4d65620fd9f1f69c7bb3fb5",
+  "n_rows": 178560,
+  "expected_rows": 178560
+}

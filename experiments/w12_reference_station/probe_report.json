@@ -1,0 +1,320 @@
+{
+  "probed_at_utc": "2026-11-08T09:13:16.212687+00:00",
+  "ntp": [
+    {
+      "server": "time.cloudflare.com",
+      "status": "OK",
+      "offset_s": 0.22433,
+      "rtt_s": 0.016927
+    },
+    {
+      "server": "time.windows.com",
+      "status": "OK",
+      "offset_s": 0.226412,
+      "rtt_s": 0.015523
+    },
+    {
+      "server": "pool.ntp.org",
+      "status": "OK",
+      "offset_s": 0.224924,
+      "rtt_s": 0.013947
+    }
+  ],
+  "audio": {
+    "input_devices": [
+      {
+        "index": 0,
+        "name": "Microsoft Sound Mapper - Input",
+        "hostapi": 0,
+        "max_input_channels": 2,
+        "default_samplerate": 44100.0
+      },
+      {
+        "index": 1,
+        "name": "Microphone Array (Intel\u00ae Smart ",
+        "hostapi": 0,
+        "max_input_channels": 6,
+        "default_samplerate": 44100.0
+      },
+      {
+        "index": 4,
+        "name": "Primary Sound Capture Driver",
+        "hostapi": 1,
+        "max_input_channels": 2,
+        "default_samplerate": 44100.0
+      },
+      {
+        "index": 5,
+        "name": "Microphone Array (Intel\u00ae Smart Sound Technology for Digital Microphones)",
+        "hostapi": 1,
+        "max_input_channels": 6,
+        "default_samplerate": 44100.0
+      },
+      {
+        "index": 9,
+        "name": "Microphone Array (Intel\u00ae Smart Sound Technology for Digital Microphones)",
+        "hostapi": 2,
+        "max_input_channels": 4,
+        "default_samplerate": 48000.0
+      },
+      {
+        "index": 10,
+        "name": "Microphone Array 1 ()",
+        "hostapi": 3,
+        "max_input_channels": 4,
+        "default_samplerate": 48000.0
+      },
+      {
+        "index": 11,
+        "name": "Microphone Array 2 ()",
+        "hostapi": 3,
+        "max_input_channels": 4,
+        "default_samplerate": 48000.0
+      },
+      {
+        "index": 12,
+        "name": "Microphone Array 3 ()",
+        "hostapi": 3,
+        "max_input_channels": 6,
+        "default_samplerate": 16000.0
+      },
+      {
+        "index": 13,
+        "name": "Stereo Mix (Realtek HD Audio Stereo input)",
+        "hostapi": 3,
+        "max_input_channels": 2,
+        "default_samplerate": 48000.0
+      },
+      {
+        "index": 14,
+        "name": "Microphone (Realtek HD Audio Mic input)",
+        "hostapi": 3,
+        "max_input_channels": 2,
+        "default_samplerate": 44100.0
+      },
+      {
+        "index": 17,
+        "name": "PC Speaker (Realtek HD Audio output with SST)",
+        "hostapi": 3,
+        "max_input_channels": 2,
+        "default_samplerate": 48000.0
+      },
+      {
+        "index": 20,
+        "name": "PC Speaker (Realtek HD Audio 2nd output with SST)",
+        "hostapi": 3,
+        "max_input_channels": 2,
+        "default_samplerate": 48000.0
+      }
+    ],
+    "live_capture_test": {
+      "status": "OK",
+      "fs": 8000,
+      "duration_s": 2.0,
+      "rms": 0.02649504599090291,
+      "peak": 0.248046875,
+      "harmonic_snrs": {
+        "50": {
+          "snr_db": 13.14,
+          "peak_f_hz": 48.5
+        },
+        "100": {
+          "snr_db": 6.53,
+          "peak_f_hz": 101.5
+        },
+        "150": {
+          "snr_db": -2.33,
+          "peak_f_hz": 148.5
+        },
+        "200": {
+          "snr_db": 5.0,
+          "peak_f_hz": 200.0
+        },
+        "250": {
+          "snr_db": 4.24,
+          "peak_f_hz": 249.0
+        },
+        "300": {
+          "snr_db": 0.88,
+          "peak_f_hz": 299.0
+        }
+      }
+    }
+  },
+  "endpoints": {
+    "Elexon_system_frequency": {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency?format=json",
+      "http_status": 200,
+      "elapsed_s": 1.039,
+      "content_type": "application/json; charset=utf-8",
+      "length_bytes": 356588,
+      "preview": "{\"metadata\":{\"datasets\":[\"FREQ\"]},\"data\":[{\"measurementTime\":\"2026-11-07T00:00:00Z\",\"frequency\":50.038},{\"measurementTime\":\"2026-11-07T00:00:15Z\",\"frequency\":49.949},{\"measurementTime\":\"2026-11-07T00:00:30Z\",\"frequency\":49.923},{\"measurementTime\":\"2026-11-07T00:00:45Z\",\"frequency\":49.904},{\"measurementTime\":\"2026-11-07T00:01:00Z\",\"frequency\":49.881},{\"measurementTime\":\"2026-11-07T00:01:15Z\",\"frequ",
+      "data_len": 5761,
+      "first_item": {
+        "measurementTime": "2026-11-07T00:00:00Z",
+        "frequency": 50.038
+      },
+      "last_item": {
+        "measurementTime": "2026-11-08T00:00:00Z",
+        "frequency": 50.108
+      }
+    },
+    "Elexon_system_frequency_stream": {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency/stream",
+      "http_status": 200,
+      "elapsed_s": 1.051,
+      "content_type": "application/json; charset=utf-8",
+      "length_bytes": 356546,
+      "preview": "[{\"measurementTime\":\"2026-11-07T00:00:00Z\",\"frequency\":50.038},{\"measurementTime\":\"2026-11-07T00:00:15Z\",\"frequency\":49.949},{\"measurementTime\":\"2026-11-07T00:00:30Z\",\"frequency\":49.923},{\"measurementTime\":\"2026-11-07T00:00:45Z\",\"frequency\":49.904},{\"measurementTime\":\"2026-11-07T00:01:00Z\",\"frequency\":49.881},{\"measurementTime\":\"2026-11-07T00:01:15Z\",\"frequency\":49.884},{\"measurementTime\":\"2026-11",
+      "list_len": 5761,
+      "first_item": {
+        "measurementTime": "2026-11-07T00:00:00Z",
+        "frequency": 50.038
+      },
+      "last_item": {
+        "measurementTime": "2026-11-08T00:00:00Z",
+        "frequency": 50.108
+      }
+    },
+    "Elexon_datasets_FREQ_stream": {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/FREQ/stream",
+      "http_status": 200,
+      "elapsed_s": 1.042,
+      "content_type": "application/json; charset=utf-8",
+      "length_bytes": 454483,
+      "preview": "[{\"dataset\":\"FREQ\",\"measurementTime\":\"2026-11-08T00:00:00Z\",\"frequency\":50.108},{\"dataset\":\"FREQ\",\"measurementTime\":\"2026-11-07T23:59:45Z\",\"frequency\":50.094},{\"dataset\":\"FREQ\",\"measurementTime\":\"2026-11-07T23:59:30Z\",\"frequency\":50.072},{\"dataset\":\"FREQ\",\"measurementTime\":\"2026-11-07T23:59:15Z\",\"frequency\":50.054},{\"dataset\":\"FREQ\",\"measurementTime\":\"2026-11-07T23:59:00Z\",\"frequency\":50.029},{\"da",
+      "list_len": 5761,
+      "first_item": {
+        "dataset": "FREQ",
+        "measurementTime": "2026-11-08T00:00:00Z",
+        "frequency": 50.108
+      },
+      "last_item": {
+        "dataset": "FREQ",
+        "measurementTime": "2026-11-07T00:00:00Z",
+        "frequency": 50.038
+      }
+    },
+    "NESO_ckan_system_frequency": {
+      "url": "https://api.neso.energy/api/3/action/package_show?id=system-frequency-data",
+      "http_status": 200,
+      "elapsed_s": 1.18,
+      "content_type": "application/json;charset=utf-8",
+      "length_bytes": 156286,
+      "num_resources": 153,
+      "latest_resources": [
+        {
+          "name": "May 2026 \u2013 Historic Frequency Data",
+          "last_modified": "2026-06-09T13:00:55.627263",
+          "url": "https://api.neso.energy/dataset/cb1cc925-ecd8-4406-b021-3a3f368196e1/resource/06315187-afcf-4fe2-8439-0eacc3f7bc35/download/fnew-2026-5.csv"
+        },
+        {
+          "name": "June 2026 \u2013 Historic Frequency Data",
+          "last_modified": "2026-07-13T09:43:04.227138",
+          "url": "https://api.neso.energy/dataset/cb1cc925-ecd8-4406-b021-3a3f368196e1/resource/dc7c5468-08a1-4586-bcdd-77ced39a5067/download/fnew-2026-6.csv"
+        },
+        {
+          "name": "July 2026 \u2013 Historic Frequency Data",
+          "last_modified": "2026-08-17T12:45:23.115084",
+          "url": "https://api.neso.energy/dataset/cb1cc925-ecd8-4406-b021-3a3f368196e1/resource/027227d0-7c70-4497-bdc4-a80cff7726f8/download/fnew-2026-7.csv"
+        },
+        {
+          "name": "August 2026 \u2013 Historic Frequency Data",
+          "last_modified": "2026-09-09T13:16:21.702788",
+          "url": "https://api.neso.energy/dataset/cb1cc925-ecd8-4406-b021-3a3f368196e1/resource/758fa76d-b645-4532-a532-ab49335ee4c3/download/fnew-2026-8.csv"
+        },
+        {
+          "name": "September 2026 \u2013 Historic Frequency Data",
+          "last_modified": "2026-10-08T09:50:06.192090",
+          "url": "https://api.neso.energy/dataset/cb1cc925-ecd8-4406-b021-3a3f368196e1/resource/3d14640d-89e1-43bd-bf91-93d623493bc9/download/fnew-2026-9.csv"
+        }
+      ]
+    },
+    "Netzfrequenz_info_act": {
+      "url": "https://www.netzfrequenz.info/json/act.json",
+      "http_status": 200,
+      "elapsed_s": 1.048,
+      "content_type": "application/json",
+      "length_bytes": 6,
+      "preview": "50.022"
+    },
+    "Netzfrequenzmessung_xml": {
+      "url": "https://www.netzfrequenzmessung.de/frequenz02.xml",
+      "http_status": 404,
+      "elapsed_s": 1.063,
+      "content_type": "text/html; charset=iso-8859-1",
+      "length_bytes": 313,
+      "preview": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found</h1>\n<p>The requested URL was not found on this server.</p>\n<hr>\n<address>Apache Server at www.netzfrequenzmessung.de Port 443</address>\n</body></html>\n"
+    },
+    "EnergyCharts_openapi": {
+      "url": "https://api.energy-charts.info/openapi.json",
+      "http_status": 200,
+      "elapsed_s": 1.075,
+      "content_type": "application/json",
+      "length_bytes": 83840,
+      "paths": [
+        "/v2",
+        "/v2/public_power",
+        "/v2/public_power_forecast",
+        "/v2/total_power",
+        "/v2/installed_power",
+        "/v2/frequency",
+        "/v2/price",
+        "/v2/price_current",
+        "/v2/price_next_day",
+        "/v2/cbet",
+        "/v2/cbpf",
+        "/v2/signal",
+        "/v2/ren_share_forecast",
+        "/v2/ren_share_daily_avg",
+        "/v2/solar_share",
+        "/v2/solar_share_daily_avg",
+        "/v2/wind_onshore_share",
+        "/v2/wind_onshore_share_daily_avg",
+        "/v2/wind_offshore_share",
+        "/v2/wind_offshore_share_daily_avg",
+        "/public_power",
+        "/public_power_forecast",
+        "/total_power",
+        "/installed_power",
+        "/price",
+        "/cbet",
+        "/cbpf",
+        "/signal",
+        "/ren_share_forecast",
+        "/ren_share_daily_avg",
+        "/solar_share",
+        "/solar_share_daily_avg",
+        "/wind_onshore_share",
+        "/wind_onshore_share_daily_avg",
+        "/wind_offshore_share",
+        "/wind_offshore_share_daily_avg",
+        "/frequency"
+      ]
+    },
+    "EnergyCharts_frequency": {
+      "url": "https://api.energy-charts.info/frequency",
+      "http_status": 404,
+      "elapsed_s": 1.004,
+      "content_type": "text/plain; charset=utf-8",
+      "length_bytes": 20,
+      "preview": "no content available"
+    },
+    "Volton_latest": {
+      "url": "https://public-data.volton.energy/v1/grid-frequency/latest.json",
+      "http_status": 200,
+      "elapsed_s": 1.171,
+      "content_type": "application/json; charset=utf-8",
+      "length_bytes": 123821,
+      "preview": "{\"schema_version\":\"1.0\",\"generated_at\":\"2026-11-08T08:25:35.324433Z\",\"meta\":{\"source\":\"Elering\",\"dataset\":\"grid-frequency\",\"spatial_coverage\":\"Estonia (CESA)\",\"unit\":\"Hz\",\"resolution_minutes\":5,\"date_modified\":\"2026-11-08T08:25:35.324433Z\",\"license\":{\"name\":\"CC-BY-4.0\",\"url\":\"https://creativecommons.org/licenses/by/4.0/\",\"attribution\":\"Source: Volton Technology (public-data.volton.energy), based o"
+    },
+    "GridRadar_query": {
+      "url": "https://api.gridradar.net/query",
+      "http_status": 401,
+      "elapsed_s": 1.074,
+      "content_type": "text/html; charset=utf-8",
+      "length_bytes": 13,
+      "preview": "Access Denied"
+    }
+  }
+}

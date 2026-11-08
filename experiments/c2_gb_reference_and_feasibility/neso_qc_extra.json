@@ -1,0 +1,79 @@
+[
+ {
+  "file": "fnew-2025-11.csv",
+  "out": "datasets\\raw\\gb\\neso_2025_11.parquet",
+  "rows_raw": 2592000,
+  "rows": 2592000,
+  "expected_rows": 2592000,
+  "missing_s": 0,
+  "nan_rows": 0,
+  "dup_ts": 0,
+  "cadence_mode_s": 1,
+  "n_gaps": 0,
+  "largest_gaps_s_at_ts": [],
+  "decimals_max": 3,
+  "decimals_mode": 3,
+  "f_min": 49.753,
+  "f_max": 50.285,
+  "f_step_min_nonzero": 0.0009999999999976694,
+  "max_flat_run_s": 15,
+  "dst_check": null,
+  "coverage_iso": [
+   "2025-11-01T00:00:00Z",
+   "2025-11-30T23:59:59Z"
+  ]
+ },
+ {
+  "file": "fnew-2026-3.csv",
+  "out": "datasets\\raw\\gb\\neso_2026_03.parquet",
+  "rows_raw": 2678400,
+  "rows": 2678400,
+  "expected_rows": 2678400,
+  "missing_s": 0,
+  "nan_rows": 0,
+  "dup_ts": 0,
+  "cadence_mode_s": 1,
+  "n_gaps": 0,
+  "largest_gaps_s_at_ts": [],
+  "decimals_max": 3,
+  "decimals_mode": 3,
+  "f_min": 49.731,
+  "f_max": 50.267,
+  "f_step_min_nonzero": 0.0009999999999976694,
+  "max_flat_run_s": 478,
+  "dst_check": {
+   "date": "2026-03-29",
+   "rows_on_day_raw": 86400,
+   "rows_on_day_dedup": 86400,
+   "note": "86400 => UTC (local time would give 82800 or 90000 / duplicates)"
+  },
+  "coverage_iso": [
+   "2026-03-01T00:00:00Z",
+   "2026-03-31T23:59:59Z"
+  ]
+ },
+ {
+  "file": "fnew-2026-6.csv",
+  "out": "datasets\\raw\\gb\\neso_2026_06.parquet",
+  "rows_raw": 2592000,
+  "rows": 2592000,
+  "expected_rows": 2592000,
+  "missing_s": 0,
+  "nan_rows": 0,
+  "dup_ts": 0,
+  "cadence_mode_s": 1,
+  "n_gaps": 0,
+  "largest_gaps_s_at_ts": [],
+  "decimals_max": 3,
+  "decimals_mode": 3,
+  "f_min": 49.657,
+  "f_max": 50.234,
+  "f_step_min_nonzero": 0.0009999999999976694,
+  "max_flat_run_s": 17,
+  "dst_check": null,
+  "coverage_iso": [
+   "2026-06-01T00:00:00Z",
+   "2026-06-30T23:59:59Z"
+  ]
+ }
+]

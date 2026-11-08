@@ -1,0 +1,1 @@
+{"case": "case_a", "mode": "argon", "status": "MATCH_SUPPORTED", "expected": "MATCH_SUPPORTED", "n_tools": 1, "argon_calls": 2, "tokens": 17315, "latency": 119.5, "conflicts": [], "ev": {"expected": "MATCH_SUPPORTED", "status_as_expected": true, "start_error_s": 0.17}}

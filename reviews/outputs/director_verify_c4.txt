@@ -1,0 +1,2 @@
+video cols ['t_video_s', 'enf_hz', 'q_db'] ref cols ['t_s_from_wav_start', 'enf_hz', 'q_db']
+best lag=81.5 r=0.9954 n=633 demeaned_rmse=1.07 mHz; best r >10 s away=0.685

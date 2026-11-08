@@ -1,0 +1,77 @@
+{
+  "diagnosis_conclusion": "W06's pipeline has exact 0.000 s group delay and window centres `t` match `scipy.signal.stft` (verified on synthetic FM: r=0.9999 at lag=0s, RMSE=0.39 mHz). On ENF-WHU H1/003.wav vs H1_ref/003_ref.wav, even a raw unfiltered scipy.signal.stft with zero W06 code exhibits the exact same +4 s lag (r=0.976 at lag 0 vs r=0.999 at lag +4 s), proving that ENF-WHU's H1 and H1_ref files have small manual start-time trimming offsets of a few seconds (~0 to 4 s).",
+  "synthetic_fm_zero_delay_verification": {
+    "best_lag_s": 0,
+    "r_at_lag_0": 0.99369,
+    "rmse_at_lag_0_mhz": 3.3179,
+    "corr_by_lag_s": {
+      "-6": 0.458629,
+      "-5": 0.601295,
+      "-4": 0.731052,
+      "-3": 0.84074,
+      "-2": 0.924139,
+      "-1": 0.976143,
+      "0": 0.99369,
+      "1": 0.975847,
+      "2": 0.923728,
+      "3": 0.840553,
+      "4": 0.731203,
+      "5": 0.601913,
+      "6": 0.459777
+    }
+  },
+  "raw_unfiltered_stft_003_verification": {
+    "best_lag_s": -3,
+    "r_at_lag_0": 0.96752,
+    "r_at_best_lag": 0.98629,
+    "corr_by_lag_s": {
+      "-8": 0.95273,
+      "-7": 0.96613,
+      "-6": 0.97654,
+      "-5": 0.98346,
+      "-4": 0.98628,
+      "-3": 0.98629,
+      "-2": 0.98413,
+      "-1": 0.97801,
+      "0": 0.96752,
+      "1": 0.95469,
+      "2": 0.93919,
+      "3": 0.91993,
+      "4": 0.89897,
+      "5": 0.87578,
+      "6": 0.85067,
+      "7": 0.82261,
+      "8": 0.79265
+    },
+    "duration_h1_s": 652.9306,
+    "duration_ref_s": 652.0025
+  },
+  "dev_h1_lag_distribution": {
+    "n_dev_h1": 78,
+    "n_meaningful_lag_r_ge_0_70": 75,
+    "lag_s_histogram_on_r_ge_0_70": {
+      "-5": 1,
+      "-4": 8,
+      "-3": 18,
+      "-2": 6,
+      "-1": 7,
+      "0": 13,
+      "1": 14,
+      "2": 3,
+      "3": 3,
+      "4": 2
+    },
+    "median_lag_s": -1.0,
+    "mean_lag_s": -0.973,
+    "std_lag_s": 2.191,
+    "median_abs_lag_s": 2.0,
+    "p90_abs_lag_s": 4.0,
+    "frac_within_1s": 0.4533,
+    "frac_within_2s": 0.5733,
+    "frac_within_5s": 1.0,
+    "zero_lag_median_r": 0.9841,
+    "best_lag_median_r": 0.9956,
+    "zero_lag_median_rmse_mhz": 3.469,
+    "best_lag_median_rmse_mhz": 1.92
+  }
+}

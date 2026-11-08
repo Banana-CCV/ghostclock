@@ -1,0 +1,1 @@
+{"case": "case_d", "mode": "argon", "status": "INCONCLUSIVE", "expected": "INCONCLUSIVE", "n_tools": 0, "argon_calls": 1, "tokens": 14588, "latency": 165.0, "conflicts": [], "ev": {"expected": "INCONCLUSIVE", "status_as_expected": true}}

@@ -1,0 +1,4 @@
+ref fs=400 dur=652.0s windows=637 matched=637
+independent r=0.9760 rmse=5.48 mHz demeaned_rmse=3.85 mHz
+corr by lag (s): {-5: 0.9965, -4: 0.9993, -3: 0.9987, -2: 0.9946, -1: 0.9872, 0: 0.9766, 1: 0.9631, 2: 0.9467, 3: 0.9275, 4: 0.9055, 5: 0.8809}
+ref ENF range 49.972-50.038 Hz; W06 range 49.968-50.034

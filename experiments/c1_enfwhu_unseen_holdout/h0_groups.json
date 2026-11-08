@@ -1,0 +1,203 @@
+{
+ "01": {
+  "source": "O02",
+  "start_sample": 1988984,
+  "start_s": 248.623
+ },
+ "02": {
+  "source": "O02",
+  "start_sample": 2211309,
+  "start_s": 276.413625
+ },
+ "03": {
+  "source": "O02",
+  "start_sample": 310012,
+  "start_s": 38.7515
+ },
+ "04": {
+  "source": "O02",
+  "start_sample": 2229824,
+  "start_s": 278.728
+ },
+ "05": {
+  "source": "O02",
+  "start_sample": 1543778,
+  "start_s": 192.97225
+ },
+ "06": {
+  "source": "O02",
+  "start_sample": 238125,
+  "start_s": 29.765625
+ },
+ "07": {
+  "source": "O03",
+  "start_sample": 639622,
+  "start_s": 79.95275
+ },
+ "08": {
+  "source": "O03",
+  "start_sample": 1256015,
+  "start_s": 157.001875
+ },
+ "09": {
+  "source": "O03",
+  "start_sample": 2199092,
+  "start_s": 274.8865
+ },
+ "10": {
+  "source": "O03",
+  "start_sample": 2216045,
+  "start_s": 277.005625
+ },
+ "11": {
+  "source": "O03",
+  "start_sample": 361987,
+  "start_s": 45.248375
+ },
+ "12": {
+  "source": "O03",
+  "start_sample": 2229146,
+  "start_s": 278.64325
+ },
+ "13": {
+  "source": "O04",
+  "start_sample": 1241976,
+  "start_s": 155.247
+ },
+ "14": {
+  "source": "O04",
+  "start_sample": 629801,
+  "start_s": 78.725125
+ },
+ "15": {
+  "source": "O04",
+  "start_sample": 1038407,
+  "start_s": 129.800875
+ },
+ "16": {
+  "source": "O04",
+  "start_sample": 184105,
+  "start_s": 23.013125
+ },
+ "17": {
+  "source": "O04",
+  "start_sample": 547258,
+  "start_s": 68.40725
+ },
+ "18": {
+  "source": "O04",
+  "start_sample": 1188217,
+  "start_s": 148.527125
+ },
+ "19": {
+  "source": "O05",
+  "start_sample": 2772884,
+  "start_s": 346.6105
+ },
+ "20": {
+  "source": "O05",
+  "start_sample": 3358415,
+  "start_s": 419.801875
+ },
+ "21": {
+  "source": "O05",
+  "start_sample": 2295223,
+  "start_s": 286.902875
+ },
+ "22": {
+  "source": "O05",
+  "start_sample": 124998,
+  "start_s": 15.62475
+ },
+ "23": {
+  "source": "O05",
+  "start_sample": 2972122,
+  "start_s": 371.51525
+ },
+ "24": {
+  "source": "O05",
+  "start_sample": 3269163,
+  "start_s": 408.645375
+ },
+ "25": {
+  "source": "O06",
+  "start_sample": 1095019,
+  "start_s": 136.877375
+ },
+ "26": {
+  "source": "O06",
+  "start_sample": 1222479,
+  "start_s": 152.809875
+ },
+ "27": {
+  "source": "O06",
+  "start_sample": 1198912,
+  "start_s": 149.864
+ },
+ "28": {
+  "source": "O06",
+  "start_sample": 632788,
+  "start_s": 79.0985
+ },
+ "29": {
+  "source": "O06",
+  "start_sample": 1057497,
+  "start_s": 132.187125
+ },
+ "30": {
+  "source": "O06",
+  "start_sample": 276179,
+  "start_s": 34.522375
+ },
+ "31": {
+  "source": "O07",
+  "start_sample": 596769,
+  "start_s": 74.596125
+ },
+ "32": {
+  "source": "O07",
+  "start_sample": 26905,
+  "start_s": 3.363125
+ },
+ "33": {
+  "source": "O07",
+  "start_sample": 234062,
+  "start_s": 29.25775
+ },
+ "34": {
+  "source": "O07",
+  "start_sample": 39025,
+  "start_s": 4.878125
+ },
+ "35": {
+  "source": "O07",
+  "start_sample": 82098,
+  "start_s": 10.26225
+ },
+ "36": {
+  "source": "O07",
+  "start_sample": 696008,
+  "start_s": 87.001
+ },
+ "37": {
+  "source": "O08",
+  "start_sample": 527463,
+  "start_s": 65.932875
+ },
+ "38": {
+  "source": "O08",
+  "start_sample": 240719,
+  "start_s": 30.089875
+ },
+ "39": {
+  "source": "O08",
+  "start_sample": 721340,
+  "start_s": 90.1675
+ },
+ "40": {
+  "source": "O09",
+  "start_sample": 147486,
+  "start_s": 18.43575,
+  "note": "no bit-exact match; assigned by waveform NCC=0.979 vs O09 (others <0.2)"
+ }
+}

@@ -1,0 +1,1 @@
+n=34 r=0.900 mean(audio-video)=-0.56 mHz

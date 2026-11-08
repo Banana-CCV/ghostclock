@@ -1,0 +1,15 @@
+{
+  "file": "A001_11081142_C004.mp4",
+  "sha256": "DC2E3C97F59DEA12EFB19707E315B4E17B7426BAD338DB49772C1403FB198C5E",
+  "how_obtained": "ffprobe -show_entries format_tags:stream_tags (run during release packaging, 2026-11-08). These metadata are NEVER read by the analysis: blind_match.py takes only the extracted ENF trace CSV.",
+  "format_tags.creation_time": "2026-11-08T11:42:37.000000Z",
+  "format_tags.com.blackmagic-design.camera.dateRecorded": "2026-11-08T11:42:37Z",
+  "format_tags.timecode": "11:42:37:00",
+  "format_tags.com.apple.quicktime.software": "Blackmagic Cam 3.5.1.0044",
+  "format_tags.com.blackmagic-design.sensorFPS": "60.0",
+  "format_tags.com.blackmagic-design.shutterSpeed": "1 / 8000.0",
+  "format_tags.com.blackmagic-design.camera.shutterAngle": "2.7 deg",
+  "ghostclock_blind_estimate_utc": "2026-11-08T11:42:39Z",
+  "estimate_minus_camera_clock_s": 2,
+  "caveat": "The camera clock is the phone's network-synced clock; it is the reference here, not an atomic ground truth. The on-screen time.is slate was not separately read."
+}

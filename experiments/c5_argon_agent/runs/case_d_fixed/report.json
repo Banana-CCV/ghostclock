@@ -1,0 +1,81 @@
+{
+ "case": "case_d",
+ "case_id": "GC-2D54CEB7",
+ "mode": "fixed",
+ "model": null,
+ "note": "team venue recording, 49 s",
+ "status": "INCONCLUSIVE",
+ "gate_reasons": [
+  "media duration 49 s < shortest calibrated length 60 s (C1 holdout: 1-min coverage 9/135, 5-min 105/135; need >= 5-10 min of usable hum)"
+ ],
+ "basis_match": null,
+ "n_tool_calls": 1,
+ "tool_results": [
+  {
+   "modality": "audio",
+   "harmonics_used": [],
+   "window_start_s": 8.0,
+   "window_len_s": 34,
+   "peak_ncc": 0.9324,
+   "second_peak_ncc": 0.93084,
+   "margin": 0.00156,
+   "z_score": 1.44,
+   "best_offset_in_reference_s": 29087,
+   "implied_media_start_in_reference_s": 29079.0,
+   "frozen_threshold_for_length": null,
+   "passes_frozen_threshold": false,
+   "notes": [
+    "usable trace 34 s is shorter than the shortest calibrated length (60 s); no frozen threshold exists"
+   ]
+  }
+ ],
+ "argon_calls": [],
+ "tokens": {
+  "input": 0,
+  "output": 0,
+  "thinking": 0,
+  "total": 0
+ },
+ "argon_latency_s": 0,
+ "argon_final": null,
+ "conflicts": [],
+ "unsupported_numbers_in_explanation": [],
+ "evaluation_hidden_from_agent": {
+  "expected": "INCONCLUSIVE",
+  "status_as_expected": true
+ },
+ "probe": {
+  "duration_s": 49.39,
+  "modalities_available": [
+   "audio",
+   "video",
+   "fused"
+  ],
+  "has_video": true,
+  "harmonic_choice": "not available (precomputed traces)",
+  "audio": {
+   "n_frames": 34,
+   "span_s": [
+    8.0,
+    41.0
+   ],
+   "median_quality_db": 11.86,
+   "std_mhz": 7.29,
+   "median_hz": 49.9692
+  },
+  "video": {
+   "n_frames": 42,
+   "span_s": [
+    3.999249999979968,
+    44.99156249977464
+   ],
+   "median_quality_db": 17.29,
+   "std_mhz": 11.0,
+   "median_hz": 49.9735
+  },
+  "reference_window": {
+   "type": "permitted GB grid-frequency reference (Elexon 15 s, interpolated to 1 s)",
+   "length_s": 130891
+  }
+ }
+}

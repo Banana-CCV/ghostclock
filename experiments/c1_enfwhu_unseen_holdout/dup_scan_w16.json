@@ -1,0 +1,179 @@
+{
+ "001": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "002": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "003-004": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "005": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "006-007": {
+  "n_chunks": 144,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "008-009": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "010": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "011": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "012-013": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "014": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "015": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "016-019": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "020-025": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "026-028": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "029": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "030-033": {
+  "n_chunks": 144,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "034-037": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "038": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "039-042": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "043-059": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "060-064": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "065-069": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "070": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "071-079": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "080-088": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "089-107": {
+  "n_chunks": 138,
+  "dup_chunks": 42,
+  "examples": [
+   [
+    3600,
+    7200,
+    1.0,
+    0.01
+   ],
+   [
+    4200,
+    7800,
+    1.0,
+    0.008
+   ],
+   [
+    4800,
+    8400,
+    1.0,
+    0.006
+   ],
+   [
+    5400,
+    9000,
+    1.0,
+    0.01
+   ],
+   [
+    6000,
+    9600,
+    1.0,
+    0.009
+   ],
+   [
+    6600,
+    10200,
+    1.0,
+    0.012
+   ]
+  ]
+ },
+ "108-115": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ },
+ "116-130": {
+  "n_chunks": 143,
+  "dup_chunks": 0,
+  "examples": []
+ }
+}

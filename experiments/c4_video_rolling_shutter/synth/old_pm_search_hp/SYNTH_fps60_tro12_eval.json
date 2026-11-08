@@ -1,0 +1,26 @@
+{
+ "SYNTHETIC": true,
+ "case": "fps60_tro12",
+ "params": {
+  "SYNTHETIC": true,
+  "fps": 60,
+  "dur_s": 240.0,
+  "T_ro_ms": 12.0,
+  "T_exp_ms": 2.0,
+  "W": 640,
+  "H": 360,
+  "m1": 0.05,
+  "m2": 0.01,
+  "noise": 1.5,
+  "crf": 20,
+  "seed": 14,
+  "motion": true,
+  "ae_drift": 0.02,
+  "exposure_gain_100Hz": 0.935489283788639,
+  "frame_mean_gain_100Hz": -0.15591488063143982
+ },
+ "fps_fit": 60.00000000000003,
+ "Tro_est_ms": 11.833333333333366,
+ "Tro_true_ms": 12.0,
+ "alias_hz": -20.000000000000057,
+ "naive_degenerate": 

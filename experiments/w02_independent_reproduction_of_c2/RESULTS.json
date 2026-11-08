@@ -1,0 +1,190 @@
+{
+  "worker_id": "W02",
+  "title": "GB Grid-Frequency Reference Data: NESO (1 s) + Elexon BMRS (15 s) + Independent Reproduction of C2",
+  "generated_at_utc": "2026-11-08T11:00:00Z",
+  "evidence_grade": "A",
+  "primary_conclusion_same_day_live_demo": {
+    "public_gb_le_1s_live_feed_exists": false,
+    "neso_1s_publication_latency_days": 38.4,
+    "neso_1s_publication_latency_range_days": [5.0, 45.0],
+    "elexon_15s_live_latency_s_range": [32.0, 142.0],
+    "elexon_15s_live_latency_median_s": 87.0,
+    "elexon_15s_operator": "instantaneous_decimation_at_lag_0s",
+    "elexon_15s_can_substitute_neso_at_native_15s": true,
+    "elexon_15s_can_substitute_neso_for_short_clips_le_60s": false,
+    "elexon_15s_minimum_clip_duration_s_for_median_r_ge_0_90": 180,
+    "elexon_15s_recommended_clip_duration_s_for_live_demo": 600,
+    "decision_summary": "No public GB API provides <= 1 s frequency data with same-day latency (NESO 1 s has a 5-45 day monthly publication lag, with Sep 2026 as the latest file on 8 Nov 2026). Elexon BMRS (/bmrs/api/v1/system/frequency/stream) provides true UTC 15 s instantaneous samples with 32-142 s live latency (~0.5-2.4 min). At native 15 s timestamps, Elexon matches NESO with lag = 0 s (RMSE = 0.68-1.04 mHz, 88.5-89.4% exact match through 2026-01-11; RMSE = 5.55-7.97 mHz from 2026-02-13 onward due to 3.5-6.3 mHz extra independent-transducer scatter). In 24 h localization trials (n = 400, sigma = 2 mHz), linearly interpolating Real Elexon 15 s to 1 s achieves P(top-1 within +-15 s) = 0.180 (2 min), 0.805 (5 min), 0.985 (10 min), and 0.998 (20 min), outperforming 15 s point matching (0.125, 0.733, 0.965, 0.995)."
+  },
+  "c2_independent_reproduction_summary": {
+    "review_file": "agents/reviews/W02_reproduce_C2.md",
+    "claim_1_oct2025_plus3600s_offset": {
+      "verdict": "AGREE_AND_EXTENDED",
+      "oct2025_dst_window_n1921_naive_rmse_mhz": 80.3095,
+      "oct2025_dst_window_n1921_fixed_rmse_mhz": 0.6984,
+      "oct2025_first_hour_vs_elexon_sep30_23z_n241_rmse_mhz": 0.4596,
+      "w02_21month_extension": "All seven 2025 BST months (2025-04 through 2025-10) were exported by NESO in BST (UTC+1, requiring -3600 s correction), leaving a 1-hour missing gap at 2025-10-31T23:00:00Z..23:59:59Z. Starting in 2025-11 and through all of 2026 (2026-01..2026-09, including all 2026 BST summer months), NESO exports strict UTC (lag = 0 s)."
+    },
+    "claim_2_when_2026_elexon_scatter_started_dec_jan_feb_audit": {
+      "verdict": "AGREE_AND_PINPOINTED_TO_EXACT_DAY",
+      "dec_2025_full_month_n178559": {
+        "rmse_at_0s_mhz": 1.044,
+        "median_daily_rmse_mhz": 0.548,
+        "frac_exact_le_0_5mhz": 0.8943,
+        "implied_extra_white_noise_mhz": 0.014,
+        "best_lag_counts_days": {"0": 31}
+      },
+      "jan_2026_full_month_n178025": {
+        "rmse_at_0s_mhz": 2.556,
+        "median_daily_rmse_at_best_lag_mhz": 1.88,
+        "frac_exact_le_0_5mhz": 0.4825,
+        "implied_extra_white_noise_mhz": 0.0,
+        "best_lag_counts_days": {"0": 14, "1": 16, "2": 1},
+        "subperiod_jan01_to_jan11": "Pure point-sample regime at lag=0s (85.8-89.6% exact match, 0.0 mHz extra noise)",
+        "subperiod_jan13_to_feb11": "+1 s clock skew between feeds (best_lag=+1s on 26/30 days, 0.0 mHz extra noise)"
+      },
+      "feb_2026_full_month_n159996": {
+        "rmse_at_0s_mhz": 5.742,
+        "median_daily_rmse_at_best_lag_mhz": 3.961,
+        "frac_exact_le_0_5mhz": 0.1662,
+        "implied_extra_white_noise_mhz": 3.468,
+        "best_lag_counts_days": {"0": 17, "1": 10, "2": 1},
+        "exact_onset_date_of_scatter": "2026-02-13 (best_lag returned to 0s on 16/16 days Feb 13-28 while frac_exact dropped from 27.3% on Feb 12 to 8.2-12.8% and daily RMSE jumped to 3.52-5.57 mHz)"
+      }
+    },
+    "claim_3_flat_filled_neso_outages": {
+      "verdict": "AGREE_PLUS_ELEXON_LIVE_DURING_OUTAGE",
+      "sep_2026_outage": {
+        "start_iso": "2026-09-15T07:30:03+00:00",
+        "end_iso": "2026-09-15T10:36:00+00:00",
+        "duration_s": 11158,
+        "neso_constant_f_hz": 49.895,
+        "elexon_during_outage_n744": {
+          "valid_rows": 744,
+          "f_min_hz": 49.838,
+          "f_max_hz": 50.121,
+          "f_std_hz": 0.07336,
+          "n_distinct_values": 250
+        }
+      },
+      "mar_2026_outage": {
+        "start_iso": "2026-03-31T13:39:28+00:00",
+        "end_iso": "2026-03-31T13:47:26+00:00",
+        "duration_s": 479,
+        "neso_constant_f_hz": 50.046
+      }
+    },
+    "claim_4_feasibility_table_reproduction_n400_sigma2mhz_24h": {
+      "verdict": "AGREE_ON_NUMBERS_AND_IMPROVED_WITH_1S_LINEAR_INTERP",
+      "n_trials_per_cell": 400,
+      "seed": 20261108,
+      "D=2min": {
+        "c2_ref_1s": 1.0, "w02_ref_1s": 1.0,
+        "c2_ref_15s_pt": 0.472, "w02_ref_15s_pt": 0.4975,
+        "c2_ref_15s_avg": 0.876, "w02_ref_15s_avg": 0.875,
+        "c2_elexon_real_pt": 0.102, "w02_elexon_real_pt": 0.125,
+        "w02_elexon_real_avg_query": 0.055,
+        "w02_elexon_real_lin1s": 0.18
+      },
+      "D=5min": {
+        "c2_ref_1s": 1.0, "w02_ref_1s": 1.0,
+        "c2_ref_15s_pt": 0.994, "w02_ref_15s_pt": 0.9925,
+        "c2_ref_15s_avg": 1.0, "w02_ref_15s_avg": 1.0,
+        "c2_elexon_real_pt": 0.747, "w02_elexon_real_pt": 0.7325,
+        "w02_elexon_real_avg_query": 0.655,
+        "w02_elexon_real_lin1s": 0.805
+      },
+      "D=10min": {
+        "c2_ref_1s": 1.0, "w02_ref_1s": 1.0,
+        "c2_ref_15s_pt": 1.0, "w02_ref_15s_pt": 1.0,
+        "c2_ref_15s_avg": 1.0, "w02_ref_15s_avg": 1.0,
+        "c2_elexon_real_pt": 0.951, "w02_elexon_real_pt": 0.965,
+        "w02_elexon_real_avg_query": 0.95,
+        "w02_elexon_real_lin1s": 0.985
+      },
+      "D=20min": {
+        "c2_ref_1s": 1.0, "w02_ref_1s": 1.0,
+        "c2_ref_15s_pt": 1.0, "w02_ref_15s_pt": 1.0,
+        "c2_ref_15s_avg": 1.0, "w02_ref_15s_avg": 1.0,
+        "c2_elexon_real_pt": 0.994, "w02_elexon_real_pt": 0.995,
+        "w02_elexon_real_avg_query": 0.995,
+        "w02_elexon_real_lin1s": 0.9975
+      }
+    }
+  },
+  "director_note_sep2026_vs_nov2025_diagnosis": {
+    "sep_2026_lag_sweep_minus3700_to_plus3700s": {
+      "lag_range_tested_s": [-3700, 3700],
+      "n_lags_tested": 7401,
+      "holdout_split_n11850": {
+        "best_lag_s": 0,
+        "rmse_at_lag_0s_mhz": 6.5274,
+        "pearson_r_at_lag_0s": 0.996828,
+        "rmse_at_lag_minus_1s_mhz": 6.8612,
+        "rmse_at_lag_plus_1s_mhz": 7.0961,
+        "rmse_at_lag_minus_3600s_mhz": 106.6698,
+        "rmse_at_lag_plus_3600s_mhz": 105.7983
+      },
+      "full_7d_excl_sep27_2h_anomaly_n39573": {
+        "best_lag_s": 0,
+        "rmse_at_lag_0s_mhz": 6.4678,
+        "mae_at_lag_0s_mhz": 5.1185,
+        "pearson_r_at_lag_0s": 0.997144,
+        "rmse_at_lag_minus_3600s_mhz": 106.2299,
+        "rmse_at_lag_plus_3600s_mhz": 105.8797
+      }
+    },
+    "subsecond_and_filter_test_sep2026": {
+      "subsecond_spline_best_lag_s": 0.05,
+      "subsecond_spline_best_rmse_mhz": 6.4707,
+      "subsecond_spline_rmse_at_0s_mhz": 6.4708,
+      "unconstrained_31tap_fir_ols_best_rmse_mhz": 6.4484,
+      "fir_peak_tap_lag_s": 0,
+      "residual_mean_mhz": 0.0826,
+      "residual_std_mhz": 6.4703,
+      "residual_autocorr_15s": 0.0099
+    }
+  },
+  "neso_historical_1s": {
+    "portal_url": "https://www.neso.energy/data-portal/system-frequency-data",
+    "ckan_package_show_url": "https://api.neso.energy/api/3/action/package_show?id=system-frequency-data",
+    "dataset_id": "cb1cc925-ecd8-4406-b021-3a3f368196e1",
+    "licence": "NESO Open Data Licence (ESO)",
+    "total_monthly_resources": 153,
+    "earliest_month": "2014-01",
+    "latest_month": "2026-09",
+    "latest_month_last_modified_utc": "2026-10-08T09:50:06.103163Z",
+    "cadence_s": 1,
+    "quantisation_step_hz": 0.001,
+    "fraction_exact_1mhz_multiples": 1.0,
+    "timezone_rule": "Strict UTC (UTC+0) for 2025-01..2025-03, 2025-11..2025-12, and all 2026 months (2026-01..2026-09). Exported as BST (UTC+1, requiring -3600 s correction) in 2025-04..2025-10.",
+    "downloaded_months_manifest": [
+      {"ym": "2026-09", "parquet_path": "datasets/raw/neso/neso_2026-09.parquet", "parquet_sha256": "e8732a2f45a3b7a68136aef083e0fd34dd492a0f4ff6a9daf86dbad33a768e72", "raw_csv_sha256": "7a897109ffd90740f074be46840cbc642729996f266afd8d0b20352740f9ebde", "row_count": 2592000, "coverage_utc": [1788220800, 1790812799]},
+      {"ym": "2026-08", "parquet_path": "datasets/raw/neso/neso_2026-08.parquet", "parquet_sha256": "71790853965987e6f3b69458b950830dd5c20ae08d0f915c6f2681a3e92a59c2", "raw_csv_sha256": "510b37fd12bf932d4771b83bec63fbdb8e0e2bdca79408d54532909b6f517c8a", "row_count": 2678400, "coverage_utc": [1785542400, 1788220799]},
+      {"ym": "2026-07", "parquet_path": "datasets/raw/neso/neso_2026-07.parquet", "parquet_sha256": "af85d0e3dd3c037d4e1665017dd475d06b50ff39350aeb7b7090dbd625e79397", "raw_csv_sha256": "1ca3e9e995c32928b475a2914a2dea1b1ddc738d39942f579931d38aec3b3964", "row_count": 2678400, "coverage_utc": [1782864000, 1785542399]},
+      {"ym": "2026-03", "parquet_path": "datasets/raw/neso/neso_2026-03.parquet", "parquet_sha256": "389ee98f762b46a2806a90274bc7ceb874c8ded761b38ec4713d9e8413b45049", "raw_csv_sha256": "e7592d058f2df0531987298b8c43ebba641615a36b798c76de38b370e9536df7", "row_count": 2678400, "coverage_utc": [1772323200, 1775001599]},
+      {"ym": "2025-11", "parquet_path": "datasets/raw/neso/neso_2025-11.parquet", "parquet_sha256": "19fd4b83ce7ea19230e67b510552667d350d6ccd640bf480c06f19f0a3dece86", "raw_csv_sha256": "d7f9311bf46549143d5c7ee4c7cee681cbaa639e245a02a20226ad8abb01ec5b", "row_count": 2592000, "coverage_utc": [1761955200, 1764547199]},
+      {"ym": "2025-10", "parquet_path": "datasets/raw/neso/neso_2025-10.parquet", "parquet_sha256": "491c2e7b167d40d432a20c77f3ef6d654c86dbbe722c76a19e13d6e1124ea32a", "raw_csv_sha256": "e1e25dbd8d381495df04783d2755960ee5d661a0978cbb1404c6744f9a23eaef", "row_count": 2678400, "coverage_utc": [1759273200, 1761951599]},
+      {"ym": "2025-12", "raw_csv_path": "datasets/raw/neso/neso_2025-12.csv", "row_count": 2678400, "coverage_utc": [1764547200, 1767225599]},
+      {"ym": "2026-01", "raw_csv_path": "datasets/raw/neso/neso_2026-01.csv", "row_count": 2678400, "coverage_utc": [1767225600, 1769903999]},
+      {"ym": "2026-02", "raw_csv_path": "datasets/raw/neso/neso_2026-02.csv", "row_count": 2419200, "coverage_utc": [1769904000, 1772323199]}
+    ]
+  },
+  "elexon_bmrs_15s": {
+    "documentation_url": "https://bmrs.elexon.co.uk/api-documentation/endpoint/system/frequency",
+    "rest_endpoint": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency",
+    "stream_endpoint": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency/stream",
+    "cadence_s": 15,
+    "quantisation_step_hz": 0.001,
+    "timezone": "Strict UTC (ISO-8601 Z suffix year-round)",
+    "earliest_available_timestamp_utc": "2021-08-30T00:00:00Z",
+    "live_latency_measurements_s": [142.0, 88.0, 96.0, 105.0, 57.0, 65.0, 32.0],
+    "live_latency_range_s": [32.0, 142.0],
+    "saved_datasets_manifest": [
+      {"file": "datasets/raw/elexon/elexon_last7d_and_today.parquet", "sha256": "bedf4d1f9ffdd3c7d142ad607b9b24697d0f6c7b773cb122a9cc3265b6fa31cf", "row_count": 42736, "coverage_utc": [1793491200, 1794132225]},
+      {"file": "datasets/raw/elexon/live_archive.parquet", "sha256": "85151fbbdb96039967677c98d390b3a0702e2c0cc87324768c1f237daee420e4", "row_count": 42840, "coverage_utc": [1793491200, 1794133785]},
+      {"file": "datasets/raw/elexon/elexon_overlap_2026_09.parquet", "sha256": "4bbeb1fcf4727d1ff44e50f53426ed3ef825b40176172050e9adbf44df47f5e2", "row_count": 40320, "coverage_utc": [1790208000, 1790812785]},
+      {"file": "datasets/raw/elexon/elexon_overlap_2025_11.parquet", "sha256": "6537da9b29d82c1fc0de394026dd760e5dfda60bb01e495126fc02773408e26d", "row_count": 40320, "coverage_utc": [1761955200, 1762559985]}
+    ]
+  }
+}

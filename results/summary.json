@@ -1,0 +1,280 @@
+{
+  "project": "GhostClock",
+  "generated": "2026-11-08",
+  "note": "Machine-readable headline metrics. Every value is copied from the cited source file; nothing here is recomputed or rounded up. Grades: A = independently reproduced on authentic inputs; B = executed with logs, reproduced on a spot check or not at all; C = sourced research; D = hypothesis/illustration.",
+  "source_of_truth": "docs/EVIDENCE.md (adapted from docs/source/FINAL_PRETEST_REPORT.md)",
+  "metrics": [
+    {
+      "id": "hero_venue_video_blind_dating",
+      "claim": "Team's 18.4-min venue phone video (1080p60): rolling-shutter ENF from ceiling-light flicker, blind search over the whole live Elexon archive (36.3 h, interpolated to 1 s)",
+      "best_start_utc": "2026-11-08T11:42:39Z",
+      "best_ncc": 0.9795,
+      "runner_up_ncc_36h": 0.8261,
+      "margin": 0.1534,
+      "wrong_day_null_best_ncc": [
+        0.8313,
+        0.8465,
+        0.8289,
+        0.8453,
+        0.8348,
+        0.7885,
+        0.8155
+      ],
+      "p_empirical_floor": 0.125,
+      "robustness_q18": {
+        "best_start_utc": "2026-11-08T11:42:39Z",
+        "best_ncc": 0.9791,
+        "runner_up_ncc": 0.8102,
+        "wrong_day_max": 0.87
+      },
+      "ground_truth": "camera network-synced clock in file metadata: 2026-11-08T11:42:37Z (creation_time / Blackmagic dateRecorded / timecode 11:42:37:00); never read by the analysis",
+      "data": "REAL",
+      "grade": "B",
+      "source": "experiments/team_recordings_venue/blind/CASE_HERO_video_q15/result.json",
+      "reproduced": "experiments/team_recordings_venue/blind/REPRO_release_q15_result.json",
+      "error_s": 2,
+      "ground_truth_source": "experiments/team_recordings_venue/ground_truth_camera_clock.json"
+    },
+    {
+      "id": "venue_49s_abstention",
+      "claim": "49 s venue clip, blind audio search over 36.3 h: best 0.928 but 7 wrong days scored 0.929-0.937 -> too short, abstain",
+      "best_ncc": 0.9276,
+      "wrong_day_null_best_ncc_range": [
+        0.9286,
+        0.9366
+      ],
+      "data": "REAL",
+      "grade": "B",
+      "source": "experiments/team_recordings_venue/blind/TEST_49s_audio/result.json"
+    },
+    {
+      "id": "audio_holdout_5min_coverage",
+      "claim": "ENF-WHU unseen holdout, 5-min excerpts searched over a full 24 h reference: match issued",
+      "k": 105,
+      "n": 135,
+      "rate": 0.778,
+      "ci95": [
+        0.701,
+        0.84
+      ],
+      "data": "REAL (unseen holdout: 45 recordings, 15 days)",
+      "grade": "A",
+      "source": "experiments/c1_enfwhu_unseen_holdout/RESULTS.json",
+      "verified_by": "reviews/director_verify_c1.py (output: reviews/outputs/director_verify_c1.txt)"
+    },
+    {
+      "id": "audio_holdout_5min_correct_5s",
+      "claim": "Issued 5-min holdout matches within +/-5 s of dataset ground truth",
+      "k": 105,
+      "n": 105,
+      "rate": 1.0,
+      "ci95": [
+        0.965,
+        1.0
+      ],
+      "data": "REAL (unseen)",
+      "grade": "A",
+      "source": "experiments/c1_enfwhu_unseen_holdout/RESULTS.json",
+      "verified_by": "reviews/director_verify_c1.py"
+    },
+    {
+      "id": "audio_holdout_5min_within_1s_refined_gt",
+      "claim": "Within +/-1 s of per-file refined ground truth (12 reliable holdout files)",
+      "k": 31,
+      "n": 34,
+      "rate": 0.912,
+      "ci95": [
+        0.77,
+        0.97
+      ],
+      "median_abs_err_s": 0.18,
+      "data": "REAL (unseen)",
+      "grade": "A",
+      "source": "experiments/c1_enfwhu_unseen_holdout/README.md"
+    },
+    {
+      "id": "audio_holdout_5min_h0_false_match",
+      "claim": "No-ENF (H0) recordings falsely matched, 5-min excerpts",
+      "k": 0,
+      "n": 153,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.025
+      ],
+      "data": "REAL (unseen)",
+      "grade": "A",
+      "source": "experiments/c1_enfwhu_unseen_holdout/RESULTS.json"
+    },
+    {
+      "id": "audio_holdout_5min_wrong_day_false_match",
+      "claim": "Real-ENF excerpt searched against the WRONG day's reference: a (wrong) match was issued. Target was <= 5%. MAIN WEAKNESS.",
+      "k": 28,
+      "n": 270,
+      "rate": 0.104,
+      "ci95": [
+        0.073,
+        0.146
+      ],
+      "data": "REAL (unseen)",
+      "grade": "A",
+      "source": "experiments/c1_enfwhu_unseen_holdout/RESULTS.json"
+    },
+    {
+      "id": "audio_holdout_by_length",
+      "claim": "Holdout coverage / correct-among-issued (+/-5 s) / wrong-day false matches by clip length",
+      "table": {
+        "60s": {
+          "coverage": "9/135",
+          "correct": "8/9",
+          "wrong_day_fm": "10/270",
+          "h0_fm": "0/153"
+        },
+        "120s": {
+          "coverage": "39/135",
+          "correct": "39/39",
+          "wrong_day_fm": "10/270",
+          "h0_fm": "0/153"
+        },
+        "180s": {
+          "coverage": "72/135",
+          "correct": "72/72",
+          "wrong_day_fm": "23/270",
+          "h0_fm": "0/153"
+        },
+        "300s": {
+          "coverage": "105/135",
+          "correct": "105/105",
+          "wrong_day_fm": "28/270",
+          "h0_fm": "0/153"
+        },
+        "480s": {
+          "coverage": "105/126",
+          "correct": "105/105",
+          "wrong_day_fm": "19/252",
+          "h0_fm": "1/36"
+        },
+        "600s": {
+          "coverage": "54/69",
+          "correct": "54/54",
+          "wrong_day_fm": "7/138",
+          "h0_fm": "0/9"
+        }
+      },
+      "data": "REAL (unseen)",
+      "grade": "A",
+      "source": "experiments/c1_enfwhu_unseen_holdout/README.md",
+      "figure": "results/figures/10_holdout_accuracy_vs_length_REAL_UNSEEN.png"
+    },
+    {
+      "id": "video_rolling_shutter_real",
+      "claim": "Rolling-shutter video ENF vs co-recorded mains reference (Zenodo 3549379, MOV2, Spain 50 Hz grid)",
+      "r": 0.9954,
+      "rmse_debiased_mhz": 1.07,
+      "n_windows": 633,
+      "best_lag_s": 81.5,
+      "best_other_lag_r": 0.685,
+      "naive_frame_mean_r": 0.381,
+      "filename_lag_s": 70,
+      "data": "REAL",
+      "grade": "B",
+      "source": "experiments/c4_video_rolling_shutter/RESULTS.json",
+      "verified_by": "reviews/director_verify_c4.py (output: reviews/outputs/director_verify_c4.txt)"
+    },
+    {
+      "id": "audio_extractor_single_clip",
+      "claim": "Audio ENF extractor vs reference on ENF-WHU H1/003",
+      "r_lag0": 0.976,
+      "r_at_minus4s": 0.9994,
+      "rmse_mhz": 5.48,
+      "data": "REAL",
+      "grade": "B",
+      "source": "experiments/w06_audio_extractor/RESULTS.json",
+      "verified_by": "reviews/director_verify_w06.py (output: reviews/outputs/director_verify_w06.txt)"
+    },
+    {
+      "id": "audio_extractor_dev",
+      "claim": "W06 multi-harmonic extractor on ENF-WHU dev (78 H1 + 30 H0): median r; ENF-presence ROC AUC",
+      "median_r": 0.984,
+      "frac_r_ge_0.8": 0.86,
+      "presence_auc": 0.991,
+      "tpr_at_5pct_fpr": 0.962,
+      "data": "REAL (dev only)",
+      "grade": "B (not independently re-verified beyond one clip)",
+      "source": "experiments/w06_audio_extractor/RESULTS.json"
+    },
+    {
+      "id": "reference_neso_vs_elexon",
+      "claim": "Elexon 15 s vs NESO 1 s RMSE at lag 0: Nov 2025 vs Sep 2026",
+      "rmse_mhz_nov2025": 0.59,
+      "rmse_mhz_sep2026": 7.45,
+      "data": "REAL",
+      "grade": "B",
+      "source": "experiments/c2_gb_reference_and_feasibility/RESULTS.json",
+      "verified_by": "reviews/director_verify_c2.py (output: reviews/outputs/director_verify_c2.txt)"
+    },
+    {
+      "id": "feasibility_real_elexon_15s",
+      "claim": "P(top-1 within +/-15 s), 24 h search, sigma = 2 mHz, real Elexon 15 s (2026) reference, n = 1000 per cell",
+      "table": {
+        "2min": 0.1,
+        "5min": 0.75,
+        "10min": 0.95,
+        "20min": 0.99
+      },
+      "with_linear_interpolation_to_1s_W02": {
+        "2min": 0.18,
+        "5min": 0.81,
+        "10min": 0.985,
+        "20min": 0.998
+      },
+      "data": "SEMI-SYNTHETIC (real NESO/Elexon + injected noise)",
+      "grade": "A (W02 independent reproduction within +/-2.3%, n = 400)",
+      "source": "experiments/c2_gb_reference_and_feasibility/RESULTS.json",
+      "verified_by": "experiments/w02_independent_reproduction_of_c2/W02_reproduce_C2.md"
+    },
+    {
+      "id": "null_calibration_wrong_day",
+      "claim": "Wrong-day spurious match r = 0.7607: naive iid p = 6.65e-58 vs calibrated empirical p = 0.0987 -> INCONCLUSIVE",
+      "data": "REAL NESO",
+      "grade": "B (not reproduced)",
+      "source": "experiments/w10_matcher_and_null_calibration/FINDINGS.md"
+    },
+    {
+      "id": "baseline_gap_failure",
+      "claim": "Open-source baseline nate-griff/enf on 300 s clip with 40 s gap misses by -30,907 s; W10 matcher error 0 s. With 20% interior dropout: baseline 0/12 within +/-5 s, W10 12/12",
+      "data": "SEMI-SYNTHETIC (real NESO + noise)",
+      "grade": "B (not reproduced)",
+      "source": "experiments/w10_matcher_and_null_calibration/RESULTS.json"
+    },
+    {
+      "id": "w10_policy_enfwhu_holdout",
+      "claim": "W10 matcher + policy, ENF-WHU holdout (whole recordings): coverage 10/45, selective accuracy 10/10, H0 FPR 0/17, wrong-day FPR 2/45; naive iid baseline FPR 107/107 on all negatives",
+      "data": "REAL",
+      "grade": "B (not reproduced)",
+      "source": "experiments/w10_matcher_and_null_calibration/RESULTS.json"
+    },
+    {
+      "id": "speed_check_failure",
+      "claim": "No-reference speed check, holdout: '8 s at 1.75x' flagged 20/45 = 44% [31, 59]; false alarms on untouched clips 18/225 = 8.0% [5.1, 12.3]; tempo-only edits detected 3/990",
+      "data": "REAL audio + SYNTHETIC manipulation",
+      "grade": "B",
+      "source": "experiments/c3_speed_and_splice/RESULTS.json",
+      "verdict": "at most a refer-to-human flag, never a finding"
+    },
+    {
+      "id": "argon_agent_c5",
+      "claim": "Gemini 4 Argon investigator + code gate on 5 cases: (a) holdout H1 011 MATCH_SUPPORTED, start error 0.17 s; (b) H0 INCONCLUSIVE; (c) wrong-day INCONCLUSIVE; (d) 49 s venue clip INCONCLUSIVE; (e) false claim +7200 s: Argon proposed MATCH_SUPPORTED, gate overrode to MATERIAL_DISCREPANCY_REVIEW. A fixed pipeline without Argon reaches the same 5 statuses: no accuracy gain claimed.",
+      "argon_calls": 11,
+      "argon_tokens": 129993,
+      "cases_as_expected": "5/5",
+      "data": "REAL (logged Argon runs)",
+      "grade": "B",
+      "source": "experiments/c5_argon_agent/README.md",
+      "traces": [
+        "experiments/c5_argon_agent/runs/case_a/trace.jsonl",
+        "experiments/c5_argon_agent/runs/case_e/trace.jsonl"
+      ]
+    }
+  ]
+}

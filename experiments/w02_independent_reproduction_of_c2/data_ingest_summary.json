@@ -1,0 +1,384 @@
+{
+  "generated_at_utc": "2026-11-08T10:05:53.832333+00:00",
+  "neso_months": [
+    {
+      "ym": "2026-09",
+      "columns": [
+        "dtm",
+        "f"
+      ],
+      "first_lines": [
+        "dtm,f",
+        "2026-09-01,50.086",
+        "2026-09-01 00:00:01,50.078",
+        "2026-09-01 00:00:02,50.073",
+        "2026-09-01 00:00:03,50.066"
+      ],
+      "raw_row_count": 2592000,
+      "expected_utc_month_seconds": 2592000,
+      "row_count_matches_exact_utc_month": true,
+      "sample_first_dtm": "2026-09-01",
+      "sample_last_dtm": "2026-09-30 23:59:59",
+      "n_date_only_midnight_rows": 30,
+      "actual_min_ts_utc": 1788220800,
+      "actual_max_ts_utc": 1790812799,
+      "actual_min_iso": "2026-09-01T00:00:00+00:00",
+      "actual_max_iso": "2026-09-30T23:59:59+00:00",
+      "n_neg_diff": 0,
+      "n_duplicate_ts": 0,
+      "n_gaps_gt_1s": 0,
+      "diff_distribution": {
+        "1": 2591999
+      },
+      "missing_or_nan_count": 0,
+      "f_min_hz": 49.744,
+      "f_max_hz": 50.249,
+      "f_mean_hz": 49.99838313425926,
+      "f_std_hz": 0.08170321233857233,
+      "min_nonzero_step_hz": 0.001,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "frac_exact_0_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\neso\\neso_2026-09.parquet",
+      "parquet_sha256": "e8732a2f45a3b7a68136aef083e0fd34dd492a0f4ff6a9daf86dbad33a768e72",
+      "raw_sha256": "7a897109ffd90740f074be46840cbc642729996f266afd8d0b20352740f9ebde",
+      "raw_size_bytes": 72286698
+    },
+    {
+      "ym": "2026-08",
+      "columns": [
+        "dtm",
+        "f"
+      ],
+      "first_lines": [
+        "dtm,f",
+        "2026-08-01,49.931",
+        "2026-08-01 00:00:01,49.934",
+        "2026-08-01 00:00:02,49.936",
+        "2026-08-01 00:00:03,49.935"
+      ],
+      "raw_row_count": 2678400,
+      "expected_utc_month_seconds": 2678400,
+      "row_count_matches_exact_utc_month": true,
+      "sample_first_dtm": "2026-08-01",
+      "sample_last_dtm": "2026-08-31 23:59:59",
+      "n_date_only_midnight_rows": 31,
+      "actual_min_ts_utc": 1785542400,
+      "actual_max_ts_utc": 1788220799,
+      "actual_min_iso": "2026-08-01T00:00:00+00:00",
+      "actual_max_iso": "2026-08-31T23:59:59+00:00",
+      "n_neg_diff": 0,
+      "n_duplicate_ts": 0,
+      "n_gaps_gt_1s": 0,
+      "diff_distribution": {
+        "1": 2678399
+      },
+      "missing_or_nan_count": 0,
+      "f_min_hz": 49.747,
+      "f_max_hz": 50.242,
+      "f_mean_hz": 49.999983567428316,
+      "f_std_hz": 0.07553087689055701,
+      "min_nonzero_step_hz": 0.001,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "frac_exact_0_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\neso\\neso_2026-08.parquet",
+      "parquet_sha256": "71790853965987e6f3b69458b950830dd5c20ae08d0f915c6f2681a3e92a59c2",
+      "raw_sha256": "510b37fd12bf932d4771b83bec63fbdb8e0e2bdca79408d54532909b6f517c8a",
+      "raw_size_bytes": 74697120
+    },
+    {
+      "ym": "2026-07",
+      "columns": [
+        "dtm",
+        "f"
+      ],
+      "first_lines": [
+        "dtm,f",
+        "2026-07-01 00:00:00,50.062",
+        "2026-07-01 00:00:01,50.065",
+        "2026-07-01 00:00:02,50.07",
+        "2026-07-01 00:00:03,50.075"
+      ],
+      "raw_row_count": 2678400,
+      "expected_utc_month_seconds": 2678400,
+      "row_count_matches_exact_utc_month": true,
+      "sample_first_dtm": "2026-07-01 00:00:00",
+      "sample_last_dtm": "2026-07-31 23:59:59",
+      "n_date_only_midnight_rows": 0,
+      "actual_min_ts_utc": 1782864000,
+      "actual_max_ts_utc": 1785542399,
+      "actual_min_iso": "2026-07-01T00:00:00+00:00",
+      "actual_max_iso": "2026-07-31T23:59:59+00:00",
+      "n_neg_diff": 0,
+      "n_duplicate_ts": 0,
+      "n_gaps_gt_1s": 0,
+      "diff_distribution": {
+        "1": 2678399
+      },
+      "missing_or_nan_count": 0,
+      "f_min_hz": 49.745,
+      "f_max_hz": 50.237,
+      "f_mean_hz": 49.99973006085723,
+      "f_std_hz": 0.07703180368517414,
+      "min_nonzero_step_hz": 0.001,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "frac_exact_0_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\neso\\neso_2026-07.parquet",
+      "parquet_sha256": "af85d0e3dd3c037d4e1665017dd475d06b50ff39350aeb7b7090dbd625e79397",
+      "raw_sha256": "1ca3e9e995c32928b475a2914a2dea1b1ddc738d39942f579931d38aec3b3964",
+      "raw_size_bytes": 74696963
+    },
+    {
+      "ym": "2025-11",
+      "columns": [
+        "dtm",
+        "f"
+      ],
+      "first_lines": [
+        "dtm,f",
+        "2025-11-01 00:00:00,49.966",
+        "2025-11-01 00:00:01,49.964",
+        "2025-11-01 00:00:02,49.967",
+        "2025-11-01 00:00:03,49.964"
+      ],
+      "raw_row_count": 2592000,
+      "expected_utc_month_seconds": 2592000,
+      "row_count_matches_exact_utc_month": true,
+      "sample_first_dtm": "2025-11-01 00:00:00",
+      "sample_last_dtm": "2025-11-30 23:59:59",
+      "n_date_only_midnight_rows": 0,
+      "actual_min_ts_utc": 1761955200,
+      "actual_max_ts_utc": 1764547199,
+      "actual_min_iso": "2025-11-01T00:00:00+00:00",
+      "actual_max_iso": "2025-11-30T23:59:59+00:00",
+      "n_neg_diff": 0,
+      "n_duplicate_ts": 0,
+      "n_gaps_gt_1s": 0,
+      "diff_distribution": {
+        "1": 2591999
+      },
+      "missing_or_nan_count": 0,
+      "f_min_hz": 49.753,
+      "f_max_hz": 50.285,
+      "f_mean_hz": 49.99976701157408,
+      "f_std_hz": 0.07823771234551814,
+      "min_nonzero_step_hz": 0.001,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "frac_exact_0_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\neso\\neso_2025-11.parquet",
+      "parquet_sha256": "19fd4b83ce7ea19230e67b510552667d350d6ccd640bf480c06f19f0a3dece86",
+      "raw_sha256": "d7f9311bf46549143d5c7ee4c7cee681cbaa639e245a02a20226ad8abb01ec5b",
+      "raw_size_bytes": 72285898
+    },
+    {
+      "ym": "2025-10",
+      "columns": [
+        "dtm",
+        "f"
+      ],
+      "first_lines": [
+        "dtm,f",
+        "2025-10-01 00:00:00,50.021",
+        "2025-10-01 00:00:01,50.009",
+        "2025-10-01 00:00:02,49.991",
+        "2025-10-01 00:00:03,49.976"
+      ],
+      "raw_row_count": 2678400,
+      "expected_utc_month_seconds": 2678400,
+      "row_count_matches_exact_utc_month": true,
+      "sample_first_dtm": "2025-10-01 00:00:00",
+      "sample_last_dtm": "2025-10-31 23:59:59",
+      "n_date_only_midnight_rows": 0,
+      "actual_min_ts_utc": 1759273200,
+      "actual_max_ts_utc": 1761951599,
+      "actual_min_iso": "2025-09-30T23:00:00+00:00",
+      "actual_max_iso": "2025-10-31T22:59:59+00:00",
+      "n_neg_diff": 0,
+      "n_duplicate_ts": 0,
+      "n_gaps_gt_1s": 0,
+      "diff_distribution": {
+        "1": 2678399
+      },
+      "missing_or_nan_count": 0,
+      "f_min_hz": 49.767,
+      "f_max_hz": 50.235,
+      "f_mean_hz": 49.99963561006572,
+      "f_std_hz": 0.07508970085355818,
+      "min_nonzero_step_hz": 0.001,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "frac_exact_0_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\neso\\neso_2025-10.parquet",
+      "parquet_sha256": "491c2e7b167d40d432a20c77f3ef6d654c86dbbe722c76a19e13d6e1124ea32a",
+      "raw_sha256": "e1e25dbd8d381495df04783d2755960ee5d661a0978cbb1404c6744f9a23eaef",
+      "raw_size_bytes": 74694288
+    },
+    {
+      "ym": "2026-03",
+      "columns": [
+        "dtm",
+        "f"
+      ],
+      "first_lines": [
+        "dtm,f",
+        "2026-03-01 00:00:00,50.062",
+        "2026-03-01 00:00:01,50.041",
+        "2026-03-01 00:00:02,50",
+        "2026-03-01 00:00:03,49.973"
+      ],
+      "raw_row_count": 2678400,
+      "expected_utc_month_seconds": 2678400,
+      "row_count_matches_exact_utc_month": true,
+      "sample_first_dtm": "2026-03-01 00:00:00",
+      "sample_last_dtm": "2026-03-31 23:59:59",
+      "n_date_only_midnight_rows": 0,
+      "actual_min_ts_utc": 1772323200,
+      "actual_max_ts_utc": 1775001599,
+      "actual_min_iso": "2026-03-01T00:00:00+00:00",
+      "actual_max_iso": "2026-03-31T23:59:59+00:00",
+      "n_neg_diff": 0,
+      "n_duplicate_ts": 0,
+      "n_gaps_gt_1s": 0,
+      "diff_distribution": {
+        "1": 2678399
+      },
+      "missing_or_nan_count": 0,
+      "f_min_hz": 49.731,
+      "f_max_hz": 50.267,
+      "f_mean_hz": 49.99956093637993,
+      "f_std_hz": 0.0802894278834888,
+      "min_nonzero_step_hz": 0.001,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "frac_exact_0_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\neso\\neso_2026-03.parquet",
+      "parquet_sha256": "389ee98f762b46a2806a90274bc7ceb874c8ded761b38ec4713d9e8413b45049",
+      "raw_sha256": "e7592d058f2df0531987298b8c43ebba641615a36b798c76de38b370e9536df7",
+      "raw_size_bytes": 74695562
+    }
+  ],
+  "elexon_datasets": {
+    "last7d_and_today": {
+      "name": "elexon_last7d_and_today",
+      "coverage": [
+        1793491200,
+        1794132225
+      ],
+      "coverage_iso": [
+        "2026-11-01T00:00:00+00:00",
+        "2026-11-08T10:03:45+00:00"
+      ],
+      "raw_rows": 42736,
+      "regularised_rows": 42736,
+      "raw_out_of_range_gated": 0,
+      "missing_15s_steps": 0,
+      "diff_distribution": {
+        "15": 42735
+      },
+      "f_min_hz": 49.744,
+      "f_max_hz": 50.264,
+      "f_mean_hz": 50.000013548296515,
+      "f_std_hz": 0.07913157455897787,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\elexon\\elexon_last7d_and_today.parquet",
+      "parquet_sha256": "bedf4d1f9ffdd3c7d142ad607b9b24697d0f6c7b773cb122a9cc3265b6fa31cf"
+    },
+    "overlap_2026_09": {
+      "name": "elexon_overlap_2026_09",
+      "coverage": [
+        1790208000,
+        1790812785
+      ],
+      "coverage_iso": [
+        "2026-09-24T00:00:00+00:00",
+        "2026-09-30T23:59:45+00:00"
+      ],
+      "raw_rows": 40320,
+      "regularised_rows": 40320,
+      "raw_out_of_range_gated": 0,
+      "missing_15s_steps": 0,
+      "diff_distribution": {
+        "15": 40319
+      },
+      "f_min_hz": 49.79,
+      "f_max_hz": 50.241,
+      "f_mean_hz": 49.99950500992063,
+      "f_std_hz": 0.0849828558498286,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\elexon\\elexon_overlap_2026_09.parquet",
+      "parquet_sha256": "4bbeb1fcf4727d1ff44e50f53426ed3ef825b40176172050e9adbf44df47f5e2"
+    },
+    "overlap_2025_11": {
+      "name": "elexon_overlap_2025_11",
+      "coverage": [
+        1761955200,
+        1762559985
+      ],
+      "coverage_iso": [
+        "2025-11-01T00:00:00+00:00",
+        "2025-11-07T23:59:45+00:00"
+      ],
+      "raw_rows": 40320,
+      "regularised_rows": 40320,
+      "raw_out_of_range_gated": 1,
+      "missing_15s_steps": 1,
+      "diff_distribution": {
+        "15": 40319
+      },
+      "f_min_hz": 49.811,
+      "f_max_hz": 50.284,
+      "f_mean_hz": 49.99979305042287,
+      "f_std_hz": 0.07797596633574609,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\elexon\\elexon_overlap_2025_11.parquet",
+      "parquet_sha256": "6537da9b29d82c1fc0de394026dd760e5dfda60bb01e495126fc02773408e26d"
+    },
+    "dst_2025_10_26": {
+      "name": "elexon_dst_2025_10_26",
+      "coverage": [
+        1761429600,
+        1761458400
+      ],
+      "coverage_iso": [
+        "2025-10-25T22:00:00+00:00",
+        "2025-10-26T06:00:00+00:00"
+      ],
+      "raw_rows": 1921,
+      "regularised_rows": 1921,
+      "raw_out_of_range_gated": 0,
+      "missing_15s_steps": 0,
+      "diff_distribution": {
+        "15": 1920
+      },
+      "f_min_hz": 49.866,
+      "f_max_hz": 50.138,
+      "f_mean_hz": 50.00047319104633,
+      "f_std_hz": 0.06753502906358205,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\elexon\\elexon_dst_2025_10_26.parquet",
+      "parquet_sha256": "5404ab13bdd21c146a0771b3f1fcbe5335f2064072bbd19c9cba8a8757f9b82a"
+    },
+    "dst_2026_03_29": {
+      "name": "elexon_dst_2026_03_29",
+      "coverage": [
+        1774735200,
+        1774764000
+      ],
+      "coverage_iso": [
+        "2026-03-28T22:00:00+00:00",
+        "2026-03-29T06:00:00+00:00"
+      ],
+      "raw_rows": 1921,
+      "regularised_rows": 1921,
+      "raw_out_of_range_gated": 0,
+      "missing_15s_steps": 0,
+      "diff_distribution": {
+        "15": 1920
+      },
+      "f_min_hz": 49.86,
+      "f_max_hz": 50.192,
+      "f_mean_hz": 50.0132170744404,
+      "f_std_hz": 0.07630598994842099,
+      "frac_exact_1mhz_quantisation": 1.0,
+      "parquet_file": "datasets\\raw\\elexon\\elexon_dst_2026_03_29.parquet",
+      "parquet_sha256": "188d3500d70b0759d65010395488ea0c642d27c524456f53d50b50a67c5f32f1"
+    }
+  }
+}

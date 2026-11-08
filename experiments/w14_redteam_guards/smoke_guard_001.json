@@ -1,0 +1,90 @@
+{
+  "base_status": "MATCH_SUPPORTED",
+  "guarded_status": "MATCH_SUPPORTED",
+  "any_guard_triggered": false,
+  "any_anomaly_guard_triggered": false,
+  "triggered_guards": [],
+  "guard_reasons": [],
+  "guards": {
+    "G1": {
+      "guard_id": "G1",
+      "name": "spectral_notch_and_suppression_guard",
+      "triggered": false,
+      "notch_detected": false,
+      "gating_detected": false,
+      "notched_harmonics": [],
+      "min_dip_db": -0.86,
+      "dip_db_per_harmonic": {
+        "1": -0.7,
+        "2": 3.71,
+        "3": -0.86,
+        "4": 13.87,
+        "5": 0.77,
+        "6": 4.97,
+        "7": -0.18
+      },
+      "gating_crush_db": 10.59,
+      "gating_bimodal_gap_db": 5.09,
+      "reasons": []
+    },
+    "G2": {
+      "guard_id": "G2",
+      "name": "too_clean_injector_guard",
+      "triggered": false,
+      "best_harmonic": 4,
+      "best_snr_db": 15.15,
+      "second_snr_db": 8.63,
+      "snr_dominance_db": 6.53,
+      "best_amp_cv": 0.2948,
+      "min_interharmonic_log_ratio_std": 0.296,
+      "sig1_ultra_flat": false,
+      "sig2_isolated_single": false,
+      "sig3_multi_locked": false,
+      "reasons": []
+    },
+    "G3": {
+      "guard_id": "G3",
+      "name": "harmonic_consistency_and_pitch_guard",
+      "triggered": false,
+      "inter_harmonic_conflict": false,
+      "residual_harmonic_conflict": false,
+      "inband_double_enf": false,
+      "pitch_shift_detected": false,
+      "coherent_harmonics": [
+        4,
+        6
+      ],
+      "min_pair_corr": 0.211,
+      "per_harmonic_ref_matches": {},
+      "residual_lag_info": null,
+      "best_sec_snr_db": 4.7,
+      "sec_ref_r": 0.0,
+      "estimated_f0_hz": 50.0,
+      "pitch_shift_pct": 0.0,
+      "reasons": []
+    },
+    "G4": {
+      "guard_id": "G4",
+      "triggered": false,
+      "reasons": []
+    },
+    "G5": {
+      "guard_id": "G5",
+      "name": "duration_and_uniqueness_guard",
+      "triggered": false,
+      "short_clip_blocked": false,
+      "low_margin_blocked": false,
+      "valid_duration_s": 467.0,
+      "margin_vs_second": 0.2,
+      "p_empirical": 0.001,
+      "reasons": []
+    },
+    "G6": {
+      "guard_id": "G6",
+      "name": "audio_video_agreement_guard",
+      "triggered": false,
+      "applicable": false,
+      "reasons": []
+    }
+  }
+}

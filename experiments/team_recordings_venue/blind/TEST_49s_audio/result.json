@@ -1,0 +1,28 @@
+{
+ "case": "TEST_49s_audio",
+ "trace": "work\\director\\quick\\A001_11081103_C002\\audio_trace.csv",
+ "trace_duration_s": 33.0,
+ "usable_frac": 1.0,
+ "search_window_utc": [
+  "2026-11-07T00:00:00+00:00",
+  "2026-11-08T12:22:35+00:00"
+ ],
+ "search_hours": 36.320277777777775,
+ "best_start_utc": "2026-11-07T14:10:02+00:00",
+ "best_ncc": 0.9275739999946266,
+ "second_start_utc": "2026-11-08T08:47:20+00:00",
+ "second_ncc": 0.9270487788796102,
+ "margin": 0.0005252211150164054,
+ "null_wrong_day_best_ncc": [
+  0.9305,
+  0.9293,
+  0.9343,
+  0.9329,
+  0.9286,
+  0.9307,
+  0.9366
+ ],
+ "null_max": 0.9366279692288438,
+ "p_empirical_vs_wrong_days": 1.0,
+ "note": "Blind: no filename/metadata used. Compare best_start_utc with the team's withheld ground truth AFTERWARDS."
+}

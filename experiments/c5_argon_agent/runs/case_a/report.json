@@ -1,0 +1,143 @@
+{
+ "case": "case_a",
+ "case_id": "GC-5D3E3A38",
+ "mode": "argon",
+ "model": "gemini-4-argon-high",
+ "note": "ENF-WHU holdout H1 011 vs its own day",
+ "status": "MATCH_SUPPORTED",
+ "gate_reasons": [
+  "peak NCC 0.99967 > frozen threshold 0.87678 for 600 s"
+ ],
+ "basis_match": {
+  "modality": "audio",
+  "harmonics_used": [
+   2,
+   3,
+   4,
+   6
+  ],
+  "window_start_s": 0,
+  "window_len_s": 600,
+  "valid_frame_fraction": 1.0,
+  "trace_std_mhz": 21.25,
+  "peak_ncc": 0.99967,
+  "second_peak_ncc": 0.78237,
+  "margin": 0.2173,
+  "z_score": 3.33,
+  "best_offset_in_reference_s": 50769.22,
+  "implied_media_start_in_reference_s": 50769.22,
+  "frozen_threshold_for_length": 0.87678,
+  "passes_frozen_threshold": true,
+  "notes": []
+ },
+ "n_tool_calls": 1,
+ "tool_results": [
+  {
+   "modality": "audio",
+   "harmonics_used": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "window_start_s": 0,
+   "window_len_s": 600,
+   "valid_frame_fraction": 1.0,
+   "trace_std_mhz": 21.25,
+   "peak_ncc": 0.99967,
+   "second_peak_ncc": 0.78237,
+   "margin": 0.2173,
+   "z_score": 3.33,
+   "best_offset_in_reference_s": 50769.22,
+   "implied_media_start_in_reference_s": 50769.22,
+   "frozen_threshold_for_length": 0.87678,
+   "passes_frozen_threshold": true,
+   "notes": []
+  }
+ ],
+ "argon_calls": [
+  {
+   "call": 1,
+   "latency_s": 52.8,
+   "usage": {
+    "input_tokens": 8139,
+    "output_tokens": 1986,
+    "thinking_tokens": 1774,
+    "cache_read_tokens": 0,
+    "total_tokens": 10125
+   },
+   "conversation_id": "3645b350-b7ed-4993-abb7-b3e63dc2f69e"
+  },
+  {
+   "call": 2,
+   "latency_s": 66.7,
+   "usage": {
+    "input_tokens": 2304,
+    "output_tokens": 4886,
+    "thinking_tokens": 4162,
+    "cache_read_tokens": 6085,
+    "total_tokens": 7190
+   },
+   "conversation_id": "93969f69-6913-42d0-8453-587ae1db914a"
+  }
+ ],
+ "tokens": {
+  "input": 10443,
+  "output": 6872,
+  "thinking": 5936,
+  "total": 17315
+ },
+ "argon_latency_s": 119.5,
+ "argon_final": {
+  "action": "decide",
+  "basis_match_index": 0,
+  "explanation": "The 734.0 s audio recording exhibits strong mains-hum signal quality across harmonics 2, 3, 4, and 6, with median SNRs of 193.02, 125.59, 280.63, and 183.63, a median frame quality of 22.81 dB, and 1.0 of frames at or above 10 dB. Using the 600 s analysis window starting at 0 s with harmonics 2, 3, 4, and 6, the extracted ENF trace (standard deviation 21.25 mHz and valid frame fraction 1.0) matched the 86349 s (24 h, 50 Hz) reference window with a peak normalised cross-correlation of 0.99967. This peak correlation substantially exceeds the frozen threshold of 0.87678 for a 600 s window and stands well above the second-highest peak of 0.78237, giving a margin of 0.2173 and a z-score of 3.33. Consequently, the analysis supports an implied media start at 50769.22 s within the reference window.",
+  "harmonics": [
+   2,
+   3,
+   4,
+   6
+  ],
+  "modality": "audio",
+  "proposed_status": "MATCH_SUPPORTED",
+  "rationale": "The single 600 s audio configuration starting at 0 s using the high-SNR harmonics [2, 3, 4, 6] (median SNRs 193.02, 125.59, 280.63, and 183.63) covers the longest calibrated window fitting within the 734.0 s recording and achieved a peak NCC of 0.99967, far exceeding the frozen threshold of 0.87678 with a margin of 0.2173 over the second peak of 0.78237 (z-score 3.33, valid frame fraction 1.0). Because the match is unambiguous and running additional configurations would unnecessarily increase false-match risk, we decide now using basis match index 0 supporting an implied start of 50769.22 s.",
+  "what_would_change": [
+   "An external claimed start time that differs from the supported media start of 50769.22 s beyond the permitted discrepancy tolerance would change the gate outcome to MATERIAL_DISCREPANCY_REVIEW.",
+   "Another threshold-passing configuration within the 734.0 s recording yielding an implied media start that disagrees by more than 5 s from 50769.22 s would change the outcome to INCONCLUSIVE.",
+   "Evidence that the 86349 s (24 h, 50 Hz) reference trace does not cover the true geographic grid or date window of the recording would invalidate the supported match at 50769.22 s."
+  ],
+  "window_len_s": 600,
+  "window_start_s": 0
+ },
+ "conflicts": [],
+ "unsupported_numbers_in_explanation": [],
+ "evaluation_hidden_from_agent": {
+  "expected": "MATCH_SUPPORTED",
+  "status_as_expected": true,
+  "start_error_s": 0.17
+ },
+ "probe": {
+  "duration_s": 734.0,
+  "modalities_available": [
+   "audio"
+  ],
+  "has_video": false,
+  "per_harmonic_median_snr": {
+   "1": 4.51,
+   "2": 193.02,
+   "3": 125.59,
+   "4": 280.63,
+   "5": 9.91,
+   "6": 183.63,
+   "7": 9.38
+  },
+  "snr_note": "per-harmonic median peak/median power ratio in a +-0.5 Hz band (higher = cleaner hum)",
+  "median_frame_quality_db": 22.81,
+  "frac_frames_quality_ge_10db": 1.0,
+  "trace_std_mhz_all_harmonics": 19.8,
+  "reference_window": {
+   "type": "permitted 24 h grid-frequency reference trace (50 Hz grid)",
+   "length_s": 86349
+  }
+ }
+}

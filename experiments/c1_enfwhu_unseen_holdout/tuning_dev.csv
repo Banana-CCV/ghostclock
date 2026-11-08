@@ -1,0 +1,2 @@
+tag,stat,score,tmr_L60,tmr_L120,tmr_L180,tmr_L300,tmr_L480,tmr_L600,top1acc5_L60,top1acc5_L120,top1acc5_L180,top1acc5_L300,top1acc5_L480,top1acc5_L600,cov_L60,cov_L120,cov_L180,cov_L300,cov_L480,cov_L600
+final_w16_q_clip05,peak,0.5807,0.222,0.463,0.635,0.76,0.789,0.615,0.4783,0.7295,0.7992,0.813,0.8158,0.6154,0.2217,0.4631,0.6345,0.7602,0.7895,0.6154

@@ -1,0 +1,41 @@
+{
+ "media": "datasets\\raw\\team_recordings\\A001_11081142_C004.mp4",
+ "probe": {
+  "duration_s": 1102.840375,
+  "has_audio": true,
+  "has_video": true,
+  "codec": "hevc",
+  "width": 1920,
+  "height": 1080,
+  "r_frame_rate": 60.0,
+  "avg_frame_rate": 60.011251864139815,
+  "nb_frames": "66181",
+  "rotation": -90,
+  "vfr_suspect": false,
+  "audio_codec": "aac",
+  "audio_rate": 48000
+ },
+ "audio": {
+  "window_s": 16.0,
+  "median_q_db": 5.898509915440428,
+  "harmonic_median_snr_db": {
+   "50Hz": 6.3,
+   "100Hz": 7.9,
+   "150Hz": 7.6,
+   "200Hz": 9.7,
+   "250Hz": 8.8,
+   "300Hz": 9.2,
+   "350Hz": 9.2
+  },
+  "grid": {
+   "valid_windows": 229,
+   "median_hz": 50.007512008280656,
+   "std_mhz": 177.3711033934324,
+   "range_mhz": 772.3193412470692,
+   "within_49p8_50p2": 0.8122270742358079
+  }
+ },
+ "verdict": [
+  "AUDIO: no usable grid signal"
+ ]
+}

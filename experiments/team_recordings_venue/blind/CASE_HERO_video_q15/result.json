@@ -1,0 +1,28 @@
+{
+ "case": "CASE_HERO_video_q15",
+ "trace": "work\\director\\quick\\A001_11081142_C004\\video_rs_trace_dark.csv",
+ "trace_duration_s": 1086.0,
+ "usable_frac": 0.6660533578656854,
+ "search_window_utc": [
+  "2026-11-07T00:00:00+00:00",
+  "2026-11-08T12:35:55+00:00"
+ ],
+ "search_hours": 36.26111111111111,
+ "best_start_utc": "2026-11-08T11:42:39+00:00",
+ "best_ncc": 0.9794798284947887,
+ "second_start_utc": "2026-11-07T11:16:43+00:00",
+ "second_ncc": 0.826078893465355,
+ "margin": 0.15340093502943364,
+ "null_wrong_day_best_ncc": [
+  0.8313,
+  0.8465,
+  0.8289,
+  0.8453,
+  0.8348,
+  0.7885,
+  0.8155
+ ],
+ "null_max": 0.8465115910575084,
+ "p_empirical_vs_wrong_days": 0.125,
+ "note": "Blind: no filename/metadata used. Compare best_start_utc with the team's withheld ground truth AFTERWARDS."
+}

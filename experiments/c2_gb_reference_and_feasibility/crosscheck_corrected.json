@@ -1,0 +1,80 @@
+{
+ "2025_10": {
+  "shift_applied_s": -3600,
+  "n": 178233,
+  "rmse_mhz": 0.744,
+  "median_abs_mhz": 0.0,
+  "p99_abs_mhz": 3.0000000000001137,
+  "frac_exact": 0.8776,
+  "frac_within_1mHz": 0.9366,
+  "corr": 0.99995,
+  "std_15s_diff_elexon_mhz": 13.368,
+  "std_15s_diff_neso_pt_mhz": 13.37,
+  "implied_extra_white_noise_elexon_mhz": 0.0
+ },
+ "2025_11": {
+  "shift_applied_s": 0,
+  "n": 172327,
+  "rmse_mhz": 0.93,
+  "median_abs_mhz": 0.0,
+  "p99_abs_mhz": 4.0000000000048885,
+  "frac_exact": 0.8866,
+  "frac_within_1mHz": 0.9413,
+  "corr": 0.99993,
+  "std_15s_diff_elexon_mhz": 13.685,
+  "std_15s_diff_neso_pt_mhz": 13.687,
+  "implied_extra_white_noise_elexon_mhz": 0.0
+ },
+ "2026_03": {
+  "shift_applied_s": 0,
+  "n": 178528,
+  "rmse_mhz": 7.059,
+  "median_abs_mhz": 3.999999999997783,
+  "p99_abs_mhz": 15.000000000000568,
+  "frac_exact": 0.0729,
+  "frac_within_1mHz": 0.2148,
+  "corr": 0.99614,
+  "std_15s_diff_elexon_mhz": 15.446,
+  "std_15s_diff_neso_pt_mhz": 13.307,
+  "implied_extra_white_noise_elexon_mhz": 5.545
+ },
+ "2026_06": {
+  "shift_applied_s": 0,
+  "n": 172036,
+  "rmse_mhz": 5.554,
+  "median_abs_mhz": 2.0000000000024443,
+  "p99_abs_mhz": 10.99999999999568,
+  "frac_exact": 0.1225,
+  "frac_within_1mHz": 0.3425,
+  "corr": 0.99796,
+  "std_15s_diff_elexon_mhz": 14.296,
+  "std_15s_diff_neso_pt_mhz": 13.559,
+  "implied_extra_white_noise_elexon_mhz": 3.204
+ },
+ "2026_08": {
+  "shift_applied_s": 0,
+  "n": 178154,
+  "rmse_mhz": 7.491,
+  "median_abs_mhz": 3.0000000000001137,
+  "p99_abs_mhz": 12.000000000000455,
+  "frac_exact": 0.0967,
+  "frac_within_1mHz": 0.2857,
+  "corr": 0.99509,
+  "std_15s_diff_elexon_mhz": 14.778,
+  "std_15s_diff_neso_pt_mhz": 13.699,
+  "implied_extra_white_noise_elexon_mhz": 3.92
+ },
+ "2026_09": {
+  "shift_applied_s": 0,
+  "n": 172056,
+  "rmse_mhz": 7.974,
+  "median_abs_mhz": 4.0000000000048885,
+  "p99_abs_mhz": 17.000000000003013,
+  "frac_exact": 0.0691,
+  "frac_within_1mHz": 0.2015,
+  "corr": 0.99524,
+  "std_15s_diff_elexon_mhz": 16.808,
+  "std_15s_diff_neso_pt_mhz": 14.289,
+  "implied_extra_white_noise_elexon_mhz": 6.259
+ }
+}

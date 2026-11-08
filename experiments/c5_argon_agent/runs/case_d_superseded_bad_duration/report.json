@@ -1,0 +1,91 @@
+{
+ "case": "case_d",
+ "case_id": "GC-2D54CEB7",
+ "mode": "argon",
+ "model": "gemini-4-argon-high",
+ "note": "team venue recording, 49 s",
+ "status": "INCONCLUSIVE",
+ "gate_reasons": [
+  "media duration 53 s < shortest calibrated length 60 s (C1 holdout: 1-min coverage 9/135, 5-min 105/135; need >= 5-10 min of usable hum)"
+ ],
+ "basis_match": null,
+ "n_tool_calls": 0,
+ "tool_results": [],
+ "argon_calls": [
+  {
+   "call": 1,
+   "latency_s": 124.5,
+   "usage": {
+    "input_tokens": 8193,
+    "output_tokens": 9120,
+    "thinking_tokens": 8545,
+    "cache_read_tokens": 0,
+    "total_tokens": 17313
+   },
+   "conversation_id": "fa7a584f-d311-4969-96ce-439057c0eae7"
+  }
+ ],
+ "tokens": {
+  "input": 8193,
+  "output": 9120,
+  "thinking": 8545,
+  "total": 17313
+ },
+ "argon_latency_s": 124.5,
+ "argon_final": {
+  "action": "decide",
+  "basis_match_index": -1,
+  "explanation": "The submitted recording has a total duration of 52.99156249977464 seconds, which falls below the minimum sixty-second duration required for calibrated Electrical Network Frequency matching. Within the recording, the usable audio trace contains 34 frames spanning from 8.0 to 41.0 seconds with a median quality of 11.86 dB and a median frequency of 49.9692 Hz. The video trace contains 42 frames spanning from 3.999249999979968 to 44.99156249977464 seconds with a median quality of 17.29 dB and a median frequency of 49.9735 Hz. Because neither the overall clip nor the extracted traces are long enough to accommodate the shortest calibrated analysis window against the 130891-second reference window, the result is inconclusive.",
+  "harmonics": [],
+  "modality": "fused",
+  "proposed_status": "INCONCLUSIVE",
+  "rationale": "The media duration is 52.99156249977464 seconds, with 34 audio frames spanning 8.0 to 41.0 seconds and 42 video frames spanning 3.999249999979968 to 44.99156249977464 seconds. Under the deterministic gate rules, any media shorter than sixty seconds is automatically marked INCONCLUSIVE, and no calibrated window fits the clip, so we decide immediately without running a match.",
+  "what_would_change": [
+   "A longer unedited recording extending beyond the current 52.99156249977464-second duration so that it meets the minimum calibrated window requirement.",
+   "Continuous audio or video ENF traces spanning a full calibrated window rather than the current 34 audio frames (8.0 to 41.0 seconds) and 42 video frames (3.999249999979968 to 44.99156249977464 seconds).",
+   "Additional contiguous recordings from the same session that can be evaluated against the 130891-second reference window."
+  ],
+  "window_len_s": 60,
+  "window_start_s": 0
+ },
+ "conflicts": [],
+ "unsupported_numbers_in_explanation": [],
+ "evaluation_hidden_from_agent": {
+  "expected": "INCONCLUSIVE",
+  "status_as_expected": true
+ },
+ "probe": {
+  "duration_s": 52.99156249977464,
+  "modalities_available": [
+   "audio",
+   "video",
+   "fused"
+  ],
+  "has_video": true,
+  "harmonic_choice": "not available (precomputed traces)",
+  "audio": {
+   "n_frames": 34,
+   "span_s": [
+    8.0,
+    41.0
+   ],
+   "median_quality_db": 11.86,
+   "std_mhz": 7.29,
+   "median_hz": 49.9692
+  },
+  "video": {
+   "n_frames": 42,
+   "span_s": [
+    3.999249999979968,
+    44.99156249977464
+   ],
+   "median_quality_db": 17.29,
+   "std_mhz": 11.0,
+   "median_hz": 49.9735
+  },
+  "reference_window": {
+   "type": "permitted GB grid-frequency reference (Elexon 15 s, interpolated to 1 s)",
+   "length_s": 130891
+  }
+ }
+}

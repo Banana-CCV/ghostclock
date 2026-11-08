@@ -1,0 +1,19 @@
+{
+  "source": "NESO",
+  "cadence_s": 1,
+  "grid": "GB",
+  "coverage": [
+    1785542400,
+    1788220799
+  ],
+  "coverage_iso": [
+    "2026-08-01T00:00:00Z",
+    "2026-08-31T23:59:59Z"
+  ],
+  "url": "https://api.neso.energy/dataset/cb1cc925-ecd8-4406-b021-3a3f368196e1/resource/758fa76d-b645-4532-a532-ab49335ee4c3/download/fnew-2026-8.csv",
+  "sha256": "3a552dcd9d18a0a3ea381e2446935111f9687c9e33fd80a4cbfb35b8754c0993",
+  "csv_sha256": "510b37fd12bf932d4771b83bec63fbdb8e0e2bdca79408d54532909b6f517c8a",
+  "timestamp_note": "CSV dtm is naive; treated as UTC (verified, see work/C2/FINDINGS.md)",
+  "n_rows": 2678400,
+  "expected_rows": 2678400
+}

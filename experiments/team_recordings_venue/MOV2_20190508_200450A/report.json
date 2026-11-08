@@ -1,0 +1,56 @@
+{
+ "media": "<WORKSPACE>\\datasets\\raw\\video_c4\\MOV2_20190508_200450A.mp4",
+ "probe": {
+  "duration_s": 647.433,
+  "has_audio": true,
+  "has_video": true,
+  "codec": "h264",
+  "width": 1280,
+  "height": 720,
+  "r_frame_rate": 30.0,
+  "avg_frame_rate": 30.027817550232996,
+  "nb_frames": "19441",
+  "rotation": null,
+  "vfr_suspect": false,
+  "audio_codec": "aac",
+  "audio_rate": 8000
+ },
+ "audio": {
+  "window_s": 16.0,
+  "median_q_db": 0.0,
+  "harmonic_median_snr_db": {
+   "50Hz": 0.0,
+   "100Hz": 0.0,
+   "150Hz": 0.0,
+   "200Hz": 0.0,
+   "250Hz": 0.0,
+   "300Hz": 0.0,
+   "350Hz": 0.0
+  },
+  "grid": {
+   "valid_windows": 0
+  }
+ },
+ "video": {
+  "fps_measured": 30.026227976689885,
+  "Tro_ms": 28.25,
+  "alias_hz": 9.921316069930342,
+  "degenerate_fps": false,
+  "static_cells": 2879,
+  "rows_used": 180,
+  "median_q_rs_db": 57.144481728217514,
+  "grid": {
+   "valid_windows": 75,
+   "median_hz": 49.99958174991536,
+   "std_mhz": 5.730423187366673,
+   "range_mhz": 18.111066961452593,
+   "within_49p8_50p2": 1.0
+  }
+ },
+ "audio_video_corr": NaN,
+ "verdict": [
+  "AUDIO: no usable grid signal",
+  "VIDEO: grid-like ENF present (median 50.000 Hz, wander 18.1 mHz)",
+  "audio vs video ENF correlation: nan"
+ ]
+}

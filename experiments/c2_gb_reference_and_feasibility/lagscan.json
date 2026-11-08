@@ -1,0 +1,1112 @@
+{
+ "2025_10": {
+  "2025-10-01": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.647,
+   "n": 5760,
+   "rmse_lag0_mhz": 104.36
+  },
+  "2025-10-02": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.663,
+   "n": 5760,
+   "rmse_lag0_mhz": 95.827
+  },
+  "2025-10-03": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.742,
+   "n": 5760,
+   "rmse_lag0_mhz": 109.703
+  },
+  "2025-10-04": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.762,
+   "n": 5760,
+   "rmse_lag0_mhz": 94.362
+  },
+  "2025-10-05": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.798,
+   "n": 5760,
+   "rmse_lag0_mhz": 104.736
+  },
+  "2025-10-06": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.715,
+   "n": 5760,
+   "rmse_lag0_mhz": 105.532
+  },
+  "2025-10-07": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.712,
+   "n": 5760,
+   "rmse_lag0_mhz": 100.356
+  },
+  "2025-10-08": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.647,
+   "n": 5673,
+   "rmse_lag0_mhz": 92.275
+  },
+  "2025-10-09": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.682,
+   "n": 5760,
+   "rmse_lag0_mhz": 100.787
+  },
+  "2025-10-10": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.577,
+   "n": 5760,
+   "rmse_lag0_mhz": 102.65
+  },
+  "2025-10-11": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.768,
+   "n": 5760,
+   "rmse_lag0_mhz": 95.982
+  },
+  "2025-10-12": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.729,
+   "n": 5760,
+   "rmse_lag0_mhz": 90.761
+  },
+  "2025-10-13": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.836,
+   "n": 5760,
+   "rmse_lag0_mhz": 96.551
+  },
+  "2025-10-14": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.869,
+   "n": 5760,
+   "rmse_lag0_mhz": 86.713
+  },
+  "2025-10-15": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.806,
+   "n": 5760,
+   "rmse_lag0_mhz": 86.195
+  },
+  "2025-10-16": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.811,
+   "n": 5760,
+   "rmse_lag0_mhz": 84.121
+  },
+  "2025-10-17": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.82,
+   "n": 5760,
+   "rmse_lag0_mhz": 92.917
+  },
+  "2025-10-18": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.796,
+   "n": 5760,
+   "rmse_lag0_mhz": 89.085
+  },
+  "2025-10-19": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.842,
+   "n": 5760,
+   "rmse_lag0_mhz": 95.84
+  },
+  "2025-10-20": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.788,
+   "n": 5760,
+   "rmse_lag0_mhz": 98.882
+  },
+  "2025-10-21": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.747,
+   "n": 5760,
+   "rmse_lag0_mhz": 98.164
+  },
+  "2025-10-22": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.754,
+   "n": 5760,
+   "rmse_lag0_mhz": 98.64
+  },
+  "2025-10-23": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.764,
+   "n": 5760,
+   "rmse_lag0_mhz": 99.727
+  },
+  "2025-10-24": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.697,
+   "n": 5760,
+   "rmse_lag0_mhz": 87.741
+  },
+  "2025-10-25": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.746,
+   "n": 5760,
+   "rmse_lag0_mhz": 88.521
+  },
+  "2025-10-26": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.73,
+   "n": 5760,
+   "rmse_lag0_mhz": 84.516
+  },
+  "2025-10-27": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.646,
+   "n": 5760,
+   "rmse_lag0_mhz": 89.924
+  },
+  "2025-10-28": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.65,
+   "n": 5760,
+   "rmse_lag0_mhz": 111.228
+  },
+  "2025-10-29": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.669,
+   "n": 5760,
+   "rmse_lag0_mhz": 119.107
+  },
+  "2025-10-30": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.937,
+   "n": 5760,
+   "rmse_lag0_mhz": 85.428
+  },
+  "2025-10-31": {
+   "best_lag_s": 3600,
+   "rmse_mhz": 0.57,
+   "n": 5520,
+   "rmse_lag0_mhz": 105.4
+  }
+ },
+ "2025_11": {
+  "2025-11-01": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.634,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.634
+  },
+  "2025-11-02": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.002,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.002
+  },
+  "2025-11-03": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.64,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.64
+  },
+  "2025-11-04": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.653,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.653
+  },
+  "2025-11-05": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.55,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.55
+  },
+  "2025-11-06": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.572,
+   "n": 5759,
+   "rmse_lag0_mhz": 0.572
+  },
+  "2025-11-07": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.591,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.591
+  },
+  "2025-11-08": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.576,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.576
+  },
+  "2025-11-09": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.986,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.986
+  },
+  "2025-11-10": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.613,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.613
+  },
+  "2025-11-11": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.595,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.595
+  },
+  "2025-11-12": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.62,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.62
+  },
+  "2025-11-13": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.597,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.597
+  },
+  "2025-11-14": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.626,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.626
+  },
+  "2025-11-15": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.29,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.29
+  },
+  "2025-11-16": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.623,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.623
+  },
+  "2025-11-17": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.788,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.788
+  },
+  "2025-11-18": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.2,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.2
+  },
+  "2025-11-19": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.015,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.015
+  },
+  "2025-11-20": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.673,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.673
+  },
+  "2025-11-21": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.803,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.803
+  },
+  "2025-11-22": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.057,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.057
+  },
+  "2025-11-23": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.71,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.71
+  },
+  "2025-11-24": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.704,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.704
+  },
+  "2025-11-25": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.576,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.576
+  },
+  "2025-11-26": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.456,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.456
+  },
+  "2025-11-27": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.792,
+   "n": 5288,
+   "rmse_lag0_mhz": 0.792
+  },
+  "2025-11-28": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.61,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.61
+  },
+  "2025-11-29": {
+   "best_lag_s": 0,
+   "rmse_mhz": 0.691,
+   "n": 5760,
+   "rmse_lag0_mhz": 0.691
+  },
+  "2025-11-30": {
+   "best_lag_s": 0,
+   "rmse_mhz": 1.524,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.524
+  }
+ },
+ "2026_03": {
+  "2026-03-01": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.229,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.229
+  },
+  "2026-03-02": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.893,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.893
+  },
+  "2026-03-03": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.492,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.492
+  },
+  "2026-03-04": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.412,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.412
+  },
+  "2026-03-05": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.539,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.539
+  },
+  "2026-03-06": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.307,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.307
+  },
+  "2026-03-07": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.361,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.361
+  },
+  "2026-03-08": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.391,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.391
+  },
+  "2026-03-09": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.002,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.002
+  },
+  "2026-03-10": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.823,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.823
+  },
+  "2026-03-11": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.036,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.036
+  },
+  "2026-03-12": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.231,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.231
+  },
+  "2026-03-13": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.376,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.376
+  },
+  "2026-03-14": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.565,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.565
+  },
+  "2026-03-15": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.429,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.429
+  },
+  "2026-03-16": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.406,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.406
+  },
+  "2026-03-17": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.782,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.782
+  },
+  "2026-03-18": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.663,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.663
+  },
+  "2026-03-19": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.63,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.63
+  },
+  "2026-03-20": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.621,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.621
+  },
+  "2026-03-21": {
+   "best_lag_s": 1,
+   "rmse_mhz": 23.974,
+   "n": 5760,
+   "rmse_lag0_mhz": 24.012
+  },
+  "2026-03-22": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.998,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.998
+  },
+  "2026-03-23": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.101,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.101
+  },
+  "2026-03-24": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.617,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.617
+  },
+  "2026-03-25": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.922,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.922
+  },
+  "2026-03-26": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.412,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.412
+  },
+  "2026-03-27": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.774,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.774
+  },
+  "2026-03-28": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.364,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.364
+  },
+  "2026-03-29": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.6,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.6
+  },
+  "2026-03-30": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.713,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.713
+  },
+  "2026-03-31": {
+   "best_lag_s": 0,
+   "rmse_mhz": 7.871,
+   "n": 5760,
+   "rmse_lag0_mhz": 7.871
+  }
+ },
+ "2026_06": {
+  "2026-06-01": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.539,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.539
+  },
+  "2026-06-02": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.628,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.628
+  },
+  "2026-06-03": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.453,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.453
+  },
+  "2026-06-04": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.458,
+   "n": 5440,
+   "rmse_lag0_mhz": 3.458
+  },
+  "2026-06-05": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.629,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.629
+  },
+  "2026-06-06": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.574,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.574
+  },
+  "2026-06-07": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.57,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.57
+  },
+  "2026-06-08": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.549,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.549
+  },
+  "2026-06-09": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.534,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.534
+  },
+  "2026-06-10": {
+   "best_lag_s": 1,
+   "rmse_mhz": 3.035,
+   "n": 5759,
+   "rmse_lag0_mhz": 3.044
+  },
+  "2026-06-11": {
+   "best_lag_s": 1,
+   "rmse_mhz": 2.207,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.506
+  },
+  "2026-06-12": {
+   "best_lag_s": 1,
+   "rmse_mhz": 1.524,
+   "n": 5722,
+   "rmse_lag0_mhz": 2.402
+  },
+  "2026-06-13": {
+   "best_lag_s": 2,
+   "rmse_mhz": 2.523,
+   "n": 5356,
+   "rmse_lag0_mhz": 4.463
+  },
+  "2026-06-14": {
+   "best_lag_s": 1,
+   "rmse_mhz": 1.354,
+   "n": 5760,
+   "rmse_lag0_mhz": 1.923
+  },
+  "2026-06-15": {
+   "best_lag_s": 1,
+   "rmse_mhz": 3.434,
+   "n": 5759,
+   "rmse_lag0_mhz": 3.567
+  },
+  "2026-06-16": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.647,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.647
+  },
+  "2026-06-17": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.852,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.852
+  },
+  "2026-06-18": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.695,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.695
+  },
+  "2026-06-19": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.74,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.74
+  },
+  "2026-06-20": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.68,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.68
+  },
+  "2026-06-21": {
+   "best_lag_s": 1,
+   "rmse_mhz": 22.661,
+   "n": 5760,
+   "rmse_lag0_mhz": 22.777
+  },
+  "2026-06-22": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.959,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.959
+  },
+  "2026-06-23": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.772,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.772
+  },
+  "2026-06-24": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.774,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.774
+  },
+  "2026-06-25": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.923,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.923
+  },
+  "2026-06-26": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.839,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.839
+  },
+  "2026-06-27": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.129,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.129
+  },
+  "2026-06-28": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.66,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.66
+  },
+  "2026-06-29": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.703,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.703
+  },
+  "2026-06-30": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.803,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.803
+  }
+ },
+ "2026_08": {
+  "2026-08-01": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.756,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.756
+  },
+  "2026-08-02": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.727,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.727
+  },
+  "2026-08-03": {
+   "best_lag_s": -1,
+   "rmse_mhz": 4.197,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.214
+  },
+  "2026-08-04": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.971,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.971
+  },
+  "2026-08-05": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.991,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.991
+  },
+  "2026-08-06": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.639,
+   "n": 5354,
+   "rmse_lag0_mhz": 3.639
+  },
+  "2026-08-07": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.649,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.649
+  },
+  "2026-08-08": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.76,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.76
+  },
+  "2026-08-09": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.061,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.061
+  },
+  "2026-08-10": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.129,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.129
+  },
+  "2026-08-11": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.573,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.573
+  },
+  "2026-08-12": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.794,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.794
+  },
+  "2026-08-13": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.137,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.137
+  },
+  "2026-08-14": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.054,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.054
+  },
+  "2026-08-15": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.026,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.026
+  },
+  "2026-08-16": {
+   "best_lag_s": 0,
+   "rmse_mhz": 34.749,
+   "n": 5760,
+   "rmse_lag0_mhz": 34.749
+  },
+  "2026-08-17": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.554,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.554
+  },
+  "2026-08-18": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.051,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.051
+  },
+  "2026-08-19": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.817,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.817
+  },
+  "2026-08-20": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.887,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.887
+  },
+  "2026-08-21": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.039,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.039
+  },
+  "2026-08-22": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.166,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.166
+  },
+  "2026-08-23": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.894,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.894
+  },
+  "2026-08-24": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.019,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.019
+  },
+  "2026-08-25": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.994,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.994
+  },
+  "2026-08-26": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.009,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.009
+  },
+  "2026-08-27": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.881,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.881
+  },
+  "2026-08-28": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.08,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.08
+  },
+  "2026-08-29": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.131,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.131
+  },
+  "2026-08-30": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.233,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.233
+  },
+  "2026-08-31": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.029,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.029
+  }
+ },
+ "2026_09": {
+  "2026-09-01": {
+   "best_lag_s": 0,
+   "rmse_mhz": 3.943,
+   "n": 5760,
+   "rmse_lag0_mhz": 3.943
+  },
+  "2026-09-02": {
+   "best_lag_s": 0,
+   "rmse_mhz": 4.427,
+   "n": 5760,
+   "rmse_lag0_mhz": 4.427
+  },
+  "2026-09-03": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.859,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.859
+  },
+  "2026-09-04": {
+   "best_lag_s": 0,
+   "rmse_mhz": 7.053,
+   "n": 5760,
+   "rmse_lag0_mhz": 7.053
+  },
+  "2026-09-05": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.995,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.995
+  },
+  "2026-09-06": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.789,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.789
+  },
+  "2026-09-07": {
+   "best_lag_s": 0,
+   "rmse_mhz": 7.38,
+   "n": 5760,
+   "rmse_lag0_mhz": 7.38
+  },
+  "2026-09-08": {
+   "best_lag_s": 0,
+   "rmse_mhz": 7.098,
+   "n": 5760,
+   "rmse_lag0_mhz": 7.098
+  },
+  "2026-09-09": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.339,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.339
+  },
+  "2026-09-10": {
+   "best_lag_s": 0,
+   "rmse_mhz": 7.102,
+   "n": 5760,
+   "rmse_lag0_mhz": 7.102
+  },
+  "2026-09-11": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.922,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.922
+  },
+  "2026-09-12": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.755,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.755
+  },
+  "2026-09-13": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.87,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.87
+  },
+  "2026-09-14": {
+   "best_lag_s": 0,
+   "rmse_mhz": 7.034,
+   "n": 5760,
+   "rmse_lag0_mhz": 7.034
+  },
+  "2026-09-15": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.912,
+   "n": 5016,
+   "rmse_lag0_mhz": 6.912
+  },
+  "2026-09-16": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.371,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.371
+  },
+  "2026-09-17": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.043,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.043
+  },
+  "2026-09-18": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.442,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.442
+  },
+  "2026-09-19": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.761,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.761
+  },
+  "2026-09-20": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.218,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.218
+  },
+  "2026-09-21": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.662,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.662
+  },
+  "2026-09-22": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.415,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.415
+  },
+  "2026-09-23": {
+   "best_lag_s": 0,
+   "rmse_mhz": 5.477,
+   "n": 5760,
+   "rmse_lag0_mhz": 5.477
+  },
+  "2026-09-24": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.282,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.282
+  },
+  "2026-09-25": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.725,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.725
+  },
+  "2026-09-26": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.559,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.559
+  },
+  "2026-09-27": {
+   "best_lag_s": 0,
+   "rmse_mhz": 26.277,
+   "n": 5760,
+   "rmse_lag0_mhz": 26.277
+  },
+  "2026-09-28": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.924,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.924
+  },
+  "2026-09-29": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.549,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.549
+  },
+  "2026-09-30": {
+   "best_lag_s": 0,
+   "rmse_mhz": 6.454,
+   "n": 5760,
+   "rmse_lag0_mhz": 6.454
+  }
+ }
+}

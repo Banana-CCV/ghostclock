@@ -1,0 +1,14 @@
+columns: ['kind', 'fid', 'L', 'k', 'start', 'ref_day', 'gt_readme', 'gt_ambiguous', 'lag', 'peak', 'second', 'margin', 'z', 'tag', 'cfg', 'split', 'params']
+       kind  fid   L  k  start ref_day     gt_readme  gt_ambiguous           lag      peak    second    margin         z                 tag  cfg    split                                                                           params
+0   h1_true  001  60  0    177     001  71633.560709         False  28266.091154  0.977484  0.975948  0.001536  1.702643  final_w16_q_clip05  w16  holdout  {"cfg": "w16", "hp": 0, "wmode": "q", "qthr": null, "clip": 0.05, "medfilt": 0}
+1  h1_wrong  001  60  0    177     011           NaN         False  13230.659500  0.977400  0.974181  0.003219  1.656753  final_w16_q_clip05  w16  holdout  {"cfg": "w16", "hp": 0, "wmode": "q", "qthr": null, "clip": 0.05, "medfilt": 0}
+2  h1_wrong  001  60  0    177     005           NaN         False  15341.269854  0.975757  0.975339  0.000419  1.661660  final_w16_q_clip05  w16  holdout  {"cfg": "w16", "hp": 0, "wmode": "q", "qthr": null, "clip": 0.05, "medfilt": 0}
+trial kinds: {'kind': 3, 'fid': 62, 'L': 6, 'k': 3}
+formula gt+start: median |err| of issued 300s = 140.83
+formula gt: median |err| of issued 300s = 1.63
+L= 60: coverage 9/135  within5s 8/9  wrongday_FM 10/270  h0_FM 0/153
+L=120: coverage 39/135  within5s 39/39  wrongday_FM 10/270  h0_FM 0/153
+L=180: coverage 72/135  within5s 72/72  wrongday_FM 23/270  h0_FM 0/153
+L=300: coverage 105/135  within5s 105/105  wrongday_FM 28/270  h0_FM 0/153
+L=480: coverage 105/126  within5s 105/105  wrongday_FM 19/252  h0_FM 1/36
+L=600: coverage 54/69  within5s 54/54  wrongday_FM 7/138  h0_FM 0/9

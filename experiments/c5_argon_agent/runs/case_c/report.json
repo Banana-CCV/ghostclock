@@ -1,0 +1,175 @@
+{
+ "case": "case_c",
+ "case_id": "GC-B3305B14",
+ "mode": "argon",
+ "model": "gemini-4-argon-high",
+ "note": "same recording as case_a vs WRONG day 020-025",
+ "status": "INCONCLUSIVE",
+ "gate_reasons": [
+  "basis match peak NCC 0.78438 <= frozen threshold 0.87678 for 600 s"
+ ],
+ "basis_match": {
+  "modality": "audio",
+  "harmonics_used": [
+   2,
+   3,
+   4,
+   6
+  ],
+  "window_start_s": 0,
+  "window_len_s": 600,
+  "valid_frame_fraction": 1.0,
+  "trace_std_mhz": 21.25,
+  "peak_ncc": 0.78438,
+  "second_peak_ncc": 0.74538,
+  "margin": 0.039,
+  "z_score": 3.07,
+  "best_offset_in_reference_s": 50923.11,
+  "implied_media_start_in_reference_s": 50923.11,
+  "frozen_threshold_for_length": 0.87678,
+  "passes_frozen_threshold": false,
+  "notes": []
+ },
+ "n_tool_calls": 2,
+ "tool_results": [
+  {
+   "modality": "audio",
+   "harmonics_used": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "window_start_s": 0,
+   "window_len_s": 600,
+   "valid_frame_fraction": 1.0,
+   "trace_std_mhz": 21.25,
+   "peak_ncc": 0.78438,
+   "second_peak_ncc": 0.74538,
+   "margin": 0.039,
+   "z_score": 3.07,
+   "best_offset_in_reference_s": 50923.11,
+   "implied_media_start_in_reference_s": 50923.11,
+   "frozen_threshold_for_length": 0.87678,
+   "passes_frozen_threshold": false,
+   "notes": []
+  },
+  {
+   "modality": "audio",
+   "harmonics_used": [
+    2,
+    4,
+    6
+   ],
+   "window_start_s": 134,
+   "window_len_s": 600,
+   "valid_frame_fraction": 1.0,
+   "trace_std_mhz": 19.38,
+   "peak_ncc": 0.74851,
+   "second_peak_ncc": 0.73477,
+   "margin": 0.01375,
+   "z_score": 2.95,
+   "best_offset_in_reference_s": 51058.01,
+   "implied_media_start_in_reference_s": 50924.01,
+   "frozen_threshold_for_length": 0.87678,
+   "passes_frozen_threshold": false,
+   "notes": []
+  }
+ ],
+ "argon_calls": [
+  {
+   "call": 1,
+   "latency_s": 39.2,
+   "usage": {
+    "input_tokens": 8144,
+    "output_tokens": 2213,
+    "thinking_tokens": 2011,
+    "cache_read_tokens": 0,
+    "total_tokens": 10357
+   },
+   "conversation_id": "b3592b8a-2168-414c-822e-100531204dc8"
+  },
+  {
+   "call": 2,
+   "latency_s": 55.7,
+   "usage": {
+    "input_tokens": 8371,
+    "output_tokens": 3436,
+    "thinking_tokens": 3136,
+    "cache_read_tokens": 0,
+    "total_tokens": 11807
+   },
+   "conversation_id": "c891fb0b-3bb6-43dd-b193-cceec9dafadc"
+  },
+  {
+   "call": 3,
+   "latency_s": 109.8,
+   "usage": {
+    "input_tokens": 8629,
+    "output_tokens": 7717,
+    "thinking_tokens": 6992,
+    "cache_read_tokens": 0,
+    "total_tokens": 16346
+   },
+   "conversation_id": "429519ef-d4d0-4760-bbd7-43f687887d78"
+  }
+ ],
+ "tokens": {
+  "input": 25144,
+  "output": 13366,
+  "thinking": 12139,
+  "total": 38510
+ },
+ "argon_latency_s": 204.7,
+ "argon_final": {
+  "action": "decide",
+  "basis_match_index": 0,
+  "explanation": "The 734.0 s audio recording contains a clean electrical hum signal, with a median frame quality of 22.81 dB, a valid frame fraction of 1.0, and strong median signal-to-noise ratios on harmonics 2, 3, 4, and 6 (193.02, 125.59, 280.63, and 183.63). Using the longest calibrated 600 s analysis window starting at 0 s across harmonics 2, 3, 4, and 6, the highest correlation against the 86350 s (24 h) 50 Hz reference trace is 0.78438 (with a second-best peak of 0.74538, margin of 0.039, and z-score of 3.07), which falls well below the required threshold of 0.87678. A second 600 s analysis window starting at 134 s using harmonics 2, 4, and 6 also failed to meet the 0.87678 threshold, reaching a peak correlation of 0.74851 (with a second-best peak of 0.73477, margin of 0.01375, and z-score of 2.95). Because the extracted frequency trace does not match the provided reference trace above the required threshold, the dating result is inconclusive.",
+  "harmonics": [
+   2,
+   3,
+   4,
+   6
+  ],
+  "modality": "audio",
+  "proposed_status": "INCONCLUSIVE",
+  "rationale": "Two 600 s extractions covering the full 734.0 s audio recording (starting at 0 s with harmonics [2, 3, 4, 6] and starting at 134 s with harmonics [2, 4, 6]) both achieved valid_frame_fraction of 1.0 but produced low peak NCC values of 0.78438 (z-score 3.07, margin 0.039) and 0.74851 (z-score 2.95, margin 0.01375), well below the 600 s frozen threshold of 0.87678. Further configuration testing on shorter windows is unjustified and would only increase false-match risk, so we conclude INCONCLUSIVE using index 0 as the basis attempt.",
+  "what_would_change": [
+   "Comparing the extracted audio trace against a different 24 h (86350 s) 50 Hz grid reference window covering another date range or grid region, in case the recording occurred outside the permitted reference period.",
+   "Obtaining a 600 s match whose peak normalised cross-correlation exceeds the frozen threshold of 0.87678 with consistent implied media start times.",
+   "Receiving verified recording hardware information or an alternative synchronous reference trace to determine whether sampling-rate drift degraded correlation with the 50 Hz grid trace."
+  ],
+  "window_len_s": 600,
+  "window_start_s": 0
+ },
+ "conflicts": [],
+ "unsupported_numbers_in_explanation": [],
+ "evaluation_hidden_from_agent": {
+  "expected": "INCONCLUSIVE",
+  "status_as_expected": true
+ },
+ "probe": {
+  "duration_s": 734.0,
+  "modalities_available": [
+   "audio"
+  ],
+  "has_video": false,
+  "per_harmonic_median_snr": {
+   "1": 4.51,
+   "2": 193.02,
+   "3": 125.59,
+   "4": 280.63,
+   "5": 9.91,
+   "6": 183.63,
+   "7": 9.38
+  },
+  "snr_note": "per-harmonic median peak/median power ratio in a +-0.5 Hz band (higher = cleaner hum)",
+  "median_frame_quality_db": 22.81,
+  "frac_frames_quality_ge_10db": 1.0,
+  "trace_std_mhz_all_harmonics": 19.8,
+  "reference_window": {
+   "type": "permitted 24 h grid-frequency reference trace (50 Hz grid)",
+   "length_s": 86350
+  }
+ }
+}

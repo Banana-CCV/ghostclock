@@ -1,0 +1,313 @@
+{
+  "elexon_live": {
+    "url": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency?from=2026-11-08T08:44:30Z&to=2026-11-08T09:19:30Z&format=json",
+    "http_status": 200,
+    "elapsed_s": 0.517,
+    "count": 118,
+    "first": {
+      "measurementTime": "2026-11-08T08:44:30Z",
+      "frequency": 50.003
+    },
+    "last_5": [
+      {
+        "measurementTime": "2026-11-08T09:12:45Z",
+        "frequency": 49.964
+      },
+      {
+        "measurementTime": "2026-11-08T09:13:00Z",
+        "frequency": 49.955
+      },
+      {
+        "measurementTime": "2026-11-08T09:13:15Z",
+        "frequency": 49.958
+      },
+      {
+        "measurementTime": "2026-11-08T09:13:30Z",
+        "frequency": 49.946
+      },
+      {
+        "measurementTime": "2026-11-08T09:13:45Z",
+        "frequency": 49.974
+      }
+    ],
+    "request_utc": "2026-11-08T09:14:31.494472+00:00",
+    "latest_measurement_utc": "2026-11-08T09:13:45Z",
+    "latency_s": 46.494,
+    "cadence_min_s": 15.0,
+    "cadence_max_s": 15.0,
+    "cadence_median_s": 15.0
+  },
+  "netzfrequenz_live_poll": [
+    {
+      "ts_utc": 1794129271.534,
+      "f_hz": 50.016,
+      "http_status": 200
+    },
+    {
+      "ts_utc": 1794129272.997,
+      "f_hz": 50.015,
+      "http_status": 200
+    },
+    {
+      "ts_utc": 1794129274.455,
+      "f_hz": 50.013,
+      "http_status": 200
+    },
+    {
+      "ts_utc": 1794129275.908,
+      "f_hz": 50.01,
+      "http_status": 200
+    },
+    {
+      "ts_utc": 1794129277.419,
+      "f_hz": 50.009,
+      "http_status": 200
+    }
+  ],
+  "energy_charts_spec": {
+    "v2_frequency": {
+      "get": {
+        "tags": [
+          "power v2"
+        ],
+        "summary": "Grid frequency (RG Continental Europe), 1 second resolution",
+        "description": "Grid frequency in hertz (Hz) measured at Fraunhofer ISE in Freiburg, Germany (RG Continental Europe). Available in 1 second steps from 2022-05-01 on; the requested interval is limited to 3 days. Timestamps are ISO 8601 in UTC.",
+        "operationId": "handler_v2_frequency_get",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Measurement region (currently only 'DE-Freiburg')",
+              "default": "DE-Freiburg",
+              "title": "Region"
+            },
+            "description": "Measurement region (currently only 'DE-Freiburg')"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Accepted formats: ISO 8601 (`2026-01-01T17:00Z`), day (`2026-01-01`, interpreted in the local timezone) or unix seconds (`1767222000`). Empty start defaults to today; empty end defaults to start.",
+              "default": "",
+              "title": "Start"
+            },
+            "description": "Accepted formats: ISO 8601 (`2026-01-01T17:00Z`), day (`2026-01-01`, interpreted in the local timezone) or unix seconds (`1767222000`). Empty start defaults to today; empty end defaults to start."
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Accepted formats: ISO 8601 (`2026-01-01T17:00Z`), day (`2026-01-01`, interpreted in the local timezone) or unix seconds (`1767222000`). Empty start defaults to today; empty end defaults to start.",
+              "default": "",
+              "title": "End"
+            },
+            "description": "Accepted formats: ISO 8601 (`2026-01-01T17:00Z`), day (`2026-01-01`, interpreted in the local timezone) or unix seconds (`1767222000`). Empty start defaults to today; empty end defaults to start."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TimeSeriesResponseV2"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseV2"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No data available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseV2"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "v1_frequency": {
+      "get": {
+        "tags": [
+          "power"
+        ],
+        "summary": "Frequency",
+        "description": "Returns the frequency measured at Fraunhofer ISE in Freiburg, Germany. Currently only the frequency in RG Continental Europe (formerly UCTE) is available. The data is available in 1 second timesteps from 1st of May 2022 onwards.\n    \n\n\n    \n\nResponse schema:\n    \n\n ```json\n{\n  \"unix_seconds\": list[int],\n  \"data\": list[float],\n  \"deprecated\": bool\n}\n```",
+        "operationId": "frequency_frequency_get",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "DE-Freiburg",
+              "title": "Region"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Start"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "End"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FrequencyModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "neso_frequency_packages": [
+    {
+      "name": "system-frequency-data",
+      "title": "System Frequency",
+      "num_resources": 153
+    },
+    {
+      "name": "static-firm-frequency-response-requirement",
+      "title": "Static Firm Frequency Response Requirement",
+      "num_resources": 1
+    },
+    {
+      "name": "static-firm-frequency-response-auction-results",
+      "title": "Static Firm Frequency Response auction results",
+      "num_resources": 2
+    },
+    {
+      "name": "firm-frequency-response-post-tender-reports",
+      "title": "Firm Frequency Response (FFR) Post Tender Reports",
+      "num_resources": 89
+    },
+    {
+      "name": "ancillary-services-important-industry-notifications",
+      "title": "Ancillary Services Important Industry Notifications",
+      "num_resources": 6
+    },
+    {
+      "name": "daily-balancing-volume-balancing-services-use-of-system",
+      "title": "Daily Balancing Services Use of System (BSUoS) Volume Data",
+      "num_resources": 11
+    },
+    {
+      "name": "quick-reserve-auction-requirement-forecast",
+      "title": "Quick Reserve Auction Requirement Forecast",
+      "num_resources": 1
+    },
+    {
+      "name": "1-day-ahead-demand-forecast",
+      "title": "Day Ahead Demand Forecast",
+      "num_resources": 3
+    },
+    {
+      "name": "2-day-ahead-demand-forecast",
+      "title": "2 Day Ahead Demand Forecast",
+      "num_resources": 3
+    },
+    {
+      "name": "7-day-ahead-national-forecast",
+      "title": "7 Day Ahead Demand Forecast",
+      "num_resources": 3
+    }
+  ],
+  "local_mic_6s": {
+    "duration_s": 6.0,
+    "fs": 8000,
+    "rms": 0.033011,
+    "peak": 0.643494,
+    "harmonics": {
+      "50": {
+        "f_peak_hz": 50.1709,
+        "f_fund_equiv_hz": 50.1709,
+        "snr_db": 9.49
+      },
+      "100": {
+        "f_peak_hz": 99.8535,
+        "f_fund_equiv_hz": 49.9268,
+        "snr_db": 2.59
+      },
+      "150": {
+        "f_peak_hz": 149.5361,
+        "f_fund_equiv_hz": 49.8454,
+        "snr_db": 5.73
+      },
+      "200": {
+        "f_peak_hz": 199.8291,
+        "f_fund_equiv_hz": 49.9573,
+        "snr_db": 2.15
+      },
+      "250": {
+        "f_peak_hz": 249.5117,
+        "f_fund_equiv_hz": 49.9023,
+        "snr_db": 0.75
+      },
+      "300": {
+        "f_peak_hz": 300.1709,
+        "f_fund_equiv_hz": 50.0285,
+        "snr_db": -0.48
+      }
+    }
+  }
+}

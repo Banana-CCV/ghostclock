@@ -1,0 +1,348 @@
+{
+  "worker_id": "W12",
+  "generated_at_utc": "2026-11-08T11:15:15.148943+00:00",
+  "execution_time_s": 544.26,
+  "public_feed_research": {
+    "gb_elexon_bmrs": {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/system/frequency/stream",
+      "http_status": 200,
+      "cadence_s": 15.0,
+      "measured_latency_s": 46.5,
+      "auth_required": false
+    },
+    "gb_neso_ckan_archive": {
+      "url": "https://api.neso.energy/api/3/action/package_show?id=system-frequency-data",
+      "http_status": 200,
+      "cadence_s": 1.0,
+      "latest_month_available": "2026-09",
+      "measured_latency_days": 38.4,
+      "auth_required": false
+    },
+    "gb_public_sub5s_low_latency_feed_exists": false,
+    "ce_netzfrequenz_info": {
+      "url": "https://www.netzfrequenz.info/json/act.json",
+      "http_status": 200,
+      "cadence_s": 1.0,
+      "measured_latency_s": 1.5,
+      "auth_required": false
+    },
+    "ce_volton_elering": {
+      "url": "https://public-data.volton.energy/v1/grid-frequency/latest.json",
+      "http_status": 200,
+      "cadence_s": 300.0,
+      "auth_required": false
+    },
+    "gridradar_commercial": {
+      "url": "https://api.gridradar.net/query",
+      "http_status": 401,
+      "auth_required": true
+    }
+  },
+  "exp1_enf_whu_real_audio_validation": {
+    "replay_001_case": {
+      "valid_fraction": 0.9979,
+      "median_snr_db": 16.91,
+      "crosscheck_15s_r": -0.10529,
+      "crosscheck_15s_rmse_mhz": 92.8766,
+      "crosscheck_15s_bias_mhz": -37.6979,
+      "crosscheck_fine_lag_s": -15
+    },
+    "dev_h1_ablation": {
+      "v0_single_50hz_endts": {
+        "n_files_total": 40,
+        "n_files_with_15s_output": 40,
+        "n_files_high_snr_ge_8db": 24,
+        "all_median_r_15s_lag0": -0.0164,
+        "all_median_rmse_15s_lag0_mhz": 184.629,
+        "all_median_r_1s_lag0": 0.0045,
+        "all_median_best_lag_s": -5.0,
+        "high_snr_median_r_15s_lag0": -0.0342,
+        "high_snr_median_rmse_15s_lag0_mhz": 272.735,
+        "high_snr_median_offset_bias_mhz": -83.4068,
+        "frac_r_15s_ge_0_90_high_snr": 0.0
+      },
+      "v1_multiharmonic_endts": {
+        "n_files_total": 40,
+        "n_files_with_15s_output": 40,
+        "n_files_high_snr_ge_8db": 40,
+        "all_median_r_15s_lag0": 0.0959,
+        "all_median_rmse_15s_lag0_mhz": 110.948,
+        "all_median_r_1s_lag0": 0.0627,
+        "all_median_best_lag_s": 0.0,
+        "high_snr_median_r_15s_lag0": 0.0959,
+        "high_snr_median_rmse_15s_lag0_mhz": 110.948,
+        "high_snr_median_offset_bias_mhz": -28.1562,
+        "frac_r_15s_ge_0_90_high_snr": 0.025
+      },
+      "v2_robust_center_aligned": {
+        "n_files_total": 40,
+        "n_files_with_15s_output": 40,
+        "n_files_high_snr_ge_8db": 40,
+        "all_median_r_15s_lag0": 0.1204,
+        "all_median_rmse_15s_lag0_mhz": 117.701,
+        "all_median_r_1s_lag0": 0.0678,
+        "all_median_best_lag_s": -3.0,
+        "high_snr_median_r_15s_lag0": 0.1204,
+        "high_snr_median_rmse_15s_lag0_mhz": 117.701,
+        "high_snr_median_offset_bias_mhz": -29.5291,
+        "frac_r_15s_ge_0_90_high_snr": 0.025
+      }
+    },
+    "holdout_h1_v2": {
+      "n_files_total": 20,
+      "n_files_with_15s_output": 20,
+      "n_files_high_snr_ge_8db": 20,
+      "all_median_r_15s_lag0": 0.9954,
+      "all_median_rmse_15s_lag0_mhz": 1.5,
+      "all_median_r_1s_lag0": 0.9898,
+      "all_median_best_lag_s": 0.0,
+      "high_snr_median_r_15s_lag0": 0.9954,
+      "high_snr_median_rmse_15s_lag0_mhz": 1.5,
+      "high_snr_median_offset_bias_mhz": 0.7141,
+      "frac_r_15s_ge_0_90_high_snr": 0.9
+    },
+    "h0_negatives_v2": {
+      "n_h0_files": 20,
+      "median_valid_fraction": 0.9641,
+      "mean_valid_fraction": 0.9695,
+      "n_flagged_no_hum_or_degraded": 12,
+      "frac_flagged_unhealthy": 0.6
+    }
+  },
+  "exp2_gb_neso_to_elexon_15s_validation": {
+    "dev_window_nov2025": {
+      "start_utc": 1762084800,
+      "duration_s": 3600,
+      "n_1s_samples": 3593,
+      "n_15s_elexon_samples": 240,
+      "operator_comparison_at_20db": {
+        "point_15s": {
+          "n_overlap_15s": 239,
+          "pearson_r_lag0": 0.999548,
+          "rmse_lag0_mhz": 2.2484,
+          "mae_lag0_mhz": 1.8028,
+          "offset_bias_mhz": -0.1922,
+          "fine_best_lag_s": 1
+        },
+        "causal_mean_15s": {
+          "n_overlap_15s": 239,
+          "pearson_r_lag0": 0.993259,
+          "rmse_lag0_mhz": 8.6462,
+          "mae_lag0_mhz": 6.1787,
+          "offset_bias_mhz": -0.1501,
+          "fine_best_lag_s": 1
+        },
+        "centred_mean_15s": {
+          "n_overlap_15s": 239,
+          "pearson_r_lag0": 0.998617,
+          "rmse_lag0_mhz": 3.9172,
+          "mae_lag0_mhz": 2.8933,
+          "offset_bias_mhz": -0.0399,
+          "fine_best_lag_s": 1
+        }
+      },
+      "estimator_mode_ablation_at_20db": {
+        "v0_single_50hz_endts": {
+          "pearson_r_lag0": 0.951106,
+          "rmse_lag0_mhz": 24.7866,
+          "fine_best_lag_s": 1,
+          "fine_best_r": 0.966646,
+          "valid_fraction": 1.0
+        },
+        "v1_multiharmonic_endts": {
+          "pearson_r_lag0": 0.995545,
+          "rmse_lag0_mhz": 7.0342,
+          "fine_best_lag_s": 5,
+          "fine_best_r": 0.999604,
+          "valid_fraction": 1.0
+        },
+        "v2_robust_center_aligned": {
+          "pearson_r_lag0": 0.999548,
+          "rmse_lag0_mhz": 2.2484,
+          "fine_best_lag_s": 1,
+          "fine_best_r": 0.999604,
+          "valid_fraction": 1.0
+        }
+      },
+      "snr_sweep": {
+        "+25dB": {
+          "target_snr_db": 25.0,
+          "measured_peak_harmonic_snr_db": 26.53,
+          "valid_fraction_1s": 1.0,
+          "n_overlap_15s": 239,
+          "pearson_r_lag0": 0.999711,
+          "rmse_lag0_mhz": 1.8043,
+          "offset_bias_mhz": -0.2068,
+          "fine_best_lag_s": 1
+        },
+        "+20dB": {
+          "target_snr_db": 20.0,
+          "measured_peak_harmonic_snr_db": 21.64,
+          "valid_fraction_1s": 1.0,
+          "n_overlap_15s": 239,
+          "pearson_r_lag0": 0.999561,
+          "rmse_lag0_mhz": 2.2288,
+          "offset_bias_mhz": -0.3032,
+          "fine_best_lag_s": 1
+        },
+        "+15dB": {
+          "target_snr_db": 15.0,
+          "measured_peak_harmonic_snr_db": 16.76,
+          "valid_fraction_1s": 1.0,
+          "n_overlap_15s": 239,
+          "pearson_r_lag0": 0.995414,
+          "rmse_lag0_mhz": 7.3679,
+          "offset_bias_mhz": -0.8817,
+          "fine_best_lag_s": -2
+        },
+        "+10dB": {
+          "target_snr_db": 10.0,
+          "measured_peak_harmonic_snr_db": 12.21,
+          "valid_fraction_1s": 0.9897,
+          "n_overlap_15s": 236,
+          "pearson_r_lag0": 0.557517,
+          "rmse_lag0_mhz": 116.8256,
+          "offset_bias_mhz": -18.0681,
+          "fine_best_lag_s": 0
+        },
+        "+6dB": {
+          "target_snr_db": 6.0,
+          "measured_peak_harmonic_snr_db": 10.12,
+          "valid_fraction_1s": 0.9827,
+          "n_overlap_15s": 238,
+          "pearson_r_lag0": 0.055972,
+          "rmse_lag0_mhz": 202.7888,
+          "offset_bias_mhz": -31.9194,
+          "fine_best_lag_s": -8
+        },
+        "+3dB": {
+          "target_snr_db": 3.0,
+          "measured_peak_harmonic_snr_db": 9.65,
+          "valid_fraction_1s": 0.9727,
+          "n_overlap_15s": 232,
+          "pearson_r_lag0": -0.026049,
+          "rmse_lag0_mhz": 236.4692,
+          "offset_bias_mhz": -53.0314,
+          "fine_best_lag_s": 4
+        },
+        "+0dB": {
+          "target_snr_db": 0.0,
+          "measured_peak_harmonic_snr_db": 9.4,
+          "valid_fraction_1s": 0.9738,
+          "n_overlap_15s": 235,
+          "pearson_r_lag0": -0.038931,
+          "rmse_lag0_mhz": 256.616,
+          "offset_bias_mhz": -23.8079,
+          "fine_best_lag_s": 12
+        },
+        "-5dB": {
+          "target_snr_db": -5.0,
+          "measured_peak_harmonic_snr_db": 9.35,
+          "valid_fraction_1s": 0.9647,
+          "n_overlap_15s": 231,
+          "pearson_r_lag0": 0.09338,
+          "rmse_lag0_mhz": 242.7933,
+          "offset_bias_mhz": -27.5535,
+          "fine_best_lag_s": 11
+        },
+        "-15dB": {
+          "target_snr_db": -15.0,
+          "measured_peak_harmonic_snr_db": 9.28,
+          "valid_fraction_1s": 0.9683,
+          "n_overlap_15s": 230,
+          "pearson_r_lag0": -0.0324,
+          "rmse_lag0_mhz": 246.3958,
+          "offset_bias_mhz": -36.0926,
+          "fine_best_lag_s": -6
+        }
+      }
+    },
+    "holdout_nov2025_15db": {
+      "start_utc": 1762430400,
+      "duration_s": 3600,
+      "n_overlap_15s": 239,
+      "pearson_r_lag0": 0.910161,
+      "rmse_lag0_mhz": 28.9193,
+      "mae_lag0_mhz": 5.5083,
+      "offset_bias_mhz": 1.8603,
+      "fine_best_lag_s": 2
+    },
+    "holdout_sep2026_15db": {
+      "start_utc": 1790683200,
+      "duration_s": 3600,
+      "n_overlap_15s": 239,
+      "pearson_r_lag0": 0.961844,
+      "rmse_lag0_mhz": 14.9155,
+      "mae_lag0_mhz": 6.7198,
+      "offset_bias_mhz": 1.4736,
+      "fine_best_lag_s": -3
+    }
+  },
+  "exp3_live_venue_and_which_grid": {
+    "live_laptop_capture": {
+      "status": "DEGRADED_LOW_SNR",
+      "total_seconds": 3,
+      "valid_seconds": 2,
+      "valid_fraction": 0.6667,
+      "median_harmonic_snr_db": 10.13,
+      "ntp_offset_s": -0.027427,
+      "ntp_rtt_s": 0.025465,
+      "ntp_server": "time.cloudflare.com",
+      "parquet_path": "<WORKSPACE>\\work\\W12\\live_run\\local_station.parquet"
+    },
+    "live_gb_elexon_poll": {
+      "n_rows_last_30m": 115,
+      "latest_ts_utc": 1794136425,
+      "latest_f_hz": 50.113
+    },
+    "live_ce_netzfrequenz_poll": {
+      "n_samples": 8,
+      "f_mean_hz": 49.9964,
+      "f_min_hz": 49.992,
+      "f_max_hz": 49.998,
+      "samples": [
+        {
+          "ts_utc": 1794136507,
+          "f_hz": 49.992
+        },
+        {
+          "ts_utc": 1794136508,
+          "f_hz": 49.992
+        },
+        {
+          "ts_utc": 1794136509,
+          "f_hz": 49.998
+        },
+        {
+          "ts_utc": 1794136510,
+          "f_hz": 49.998
+        },
+        {
+          "ts_utc": 1794136511,
+          "f_hz": 49.998
+        },
+        {
+          "ts_utc": 1794136512,
+          "f_hz": 49.997
+        },
+        {
+          "ts_utc": 1794136513,
+          "f_hz": 49.998
+        },
+        {
+          "ts_utc": 1794136514,
+          "f_hz": 49.998
+        }
+      ]
+    },
+    "which_grid_discrimination_30_trials": {
+      "n_trials": 30,
+      "window_duration_s": 900,
+      "same_grid_median_r": 0.99893,
+      "same_grid_min_r": 0.98748,
+      "cross_grid_median_r": -0.05422,
+      "cross_grid_max_r": 0.7611,
+      "accuracy_at_r_0_80_gate": 1.0
+    }
+  }
+}

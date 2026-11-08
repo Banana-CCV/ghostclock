@@ -1,0 +1,139 @@
+{
+ "best": {
+  "start_utc": 1780001955,
+  "score": 0.11079077601757487,
+  "rmse_mhz": 10.889744475125232,
+  "offset_hz": -0.0010340909736257231
+ },
+ "candidates": [
+  {
+   "start_utc": 1780001955,
+   "score": 0.11079077601757487,
+   "rmse_mhz": 10.889744475125232,
+   "offset_hz": -0.0010340909736257231,
+   "sub_sample_offset_s": -0.17087863465078768,
+   "refined_score": 0.11113810438018974,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780008634,
+   "score": 0.0876099298350206,
+   "rmse_mhz": 11.286750269535842,
+   "offset_hz": 0.019073966175291446,
+   "sub_sample_offset_s": -0.000937106514558962,
+   "refined_score": 0.08760995012522411,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780008448,
+   "score": 0.08656044356393144,
+   "rmse_mhz": 13.281500712521,
+   "offset_hz": 0.013576501303440125,
+   "sub_sample_offset_s": -0.12795414153362217,
+   "refined_score": 0.08663070413567742,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780003368,
+   "score": 0.08578228150065349,
+   "rmse_mhz": 12.528041039708338,
+   "offset_hz": 0.0007235215299843389,
+   "sub_sample_offset_s": 0.3606702857971402,
+   "refined_score": 0.08693324935548925,
+   "clock_drift_ppm": 0.0
+  },
+  {
+   "start_utc": 1780017384,
+   "score": 0.078863372474046,
+   "rmse_mhz": 12.844921281288881,
+   "offset_hz": 0.004672406737327606,
+   "sub_sample_offset_s": -0.4001716532769903,
+   "refined_score": 0.08013881077453415,
+   "clock_drift_ppm": 0.0
+  }
+ ],
+ "null": {
+  "method": "bartlett_student_t_plus_time_reversed_surrogate",
+  "n": 39601,
+  "p_empirical": 0.9565765324280644,
+  "score_threshold": 0.2002810931735975
+ },
+ "uniqueness": {
+  "margin_vs_second": 0.02318084618255427,
+  "second_best_distance_s": 6679
+ },
+ "diagnostics": {
+  "cadence_s": 1.0,
+  "nominal_hz": 50.0,
+  "trace_duration_s": 599.0,
+  "valid_duration_s": 600.0,
+  "n_total_samples": 600,
+  "n_valid_samples": 600,
+  "valid_fraction": 1.0,
+  "trace_mean_hz": 49.999411223920774,
+  "trace_std_mhz": 9.966835562102569,
+  "best_ref_std_mhz": 5.628396917726107,
+  "search_window_start_utc": 1780000000,
+  "search_window_end_utc": 1780021599,
+  "search_window_duration_s": 21599.0,
+  "n_candidate_lags": 21001,
+  "nms_radius_s": 149.75,
+  "sub_sample_offset_s": -0.17087863465078768,
+  "refined_start_utc": 1780001954.8291214,
+  "clock_drift_search_enabled": false,
+  "n_clock_drift_steps": 1,
+  "best_clock_drift_ppm": 0.0,
+  "n_eff": 366.03298145845105,
+  "n_eff_bartlett": 265.2913291037309,
+  "n_eff_empirical": 600.0,
+  "m_eff": 181.6962907914695,
+  "p_local": 0.017115563228993182,
+  "max_time_reversed_null_score": 0.10315140697197542,
+  "enf_presence_score": null,
+  "extractor_snr_db": null,
+  "split_half_agreement_s": 805.0,
+  "split_half_consistent": false,
+  "split_half_r1_at_best": 0.11159875973441002,
+  "split_half_r2_at_best": 0.14565771518510306,
+  "split_half_t1_utc": 1780010597,
+  "split_half_t2_adjusted_utc": 1780009792,
+  "policy_audit": {
+   "thresholds": {
+    "min_valid_duration_s": 25.0,
+    "min_valid_samples": 20,
+    "min_valid_fraction": 0.5,
+    "min_trace_std_mhz": 0.8,
+    "max_trace_std_mhz": 200.0,
+    "max_p_empirical": 0.02,
+    "min_abs_score": 0.45,
+    "require_above_null_threshold": true,
+    "min_margin_vs_second": 0.04,
+    "min_ratio_vs_second": 1.06,
+    "max_rmse_mhz": 40.0,
+    "min_duration_for_strict_split_half_s": 90.0,
+    "max_split_half_lag_diff_s": 15.0,
+    "min_split_half_local_corr": 0.25,
+    "default_claim_tolerance_s": 60.0,
+    "min_enf_presence_score": 0.35
+   },
+   "claimed_start_utc": 1780009000,
+   "claim_tolerance_s": 60.0,
+   "claim_discrepancy_s": 7045,
+   "n_gates_passed": 3,
+   "n_gates_failed": 4
+  }
+ },
+ "status": "INCONCLUSIVE",
+ "status_reasons": [
+  "GATE_NULL_SIGNIFICANCE_FAILED: Look-elsewhere corrected p_empirical = 0.9566 exceeds threshold alpha = 0.02 across M_eff = 181.7 effective candidate shifts (N_eff = 366.0).",
+  "GATE_MIN_SCORE_FAILED: Best weighted NCC score 0.1108 is below required threshold 0.4500 (null threshold = 0.2003, abs floor = 0.4500).",
+  "GATE_UNIQUENESS_FAILED: Margin over second-best non-overlapping candidate is 0.0232 (ratio 1.265x, second-best score = 0.0876 at distance 6679s), below required margin 0.040.",
+  "GATE_SPLIT_HALF_FAILED: First-half and second-half consistency failed (independent half lag difference = 805.0s vs 15.0s max; local half correlations at best lag: r1 = 0.112, r2 = 0.146).",
+  "CLAIM_NOT_EVALUATED: Because blind ENF match evidence did not pass all statistical reliability gates (4 gate(s) failed), the claimed timestamp (1780009000) can neither be corroborated nor contradicted."
+ ],
+ "what_would_change_this": [
+  "Achieve a peak correlation score >= 0.450 (currently 0.111) so that look-elsewhere p_empirical <= 0.02.",
+  "Resolve ambiguity against competing candidate at offset 6679s: need peak margin >= 0.040 (currently 0.0232), e.g. via a longer clip or narrower search window.",
+  "Both halves of the recording must consistently support the same grid alignment (local half correlations >= 0.25 and/or independent half lag agreement within +/-15s); current mismatch suggests transient interference, splicing, or a spurious peak."
+ ]
+}

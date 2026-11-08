@@ -1,0 +1,26 @@
+{
+  "source": "LOCAL_STATION",
+  "cadence_s": 1,
+  "grid": "GB",
+  "coverage": [
+    1762084804,
+    1762088396
+  ],
+  "coverage_iso": [
+    "2025-11-02T12:00:04+00:00",
+    "2025-11-02T12:59:56+00:00"
+  ],
+  "url": "local://work/W12/reference_station.py",
+  "sha256": "c73dcdd1efbe2f6b1fee14c19e8f51dd9b596f876d13f03af0a3586a1f20f1cf",
+  "row_count": 3593,
+  "valid_count": 3593,
+  "missing_count": 0,
+  "valid_fraction": 1.0,
+  "ntp_offset_s": 0.0,
+  "ntp_rtt_s": 0.014,
+  "ntp_measurable": true,
+  "ntp_server": "time.cloudflare.com",
+  "updated_at_utc": "2026-11-08T11:06:27.514850+00:00",
+  "simulation_source": "GB_NESO_2025-11_1s_acoustic_SNR20dB",
+  "duration_s": 3600
+}

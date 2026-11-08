@@ -1,0 +1,102 @@
+{
+  "earliest_elexon": {
+    "earliest_record": {
+      "measurementTime": "2021-08-30T00:00:00Z",
+      "frequency": 50.046
+    },
+    "second_record": {
+      "measurementTime": "2021-08-30T00:00:15Z",
+      "frequency": 50.045
+    },
+    "rows_in_first_2h": 481
+  },
+  "stream_spans": {
+    "stream_1d": {
+      "status": 200,
+      "row_count": 5757,
+      "earliest": "2026-11-07T09:26:45Z",
+      "latest": "2026-11-08T09:25:45Z"
+    },
+    "stream_7d": {
+      "status": 200,
+      "row_count": 40317,
+      "earliest": "2026-11-01T09:26:45Z",
+      "latest": "2026-11-08T09:25:45Z"
+    },
+    "stream_14d": {
+      "status": 200,
+      "row_count": 80637,
+      "earliest": "2026-10-25T09:26:45Z",
+      "latest": "2026-11-08T09:25:45Z"
+    },
+    "stream_30d": {
+      "status": 200,
+      "row_count": 172165,
+      "earliest": "2026-10-09T09:26:45Z",
+      "latest": "2026-11-08T09:25:45Z"
+    },
+    "datasets_FREQ_1d": {
+      "status": 200,
+      "body_or_count": 5757
+    },
+    "datasets_FREQ_2d": {
+      "status": 400,
+      "body_or_count": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"The date range between MeasurementDateTimeFrom and MeasurementDateTimeTo inclusive must not exceed 1 day\"]},\"traceId\":\"00-78b3c83e32b083a42d50347fcbb137be-76e13c"
+    }
+  },
+  "live_latency_polls": [
+    {
+      "poll_idx": 0,
+      "server_utc": "2026-11-08T09:26:42+00:00",
+      "latest_measurementTime": "2026-11-08T09:25:45Z",
+      "latest_frequency": 49.971,
+      "latency_s": 57.0,
+      "row_count_last_15m": 57
+    },
+    {
+      "poll_idx": 1,
+      "server_utc": "2026-11-08T09:27:12+00:00",
+      "latest_measurementTime": "2026-11-08T09:25:45Z",
+      "latest_frequency": 49.971,
+      "latency_s": 87.0,
+      "row_count_last_15m": 56
+    },
+    {
+      "poll_idx": 2,
+      "server_utc": "2026-11-08T09:27:20+00:00",
+      "latest_measurementTime": "2026-11-08T09:25:45Z",
+      "latest_frequency": 49.971,
+      "latency_s": 95.0,
+      "row_count_last_15m": 54
+    },
+    {
+      "poll_idx": 3,
+      "server_utc": "2026-11-08T09:27:28+00:00",
+      "latest_measurementTime": "2026-11-08T09:25:45Z",
+      "latest_frequency": 49.971,
+      "latency_s": 103.0,
+      "row_count_last_15m": 54
+    },
+    {
+      "poll_idx": 4,
+      "server_utc": "2026-11-08T09:27:36+00:00",
+      "latest_measurementTime": "2026-11-08T09:25:45Z",
+      "latest_frequency": 49.971,
+      "latency_s": 111.0,
+      "row_count_last_15m": 53
+    },
+    {
+      "poll_idx": 5,
+      "server_utc": "2026-11-08T09:28:07+00:00",
+      "latest_measurementTime": "2026-11-08T09:25:45Z",
+      "latest_frequency": 49.971,
+      "latency_s": 142.0,
+      "row_count_last_15m": 53
+    }
+  ],
+  "ukgridwatch_js": {
+    "status": 200,
+    "length": 7843,
+    "snippet": "// Background refreshes update this page's own server-rendered readings.\n(() => {\n  'use strict';\n  const header=()=>document.getElementById('ukgw-live-header');\n  if(!header())return;\n  let due=Date.now()+Math.max(1,Number(header().dataset.refreshSeconds)||120)*1000;\n  let busy=false,failures=0,uiLoading=null;\n  async function ensureUI(meta){\n    const expected=meta.dataset.uiVersion;\n    if(typeof window.ukgwInitCharts==='function' && (!expected||window.ukgwUIVersion===expected))return;\n    if(!uiLoading)uiLoading=new Promise((resolve,reject)=>{\n      const script=document.createElement('script');\n      script.src='/ukgw-ui.js?v='+encodeURIComponent(meta.dataset.uiAsset||expected||'recovery');\n      script.async=true;\n      const timer=setTimeout(()=>{script.remove();reject(Error('Chart controls unavailable'));},10000);\n      script.onload=()=>{clearTimeout(timer);script.remove();if(typeof window.ukgwInitCharts==='function'&&(!expected||window.ukgwUIVersion===expected))resolve();else reject(Error('Chart version mismatch'));};\n      script.onerror=()=>{clearTimeout(timer);script.remove();reject(Error('Chart script failed'));};\n      document.head.appendChild(script);\n    }).finally(()=>{uiLoading=null;});\n    await uiLoading;\n  }\n  function keepChart(node){if(node.dataset.ukgwForceRefresh==='1')return false;return node.dataset.ukgwInspecting==='1'||node.contains(document.activeElement)||Boolean(node.matches?.(':hover'))||Boolean(node.querySelector('details[open]'));}\n  function reconcile(old,fresh){\n    if(old.nodeType!==fresh.nodeType || (old.nodeType===1 && old.tagName!==fresh.tagName)){old.replaceWith(fresh.cloneNode(true));return;}\n    if(old.nodeType===3){if(old.nodeValue!==fresh.nodeValue)old.nodeValue=fresh.nodeValue;return;}\n    if(old.nodeType!==1)return;\n    if(old.classList.contains('ukgw-chart')){\n      if(keepChart(old))return; // Never detach a chart being inspected or its focus.\n      if(old.querySelector('[data-ukgw-data]')?.textContent===fresh.querySelector('[data-ukgw-data]')?.textContent){delete old.dataset.ukgwForceRefresh;return;}\n      old.replaceWith(fresh.cloneNode(true));return;\n    }\n    for(const a of Array.from(old.attributes))if(!fresh.hasAttribute(a.name)&&!(old.tagName==='DETAILS'&&a.name==='open'))old.removeAttribute(a.name);\n    for(const a of Array.from(fresh.attributes))if(!(old.tagName==='DETAILS'&&a.name==='open')&&old.getAttribute(a.name)!==a.value)old.setAttribute(a.name,a.value);\n    let position=0;\n    for(const child of Array.from(fresh.childNodes)){\n      let existing=old.childNodes[position];\n      if(child.nodeType===1&&child.id&&existing?.id!==child.id){\n        const keyed=Array.from(old.children).find(el=>el.id===child.id);\n        if(keyed){old.insertBefore(keyed,existing||null);existing=keyed;}\n      }\n      if(existing)reconcile(existing,child);else old.appendChild(child.cloneNode(true));\n      position++;\n    }\n    while(old.childNodes.length>position)old.lastChild.remove();\n  }\n  function need"
+  }
+}
