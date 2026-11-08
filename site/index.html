@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GhostClock Demo</title>
+<meta name="description" content="GhostClock: dating a recording from the hidden 50 Hz mains-flicker signal, matched blind against 36 hours of GB grid frequency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080a;--panel:#0d0f12;--fg:#d8d2c8;--mute:#8f877c;--dim:#4a463f;--line:rgba(255,255,255,.10);
+--acc:#ff8a3d;--grid:#e9e4da;--tool:#5ec8e5;--argon:#b18cff;--gate:#ff5d5d;--ok:#6fd38f;--warn:#ffc24a}
+:root:not([data-theme="light"]){color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+a{color:var(--acc)}
+#top{position:fixed;left:0;right:0;top:0;height:52px;display:flex;align-items:center;gap:16px;padding:0 22px;z-index:6;
+ background:linear-gradient(#07080af0,#07080a00);font:600 12px 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase}
+#top .brand{color:#fff}#top .brand i{font-style:normal;color:var(--acc)}
+#top .sp{flex:1}#top a{color:var(--mute);text-decoration:none;letter-spacing:.12em}#top a:hover{color:#fff}
+#scenes{position:fixed;left:0;right:0;top:0;bottom:68px}
+.scene{position:absolute;inset:0;padding:70px clamp(16px,4vw,64px) 24px;overflow-y:auto;opacity:0;visibility:hidden;
+ transform:translateY(18px);transition:opacity .7s ease,transform .7s ease,visibility 0s .7s;display:flex;flex-direction:column}
+.scene.on{opacity:1;visibility:visible;transform:none;transition:opacity .7s ease,transform .7s ease,visibility 0s}
+.kick{font:600 12px 'JetBrains Mono',monospace;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h2{font-weight:800;font-size:clamp(26px,3.6vw,52px);line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:12px}
+.lede{font-size:clamp(15px,1.35vw,20px);color:var(--fg);max-width:70ch;line-height:1.45}
+.src{font:400 10.5px 'JetBrains Mono',monospace;color:var(--dim);letter-spacing:.04em;margin-top:10px;word-break:break-word}
+.rv{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;position:relative}
+.tag{display:inline-block;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;padding:4px 8px;border-radius:4px;border:1px solid var(--line);color:var(--mute)}
+.tag.real{color:var(--ok);border-color:#6fd38f55}.tag.ill{color:var(--warn);border-color:#ffc24a66}
+svg text{font-family:'JetBrains Mono',monospace}
+/* scene 1 */
+.vidwrap{margin-top:18px;flex:1;min-height:200px;display:flex;align-items:center;justify-content:center}
+.vidwrap video{max-width:100%;max-height:100%;border-radius:10px;border:1px solid var(--line);background:#000}
+.vmiss{font:12px 'JetBrains Mono',monospace;color:var(--mute);padding:40px;border:1px dashed var(--line);border-radius:10px}
+.labels2{display:flex;justify-content:space-around;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+/* charts */
+.chart{width:100%;flex:1;min-height:220px;margin-top:14px}
+.chart svg{width:100%;height:100%;display:block}
+.readout{display:flex;gap:28px;flex-wrap:wrap;margin-top:8px;font:12px 'JetBrains Mono',monospace;color:var(--mute)}
+.readout b{color:#fff;font-weight:600;font-size:15px;display:block;margin-top:2px}
+.readout .hot b{color:var(--acc)}
+.split{display:grid;grid-template-rows:1.25fr 1fr;gap:12px;flex:1;min-height:520px;margin-top:6px}
+.split .panel{padding:10px 12px;display:flex;flex-direction:column}
+.split .chart{margin-top:4px;min-height:160px}
+.ptitle{font:600 11px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap}
+.ptitle span{color:#fff}
+/* scene 4 */
+.clocks{display:flex;flex-direction:column;gap:26px;margin-top:3vh;align-items:flex-start}
+.clk .lbl{font:600 12px 'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.digits{display:flex;gap:6px;font:600 clamp(40px,8vw,120px) 'JetBrains Mono',monospace;color:#fff;line-height:1}
+.digits .d{width:.68em;height:1.2em;overflow:hidden;position:relative;background:#111318;border:1px solid var(--line);border-radius:8px;text-align:center}
+.digits .d span{display:block;height:1.2em;line-height:1.2em}
+.digits .c{width:.35em;text-align:center;color:var(--dim);line-height:1.2em}
+.digits .z{font-size:.32em;align-self:flex-end;color:var(--mute);margin-left:10px;padding-bottom:.4em}
+.clk.gc .digits{color:var(--acc)}
+.clk.cam .digits{font-size:clamp(26px,4.6vw,66px);color:var(--grid)}
+.delta{font-weight:800;font-size:clamp(36px,6vw,92px);color:#fff;letter-spacing:-.02em}
+.delta small{display:block;font:400 clamp(13px,1.2vw,17px) Inter,sans-serif;color:var(--mute);letter-spacing:0;margin-top:6px;max-width:64ch}
+/* scene 5 */
+.agent{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px;flex:1;min-height:420px;margin-top:10px}
+.term{padding:14px 16px;overflow-y:auto;font:12.5px/1.55 'JetBrains Mono',monospace;background:#050608}
+.term .ln{white-space:pre-wrap;word-break:break-word;margin-bottom:3px}
+.term .hd{color:#fff;margin:12px 0 6px;border-top:1px solid var(--line);padding-top:10px}
+.term .hd:first-child{margin-top:0;border-top:0;padding-top:0}
+.term .q{color:var(--mute);padding-left:9ch}
+.a-tool{color:var(--tool)}.a-argon{color:var(--argon)}.a-gate{color:var(--gate)}.a-ok{color:var(--ok)}
+.cursor{display:inline-block;width:.6em;height:1.1em;background:var(--acc);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.side{display:flex;flex-direction:column;gap:10px}
+.side .panel{padding:14px}
+.kv{font:12px 'JetBrains Mono',monospace;color:var(--mute)}.kv b{display:block;color:#fff;font-size:22px;font-weight:600;margin-top:2px}
+.legend{display:flex;flex-direction:column;gap:6px;font:12px 'JetBrains Mono',monospace}
+.override{margin-top:12px;padding:14px 16px;border:1px solid #ff5d5d77;background:linear-gradient(90deg,#ff5d5d1c,#ff5d5d05);border-radius:10px;
+ font:600 clamp(12px,1.15vw,16px)/1.5 'JetBrains Mono',monospace;color:#fff;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.override .x{text-decoration:line-through;color:var(--argon)}.override .ar{color:var(--mute)}
+.override .g{color:var(--gate)}.override .h{color:var(--ok)}
+/* scene 6 */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:16px}
+.stat{padding:18px}
+.stat .big{font-weight:800;font-size:clamp(34px,4vw,58px);color:#fff;letter-spacing:-.02em;line-height:1}
+.stat .big small{font-size:.42em;color:var(--mute);font-weight:600;margin-left:6px}
+.stat .what{color:var(--fg);font-size:14px;margin-top:8px;line-height:1.4;min-height:2.8em}
+.bar{height:8px;background:#1a1d22;border-radius:4px;margin-top:12px;overflow:hidden;position:relative}
+.bar i{display:block;height:100%;width:0;border-radius:4px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.bar .tgt{position:absolute;top:-3px;bottom:-3px;width:2px;background:#fff}
+.stat.weak{border-color:#ffc24a55}.stat.weak .big{color:var(--warn)}
+.human{margin-top:18px;font-weight:800;font-size:clamp(20px,2.4vw,34px);color:#fff}
+.human span{color:var(--acc)}
+/* scene 7 */
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:14px}
+.vids figure{padding:10px}.vids video{width:100%;border-radius:6px;display:block;background:#000}
+.vids figcaption{font:11px 'JetBrains Mono',monospace;color:var(--mute);margin-top:8px}
+.foot{margin-top:22px;font:12px 'JetBrains Mono',monospace;color:var(--mute);display:flex;gap:18px;flex-wrap:wrap}
+/* controls */
+#prog{position:fixed;left:0;right:0;bottom:68px;height:3px;background:rgba(255,255,255,.08);z-index:5}
+#prog i{display:block;height:100%;width:0;background:var(--acc)}
+#ctl{position:fixed;left:0;right:0;bottom:0;height:68px;background:#0b0c0f;border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:0 14px;z-index:5}
+button{appearance:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#fff;border-radius:8px;height:38px;padding:0 13px;font:600 13px Inter,sans-serif;cursor:pointer;white-space:nowrap}
+button:hover{background:rgba(255,255,255,.1)}
+button.pp{width:46px;background:var(--acc);border-color:var(--acc);color:#111}
+#chapters{display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto}
+#chapters button{font-weight:400;color:var(--fg);font-size:12px}
+#chapters button b{font-family:'JetBrains Mono',monospace;color:var(--acc);font-weight:400;margin-right:7px}
+#chapters button.on{border-color:var(--acc);color:#fff;background:rgba(255,138,61,.14)}
+#help{font:10px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+#help b{color:#fff;font-weight:400}
+@media (max-width:1100px){#help{display:none}#chapters button span{display:none}}
+@media (max-width:760px){.agent{grid-template-columns:1fr}.split{min-height:640px}#top .lnk2{display:none}.term{max-height:60vh}}
+</style></head><body>
+<div id="top"><div class="brand">Ghost<i>Clock</i></div><div class="sp"></div>
+ <a href="https://github.com/Banana-CCV/ghostclock" target="_blank" rel="noopener">GitHub</a>
+ <a class="lnk2" href="https://github.com/Banana-CCV/ghostclock/blob/main/docs/EVIDENCE.md" target="_blank" rel="noopener">Evidence</a></div>
+
+<div id="scenes">
+<!-- 1 -->
+<section class="scene" data-title="The room" data-dur="13">
+ <div class="kick">01 · A room at the venue · 8 Nov 2026</div>
+ <h2>A phone filmed a room for 18.4 minutes.</h2>
+ <p class="lede rv">Every mains-powered light flickers at 100 Hz. A phone's rolling shutter records it row by row.</p>
+ <div class="vidwrap rv"><video id="v1" src="media/venue_flicker.mp4" autoplay muted loop playsinline></video></div>
+ <div class="src">Left: what the camera saw · right: flicker only, amplified · team recording A001_11081142_C004 · ceiling lights · 1080p60 · <span class="tag real">REAL</span></div>
+</section>
+<!-- 2 -->
+<section class="scene" data-title="The hidden signal" data-dur="14">
+ <div class="kick">02 · The hidden signal</div>
+ <h2>Inside the flicker: the grid's own heartbeat.</h2>
+ <p class="lede rv">The mains frequency is never exactly 50 Hz. It wanders by a few hundredths of a hertz as supply and demand shift, and every light in the room wanders with it. This is the trace recovered from the video alone.</p>
+ <div class="chart rv"><svg id="c2" preserveAspectRatio="none"></svg></div>
+ <div class="readout"><div>recording time<b id="r2t">00:00</b></div><div class="hot">frequency<b id="r2f">-</b></div><div>usable windows (q ≥ 15 dB)<b id="r2u">-</b></div></div>
+ <div class="src">experiments/team_recordings_venue/A001_11081142_C004/video_rs_trace_dark.csv · gaps = windows below 15 dB quality · <span class="tag real">REAL</span></div>
+</section>
+<!-- 3 -->
+<section class="scene" data-title="Blind search" data-dur="24">
+ <div class="kick">03 · Searching 36 hours of the GB grid, blind</div>
+ <h2>One recording. Every possible second. One answer.</h2>
+ <div class="split">
+  <div class="panel rv"><div class="ptitle">Match score (NCC) at every 1 s offset · Elexon GB grid frequency · 7 Nov 00:00 → 8 Nov 12:22 UTC</div>
+   <div class="chart"><svg id="c3" preserveAspectRatio="none"></svg></div>
+   <div class="readout"><div>scanning<b id="r3t">-</b></div><div>score<b id="r3s">-</b></div><div class="hot">best so far<b id="r3b">-</b></div></div></div>
+  <div class="panel rv" id="p3b" style="opacity:.25"><div class="ptitle">At the match: <span style="color:var(--grid)">GB grid (Elexon, smoothed)</span> vs <span style="color:var(--acc)">recovered from the recording (offset-aligned)</span></div>
+   <div class="chart"><svg id="c3b" preserveAspectRatio="none"></svg></div></div>
+ </div>
+ <div class="src">landscape: ghostclock.tools.blind_match (load_ref, smooth 16 s, ncc_scan, qmin 15), recomputed for this page; 3000 bins, max per bin · wrong-day scores: blind/CASE_HERO_video_q15/result.json · <span class="tag real">REAL</span></div>
+</section>
+<!-- 4 -->
+<section class="scene" data-title="The reveal" data-dur="13">
+ <div class="kick">04 · The reveal</div>
+ <h2>When was it filmed?</h2>
+ <div class="clocks">
+  <div class="clk gc"><div class="lbl">GhostClock estimate · from the light flicker only</div><div class="digits" id="dg1"></div></div>
+  <div class="clk cam rv"><div class="lbl">Camera clock · in the file metadata, never read by the analysis</div><div class="digits" id="dg2"></div></div>
+  <div class="delta rv" id="dl">Δ <span id="dln">0</span> seconds<small>Blind estimate 2026-11-08 11:42:39 UTC vs camera's network-synced clock 11:42:37 UTC. The camera clock is the reference here, not atomic ground truth.</small></div>
+ </div>
+ <div class="src">experiments/team_recordings_venue/ground_truth_camera_clock.json · blind/CASE_HERO_video_q15/result.json · <span class="tag real">REAL</span></div>
+</section>
+<!-- 5 -->
+<section class="scene" data-title="Argon investigates" data-dur="34">
+ <div class="kick">05 · How Gemini 4 Argon investigates</div>
+ <h2>The agent reasons. A code gate decides.</h2>
+ <div class="agent">
+  <div class="panel term rv" id="term"></div>
+  <div class="side rv">
+   <div class="panel legend"><span class="a-tool">■ TOOL · deterministic measurement</span><span class="a-argon">■ ARGON · plans and explains</span><span class="a-gate">■ GATE · frozen rules, final say</span></div>
+   <div class="panel kv">model<b style="font-size:15px">gemini-4-argon-high</b></div>
+   <div class="panel kv">real logged cases<b id="k1">5</b></div>
+   <div class="panel kv">Argon calls<b id="k2">11</b></div>
+   <div class="panel kv">tokens<b id="k3">129,993</b></div>
+  </div>
+ </div>
+ <div class="override rv" id="ovr"><span class="x">Argon proposed MATCH_SUPPORTED</span><span class="ar">→</span><span class="g">GATE: MATERIAL_DISCREPANCY_REVIEW</span><span class="ar">(claimed start off by −7200 s)</span><span class="ar">→</span><span class="h">human review</span></div>
+ <div class="src">experiments/c5_argon_agent/runs/case_a/trace.jsonl · case_e/trace.jsonl · totals: experiments/c5_argon_agent/README.md · <span class="tag real">REAL, logged runs</span></div>
+</section>
+<!-- 6 -->
+<section class="scene" data-title="Unseen data" data-dur="16">
+ <div class="kick">06 · Tested on unseen data</div>
+ <h2>Held-out recordings it had never seen.</h2>
+ <div class="stats">
+  <div class="panel stat rv"><div class="big"><span class="cnt" data-to="105">0</span><small>/ 135</small></div><div class="what">5-min holdout clips answered (77.8%); the rest abstained</div><div class="bar"><i style="background:var(--acc)" data-w="77.8"></i></div></div>
+  <div class="panel stat rv"><div class="big"><span class="cnt" data-to="105">0</span><small>/ 105</small></div><div class="what">answers correct within ±5 s of ground truth</div><div class="bar"><i style="background:var(--ok)" data-w="100"></i></div></div>
+  <div class="panel stat rv"><div class="big"><span class="cnt" data-to="0">0</span><small>/ 153</small></div><div class="what">recordings with no grid signal falsely matched</div><div class="bar"><i style="background:var(--ok)" data-w="0.4"></i></div></div>
+  <div class="panel stat weak rv"><div class="big"><span class="cnt" data-to="28">0</span><small>/ 270 · 10.4%</small></div><div class="what">wrong-day false matches. Known weakness: target was ≤ 5% (white mark)</div><div class="bar"><i style="background:var(--warn)" data-w="10.4"></i><span class="tgt" style="left:5%"></span></div></div>
+  <div class="panel stat rv"><div class="big">r = <span class="cnt" data-to="0.995" data-dec="3">0</span></div><div class="what">rolling-shutter video ENF vs mains reference on real footage (633 windows)</div><div class="bar"><i style="background:var(--tool)" data-w="99.5"></i></div></div>
+ </div>
+ <div class="human rv">GhostClock never approves or denies a claim: <span>a human decides.</span></div>
+ <div class="src">results/summary.json (ENF-WHU unseen holdout, c1; video c4) · README.md · <span class="tag real">REAL</span></div>
+</section>
+<!-- 7 -->
+<section class="scene" data-title="Concept renders" data-dur="16">
+ <div class="kick">07 · Concept renders <span class="tag ill" style="margin-left:10px">ILLUSTRATIVE</span></div>
+ <h2>Where it could sit.</h2>
+ <p class="lede rv">Concept visualisation by the team (ILLUSTRATIVE): fictional claim scenarios; on-screen figures are not measured results.</p>
+ <div class="vids rv">
+  <figure class="panel cv"><video src="media/concept_split_screen.mp4" muted loop playsinline preload="metadata"></video><figcaption>concept_split_screen · ILLUSTRATIVE</figcaption></figure>
+  <figure class="panel cv"><video src="media/walkthrough.mp4" muted loop playsinline preload="metadata" controls></video><figcaption>walkthrough · ILLUSTRATIVE</figcaption></figure>
+ </div>
+ <div class="foot"><a href="https://github.com/Banana-CCV/ghostclock" target="_blank" rel="noopener">github.com/Banana-CCV/ghostclock</a>
+  <a href="https://github.com/Banana-CCV/ghostclock/tree/main/docs" target="_blank" rel="noopener">Docs</a>
+  <a href="https://github.com/Banana-CCV/ghostclock/blob/main/docs/EVIDENCE.md" target="_blank" rel="noopener">Evidence</a>
+  <a href="https://github.com/Banana-CCV/ghostclock/blob/main/docs/LIMITATIONS.md" target="_blank" rel="noopener">Limitations</a></div>
+</section>
+</div>
+
+<div id="prog"><i id="progi"></i></div>
+<div id="ctl">
+ <button id="prev" title="previous scene">‹</button>
+ <button id="pp" class="pp" title="auto-play / pause">▶</button>
+ <button id="next" title="next scene">›</button>
+ <button id="restart" title="replay scene">↻</button>
+ <div id="chapters"></div>
+ <div id="help"><b>space</b> auto-play · <b>←→</b> scenes · <b>R</b> replay · <b>F</b> fullscreen</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg", D=null;
+var scenes=[].slice.call(document.querySelectorAll('.scene')), cur=-1, token=0, playing=false, sceneT0=0;
+function $(id){return document.getElementById(id)}
+function el(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+function sleep(ms,tk){return new Promise(function(res,rej){setTimeout(function(){tk===token?res():rej('x')},ms)})}
+function tween(ms,fn,tk,ease){ease=ease||function(p){return 1-Math.pow(1-p,3)};return new Promise(function(res,rej){var t0=performance.now();
+ (function f(now){if(tk!==token)return rej('x');var p=Math.min(1,(now-t0)/ms);fn(ease(p),p);p<1?requestAnimationFrame(f):res()})(t0)})}
+var lin=function(p){return p};
+function reveal(sc,tk){var r=sc.querySelectorAll('.rv');r.forEach(function(e){e.classList.remove('in')});
+ r.forEach(function(e,i){setTimeout(function(){if(tk===token)e.classList.add('in')},250+i*260)})}
+function size(svg){var b=svg.getBoundingClientRect();var w=Math.max(300,b.width|0),h=Math.max(150,b.height|0);svg.setAttribute('viewBox','0 0 '+w+' '+h);svg.innerHTML='';return{w:w,h:h}}
+function pad2(n){return(n<10?'0':'')+n}
+function utc(t){var d=new Date(t*1000);return pad2(d.getUTCDate())+' Nov '+pad2(d.getUTCHours())+':'+pad2(d.getUTCMinutes())+':'+pad2(d.getUTCSeconds())}
+function hms(t){var d=new Date(t*1000);return pad2(d.getUTCHours())+':'+pad2(d.getUTCMinutes())+':'+pad2(d.getUTCSeconds())}
+function pathFrom(xs,ys,X,Y){var s='',pen=false;for(var i=0;i<xs.length;i++){if(ys[i]==null){pen=false;continue}s+=(pen?'L':'M')+X(xs[i]).toFixed(1)+' '+Y(ys[i]).toFixed(1);pen=true}return s}
+function axisY(svg,ticks,Y,x0,x1,fmt){ticks.forEach(function(v){el('line',{x1:x0,x2:x1,y1:Y(v),y2:Y(v),stroke:'rgba(255,255,255,.07)'},svg);
+ var t=el('text',{x:x0-6,y:Y(v)+3.5,'text-anchor':'end','font-size':10,fill:'#6b655c'},svg);t.textContent=fmt(v)})}
+function drawPath(p,ms,tk){var L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;return tween(ms,function(e){p.style.strokeDashoffset=L*(1-e)},tk)}
+
+/* ---------- scene runners ---------- */
+var run=[];
+run[0]=function(tk){var v=$('v1');try{v.currentTime=0;v.play().catch(function(){})}catch(e){}};
+run[1]=async function(tk){var T=D.trace,svg=$('c2'),S=size(svg),m={l:58,r:14,t:10,b:26};
+ var t0=T.t[0],t1=T.t[T.t.length-1],X=function(t){return m.l+(t-t0)/(t1-t0)*(S.w-m.l-m.r)},Y=function(f){return m.t+(50.07-f)/(0.13)*(S.h-m.t-m.b)};
+ axisY(svg,[49.95,49.98,50.00,50.02,50.05],Y,m.l,S.w-m.r,function(v){return v.toFixed(2)+' Hz'});
+ for(var mn=0;mn<=18;mn+=3){var tx=el('text',{x:X(mn*60),y:S.h-6,'text-anchor':'middle','font-size':10,fill:'#6b655c'},svg);tx.textContent=mn+' min'}
+ el('line',{x1:m.l,x2:S.w-m.r,y1:Y(50),y2:Y(50),stroke:'rgba(255,138,61,.25)','stroke-dasharray':'4 4'},svg);
+ var glow=el('path',{d:pathFrom(T.t,T.f,X,Y),fill:'none',stroke:'rgba(255,138,61,.25)','stroke-width':5,'stroke-linejoin':'round'},svg);
+ var p=el('path',{d:pathFrom(T.t,T.f,X,Y),fill:'none',stroke:'#ff8a3d','stroke-width':1.6,'stroke-linejoin':'round'},svg);
+ var dot=el('circle',{r:4,fill:'#fff',cx:-10,cy:-10},svg);
+ var nOk=T.f.filter(function(v){return v!=null}).length;$('r2u').textContent='0%';
+ await sleep(600,tk);drawPath(glow,9000,tk).catch(function(){});
+ var PL=p.getTotalLength();p.style.strokeDasharray=PL;p.style.strokeDashoffset=PL;
+ await tween(9000,function(e,p0){var t=t0+(t1-t0)*p0,i=Math.min(T.t.length-1,Math.round(p0*(T.t.length-1)));
+   p.style.strokeDashoffset=PL*(1-p0);
+   $('r2t').textContent=pad2(Math.floor((t)/60))+':'+pad2(Math.floor(t%60));
+   for(var j=i;j>=0;j--){if(T.f[j]!=null){$('r2f').textContent=T.f[j].toFixed(4)+' Hz';dot.setAttribute('cx',X(T.t[j]));dot.setAttribute('cy',Y(T.f[j]));break}}
+   var c=0;for(var k=0;k<=i;k++)if(T.f[k]!=null)c++;$('r2u').textContent=Math.round(c/T.t.length*100)+'%';
+ },tk,lin).catch(function(){});
+ };
+
+run[2]=async function(tk){var L=D.landscape,svg=$('c3'),S=size(svg),m={l:46,r:14,t:12,b:24};
+ $('p3b').style.opacity=.25;$('c3b').innerHTML='';
+ var t0=L.t[0],t1=L.t[L.t.length-1],lo=Math.min.apply(null,L.s);lo=Math.floor(lo*10)/10;
+ var X=function(t){return m.l+(t-t0)/(t1-t0)*(S.w-m.l-m.r)},Y=function(s){return m.t+(1-s)/(1-lo)*(S.h-m.t-m.b)};
+ var tk5=[];for(var v=Math.ceil(lo*5)/5;v<=1.0001;v+=0.2)tk5.push(+v.toFixed(1));
+ axisY(svg,tk5,Y,m.l,S.w-m.r,function(v){return v.toFixed(1)});
+ for(var h=0;h<=36;h+=6){var tt=Date.UTC(2026,10,7,h)/1000;if(tt<t0||tt>t1)continue;var tx=el('text',{x:X(tt),y:S.h-6,'text-anchor':'middle','font-size':10,fill:'#6b655c'},svg);
+  tx.textContent=(h<24?'07':'08')+' Nov '+pad2(h%24)+':00';el('line',{x1:X(tt),x2:X(tt),y1:m.t,y2:S.h-m.b,stroke:'rgba(255,255,255,.04)'},svg)}
+ var cp=el('clipPath',{id:'cl3'},el('defs',{},svg));var cr=el('rect',{x:0,y:0,width:0,height:S.h},cp);
+ var d='';for(var i=0;i<L.t.length;i++)d+=(i?'L':'M')+X(L.t[i]).toFixed(1)+' '+Y(L.s[i]).toFixed(1);
+ el('path',{d:d,fill:'none',stroke:'#8f877c','stroke-width':1,'clip-path':'url(#cl3)'},svg);
+ var thr=el('g',{opacity:0},svg);el('line',{x1:m.l,x2:S.w-m.r,y1:Y(L.null_max),y2:Y(L.null_max),stroke:'#ff5d5d','stroke-dasharray':'6 5','stroke-width':1.2},thr);
+ var tl=el('text',{x:m.l+6,y:Y(L.null_max)-6,'font-size':11,fill:'#ff5d5d'},thr);tl.textContent='best score on 7 earlier wrong days ≤ '+L.null_max.toFixed(3);
+ var cur3=el('line',{x1:m.l,x2:m.l,y1:m.t,y2:S.h-m.b,stroke:'#ff8a3d','stroke-width':1.5},svg);
+ await sleep(700,tk);var best=-1;
+ await tween(8000,function(e,p){var x=m.l+p*(S.w-m.l-m.r);cr.setAttribute('width',x);cur3.setAttribute('x1',x);cur3.setAttribute('x2',x);
+  var i=Math.min(L.t.length-1,Math.floor(p*(L.t.length-1)));for(var k=0;k<=i;k++)if(L.s[k]>best)best=L.s[k];
+  $('r3t').textContent=utc(L.t[i])+' UTC';$('r3s').textContent=L.s[i].toFixed(3);$('r3b').textContent=best.toFixed(3)},tk,lin);
+ cur3.setAttribute('opacity',0);
+ var bx=X(L.best_t),by=Y(L.best_ncc);
+ var ring=el('circle',{cx:bx,cy:by,r:6,fill:'none',stroke:'#ff8a3d','stroke-width':2},svg);el('circle',{cx:bx,cy:by,r:4,fill:'#ff8a3d'},svg);
+ tween(1200,function(e){ring.setAttribute('r',6+e*22);ring.setAttribute('opacity',1-e)},tk).catch(function(){});
+ var bl=el('text',{x:bx-10,y:by+4,'text-anchor':'end','font-size':12,fill:'#fff','font-weight':600},svg);bl.textContent='08 Nov 11:42:39 UTC · NCC '+L.best_ncc.toFixed(3);
+ $('r3t').textContent='match found';$('r3s').textContent=L.best_ncc.toFixed(3);$('r3b').textContent=utc(L.best_t)+' UTC';
+ await sleep(900,tk);
+ var sx=X(L.second_t),sy=Y(L.second_ncc);el('circle',{cx:sx,cy:sy,r:3.5,fill:'none',stroke:'#e9e4da'},svg);
+ var sl=el('text',{x:sx+8,y:sy-6,'font-size':11,fill:'#e9e4da'},svg);sl.textContent='runner-up elsewhere: '+L.second_ncc.toFixed(3);
+ await sleep(700,tk);tween(800,function(e){thr.setAttribute('opacity',e)},tk).catch(function(){});
+ await sleep(900,tk);$('p3b').style.transition='opacity .6s';$('p3b').style.opacity=1;
+ // overlay
+ var O=D.overlay,s2=$('c3b'),S2=size(s2),m2={l:58,r:14,t:10,b:24};var n=O.grid.length,all=O.grid.concat(O.rec.filter(function(v){return v!=null}));
+ var mn=Math.min.apply(null,all),mx=Math.max.apply(null,all),pd=(mx-mn)*0.08;mn-=pd;mx+=pd;
+ var X2=function(i){return m2.l+i/(n-1)*(S2.w-m2.l-m2.r)},Y2=function(f){return m2.t+(mx-f)/(mx-mn)*(S2.h-m2.t-m2.b)};
+ var tks=[];for(var f=Math.ceil(mn*50)/50;f<=mx;f+=0.02)tks.push(f);axisY(s2,tks,Y2,m2.l,S2.w-m2.r,function(v){return v.toFixed(2)+' Hz'});
+ for(var k=0;k<=6;k++){var ii=Math.round(k/6*(n-1));var t3=el('text',{x:X2(ii),y:S2.h-6,'text-anchor':'middle','font-size':10,fill:'#6b655c'},s2);t3.textContent=hms(O.t0+ii*O.dt)}
+ var idx=O.grid.map(function(_,i){return i});
+ var g=el('path',{d:pathFrom(idx,O.grid,X2,Y2),fill:'none',stroke:'#e9e4da','stroke-width':2.2,opacity:.9},s2);
+ var r=el('path',{d:pathFrom(idx,O.rec,X2,Y2),fill:'none',stroke:'#ff8a3d','stroke-width':1.4},s2);
+ drawPath(g,3500,tk).catch(function(){});await sleep(500,tk);await drawPath(r,3500,tk);
+};
+run[3]=async function(tk){
+ function build(id,str){var c=$(id);c.innerHTML='';var cells=[];str.split('').forEach(function(ch){if(ch===':'){var s=document.createElement('div');s.className='c';s.textContent=':';c.appendChild(s)}
+  else{var d=document.createElement('div');d.className='d';var col=document.createElement('div');var seq=[];for(var k=0;k<20;k++)seq.push((k*7+ch.charCodeAt(0))%10);seq.push(+ch);
+   seq.forEach(function(v){var sp=document.createElement('span');sp.textContent=v;col.appendChild(sp)});d.appendChild(col);c.appendChild(d);cells.push({col:col,n:seq.length})}});
+  var z=document.createElement('div');z.className='z';z.textContent='UTC';c.appendChild(z);return cells}
+ var a=build('dg1','11:42:39'),b=build('dg2','11:42:37');$('dln').textContent='0';
+ function spin(cells,ms){return Promise.all(cells.map(function(c,i){return tween(ms+i*180,function(e){c.col.style.transform='translateY('+(-(c.n-1)*e*1.2)+'em)'},tk,function(p){return 1-Math.pow(1-p,4)})}))}
+ b.forEach(function(c){c.col.style.transform='translateY('+(-(c.n-1)*1.2)+'em)'});
+ await sleep(500,tk);await spin(a,1800);await sleep(1900,tk);
+ await tween(900,function(e){$('dln').textContent=Math.round(e*2)},tk);
+};
+run[4]=async function(tk){var term=$('term');term.innerHTML='';$('ovr').classList.remove('in');$('ovr').style.visibility='hidden';
+ var cases=[['case_a','CASE A · genuine claim · ENF-WHU holdout recording vs its own day'],['case_e','CASE E · same recording with a FALSE claimed start (+2 h)']];
+ function fmtTok(t){return t&&t.total_tokens?'   ['+t.total_tokens.toLocaleString('en-GB')+' tokens]':''}
+ function lines(ev){var o=ev.output,L=[];
+  if(ev.actor==='tool'&&ev.input_summary==='probe(media)'){var h=o.per_harmonic_median_snr;L.push(['a-tool','[TOOL ] probe(media) → '+o.duration_s+' s · '+o.modalities_available.join('+')+' · harmonic SNR h2 '+h['2']+' h3 '+h['3']+' h4 '+h['4']+' h6 '+h['6']+' · frame quality '+o.median_frame_quality_db+' dB'])}
+  else if(ev.actor==='tool'){L.push(['a-tool','[TOOL ] '+ev.input_summary.tool+' → peak NCC '+o.peak_ncc+' · runner-up '+o.second_peak_ncc+' · frozen threshold '+o.frozen_threshold_for_length+' · '+(o.passes_frozen_threshold?'passes':'fails')])}
+  else if(ev.actor==='argon'){var t=o.action==='decide'?'decide → proposes '+o.proposed_status:o.action+' · '+o.modality+' · harmonics ['+o.harmonics+'] · window '+o.window_start_s+'–'+(o.window_start_s+o.window_len_s)+' s';
+   L.push(['a-argon','[ARGON] '+ev.input_summary.split(':')[0]+' → '+t+fmtTok(ev.tokens)]);var q=(o.rationale||o.explanation||'');if(q)L.push(['q','"'+(q.length>230?q.slice(0,227)+'…':q)+'"'])}
+  else if(ev.actor==='gate'){if(typeof o==='string')L.push(['a-gate','[GATE ] conflict check → '+o]);else{L.push(['a-gate','[GATE ] '+o.status]);o.reasons.forEach(function(r){L.push(['q','· '+r])})}}
+  return L}
+ var cr=document.createElement('span');cr.className='cursor';
+ for(var c=0;c<cases.length;c++){var hd=document.createElement('div');hd.className='ln hd';hd.textContent='── '+cases[c][1];term.appendChild(hd);
+  var evs=D.agent[cases[c][0]];
+  for(var i=0;i<evs.length;i++){var ls=lines(evs[i]);
+   for(var j=0;j<ls.length;j++){var d=document.createElement('div');d.className='ln '+ls[j][0];term.appendChild(d);d.appendChild(cr);var s=ls[j][1],speed=ls[j][0]==='q'?6:3;
+    for(var k=0;k<=s.length;k+=speed){if(tk!==token)return;d.textContent=s.slice(0,k);d.appendChild(cr);term.scrollTop=term.scrollHeight;await sleep(16,tk)}
+    d.textContent=s;d.appendChild(cr);await sleep(ls[j][0]==='q'?150:380,tk)}}
+  await sleep(700,tk)}
+ cr.remove();var ok=document.createElement('div');ok.className='ln a-ok';ok.textContent='→ escalated to a human reviewer. The gate, not the language model, sets the status.';term.appendChild(ok);term.scrollTop=term.scrollHeight;
+ $('ovr').style.visibility='visible';$('ovr').classList.add('in');
+};
+run[5]=async function(tk){var sc=scenes[5];sc.querySelectorAll('.bar i').forEach(function(b){b.style.width='0'});
+ await sleep(700,tk);sc.querySelectorAll('.bar i').forEach(function(b){b.style.width=b.getAttribute('data-w')+'%'});
+ var cs=[].slice.call(sc.querySelectorAll('.cnt'));await tween(1800,function(e){cs.forEach(function(c){var to=+c.getAttribute('data-to'),dec=+(c.getAttribute('data-dec')||0);c.textContent=(to*e).toFixed(dec)})},tk)};
+run[6]=function(tk){scenes[6].querySelectorAll('video').forEach(function(v){try{v.currentTime=0;v.play().catch(function(){})}catch(e){}})};
+
+/* ---------- media: hide anything missing ---------- */
+$('v1').addEventListener('error',function(){var m=document.createElement('div');m.className='vmiss';m.textContent='venue_flicker.mp4 not available';this.replaceWith(m)});
+document.querySelectorAll('.cv video').forEach(function(v){v.addEventListener('error',function(){v.closest('figure').style.display='none'})});
+
+/* ---------- navigation ---------- */
+var chap=$('chapters');scenes.forEach(function(s,i){var b=document.createElement('button');b.innerHTML='<b>0'+(i+1)+'</b><span>'+s.getAttribute('data-title')+'</span>';b.onclick=function(){go(i)};chap.appendChild(b)});
+function go(i){if(!D)return;i=Math.max(0,Math.min(scenes.length-1,i));token++;var tk=token;cur=i;sceneT0=performance.now();
+ scenes.forEach(function(s,k){s.classList.toggle('on',k===i);if(k!==i)s.querySelectorAll('video').forEach(function(v){try{v.pause()}catch(e){}})});
+ [].forEach.call(chap.children,function(b,k){b.classList.toggle('on',k===i)});
+ reveal(scenes[i],tk);setTimeout(function(){if(tk!==token)return;try{var r=run[i](tk);if(r&&r.catch)r.catch(function(){})}catch(e){console.error(e)}},120);
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+function setPlay(p){playing=p;$('pp').textContent=p?'❚❚':'▶';sceneT0=performance.now()}
+$('prev').onclick=function(){go(cur-1)};$('next').onclick=function(){go(cur+1)};$('restart').onclick=function(){go(cur)};
+$('pp').onclick=function(){setPlay(!playing)};
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='PageDown'){go(cur+1);e.preventDefault()}else if(e.key==='ArrowLeft'||e.key==='PageUp'){go(cur-1);e.preventDefault()}
+ else if(e.key===' '){setPlay(!playing);e.preventDefault()}else if(e.key==='r'||e.key==='R')go(cur);
+ else if(e.key==='f'||e.key==='F'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(function(){})}});
+(function tick(){if(cur>=0){var dur=+scenes[cur].getAttribute('data-dur')*1000,el2=performance.now()-sceneT0,p=Math.min(1,el2/dur);
+ $('progi').style.width=((cur+(playing?p:0))/scenes.length*100)+'%';if(playing&&p>=1){if(cur<scenes.length-1)go(cur+1);else setPlay(false)}}requestAnimationFrame(tick)})();
+var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){if(cur===1||cur===2)go(cur)},400)});
+
+/* ---------- data: fetch JSON, fall back to inlined data.js (file://) ---------- */
+function start(d){D=d;var h=parseInt((location.hash||'').slice(1),10);go(h>=1&&h<=scenes.length?h-1:0)}
+Promise.all(['trace','landscape','overlay','agent'].map(function(n){return fetch('data/'+n+'.json').then(function(r){if(!r.ok)throw 0;return r.json()})}))
+ .then(function(a){start({trace:a[0],landscape:a[1],overlay:a[2],agent:a[3]})})
+ .catch(function(){var s=document.createElement('script');s.src='data/data.js';s.onload=function(){start(window.GC_DATA)};document.head.appendChild(s)});
+})();
+</script>
+</body></html>
