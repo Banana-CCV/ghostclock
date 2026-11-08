@@ -6,6 +6,15 @@ GhostClock is an evidence-corroboration tool for insurance Special Investigation
 
 The agent investigates, deterministic code measures and gates, and **a human decides**. The decision gate returns one of three statuses: `MATCH_SUPPORTED`, `INCONCLUSIVE` or `MATERIAL_DISCREPANCY_REVIEW`. GhostClock never approves or denies a claim and never accuses anyone.
 
+<p align="center">
+  <a href="https://banana-ccv.github.io/ghostclock/"><b>▶ Open the live interactive demo</b></a>
+</p>
+
+| The lights in our room, flicker made visible (REAL) | Blind search of 36 h of GB grid history → one match (REAL) |
+|---|---|
+| ![Venue ceiling-light flicker amplified](results/animations/venue_flicker_REAL.gif) | ![Animated blind search over 36 h landing on 11:42:39](results/animations/blind_scan_36h_REAL.gif) |
+| *Left: what the phone saw. Right: the 100 Hz mains flicker isolated and amplified; the rolling shutter turns it into stripes.* | *Our 18-min venue video, matched against every second of the Elexon feed: **8 Nov 11:42:39 UTC** (camera clock: 11:42:37).* |
+
 > UCL AgentVerse 2026 hackathon, Finance track. This is a pre-test evidence pack plus a reusable core library. Every number below links to the file it comes from. Evidence grades: **A** = independently reproduced on authentic inputs · **B** = executed with logs, reproduced only on a spot check or not at all · **C** = sourced research · **D** = hypothesis/illustration. Data labels: **REAL**, **SEMI-SYNTHETIC** (real grid data with injected noise), **SYNTHETIC**, **ILLUSTRATIVE**.
 
 ---
@@ -74,6 +83,14 @@ Full evidence with every caveat: [docs/EVIDENCE.md](docs/EVIDENCE.md). Machine-r
 | ![Holdout accuracy vs length](results/figures/10_holdout_accuracy_vs_length_REAL_UNSEEN.png) **Unseen holdout:** coverage and accuracy vs clip length | ![Speed check failure map](results/figures/12_speed_check_failure_map_REAL_plus_SYNTH.png) **Failure:** where the speed check fails (REAL + SYNTHETIC) |
 
 More: [reference sources](results/figures/04_reference_neso_vs_elexon_REAL.png), [hum ridge](results/figures/05_audio_mains_hum_ridge_REAL.png), [a failure landscape](results/figures/09_day_landscape_failure_REAL.png), [speed-up spectrum](results/figures/11_speedup_shifts_hum_REAL_audio_SYNTH_edit.png).
+
+## Concept renders (ILLUSTRATIVE)
+
+The team's concept visualisations of the investigator experience. **Fictional claim scenarios; the figures shown on screen are not measured results.** Measured results are only in the tables above.
+
+| Split-screen: CCTV vs isolated light flicker | Investigator walkthrough concept |
+|---|---|
+| ![Concept split-screen](results/animations/concept_split_screen_ILLUSTRATIVE.gif) | ![Concept walkthrough](results/animations/walkthrough_ILLUSTRATIVE.gif) |
 
 ## How it works
 
