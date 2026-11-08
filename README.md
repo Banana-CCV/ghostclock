@@ -154,7 +154,7 @@ step 5  gate   -> "Argon proposed MATCH_SUPPORTED, gate decided MATERIAL_DISCREP
 
 **Ablation, stated accurately.** A fixed pipeline without Argon reaches the same statuses on these 5 cases ([ablation runs](experiments/c5_argon_agent/README.md)). Argon's contribution is directing the investigation and producing an auditable, number-checked explanation, while the deterministic gate guarantees it can never issue an unsupported adverse finding. **We do not claim Argon improves accuracy;** five cases cannot measure that. The caveats are in the C5 README: look-elsewhere risk when several configurations are tried, uncalibrated harmonic subsets, precomputed traces, and 40–165 s per call.
 
-**Gemini also built this repository.** 20 Gemini 4 Argon workers produced most of the research and engineering, under a supervisor and director verification ([process/PROCESS.md](process/PROCESS.md)). Worker studies (`w*`) are marked **not independently re-verified** unless stated otherwise. The investigator-UI prototypes ([prototypes/ui/](prototypes/ui/README.md)) are ILLUSTRATIVE.
+**Gemini also helped build this repository.** 20 Gemini 4 Argon worker agents, run headless through the Antigravity CLI under a supervisor, carried out literature research, GB reference-data engineering, extractor and matcher studies, and independent reproductions. They worked alongside the team's own engineering workstreams (WS-C1 to WS-C5), and every headline number was re-verified separately ([process/PROCESS.md](process/PROCESS.md), [reviews/](reviews/README.md)). Worker studies (`w*`) are marked **not independently re-verified** unless stated otherwise. The investigator-UI prototypes ([prototypes/ui/](prototypes/ui/README.md)) are ILLUSTRATIVE.
 
 ## Limitations
 
