@@ -54,6 +54,7 @@ Sources: [result.json](experiments/team_recordings_venue/blind/CASE_HERO_video_q
 
 - **User.** A UK insurance SIU investigator or complex commercial-property claims handler ([docs/USE_CASE.md](docs/USE_CASE.md)).
 - **Decision.** Should a disputed claim supported by a phone or CCTV recording (fictional example: a £20k commercial claim) be paid on the normal path, or referred for further investigation? GhostClock contributes one piece of evidence: whether the recording's timing is corroborated, unresolved, or materially inconsistent with the claim.
+- **Real cases where seconds of footage decided money.** FOS DRN-4534311: a theft claim lost because the CCTV clock could not be trusted. FOS DRN-4256057: a decline overturned over an 11-second clip. UK ENF evidence has been used in a murder trial since 2010. All sourced in [docs/CASE_STUDIES_AND_QA.md](docs/CASE_STUDIES_AND_QA.md).
 - **Failure that would hurt them most.** A confident false "this was recorded at a different time" that leads to an unfair accusation. The gates are built to abstain instead: the calibrated null, the uniqueness margin, the no-ENF abstention and the human-review gate ([docs/RISK_CONTROLS.md](docs/RISK_CONTROLS.md)).
 
 ## What we found
