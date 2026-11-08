@@ -1,3 +1,9 @@
+# ▶ THE ACTUAL PITCH PRESENTATION IS AN INTERACTIVE HTML DECK, NOT THE PDF. OPEN IT HERE: [BANANA-CCV.GITHUB.IO/GHOSTCLOCK](https://banana-ccv.github.io/ghostclock/)
+
+**THE PDF THAT WAS UPLOADED IS A FLATTENED EXPORT: IT LOSES ALL THE ANIMATIONS, 3D MODELS AND LIVE GRAPHS. THE REAL DECK: [LIVE (GitHub Pages)](https://banana-ccv.github.io/ghostclock/) · [SOURCE FILE IN THIS REPO](presentation/GhostClock_deck3_standalone.html) (single self-contained HTML; download and open in any browser).**
+
+---
+
 # GhostClock
 
 **Corroborating *when* an audio or video recording was made, from the mains hum or lamp flicker it captured by accident, for insurance claims investigators.**
@@ -5,10 +11,6 @@
 GhostClock is an evidence-corroboration tool for insurance Special Investigations Unit (SIU) investigators and complex-claims handlers. Ordinary recordings pick up the **Electrical Network Frequency (ENF)**: the 50 Hz mains frequency drifts by a few tens of mHz, and that drift appears as hum in audio and as rolling-shutter lamp flicker in video. Matching the drift against Great Britain grid-frequency records (NESO 1 s archive, Elexon 15 s live feed) can corroborate when a recording was made.
 
 The agent investigates, deterministic code measures and gates, and **a human decides**. The decision gate returns one of three statuses: `MATCH_SUPPORTED`, `INCONCLUSIVE` or `MATERIAL_DISCREPANCY_REVIEW`. GhostClock never approves or denies a claim and never accuses anyone.
-
-<p align="center">
-  <a href="https://banana-ccv.github.io/ghostclock/"><b>▶ Open the live interactive demo</b></a>
-</p>
 
 | The lights in our room, flicker made visible (REAL) | Blind search of 36 h of GB grid history → one match (REAL) |
 |---|---|
