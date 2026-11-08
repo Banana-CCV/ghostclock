@@ -1,6 +1,6 @@
 # ▶ THE ACTUAL PITCH PRESENTATION IS AN INTERACTIVE HTML DECK, NOT THE PDF. OPEN IT HERE: [BANANA-CCV.GITHUB.IO/GHOSTCLOCK](https://banana-ccv.github.io/ghostclock/)
 
-**THE PDF THAT WAS UPLOADED IS A FLATTENED EXPORT: IT LOSES ALL THE ANIMATIONS, 3D MODELS AND LIVE GRAPHS. THE REAL DECK: [LIVE (GitHub Pages)](https://banana-ccv.github.io/ghostclock/) · [SOURCE FILE IN THIS REPO](presentation/GhostClock_deck3_standalone.html) (single self-contained HTML; download and open in any browser).**
+**THE PDF THAT WAS UPLOADED IS A FLATTENED EXPORT: THE REAL DECK: [LIVE (GitHub Pages)](https://banana-ccv.github.io/ghostclock/) · [SOURCE FILE IN THIS REPO](presentation/GhostClock_deck3_standalone.html) (single self-contained HTML; download and open in any browser).**
 
 ---
 
