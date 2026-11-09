@@ -6,7 +6,7 @@ What if an insurer could independently check *when* a claim video was filmed, ev
 
 Every recording made near mains power accidentally captures the electricity grid's frequency drift, as hum in the audio or as flicker in the lights. GhostClock matches that drift against national grid records to corroborate when the recording was made. **Gemini 4 Argon directs the investigation**: it chooses between audio and visual forensic tools, adapts its strategy and writes an auditable evidence report. Independent numerical checks and deterministic safeguards make sure it can never turn an uncertain result into a fraud accusation or a rejected claim. **A human always decides.**
 
-**[▶ Interactive presentation](https://banana-ccv.github.io/ghostclock/)** (the story in 4 minutes) · **[Review against the judging criteria](#review-ghostclock-against-the-judging-criteria)** · **[Experiments and results](experiments/README.md)**
+**[▶ Interactive presentation](https://banana-ccv.github.io/ghostclock/)** (the story in 4 minutes) · **[Where to find the evidence](#where-to-find-the-evidence)** · **[Experiments and results](experiments/README.md)**
 
 <sub>The pitch deck is an interactive HTML deck ([live](https://banana-ccv.github.io/ghostclock/) · [source file](presentation/GhostClock_deck3_standalone.html), self-contained, opens in any browser). A PDF export of it loses the animations, 3D models and live graphs.</sub>
 
@@ -66,17 +66,17 @@ These come from different tests and should not be combined into one accuracy fig
 | Investigator UI | **Product concepts** with illustrative data ([prototypes/ui](prototypes/ui/README.md)) |
 | Insurance workflow | **Proposed application**: fictional claim scenarios, no insurer integration |
 
-## Review GhostClock against the judging criteria
+## Where to find the evidence
 
-| Criterion | What to inspect |
+| Question | What to inspect |
 |---|---|
-| Traceable reasoning | [Decision records](results/decision_records) · [Argon traces](experiments/c5_argon_agent/README.md) · [independent verification scripts](reviews/README.md) |
-| Testing on unseen data | [Frozen holdout experiment](experiments/c1_enfwhu_unseen_holdout/README.md) · [testing method](docs/TESTING.md) · [limitations](docs/LIMITATIONS.md) |
-| Risk controls and oversight | [Safeguards and decision gates](docs/RISK_CONTROLS.md) · [the gate overriding Argon](experiments/c5_argon_agent/runs/case_e/trace.jsonl) |
-| Relevance and impact | [Insurance use case](docs/USE_CASE.md) · [case studies and finance Q&A](docs/CASE_STUDIES_AND_QA.md) |
-| Ambition and technical quality | [Video ENF from rolling shutter](experiments/c4_video_rolling_shutter/README.md) · [Gemini investigator](experiments/c5_argon_agent/README.md) · [venue result](experiments/team_recordings_venue/README.md) |
+| Can each decision be traced back to the data? | [Decision records](results/decision_records) · [Argon traces](experiments/c5_argon_agent/README.md) · [independent verification scripts](reviews/README.md) |
+| Does it work on data it has never seen? | [Frozen holdout experiment](experiments/c1_enfwhu_unseen_holdout/README.md) · [testing method](docs/TESTING.md) · [limitations](docs/LIMITATIONS.md) |
+| What stops it making an unfair call? | [Safeguards and decision gates](docs/RISK_CONTROLS.md) · [the gate overriding Argon](experiments/c5_argon_agent/runs/case_e/trace.jsonl) |
+| Who needs it, and why does it matter financially? | [Insurance use case](docs/USE_CASE.md) · [case studies and finance Q&A](docs/CASE_STUDIES_AND_QA.md) |
+| What is technically new here? | [Video ENF from rolling shutter](experiments/c4_video_rolling_shutter/README.md) · [Gemini investigator](experiments/c5_argon_agent/README.md) · [venue result](experiments/team_recordings_venue/README.md) |
 
-Full criterion-by-criterion map: [docs/RUBRIC_MAP.md](docs/RUBRIC_MAP.md).
+A fuller map of requirements to code and evidence: [docs/RUBRIC_MAP.md](docs/RUBRIC_MAP.md).
 
 ---
 
