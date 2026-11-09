@@ -1,25 +1,88 @@
-# ▶ THE ACTUAL PITCH PRESENTATION IS AN INTERACTIVE HTML DECK, NOT THE PDF. OPEN IT HERE: [BANANA-CCV.GITHUB.IO/GHOSTCLOCK](https://banana-ccv.github.io/ghostclock/)
-
-**THE PDF THAT WAS UPLOADED IS A FLATTENED EXPORT: THE REAL DECK: [LIVE (GitHub Pages)](https://banana-ccv.github.io/ghostclock/) · [SOURCE FILE IN THIS REPO](presentation/GhostClock_deck3_standalone.html) (single self-contained HTML; download and open in any browser).**
-
----
-
 # GhostClock
 
-**Corroborating *when* an audio or video recording was made, from the mains hum or lamp flicker it captured by accident, for insurance claims investigators.**
+**An AI forensic investigator for insurance claims, powered by Gemini 4 Argon.**
 
-GhostClock is an evidence-corroboration tool for insurance Special Investigations Unit (SIU) investigators and complex-claims handlers. Ordinary recordings pick up the **Electrical Network Frequency (ENF)**: the 50 Hz mains frequency drifts by a few tens of mHz, and that drift appears as hum in audio and as rolling-shutter lamp flicker in video. Matching the drift against Great Britain grid-frequency records (NESO 1 s archive, Elexon 15 s live feed) can corroborate when a recording was made.
+What if an insurer could independently check *when* a claim video was filmed, even after its metadata has been stripped or edited?
 
-The agent investigates, deterministic code measures and gates, and **a human decides**. The decision gate returns one of three statuses: `MATCH_SUPPORTED`, `INCONCLUSIVE` or `MATERIAL_DISCREPANCY_REVIEW`. GhostClock never approves or denies a claim and never accuses anyone.
+Every recording made near mains power accidentally captures the electricity grid's frequency drift, as hum in the audio or as flicker in the lights. GhostClock matches that drift against national grid records to corroborate when the recording was made. **Gemini 4 Argon directs the investigation**: it chooses between audio and visual forensic tools, adapts its strategy and writes an auditable evidence report. Independent numerical checks and deterministic safeguards make sure it can never turn an uncertain result into a fraud accusation or a rejected claim. **A human always decides.**
+
+**[▶ Interactive presentation](https://banana-ccv.github.io/ghostclock/)** (the story in 4 minutes) · **[Review against the judging criteria](#review-ghostclock-against-the-judging-criteria)** · **[Experiments and results](experiments/README.md)**
+
+<sub>The pitch deck is an interactive HTML deck ([live](https://banana-ccv.github.io/ghostclock/) · [source file](presentation/GhostClock_deck3_standalone.html), self-contained, opens in any browser). A PDF export of it loses the animations, 3D models and live graphs.</sub>
 
 | The lights in our room, flicker made visible (REAL) | Blind search of 36 h of GB grid history → one match (REAL) |
 |---|---|
 | ![Venue ceiling-light flicker amplified](results/animations/venue_flicker_REAL.gif) | ![Animated blind search over 36 h landing on 11:42:39](results/animations/blind_scan_36h_REAL.gif) |
 | *Left: what the phone saw. Right: the 100 Hz mains flicker isolated and amplified; the rolling shutter turns it into stripes.* | *Our 18-min venue video, matched against every second of the Elexon feed: **8 Nov 11:42:39 UTC** (camera clock: 11:42:37).* |
 
-> UCL AgentVerse 2026 hackathon, Finance track. This is a pre-test evidence pack plus a reusable core library. Every number below links to the file it comes from. Evidence grades: **A** = independently reproduced on authentic inputs · **B** = executed with logs, reproduced only on a spot check or not at all · **C** = sourced research · **D** = hypothesis/illustration. Data labels: **REAL**, **SEMI-SYNTHETIC** (real grid data with injected noise), **SYNTHETIC**, **ILLUSTRATIVE**.
+## The financial problem
+
+**User:** a UK insurance Special Investigations Unit (SIU) investigator or complex-claims handler. **Decision:** pay a claim on the normal path, or refer the supporting evidence for investigation first. Claims are already won and lost on the timing of consumer footage that nobody can independently verify:
+
+- **"The CCTV clock was wrong."** A theft claim was declined because the policy required the car to be garaged after 10 pm, and the claimant's CCTV clock could not be trusted to prove when it was taken (Financial Ombudsman Service, [DRN-4534311](https://financial-ombudsman.org.uk/decision/DRN-4534311.pdf), 2024).
+- **"Eleven seconds."** An insurer declined a theft claim on the strength of an 11-second doorbell clip; the ombudsman overturned it ([DRN-4256057](https://www.financial-ombudsman.org.uk/decision/DRN-4256057.pdf), 2023).
+- **Metadata is not evidence.** A fraud finding based only on photo timestamps was overturned and the fraud markers removed ([DRN-3332271](https://www.financial-ombudsman.org.uk/decision/DRN-3332271.pdf), 2022).
+
+Courts already accept grid-frequency evidence: the Metropolitan Police has used it in UK criminal trials since about 2010. What has been missing is a version that fits the claims desk: fast, calibrated, explainable, and safe for the claimant. More cases and the finance Q&A are in [docs/CASE_STUDIES_AND_QA.md](docs/CASE_STUDIES_AND_QA.md).
+
+### Worked example: a disputed £22,400 claim (FICTIONAL scenario on a REAL recording)
+
+1. **The claim.** A bakery claims £22,400 for a burst pipe at 20:30. Its policy started at 18:00 that day. The supporting 5-minute video was transcoded on upload, so its metadata shows only the upload time.
+2. **The investigation.** Argon selects the audio route and the hum harmonics; GhostClock searches the whole day of grid data blind, without the claimed time.
+3. **The finding.** The claimed 20:30 scores r = −0.31. One unique peak at **14:06:09** scores r = 0.9996, about four hours *before* the cover started. Status: `MATERIAL_DISCREPANCY_REVIEW`.
+4. **The outcome.** The case goes to a human with the evidence and a list of what would change the finding (e.g. a documented device-clock offset, or a building on a generator). GhostClock cannot reject the claim.
+
+The audio and grid reference are real ENF-WHU measurements; the frozen holdout trials on this recording date it to within 0.20–0.21 s. The claim itself is fictional. Details: [docs/USE_CASE.md](docs/USE_CASE.md).
+
+## Gemini 4 Argon in one real case
+
+A real logged investigation ([case e trace](experiments/c5_argon_agent/runs/case_e/trace.jsonl)): the recording is genuine, but the claimed start time is two hours wrong.
+
+| Stage | What happens |
+|---|---|
+| **1. Argon investigates** | Reads a blinded probe of the evidence (no filename, no metadata, no claimed time), chooses the audio route, harmonics 2/3/4/6 and a 600 s window, and calls the matching tool. |
+| **2. Code measures** | The matcher scores the recording against independent grid records: peak 0.99967 against a frozen threshold of 0.87678. Argon proposes `MATCH_SUPPORTED`. |
+| **3. The safety gate checks** | Only the gate sees the claimed time. It differs from the recovered time by 7,200 s, so the gate **overrides Argon** with `MATERIAL_DISCREPANCY_REVIEW`. |
+| **4. A human reviews** | The discrepancy is reported with its evidence and reasons. No automatic fraud finding, no claim denial. |
+
+Five logged cases, 11 Argon calls (`gemini-4-argon-high`), 129,993 tokens: [experiments/c5_argon_agent](experiments/c5_argon_agent/README.md). In this prototype Argon works from pre-extracted ENF traces and signal-quality probes rather than raw media. A fixed pipeline reaches the same five statuses, so Argon's demonstrated contribution is orchestration, adaptive investigation and auditable explanation, not higher accuracy.
+
+## The evidence at a glance
+
+| **2 s** | **105 / 105** | **0 / 153** | **28 / 270** |
+|---|---|---|---|
+| Venue video dated blind against 36 h of grid history (one 18.4-min recording) | correct to ±5 s on unseen 5-min clips (answered 105 of 135; abstained on 30) | false matches on recordings with no grid signal | wrong-day false matches: the main known limitation |
+
+These come from different tests and should not be combined into one accuracy figure. Methods, confidence intervals and every limitation are in the detailed sections below and in [docs/EVIDENCE.md](docs/EVIDENCE.md).
+
+## What works today
+
+| Component | Status |
+|---|---|
+| ENF extraction (audio hum and video flicker) and grid matching | **Working forensic engine**: Python library in [ghostclock/](ghostclock/README.md), tested on held-out data |
+| Gemini 4 Argon investigator with a code gate | **Working agentic prototype**: five real logged investigations on pre-extracted traces |
+| Venue demonstration | **Real**: one recording filmed at the event and dated blind to within 2 s |
+| Interactive pitch deck | **Presentation** of the project, not the forensic application itself |
+| Investigator UI | **Product concepts** with illustrative data ([prototypes/ui](prototypes/ui/README.md)) |
+| Insurance workflow | **Proposed application**: fictional claim scenarios, no insurer integration |
+
+## Review GhostClock against the judging criteria
+
+| Criterion | What to inspect |
+|---|---|
+| Traceable reasoning | [Decision records](results/decision_records) · [Argon traces](experiments/c5_argon_agent/README.md) · [independent verification scripts](reviews/README.md) |
+| Testing on unseen data | [Frozen holdout experiment](experiments/c1_enfwhu_unseen_holdout/README.md) · [testing method](docs/TESTING.md) · [limitations](docs/LIMITATIONS.md) |
+| Risk controls and oversight | [Safeguards and decision gates](docs/RISK_CONTROLS.md) · [the gate overriding Argon](experiments/c5_argon_agent/runs/case_e/trace.jsonl) |
+| Relevance and impact | [Insurance use case](docs/USE_CASE.md) · [case studies and finance Q&A](docs/CASE_STUDIES_AND_QA.md) |
+| Ambition and technical quality | [Video ENF from rolling shutter](experiments/c4_video_rolling_shutter/README.md) · [Gemini investigator](experiments/c5_argon_agent/README.md) · [venue result](experiments/team_recordings_venue/README.md) |
+
+Full criterion-by-criterion map: [docs/RUBRIC_MAP.md](docs/RUBRIC_MAP.md).
 
 ---
+
+# In detail
+
+> UCL AgentVerse 2026 hackathon, Finance track. This is a pre-test evidence pack plus a reusable core library. Every number below links to the file it comes from. Evidence grades: **A** = independently reproduced on authentic inputs · **B** = executed with logs, reproduced only on a spot check or not at all · **C** = sourced research · **D** = hypothesis/illustration. Data labels: **REAL**, **SEMI-SYNTHETIC** (real grid data with injected noise), **SYNTHETIC**, **ILLUSTRATIVE**.
 
 ## We filmed a room at the venue today. Without reading any metadata, GhostClock recovered the recording time from the lights' flicker, to within 2 seconds of the camera clock.
 
